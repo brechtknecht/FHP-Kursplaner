@@ -1,29 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="header">
+      <img class="logo" src="assets/logo.png"/>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+
+:root {
+  --color-Elementares_Gestalten: #E4E4E3;
+  --color-Atelier: #E4E4E3;
+  --color-Interfacedesign: #D1EBEB;
+  --color-Kommunikationsdesign: #EAF2CF;
+  --color-Produktdesign: #C9E1AD;
+  --color-Theorie: #E4E4E3;
+  --color-Werkstatt: #E4E4E3;
+  --color-Projekte: #E4E4E3;
+
+
+  --transition-default: 180ms ease-in;
+}
+  
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'FHPSun-Regular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  margin: 0 2.5rem;
+  margin-bottom: 2.5rem;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+
+.header{
+  .logo {
+    margin-top: 2.5rem;
+    max-height: 5rem;
   }
 }
 </style>
