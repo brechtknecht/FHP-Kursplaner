@@ -43,6 +43,7 @@ export default {
   methods : {
     handleBackData(sort) {
       this.sort = sort;
+      this.$emit('selectedSortEmit', this.sort.sort_asc)
     }
   },
   mounted(){
@@ -58,6 +59,9 @@ export default {
       });
   },
   watch: {
+    selectedSort: function () {
+      this.sort.sort_asc = this.selectedSort;
+    },
     category() {
       axios
       .get("http://localhost:3000/courses", {
@@ -69,9 +73,6 @@ export default {
       .then((res, req, next) => {
         this.courses = res.data;
       });
-    },
-    selectedSort() {
-      console.log('sdsadsa')
     },
     sort: {
       handler: function () {

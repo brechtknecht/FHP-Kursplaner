@@ -1,5 +1,17 @@
 <template>
-  <div class="home">
+  <div class="Kursangebot">
+    <!-- Grundstudium / Hauptstudium und Suche -->
+    <div class="meta-filter">
+      <div class="select block">
+        <select>
+        <option value="..." selected>Grundstudium</option>
+        <option value="..." >Hauptstudium</option>
+      </select>
+      </div>
+      <Search></Search>
+    </div>
+
+    <!-- Kursauswahl toggles -->
     <div class="filter-toggles">
       <button 
         v-for="category in categories" 
@@ -11,19 +23,25 @@
       </button>
     </div>
 
+
+    <!-- Wechsel zwischen Ansichten und Sortierung -->
     <div class="screenToggles">
       <button v-on:click="toggleCardView">Card View</button>
       <button v-on:click="toggleTableView">Table View</button>
-      <select v-model="selectedSort">
-        <option value="correspondingModule" selected>Modul</option>
-        <option value="title">Kurstitel</option>
-        <option value="teacher">Lehrende</option>
-        <option value="day">Wochentag</option>
-        <option value="time">Zeit</option>
-      </select>
+
+
+      <!-- LÖSUNG des sort propbems -> API Calls eine Ebene höher -->
+      <div class="select filter">
+        <select v-model="selectedSort">
+          <option value="category" selected>Modul</option>
+          <!-- <option value="title">Kurstitel</option> -->
+          <option value="teacher">Lehrende</option>
+          <option value="day">Kurszeit</option>
+        </select>
+      </div>
     </div>
     
-    <CourseView v-model="selectedSort" :category="this.category" :currentView="this.currentView"/>
+    <CourseView :selectedSort="this.selectedSort" :category="this.category" :currentView="this.currentView" @selectedSortEmit="handleBackData"/>
     
   </div>
 </template>
@@ -32,19 +50,21 @@
 // @ is an alias to /src
 import axios from 'axios';
 import CourseView from '@/components/CourseView.vue'
+import Search from '@/components/base/Search.vue'
 
 export default {
   name: 'Overview',
   components: {
-    CourseView
+    CourseView,
+    Search
   },
   data(){
     return {
       // TODO: Mehrere Kategorien zum auswählen implementieren mit Toggle und Farbswitches
       category: ['Elementares_Gestalten'],
       categories: Array,
-      selectedSort: 'teacher',
-      currentView: 'tableView',
+      selectedSort: 'category',
+      currentView: 'tableView', 
       categoryActive: {
         'Elementares_Gestalten' : true
       }
@@ -79,6 +99,9 @@ export default {
       }
 
       this.$set(this.category, this.category.length , firedCategory);
+    },
+    handleBackData(selectedSort){
+      this.selectedSort = selectedSort;
     },
     toggleCardView() {
       this.currentView = 'cardView';
@@ -133,6 +156,17 @@ export default {
     background: var(--color-Werkstatt);
   }
 
+  .filter {
+    display: inline-block;
+    margin-left: .5rem;
+  }
+
+  .meta-filter{
+    display: flex;
+    div {
+      width: 50%;
+    }
+  }
 
   .filter-toggles {
     display: flex;

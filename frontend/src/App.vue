@@ -28,7 +28,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin: 0 2.5rem;
+  margin: 0 8rem;
   margin-bottom: 2.5rem;
 }
 
@@ -38,4 +38,29 @@
     max-height: 5rem;
   }
 }
+
+
+
+
+.select {
+  align-self: flex-end;
+  &:before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: .5rem;
+      background-image: url('/assets/icons/down-arrow.svg'); 
+  }
+  select {
+    appearance: none;
+    border:none;
+    border-radius: 0;
+    font-size: 1em;
+    background: none;
+    font-family: 'FHPSun-Regular';
+    font-size: 1rem;
+  }
+}
+  
 </style>
