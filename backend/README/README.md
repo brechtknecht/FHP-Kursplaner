@@ -24,6 +24,6 @@
       "basicStudies":        "course.basicStudies",
     }
 
-[GET Methologies @/courses – Version 0.2](https://www.notion.so/b358d744948e478cb47df1fb7a6ee0fb)
+[GET Methologies @/courses – Version 0.2](./GET-Methologies-courses-Version-0-2-a3fe8a14-20af-4b82-b54d-839b5d169720.csv)
 
-[GET Methologies @/courses – Version 0.1 (deprecated)](https://www.notion.so/d8c0f579b2cb410faf187ef11171eb68)
+[GET Methologies @/courses – Version 0.1 (deprecated)](./GET-Methologies-courses-Version-0-1-deprecated-d95aba5f-a0e3-4e2c-9b12-37e68c7c2b16.csv)

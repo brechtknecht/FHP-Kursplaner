@@ -1,0 +1,13 @@
+﻿Name,Tags,Beispiele für {...},implementiert,Fehlerliste
+Zeige alle Kurse an,/,,implementiert,
+Zeuge Kurse mit Datenbank ID an,/{databaseID},,implementiert,
+Zeige alle Kurse geordnet an,/category/ordered,,implementiert,
+Zeige Kurse mit genauer ID an,/category/{category},"Atelier,Elementares Gestalten,Interfacedesign,Kommunikationsdesign,Produktdesign,Werkstatt",implementiert,
+Zeige Kurse nach Lehrperson an,/teacher/{name},,implementiert,
+Zeige Kurse nach Modul an,/module/{name},"Basis,Visual Interfaces,Zeichnen",,
+Zeige Kurse nach Modul ID an,/module/id/{id},"11At-Z,11EG-B",implementiert,
+,,,,
+Zeige alle Kategorien an,/meta/categories,,nicht implementiert,
+Zeige alle Lehrenden an,/meta/teachers,,nicht implementiert,
+Zeige alle Module und Identifier an,/meta/modules,,nicht implementiert,
+,,,,
