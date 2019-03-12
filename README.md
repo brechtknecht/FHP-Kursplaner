@@ -1,9 +1,3 @@
-# kursplaner
-
-> My best Nuxt.js project
-
-## Build Setup
-=======
 # FHP-Kursplaner
 [![Netlify Status](https://api.netlify.com/api/v1/badges/134b5c6b-70c5-4c31-a02f-8f99eb0a7f16/deploy-status)](https://app.netlify.com/sites/practical-wescoff-36d273/deploys)
 # How to get started?
