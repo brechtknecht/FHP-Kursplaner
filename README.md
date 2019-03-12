@@ -28,5 +28,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
 =======
 To get to a live version which listens to the `develop` branch go to (http://salatalles.döner.jetzt)
