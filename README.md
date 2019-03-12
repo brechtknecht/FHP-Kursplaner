@@ -1,25 +1,16 @@
 # FHP-Kursplaner
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/134b5c6b-70c5-4c31-a02f-8f99eb0a7f16/deploy-status)](https://app.netlify.com/sites/practical-wescoff-36d273/deploys)
 # How to get started?
 
-### 1. Start the Backend
+### Start the Nuxt.js Application
 
 ---
 
-To start the application, you need to run the backend API first. It provides the frontend prototype with all the sample data it needs to render all courses. The dataset is from the „Wintersemester 2018 / 2019“. Go to the `/backend` folder and run:
+To start the kursplaner Application start
 
     $ npm install
     
-    $ npm run start
+    $ npm start
 
-It starts a development MongoDB service which is powered by MongoDB Atlas. You can access the data via `localhost:3000/courses`.
 
-### 2. Start the Frontend
-
----
-
-In the `frontend` folder you will find a Vue.js frontend prototype. You can run the prototype by executing:
-
-    $ npm install
-    
-    $ npm run serve
+To get to a live version which listens to the develop branch go to (http://salatalles.döner.jetzt)
