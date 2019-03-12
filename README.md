@@ -1,25 +1,22 @@
-# FHP-Kursplaner
+# kursplaner
 
-# How to get started?
+> My best Nuxt.js project
 
-### 1. Start the Backend
+## Build Setup
 
----
+``` bash
+# install dependencies
+$ npm install
 
-To start the application, you need to run the backend API first. It provides the frontend prototype with all the sample data it needs to render all courses. The dataset is from the „Wintersemester 2018 / 2019“. Go to the `/backend` folder and run:
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-    $ npm install
-    
-    $ npm run start
+# build for production and launch server
+$ npm run build
+$ npm start
 
-It starts a development MongoDB service which is powered by MongoDB Atlas. You can access the data via `localhost:3000/courses`.
+# generate static project
+$ npm run generate
+```
 
-### 2. Start the Frontend
-
----
-
-In the `frontend` folder you will find a Vue.js frontend prototype. You can run the prototype by executing:
-
-    $ npm install
-    
-    $ npm run serve
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
