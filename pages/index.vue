@@ -6,7 +6,7 @@
         kursplaner
       </h1>
       <h2 class="subtitle">
-        My best Nuxt.js project
+        My best Nuxt.js project – with a tasty test
       </h2>
       <div class="links">
         <a
