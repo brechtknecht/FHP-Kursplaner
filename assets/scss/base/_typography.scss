@@ -22,13 +22,13 @@
 h1 {
     font-family: 'FHPSun-Bold';
     font-size: 2.25rem;
-    letter-spacing: 1%;
+    letter-spacing: 0.01rem;
 }
 
 h2 {
     font-family: 'FHPSun-Regular';
     font-size: 1.5rem;
-    letter-spacing: 1%;
+    letter-spacing: 0.01rem;
 }
 
 p,
@@ -40,7 +40,7 @@ p.caption {
 
 p {
     font-family: 'FHPSun-Regular';
-    letter-spacing: 1%;
+    letter-spacing: 0.01rem;
 }
 
 p.caption {
@@ -50,9 +50,10 @@ p.caption {
 span {
     font-size: 0.874rem;
     line-height: 1.3125rem;
-    letter-spacing: 3%;
+    letter-spacing: 0.03rem;
 }
 
+span,
 span.regular,
 span.caption {
     font-family: 'FHPSun-Regular';
@@ -60,4 +61,8 @@ span.caption {
 
 span.bold {
     font-family: 'FHPSun-Bold';
+}
+
+.number {
+    font-feature-settings: "onum" 1;
 }

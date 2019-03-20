@@ -1,35 +1,17 @@
 <template>
   <section class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        kursplaner
-      </h1>
-      <h2 class="subtitle">
-        My best Nuxt.js project – with a tasty test
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
+      <CourseCanvas />
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import CourseCanvas from '~/components/course-canvas.vue'
 
 export default {
   components: {
-    Logo
+    CourseCanvas
   }
 }
 </script>
@@ -38,10 +20,6 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 .title {
