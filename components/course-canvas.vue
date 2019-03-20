@@ -34,6 +34,8 @@
 </script>
 
 <style lang="scss">
+  @import '@/assets/scss/base/_colors.scss';
+
   .timeline,
   .overview {
     display: grid;
@@ -50,7 +52,7 @@
 
   .timeline {
     padding: 2rem 0 .75rem 0;
-    border: 1px solid red;
+    border-bottom: 1px solid $stroke;
     text-align: center;
   }
 </style>
