@@ -17,7 +17,8 @@
     </div>
     <div class="overview" day="monday">
       <div class="overview-head"> Montag </div>
-      <course :position="{row:1, start: 3, end: 10}"></course>
+      <course :position="{row:1, start: 7, end: 10}"></course>
+      <course :position="{row:2, start: 4, end: 7}"></course>
     </div>
   </div>
 </template>
@@ -44,7 +45,7 @@
     display: grid;
     height: 100%;
     padding-top: 2rem;
-    grid-template-rows: repeat(13, 6rem);
+    grid-template-rows: repeat(13, 4rem);
   }
 
   .timeline {

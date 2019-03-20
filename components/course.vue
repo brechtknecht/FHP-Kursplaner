@@ -1,5 +1,5 @@
 <template>
-  <div class="course" :style="{'grid-column' : column}">KURS!</div>
+  <div class="course" :style="{'grid-column' : column}">Interfaces de–constructed</div>
 </template>
 
 <script>
@@ -22,5 +22,6 @@
         width: 100%;
         border-radius: 12px;
         background: red;
+        padding: .5rem 1rem;
     }
 </style>
