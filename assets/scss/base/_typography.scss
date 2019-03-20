@@ -18,3 +18,46 @@
 
 @include font-face("FHPSun-Bold", "/assets/fonts/FHP-Sun");
 @include font-face("FHPSun-Regular", "/assets/fonts/FHP-Sun");
+
+h1 {
+    font-family: 'FHPSun-Bold';
+    font-size: 2.25rem;
+    letter-spacing: 1%;
+}
+
+h2 {
+    font-family: 'FHPSun-Regular';
+    font-size: 1.5rem;
+    letter-spacing: 1%;
+}
+
+p,
+p.continous-text,
+p.caption {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+}
+
+p {
+    font-family: 'FHPSun-Regular';
+    letter-spacing: 1%;
+}
+
+p.caption {
+    font-family: 'FHPSun-Bold';
+}
+
+span {
+    font-size: 0.874rem;
+    line-height: 1.3125rem;
+    letter-spacing: 3%;
+}
+
+span.regular,
+span.caption {
+    font-family: 'FHPSun-Regular';
+}
+
+span.bold {
+    font-family: 'FHPSun-Bold';
+}
