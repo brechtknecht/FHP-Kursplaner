@@ -1,5 +1,7 @@
 <template>
-  <div class="course" :style="{'grid-column' : column}">Interfaces de–constructed</div>
+    <div class="course" :style="{'grid-column' : column}">
+        <h3>Interfaces de–constructed</h3>
+    </div>
 </template>
 
 <script>
