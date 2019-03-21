@@ -61,7 +61,7 @@
   .overview[day="monday"] {
     display: grid;
     height: 100%;
-    padding-top: 2rem;
+    padding-top: 5.5rem;
     grid-row-gap: 1rem;
     grid-template-rows: repeat(13, 4rem);
   }

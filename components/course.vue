@@ -1,7 +1,12 @@
 <template>
     <div class="course" :style="{'grid-column' : column}">
-        <h3>Elementares Gestalten Basics: Eingabe Ausgabe: Self-powered Space Fashion</h3>
-        <h4>Prof. Myriel Milicevic, Lina Wassong – 11EG-B</h4>
+        <div class="course--checkbox">
+            <input type="checkbox">
+        </div>
+        <div class="course--info">
+            <h3>Elementares Gestalten Basics: Eingabe Ausgabe: Self-powered Space Fashion</h3>
+            <h4>Prof. Myriel Milicevic, Lina Wassong – 11EG-B</h4>
+        </div>
     </div>
 </template>
 
@@ -25,13 +30,25 @@
     .course {
         height: 100%;
         width: 100%;
-        border-radius: 12px;
+        border-radius: 2rem;
         background: $c-TH;
-        padding: .5rem 1rem;
+        padding: .5rem 2rem;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        .course--checkbox {
+            display: flex;
+            align-items: center;
+            & input[type="checkbox"]{
+                transform: scale(1.5);
+                border-radius: 4px;
+            }
+        }
+        .course--info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 1.5rem;
+        }
         h4 {
             margin-top: .5rem
         }
