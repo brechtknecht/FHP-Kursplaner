@@ -16,9 +16,11 @@
       <span class="number">21:00</span>
     </div>
     <div class="overview" day="monday">
-      <div class="overview-head"> Montag </div>
-      <course :position="{row:1, start: 7, end: 10}"></course>
-      <course :position="{row:2, start: 4, end: 7}"></course>
+      <div class="overview-head"> 
+        <h1 class="regular">Montag</h1>
+      </div>
+      <course :position="{row:1, start: 4, end: 30}"></course>
+      <course :position="{row:2, start: 7, end: 50}"></course>
     </div>
   </div>
 </template>
@@ -34,19 +36,33 @@
 </script>
 
 <style lang="scss">
-  @import '@/assets/scss/base/_colors.scss';
+  @import '@/assets/scss/main.scss';
 
   .timeline,
   .overview {
     display: grid;
-    grid-template-columns: repeat(13, 1fr);
+    position: relative;
     width: 100%;
+    .overview-head {
+      position: absolute;
+      top: 1.5rem;
+      left: 2rem;
+    }
+  }
+
+  .timeline {
+    grid-template-columns: repeat(13, 1fr);
+  }
+
+  .overview {
+    grid-template-columns: repeat(13 * 4, 1fr);
   }
 
   .overview[day="monday"] {
     display: grid;
     height: 100%;
     padding-top: 2rem;
+    grid-row-gap: 1rem;
     grid-template-rows: repeat(13, 4rem);
   }
 
