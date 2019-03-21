@@ -19,8 +19,8 @@
       <div class="overview-head"> 
         <h1 class="regular">Montag</h1>
       </div>
-      <course :position="{row:1, start: 4, end: 30}"></course>
-      <course :position="{row:2, start: 7, end: 50}"></course>
+      <course :position="{row:1, start: 4, end: 30}" :info="{ title: 'Vom Zeichen zur Marke', teacher: 'Prof. Matthias Beyrow', module: { id: '14FOKd-CD', name: 'Coperate Design', category: 'I/2 Entwurfsgrundlagen' }}"></course>
+      <course :position="{row:2, start: 7, end: 50}" :info="{ title: 'Vom Zeichen zur Marke', teacher: 'Prof. Matthias Beyrow', module: { id: '14FOKd-CD', name: 'Coperate Design', category: 'I/2 Entwurfsgrundlagen' }}"></course>
     </div>
   </div>
 </template>
