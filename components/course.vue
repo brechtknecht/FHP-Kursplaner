@@ -4,7 +4,7 @@
             <input type="checkbox">
         </div>
         <div class="course--info">
-            <h3> {{ this.$props.info.module.category }} {{ this.$props.info.module.name }}  {{ this.$props.info.title }} </h3>
+            <h3> {{ this.$props.info.module.category }}—{{ this.$props.info.module.name }}:  {{ this.$props.info.title }} </h3>
             <h4> {{ this.$props.info.techer }} {{ this.$props.info.module.id }}</h4>
         </div>
     </div>
@@ -15,12 +15,26 @@
     name: 'Course',
     props: {
         position: { row: String, start: String, end: String },
-        info: { title: String, teacher: String, module: { id: String, name: String, category: String }}
+        info:     { title: String, teacher: String, module: { id: String, name: String, category: String }}
     },
     computed: {
         /* Sets the correct column based on the position prop */ 
       column () {
-        return parseInt(this.$props.position.start) + ' / span ' + parseInt(this.$props.position.end - this.$props.position.start);
+        let start = this.$props.position.start;
+        let end   = this.$props.position.end;
+        let range_start = 8; let range_end  = 20; 
+
+        let range_start_grid = parseInt(this.convertRange(start , range_start, range_end, 0, 52) - 2);
+        let range_end_grid   = parseInt(this.convertRange(end   , range_start, range_end, 0, 52)) - range_start_grid - 4;
+
+    
+        return range_start_grid + ' / span ' +  range_end_grid;
+      }
+    },
+    methods: {
+      // Method that generates the position based on the time-range
+      convertRange(num, in_min, in_max, out_min, out_max) {
+        return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
       }
     }
   }

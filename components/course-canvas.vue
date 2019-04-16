@@ -19,8 +19,22 @@
       <div class="overview-head"> 
         <h1 class="regular">Montag</h1>
       </div>
-      <course :position="{row:1, start: 4, end: 30}" :info="{ title: 'Vom Zeichen zur Marke', teacher: 'Prof. Matthias Beyrow', module: { id: '14FOKd-CD', name: 'Coperate Design', category: 'I/2 Entwurfsgrundlagen' }}"></course>
-      <course :position="{row:2, start: 7, end: 50}" :info="{ title: 'Vom Zeichen zur Marke', teacher: 'Prof. Matthias Beyrow', module: { id: '14FOKd-CD', name: 'Coperate Design', category: 'I/2 Entwurfsgrundlagen' }}"></course>
+      <course 
+        :position="{ 
+          row:2,
+          start: 9,
+          end: 19.5,
+        }" 
+        :info="{
+          title: 'Hackerackers',
+          teacher: 'Felix Tesche, Gustav Neustadt',
+          module: {
+            id: '00-TUT',
+            name: 'Studentische Arbeiten/Tutorien',
+            category: 'Nebenprojekte'
+          }
+        }"
+      ></course>
     </div>
   </div>
 </template>
@@ -28,9 +42,14 @@
 <script>
   import Course from '@/components/course.vue';
 
+  import { mapMutations } from 'vuex'
+
   export default {
     components : {
       Course
+    },
+    created () {
+      console.log(this.$store.state);
     }
   }
 </script>
