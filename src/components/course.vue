@@ -6,7 +6,7 @@
         </div>
         <div class="course--info">
             <h3> {{ this.$props.info.module.category }}  {{ this.$props.info.title }} </h3>
-            <h4> {{ this.$props.info.teacher }} {{ this.$props.info.module.id }} — {{ this.$props.info.module.name }}</h4>
+            <h4> {{ this.$props.info.teacher }} {{ this.$props.info.module.id }}</h4>
         </div>
     </div>
 </template>
@@ -75,16 +75,19 @@
             margin-left: 1.5rem;
         }
         h3 {
+            margin-top: 1rem;
             margin-bottom: 0;
             overflow: hidden;
             width: 100%;
-            height: 1rem;
+            height: 1.3rem;
+            line-height: 1.3rem;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
         }
         h4 {
-            margin-top: .5rem
+            margin-top: .5rem;
+            margin-bottom: 1.1rem;
         }
     }
 </style>

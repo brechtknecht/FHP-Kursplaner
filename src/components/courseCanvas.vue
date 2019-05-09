@@ -114,9 +114,9 @@
 
   .number {
     width: 150px;
-    margin-top: 2rem;
     z-index: 10;
-    border-left: 1px solid $c-small-font;
+    border-top: 1px solid $stroke;
+    border-left: 1px solid $stroke;
     outline-offset: -10px;
     span {
       position: relative;
@@ -150,7 +150,7 @@
   }
 
   .timeline {
-    padding: 1rem 0 .75rem 0;
+    padding: 2rem 0 .75rem 0;
     border-bottom: 1px solid $stroke;
     text-align: center;
   }
