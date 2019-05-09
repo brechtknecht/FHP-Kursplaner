@@ -1,11 +1,12 @@
 <template>
-    <div class="course" :style="{'grid-column' : column}">
+    <!-- <div class="course" :style="{'grid-column' : column}"> -->
+      <div class="course" :style=coursePosition>
         <div class="course--checkbox">
             <input type="checkbox">
         </div>
         <div class="course--info">
-            <h3> {{ this.$props.info.module.category }} {{ this.$props.info.module.name }}:  {{ this.$props.info.title }} </h3>
-            <h4> {{ this.$props.info.teacher }} {{ this.$props.info.module.id }}</h4>
+            <h3> {{ this.$props.info.module.category }}  {{ this.$props.info.title }} </h3>
+            <h4> {{ this.$props.info.teacher }} {{ this.$props.info.module.id }} — {{ this.$props.info.module.name }}</h4>
         </div>
     </div>
 </template>
@@ -14,22 +15,27 @@
   export default {
     name: 'Course',
     props: {
-        position: { row: String, start: String, end: String },
+        position: { row: String, start: Object, end: Object },
         info:     { title: String, teacher: String, module: { id: String, name: String, category: String }}
     },
     computed: {
-        /* Sets the correct column based on the position prop */ 
-      column () {
+      coursePosition () {
         let start = this.$props.position.start;
-        let end   = this.$props.position.end;
-        let range_start = 8; let range_end  = 20; 
+        let end = this.$props.position.end;
 
-        let range_start_grid = parseInt(this.convertRange(start , range_start, range_end, 0, 52));
-        let range_end_grid   = parseInt(this.convertRange(end   , range_start, range_end, 0, 52)) - range_start_grid;
+        let startPosition = ((start.hour.value - 9) * 100) + (start.minutes.value * (100/60));
+        let endPosition =   ((end.hour.value - 9) * 100) + (end.minutes.value * (100/60));
 
-    
-        return range_start_grid + ' / span ' +  range_end_grid;
-      }
+        let offsetStart = Math.floor(startPosition / 100);
+        let offsetEnd = Math.floor(endPosition / 100);
+
+        console.log(offsetEnd);
+
+        return {
+          left: startPosition + offsetStart + 'px',
+          width: (endPosition + offsetEnd) - (startPosition + offsetStart)  + 'px'
+        }
+      },
     },
     methods: {
       // Method that generates the position based on the time-range
@@ -44,6 +50,7 @@
     @import '../assets/scss/main.scss';
 
     .course {
+      position: relative;
         &:hover {
           box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.15);
         }
@@ -65,6 +72,7 @@
         .course--info {
             display: flex;
             flex-direction: column;
+            overflow: auto;
             justify-content: center;
             align-items: flex-start;
             text-align: left;
@@ -72,6 +80,12 @@
         }
         h3 {
             margin-bottom: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
         }
         h4 {
             margin-top: .5rem
