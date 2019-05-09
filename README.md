@@ -10,18 +10,17 @@ During development you have to switch to the `develop` branch!
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
+### Compiles and hot-reloads for development
+```
+npm run serve
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+### Compiles and minifies for production
+```
+npm run build
+```
 
-=======
-To get to a live version which listens to the `develop` branch go to (http://salatalles.döner.jetzt)
+### Run your tests
+```
+npm run test
+```
