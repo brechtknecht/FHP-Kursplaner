@@ -19,22 +19,25 @@
       <div class="overview-head"> 
         <h1 class="regular">Montag</h1>
       </div>
-      <course 
-        :position="{ 
-          row:2,
-          start: 9,
-          end: 15,
-        }" 
-        :info="{
-          title: 'Hackerackers',
-          teacher: 'Felix Tesche, Gustav Neustadt',
-          module: {
-            id: '00-TUT',
-            name: 'Studentische Arbeiten/Tutorien',
-            category: 'Nebenprojekte'
-          }
-        }"
-      ></course>
+        <course
+          v-for="(course, index) in courses.data.semester.courses" 
+          :key="course.id"
+          :position="{ 
+            row: index,
+            start:    9,
+            end:      20,
+          }" 
+          :info="{
+            title:    course.attributes.title,
+            teacher:  course.attributes.teacher,
+            module: {
+              id:     course.attributes.module.id,
+              name:   course.attributes.module.category,
+              category: ''
+            }
+          }"
+        ></course>
+      </div>
     </div>
   </div>
 </template>
@@ -85,7 +88,7 @@
     height: 100%;
     padding-top: 5.5rem;
     grid-row-gap: 1rem;
-    grid-template-rows: repeat(13, 4rem);
+    grid-template-rows: repeat(auto-fit);
   }
 
   .timeline {
