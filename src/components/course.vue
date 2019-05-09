@@ -56,6 +56,7 @@
         background: $c-TH;
         display: flex;
         transition: 250ms ease-in;
+        cursor: pointer;
         .course--checkbox {
             display: flex;
             align-items: center;
@@ -73,6 +74,7 @@
             align-items: flex-start;
             text-align: left;
             margin-left: 1.5rem;
+            margin-right: 2rem;
         }
         h3 {
             margin-top: 1rem;

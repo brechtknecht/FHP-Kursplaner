@@ -110,6 +110,19 @@
     height: 100%;
     z-index: -1;
     grid-template-columns: repeat(14, 1fr);
+    padding: 2rem 0 .75rem 0;
+    border-bottom: 1px solid $stroke;
+    text-align: center;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 2rem;
+      left: -100px;
+      width: 100px;
+      height: 1px;
+      background: $stroke;
+    }
   }
 
   .number {
@@ -133,7 +146,7 @@
   }
 
   .overview {
-    z-index: -1;
+    z-index: 10;
     grid-template-columns: repeat(13 * 4, 1fr);
   }
 
@@ -147,11 +160,5 @@
     padding-top: 5.5rem;
     grid-row-gap: 1rem;
     grid-template-rows: repeat(auto-fit);
-  }
-
-  .timeline {
-    padding: 2rem 0 .75rem 0;
-    border-bottom: 1px solid $stroke;
-    text-align: center;
   }
 </style>
