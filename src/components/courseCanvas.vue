@@ -36,7 +36,7 @@
       <div class="overview-head"> 
         <h1 class="regular">Montag</h1>
       </div>
-      <div v-for="(course, index) in courses.data.semester.courses" :key="course.id" >
+      <div class="course-wrapper" v-for="(course, index) in courses.data.semester.courses" :key="course.id" >
         <course
           :position="{ 
             row: index,
@@ -79,13 +79,18 @@
 <style lang="scss">
   @import '@/assets/scss/main.scss';
 
+  .course-canvas {
+    position: relative;
+  }
+  
   .timeline,
   .overview,
   .numbers {
+    position: absolute;
     display: grid;
     margin: 0 3.5rem;
-    width: 1400px;
-    max-width: 1400px;
+    width: 2100px;
+    max-width: 2100px;
     .overview-head {
       position: absolute;
       top: 1.5rem;
@@ -94,20 +99,21 @@
   }
 
   .overview {
-    position: relative;
+    .course-wrapper {
+      margin: 0.75rem 0;
+    }
   }
 
   .timeline {
-    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    z-index: 1;
+    z-index: -1;
     grid-template-columns: repeat(14, 1fr);
   }
 
   .number {
-    width: 100px;
+    width: 150px;
     margin-top: 2rem;
     z-index: 10;
     border-left: 1px solid $c-small-font;
@@ -123,7 +129,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-left: -6px;
+    margin-left: -24px;
   }
 
   .overview {
@@ -132,7 +138,7 @@
   }
 
   .overview[day="monday"] {
-    position: absolute;
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     height: 100%;
@@ -144,7 +150,7 @@
   }
 
   .timeline {
-    padding: 2rem 0 .75rem 0;
+    padding: 1rem 0 .75rem 0;
     border-bottom: 1px solid $stroke;
     text-align: center;
   }

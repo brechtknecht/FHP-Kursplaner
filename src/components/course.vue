@@ -20,14 +20,16 @@
     },
     computed: {
       coursePosition () {
+        let columnWidth = 150;
+
         let start = this.$props.position.start;
         let end = this.$props.position.end;
 
-        let startPosition = ((start.hour.value - 9) * 100) + (start.minutes.value * (100/60));
-        let endPosition =   ((end.hour.value - 9) * 100) + (end.minutes.value * (100/60));
+        let startPosition = ((start.hour.value - 9) * columnWidth) + (start.minutes.value * (columnWidth/60));
+        let endPosition =   ((end.hour.value - 9) * columnWidth) + (end.minutes.value * (columnWidth/60));
 
-        let offsetStart = Math.floor(startPosition / 100);
-        let offsetEnd = Math.floor(endPosition / 100);
+        let offsetStart = Math.floor(startPosition / columnWidth);
+        let offsetEnd = Math.floor(endPosition / columnWidth);
 
         console.log(offsetEnd);
 
@@ -36,12 +38,6 @@
           width: (endPosition + offsetEnd) - (startPosition + offsetStart)  + 'px'
         }
       },
-    },
-    methods: {
-      // Method that generates the position based on the time-range
-      convertRange(num, in_min, in_max, out_min, out_max) {
-        return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-      }
     }
   }
 </script>
