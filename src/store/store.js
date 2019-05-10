@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import jsonPath from 'jsonpath'
 
 Vue.use(Vuex)
 
@@ -9,14 +10,44 @@ export default new Vuex.Store({
     courses: []
   },
   actions: {
-    loadCourses ({ commit }) {
-      axios
+    async loadCourses ({ commit }) {
+      await axios
         .get('http://localhost:3000/courses')
         .then(r => r.data)
         .then(courses => {
           commit('SET_COURSES', courses.data)
         })
-    }
+    },
+    async queryCourses ({commit}) {
+        await axios
+          .get('http://localhost:3000/courses')
+          .then(r => r.data)
+          .then((result) => {
+            //DEBUGGING Query Variable
+            let queries = {
+              studytype: 'Hauptstudium'
+            }
+
+            // let grundstudiumRegex = "/^[1][0-9].*$/"
+            // let hauptstudiumRegex = new RegExp("\\^[2][0-9].*$");
+            
+            //Initialize Course Object, wich will be returned
+            let courses;
+
+            // Get all courses for the correct study section
+            if(queries.studytype == 'Grundstudium'){
+              courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("1"))]');
+            } else if (queries.studytype == 'Hauptstudium'){
+              courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("2"))]');
+            }
+            
+            return courses;
+          })
+          .then(courses => {
+            commit('SET_COURSES', courses);
+          })
+          
+    } 
   },
   mutations: {
     SET_COURSES (state, courses) {

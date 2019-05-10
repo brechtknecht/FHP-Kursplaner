@@ -36,7 +36,7 @@
       <div class="overview-head"> 
         <h1 class="regular">Montag</h1>
       </div>
-      <div class="course-wrapper" v-for="(course, index) in courses.data.semester.courses" :key="course.id" >
+      <div class="course-wrapper" v-for="(course, index) in courses" :key="course.id" >
         <course
           :position="{ 
             row: index,
@@ -67,8 +67,8 @@
     components : {
       Course
     },
-    mounted () {
-      this.$store.dispatch('loadCourses')
+    created () {
+      this.$store.dispatch('queryCourses')
     },
     computed: mapState([
       'courses'
