@@ -25,7 +25,7 @@ export default new Vuex.Store({
           .then((result) => {
             //DEBUGGING Query Variable
             let queries = {
-              studytype: 'Hauptstudium'
+              studytype: 'Grundstudium'
             }
 
             // let grundstudiumRegex = "/^[1][0-9].*$/"
@@ -40,8 +40,19 @@ export default new Vuex.Store({
             } else if (queries.studytype == 'Hauptstudium'){
               courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("2"))]');
             }
+
+            let monday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 1)]");
+            let tuesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 2)]");
+            let wednesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 3)]");
+            let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
+            let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
+
             
-            return courses;
+
+            // courses.monday = jsonPath.query(courses, '$..[?(@.type=="course")]');
+            // console.log(courses.monday);
+            
+            return friday;
           })
           .then(courses => {
             commit('SET_COURSES', courses);
