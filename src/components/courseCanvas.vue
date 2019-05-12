@@ -81,6 +81,8 @@
 
   .course-canvas {
     position: relative;
+    left: 20rem;
+    top: 1.5rem;
   }
   
   .timeline,
@@ -154,7 +156,7 @@
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     left: 0;
     right: 0;
     padding-top: 5.5rem;
