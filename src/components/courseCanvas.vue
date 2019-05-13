@@ -32,11 +32,12 @@
       <span>21:00</span>
       <span>22:00</span>
     </div>
-    <div class="overview" day="monday">
+    <div v-if="!courses.status" class="course-loader"></div>
+    <div class="overview" day="monday" v-for="courses in courses.days" :key="courses.key">
       <div class="overview-head"> 
-        <h1 class="regular">Montag</h1>
+        <h1 class="regular">{{ courses.string }}</h1>
       </div>
-      <div class="course-wrapper" v-for="(course, index) in courses" :key="course.id" >
+      <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id" >
         <course
           :position="{ 
             row: index,
@@ -67,12 +68,22 @@
     components : {
       Course
     },
+    data () {
+      return {
+        queries: {
+          studyType: "Grundstudium"
+        }
+      }
+    },
     created () {
-      this.$store.dispatch('queryCourses')
+      this.$store.dispatch('queryCourses', this.queries)
     },
     computed: mapState([
       'courses'
-    ])
+    ]),
+    queries: {
+      studyType: "Grundstudium"
+    }
   }
 </script>
 
@@ -148,19 +159,32 @@
   }
 
   .overview {
+    padding-top: 6.5rem;
     z-index: 10;
     grid-template-columns: repeat(13 * 4, 1fr);
   }
 
   .overview[day="monday"] {
+    margin-top: 1.5rem;
+  }
+
+  .overview{
     position: relative;
     display: inline-flex;
     flex-direction: column;
     height: auto;
     left: 0;
     right: 0;
-    padding-top: 5.5rem;
     grid-row-gap: 1rem;
     grid-template-rows: repeat(auto-fit);
+  }
+
+  .course-loader {
+    width: 60vw;
+    height: 4.5rem;
+    border-radius: 32px;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    background: $c-light-grey;
   }
 </style>
