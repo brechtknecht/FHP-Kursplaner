@@ -186,5 +186,24 @@
     margin-top: 5rem;
     margin-left: 5rem;
     background: $c-light-grey;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 5rem;
+      height: 7rem;
+      background: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 50%, rgba(255,255,255, 0));
+      transform: translate(0, 50%);
+      animation: sheen 750ms ease-in-out infinite;
+    }
+  }
+
+  @keyframes sheen {
+    100% {
+      transform:  translate(70vw, 50%);
+    }
   }
 </style>
