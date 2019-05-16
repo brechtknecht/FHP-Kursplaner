@@ -19,6 +19,7 @@
         info:     { title: String, teacher: String, module: { id: String, name: String, category: String }}
     },
     computed: {
+      /* Calculates the Position of the Line in the Grid */ 
       coursePosition () {
         let columnWidth = 150;
 
@@ -30,8 +31,6 @@
 
         let offsetStart = Math.floor(startPosition / columnWidth);
         let offsetEnd = Math.floor(endPosition / columnWidth);
-
-        console.log(offsetEnd);
 
         return {
           left: startPosition + offsetStart + 'px',
@@ -56,6 +55,7 @@
         background: $c-TH;
         display: flex;
         transition: 250ms ease-in;
+        cursor: pointer;
         .course--checkbox {
             display: flex;
             align-items: center;
@@ -73,6 +73,7 @@
             align-items: flex-start;
             text-align: left;
             margin-left: 1.5rem;
+            margin-right: 2rem;
         }
         h3 {
             margin-top: 1rem;

@@ -32,11 +32,12 @@
       <span>21:00</span>
       <span>22:00</span>
     </div>
-    <div class="overview" day="monday">
+    <div v-if="!courses.status" class="course-loader"></div>
+    <div class="overview" day="monday" v-for="courses in courses.days" :key="courses.key">
       <div class="overview-head"> 
-        <h1 class="regular">Montag</h1>
+        <h1 class="regular">{{ courses.string }}</h1>
       </div>
-      <div class="course-wrapper" v-for="(course, index) in courses.data.semester.courses" :key="course.id" >
+      <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id" >
         <course
           :position="{ 
             row: index,
@@ -67,12 +68,22 @@
     components : {
       Course
     },
-    mounted () {
-      this.$store.dispatch('loadCourses')
+    data () {
+      return {
+        queries: {
+          studyType: "Grundstudium"
+        }
+      }
+    },
+    created () {
+      this.$store.dispatch('queryCourses', this.queries)
     },
     computed: mapState([
       'courses'
-    ])
+    ]),
+    queries: {
+      studyType: "Grundstudium"
+    }
   }
 </script>
 
@@ -81,6 +92,8 @@
 
   .course-canvas {
     position: relative;
+    left: 20rem;
+    top: 1.5rem;
   }
   
   .timeline,
@@ -110,6 +123,19 @@
     height: 100%;
     z-index: -1;
     grid-template-columns: repeat(14, 1fr);
+    padding: 2rem 0 .75rem 0;
+    border-bottom: 1px solid $stroke;
+    text-align: center;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 2rem;
+      left: -100px;
+      width: 100px;
+      height: 1px;
+      background: $stroke;
+    }
   }
 
   .number {
@@ -133,25 +159,51 @@
   }
 
   .overview {
-    z-index: -1;
+    padding-top: 6.5rem;
+    z-index: 10;
     grid-template-columns: repeat(13 * 4, 1fr);
   }
 
   .overview[day="monday"] {
+    margin-top: 1.5rem;
+  }
+
+  .overview{
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     left: 0;
     right: 0;
-    padding-top: 5.5rem;
     grid-row-gap: 1rem;
     grid-template-rows: repeat(auto-fit);
   }
 
-  .timeline {
-    padding: 2rem 0 .75rem 0;
-    border-bottom: 1px solid $stroke;
-    text-align: center;
+  .course-loader {
+    width: 60vw;
+    height: 4.5rem;
+    border-radius: 32px;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    background: $c-light-grey;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 5rem;
+      height: 7rem;
+      background: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 50%, rgba(255,255,255, 0));
+      transform: translate(0, 50%);
+      animation: sheen 750ms ease-in-out infinite;
+    }
+  }
+
+  @keyframes sheen {
+    100% {
+      transform:  translate(70vw, 50%);
+    }
   }
 </style>
