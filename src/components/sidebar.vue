@@ -51,7 +51,7 @@
                     return this.$store.state.queries.studyType;
                 },
                 set (studyType) {
-                    this.$store.commit('SWITCH_STUDY_TYPE', studyType);
+                    this.$store.dispatch('SWITCH_STUDY_TYPE', studyType);
                 }
             }
         }

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
+import { cpus } from 'os';
 
 Vue.use(Vuex)
 
@@ -133,11 +134,11 @@ export default new Vuex.Store({
           .then(r => r.data)
           .then((result) => {
             commit('STASH_LOADED_COURSES', result);
-            return;
           })
     },
     SWITCH_STUDY_TYPE ({commit}, studyType) {
       commit('SWITCH_STUDY_TYPE', studyType);
+      commit('QUERY_COURSES');
     }
   },
   mutations: {
