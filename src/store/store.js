@@ -159,7 +159,9 @@ export default new Vuex.Store({
         courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("1"))]');
       } else if (queries.studyType == 'Hauptstudium'){
         courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("2"))]');
-      }
+      } else if (queries.studyType == 'Master') {
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("3"))]');
+      } 
 
       
 
