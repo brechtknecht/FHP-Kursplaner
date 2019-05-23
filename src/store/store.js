@@ -7,7 +7,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    queries: {
+      studyType: "Grundstudium",
+      days: {
+        monday: true,
+        tuesday: true,
+        wednesday: true,
+        thursday: true,
+        friday: true
+      },
+      sorting: {
+        //...
+      }
+    },
     courses: [],
+    coursesStash: [],
     modulePlan: {
       basicStudyPeriod: {
         elementares_gestalten: {
@@ -113,84 +127,81 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async loadCourses ({ commit }) {
-      await axios
-        .get('http://localhost:3000/courses')
-        .then(r => r.data)
-        .then(courses => {
-          commit('SET_COURSES', courses.data)
-        })
-    },
-    async queryCourses ({commit}, queries) {
+    async loadCourses ({commit, dispatch}, queries) {
         await axios
           .get('http://localhost:3000/courses')
           .then(r => r.data)
           .then((result) => {
-            console.log(queries);
-            // let grundstudiumRegex = "/^[1][0-9].*$/"
-            // let hauptstudiumRegex = new RegExp("\\^[2][0-9].*$");
-            
-            //Initialize Course Object, wich will be returned
-            let courses;
-
-            // 1. Get all courses for the correct study section
-            if(queries.studyType == 'Grundstudium'){
-              courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("1"))]');
-            } else if (queries.studyType == 'Hauptstudium'){
-              courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("2"))]');
-            }
-
-            // 2. Select all weekdays you need from the specification
-            let monday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 1)]");
-            let tuesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 2)]");
-            let wednesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 3)]");
-            let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
-            let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
-
-            courses = {
-              status: {
-                ready: true
-              },
-              days: {
-                monday: {
-                  string: "Montag",
-                  data: monday,
-                  key: "monday"
-                },
-                tuesday: {
-                  string: "Dienstag",
-                  data: tuesday,
-                  key: "tuesday",
-                },
-                wednesday: {
-                  string: "Mittwoch",
-                  data: wednesday,
-                  key: "wednesday"
-                },
-                thursday: {
-                  string: "Donnerstag",
-                  data: thursday,
-                  key: "thursday"
-                },
-                friday: {
-                  string: "Freitag",
-                  data: friday,
-                  key: "friday"
-                }
-              }
-            }
-
-            return courses;
+            commit('STASH_LOADED_COURSES', result);
+            return;
           })
-          .then(courses => {
-            commit('SET_COURSES', courses);
-          })
-          
-    } 
+    },
+    SWITCH_STUDY_TYPE ({commit}, studyType) {
+      commit('SWITCH_STUDY_TYPE', studyType);
+    }
   },
   mutations: {
-    SET_COURSES (state, courses) {
-      state.courses = courses
+    STASH_LOADED_COURSES (state, courses) {
+      state.coursesStash = courses;
+    },
+    SWITCH_STUDY_TYPE (state, payload) {
+      state.queries.studyType = payload;
+    },
+    QUERY_COURSES (state) {
+      let courses;
+      let queries = state.queries;
+      let result = state.coursesStash;
+
+      // Throw error, because the courseStash is not loaded yet
+
+      if(queries.studyType == 'Grundstudium'){
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("1"))]');
+      } else if (queries.studyType == 'Hauptstudium'){
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("2"))]');
+      }
+
+      
+
+      // 2. Select all weekdays you need from the specification
+      let monday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 1)]");
+      let tuesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 2)]");
+      let wednesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 3)]");
+      let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
+      let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
+
+      courses = {
+        status: {
+          ready: true
+        },
+        days: {
+          monday: {
+            string: "Montag",
+            data: monday,
+            key: "monday"
+          },
+          tuesday: {
+            string: "Dienstag",
+            data: tuesday,
+            key: "tuesday",
+          },
+          wednesday: {
+            string: "Mittwoch",
+            data: wednesday,
+            key: "wednesday"
+          },
+          thursday: {
+            string: "Donnerstag",
+            data: thursday,
+            key: "thursday"
+          },
+          friday: {
+            string: "Freitag",
+            data: friday,
+            key: "friday"
+          }
+        }
+      }
+      state.courses = courses;
     }
   }
   

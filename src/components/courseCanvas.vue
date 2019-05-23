@@ -68,22 +68,15 @@
     components : {
       Course
     },
-    data () {
-      return {
-        queries: {
-          studyType: "Grundstudium"
-        }
-      }
-    },
     created () {
-      this.$store.dispatch('queryCourses', this.queries)
+      this.$store.dispatch('loadCourses', this.queries).then(() => {
+        this.$store.commit('QUERY_COURSES');
+      });
     },
     computed: mapState([
-      'courses'
-    ]),
-    queries: {
-      studyType: "Grundstudium"
-    }
+      'courses',
+      'queries'
+    ])
   }
 </script>
 

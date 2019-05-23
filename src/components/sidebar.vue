@@ -15,15 +15,15 @@
         <h4>Anzeigen</h4>
         <div class="studySelection">       
                 <div class="selectionElement">
-                    <input type="radio" name="studyType" value="basicStudyPeriod">
+                    <input type="radio" name="studyType"  value="Grundstudium" v-model="studyType" >
                     <label>Grundstudium</label>
                 </div>
                 <div class="selectionElement">
-                    <input type="radio"  name="studyType" value="mainStudyPeriod">
+                    <input type="radio"  name="studyType" value="Hauptstudium" v-model="studyType">
                     <label>Hauptstudium</label>
                 </div>
                 <div class="selectionElement">
-                    <input type="radio"  name="studyType" value="masterStudyPeriod">
+                    <input type="radio"  name="studyType" value="Master" v-model="studyType">
                     <label>Masterstudium</label>
                 </div>
         </div>
@@ -44,7 +44,17 @@
 
 <script>
     export default {
-        name: 'Sidebar'
+        name: 'Sidebar',
+        computed: {
+            studyType : {
+                get () {
+                    return this.$store.state.queries.studyType;
+                },
+                set (studyType) {
+                    this.$store.commit('SWITCH_STUDY_TYPE', studyType);
+                }
+            }
+        }
     }
 </script>
 
