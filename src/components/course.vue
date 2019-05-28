@@ -54,7 +54,7 @@
         border-radius: 2rem;
         background: $c-TH;
         display: flex;
-        transition: 250ms ease-in;
+        transition: 750ms cubic-bezier(0.86, 0, 0.07, 1);;
         cursor: pointer;
         .course--checkbox {
             display: flex;

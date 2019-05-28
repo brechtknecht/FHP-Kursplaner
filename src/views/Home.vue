@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Sidebar/>
-    <Modules />
+    <Modules :isActive="false"/>
     <CourseCanvas msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
