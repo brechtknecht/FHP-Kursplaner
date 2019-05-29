@@ -1,9 +1,8 @@
 <template>
     <div class="details-container">
-        <div class="gui">
-            <button class="btn" @click="triggerDetails" >show details</button>
-        </div>
         <div class="detailsWrapper" v-bind:class="{ active: isActive }"> 
+            
+            <button class="btn" @click="triggerDetails" >close den affen</button>
             
             <h1>{{ currentCourse.title }}</h1>
             <p> {{ currentCourse.description }}</p>
@@ -14,17 +13,17 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-    data () {
-        return {
-            isActive: false
-        }
+    computed : {
+        isActive () {
+            return this.$attrs.isActive;
+        },
+        ...mapState([
+        'currentCourse'
+        ])
     },
-    computed : mapState([
-      'currentCourse'
-    ]),
     methods: {
         triggerDetails: function (e) {
-            this.isActive = !this.isActive;
+            this.$emit('CURRENT_COURSE_TRIGGERED');
         } 
     }
     
@@ -33,15 +32,10 @@ export default {
 <style lang="scss" scoped>
     @import '../assets/scss/main.scss';
 
-    .gui {
-        position: fixed;
-        z-index: 200;
-        right: 200px;
-        .btn {
-            width: 100px;
-            height: 20px;
-            top: 200px;
-        }
+    .btn {
+        width: 200px;
+        height: 20px;
+        top: 200px;
     }
 
     .detailsWrapper {

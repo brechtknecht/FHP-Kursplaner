@@ -2,8 +2,8 @@
   <div class="app">
     <Sidebar/>
     <Modules/>
-    <CourseCanvas msg="Welcome to Your Vue.js App"/>
-    <Details />
+    <CourseCanvas @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
+    <Details :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
   </div>
 </template>
 
@@ -21,6 +21,16 @@ export default {
     Sidebar,
     Modules,
     Details
+  },
+  data () {
+    return {
+      detailsModalIsActive: false
+    }
+  },
+  methods: {
+    toggleCurrentCourse: function () {
+      this.detailsModalIsActive = !this.detailsModalIsActive;
+    }
   }
 }
 </script>

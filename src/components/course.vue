@@ -42,7 +42,8 @@
     },
     methods: {
         setCurrentCourse: function () {
-          this.$store.commit('SET_CURRENT_COURSE', this.$props.info)
+          this.$store.commit('SET_CURRENT_COURSE', this.$props.info);
+          this.$emit('CURRENT_COURSE_TRIGGERED');
         }
     }
   }

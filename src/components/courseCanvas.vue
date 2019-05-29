@@ -54,6 +54,7 @@
             },
             description: course.attributes.descriptionText.value
           }"
+          @CURRENT_COURSE_TRIGGERED="passTrigger"
           ></course>
         </div>
       </div>
@@ -77,7 +78,12 @@
     computed: mapState([
       'courses',
       'queries'
-    ])
+    ]),
+    methods: {
+      passTrigger: function () {
+        this.$emit('CURRENT_COURSE_TRIGGERED');
+      }
+    }
   }
 </script>
 
