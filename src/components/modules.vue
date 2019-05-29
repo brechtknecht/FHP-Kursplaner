@@ -1,9 +1,10 @@
 <template>
     <div class="modules-container">
         <div class="gui">
-            <button class="btn" @click="triggerModules" >show modules</button>
+            <button class="btn moduleTrigger" @click="triggerModules" ></button>
         </div>
         <div class="modulesWrapper" v-bind:class="{ active: isActive }"> 
+            <button @click="triggerModules">close</button>
             <div v-for="category in modulePlan.basicStudyPeriod" class="category" :key="category.title">
                 <h2>{{ category.title }}</h2>
                 <div class="modules">
@@ -56,8 +57,24 @@ export default {
         right: 0;
         .btn {
             width: 100px;
-            height: 20px;
-            top: 200px;
+            height: 100px;
+            border: none;
+            border-radius: 50%;
+            background: $active;
+            top: 45vh;
+            right: 2rem;
+            &.moduleTrigger {
+                position: relative;
+                z-index: -1;
+                &:before {
+                    content: 'Moldulplan öffnen';
+                    color: $active;
+                    position: relative;
+                    width: 200px;
+                    left: -150%;
+                    font-weight: 900;
+                }
+            }
         }
     }
 
@@ -66,7 +83,7 @@ export default {
         height: 100vh;
         width: 0;
         padding: 2.5rem 1.5rem;
-        z-index: 100;
+        z-index: 300;
         right: -100%;
         text-align: left;
         background: $white;

@@ -4,7 +4,7 @@
             
             <button class="btn" @click="triggerDetails" >close den affen</button>
             
-            <h1>{{ currentCourse.title }}</h1>
+            <h1> {{ currentCourse.title }} </h1>
             <p> {{ currentCourse.description }}</p>
 
         </div>
