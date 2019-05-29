@@ -1,8 +1,9 @@
 <template>
   <div class="app">
     <Sidebar/>
-    <Modules :isActive="false"/>
+    <Modules/>
     <CourseCanvas msg="Welcome to Your Vue.js App"/>
+    <Details />
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import CourseCanvas from '@/components/courseCanvas.vue'
 import Sidebar from '@/components/sidebar.vue'
 import Modules from '@/components/modules.vue'
+import Details from '@/components/details.vue'
 
 export default {
   name: 'home',
   components: {
     CourseCanvas,
     Sidebar,
-    Modules
+    Modules,
+    Details
   }
 }
 </script>

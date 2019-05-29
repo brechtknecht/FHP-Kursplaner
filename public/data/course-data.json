@@ -1,0 +1,1709 @@
+{
+  "data": {
+    "semester": {
+      "name": "WiSe 18\/19",
+      "courses": [{
+        "type": "course",
+        "_id": "38c5d9d7122e4ada974ce711e946b067",
+        "attributes": {
+          "type": null,
+          "title": "Gestaltungsgrundlagen Atelier Farbe: Farbe-Raum-Installationen - Fl\u00e4che - Collage - Relief - (Farbe 1)",
+          "teacher": "",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11At-F",
+            "name": "11At-F Farbe",
+            "category": "I\/1 Gestaltungsgrundlagen Atelier"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": "09"
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 09:30 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 14:30 Uhr"
+              }
+            }
+          },
+          "room": "D\/323",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Aristoteles: \u201eKeine Farbe sehen wir aber rein wie sie ist, sondern entweder durch Einfluss fremder Farben, oder durch Licht und Schatten ver\u00e4ndert.\u201c \r\n\r\nIn diesem Satz stecken andeutungsweise schon sp\u00e4ter genauer untersuchte Farbph\u00e4nomene, wie der Simultankontrast. Dieser beeinflusst alle andern Farbkontraste und verst\u00e4rkt die r\u00e4umliche Wahrnehmung. Begonnen wird mit gemeinsamen \u00dcbungen zu selbst gew\u00e4hlten Farbbereichen und zu den Farbkontrasten. In der Folge werden kleine individuelle Projekte oder Teamarbeiten entwickelt, bei denen die Untersuchung von Farbr\u00e4umlichkeit im Vordergrund steht. Wahlweise kann in einzelnen Farbteams mit den Mitteln der Malerei auf der Fl\u00e4che, der Collage und Reliefs (aus Papier und Pappe) gearbeitet werden. Das Ziel sind Farbrauminstallationen zu einzelnen Farbschwerpunkten. Parallel werden individuelle Farbtageb\u00fccher gef\u00fchrt. Der Unterricht wird durch farbtheoretische Vortr\u00e4ge und Diskussionen begleitet und durch eine Exkursion erg\u00e4nzt. \r\n\r\nDie Teilnehmer*innenzahl ist auf 20 begrenzt.  \r\n\u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag! \r\nEva Niemann "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/38c5d9d7122e4ada974ce711e946b067"
+        }
+      }, {
+        "type": "course",
+        "_id": "b7e5e1bdc2b49c172061df8467c899b6",
+        "attributes": {
+          "type": null,
+          "title": "Gestaltungsgrundlagen Atelier Farbe: Die Blaue Stunde - Nuancen und Farbreflektionen (Farbe 2)",
+          "teacher": "",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11At-F",
+            "name": "11At-F Farbe",
+            "category": "I\/1 Gestaltungsgrundlagen Atelier"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 5
+                },
+                "String": "Freitag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 15
+                },
+                "day": {
+                  "type": "number",
+                  "value": 5
+                },
+                "String": "Freitag, 15:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/323",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Die \u201eblaue Stunde\u201c beschreibt ein Ph\u00e4nomen optischer Wirkungen von Lichtfrequenzen im Zusammenspiel mit der visuellen Wahrnehmung. Der Farbbereich Blau wird in diesem Kurs in seinen Nuancen, Kontrastm\u00f6glichkeiten und r\u00e4umlichen Wirkungen praktisch-malerisch und theoretisch erkundet. Ausgangspunkte f\u00fcr die Auseinandersetzung bildet der spezifische Blau-Ton im Corporate Design der FH. Dieser wird zun\u00e4chst individuell untersucht, abgewandelt, durch farbfremde Nuancen erg\u00e4nzt. Dabei wird sukzessive neben Blau auch der weitere Farbraum einbezogen. Gearbeitet wird mit Pigmenten und Acrylbinder, einer Maltechnik, die zun\u00e4chst das Mischen individueller Nuancen f\u00f6rdert. Ziel des Kurses ist die Entwicklung von Entw\u00fcrfen f\u00fcr ein Wandrelief f\u00fcr den Eingangsbereich der Bibliothek der FH. Das Arbeiten in kleinen Teams w\u00e4re hierf\u00fcr sehr erw\u00fcnscht. Einf\u00fchrungen in Farbtheorie und eine Exkursion zum Thema Wandgestaltung ist eingeplant. Zudem wird eine Kooperation mit dem FB Restaurierung angestrebt. \r\n\r\nDie Teilnehmer*innenzahl ist auf 20 begrenzt.  \r\n\u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag! \r\nEva Niemann "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/b7e5e1bdc2b49c172061df8467c899b6"
+        }
+      }, {
+        "type": "course",
+        "_id": "9f033013f9ade633cd7002f0d8a17d29",
+        "attributes": {
+          "type": null,
+          "title": "Gestaltungsgrundlagen Atelier Zeichnen: Figur und Raum",
+          "teacher": "Frank Gottsmann",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11At-Z",
+            "name": "11At-Z Zeichnen",
+            "category": "I\/1 Gestaltungsgrundlagen Atelier"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": "09"
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 09:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/323",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Die Gestalt der menschlichen Figur, Anatomie, Proportionslehre, Statik.\r\nFrank Gottsmann"
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/9f033013f9ade633cd7002f0d8a17d29"
+        }
+      }, {
+        "type": "course",
+        "_id": "44e29f6cc3e160515f5e283d8a09b354",
+        "attributes": {
+          "type": null,
+          "title": "Gestaltungsgrundlagen Atelier Zeichnen: Design Sketching 1",
+          "teacher": "",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11At-Z",
+            "name": "11At-Z Zeichnen",
+            "category": "I\/1 Gestaltungsgrundlagen Atelier"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 14:00 Uhr"
+              }
+            }
+          },
+          "room": "LW 226",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Auch in der heutigen digitalisierten Welt ist es f\u00fcr Produkt-Designer zweckm\u00e4\u00dfig zeichnen zu k\u00f6nnen. \r\nKurze Entscheidungszyklen setzen ein schnelles Reagieren im Entwurfsproze\u00df voraus. Daher sind im Designstudio oft die ersten Impulse auch heute noch von schnellen Skribbels und Renderings gekennzeichnet. Eine perspektivisch korrekte Darstellung dient als Grundlage erster wichtiger Entscheidungen im Design-Prozess. (Aussehen, Form, Proportionen?) \r\nDieser Kurs ist ein Grundlagenkurs f\u00fcr Beginner. Anhand von einfachen K\u00f6rpern werden die verschiedenen Darstellungsperspektiven (Isometrie, Ein-Punkt,- Zwei-Punkt,- Drei-Punkt-Perspektive) vermittelt.  \r\nDar\u00fcber hinaus werden verschiedene Herangehensweisen schrittweise erarbeitet. Mithilfe derer wir schritt f\u00fcr schritt komplexere K\u00f6rper darstellen werden. \r\nZiel des Kurses ist es, eine entwurfsbezogene Systematik des perspektivischen Darstellens zu vermitteln. \r\nKursbeginn: Montag, 29.10.2018 \r\nJohannes Cremer "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/44e29f6cc3e160515f5e283d8a09b354"
+        }
+      }, {
+        "type": "course",
+        "_id": "d06aa27684f55220ba7b592dcbb4be1c",
+        "attributes": {
+          "type": null,
+          "title": "Gestaltungsgrundlagen Atelier Zeichnen: Kalligrafie",
+          "teacher": "Hans-J\u00fcrgen Willuhn",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11At-Z",
+            "name": "11At-Z Zeichnen",
+            "category": "I\/1 Gestaltungsgrundlagen Atelier"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 5
+                },
+                "String": "Freitag, 14:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 18
+                },
+                "day": {
+                  "type": "number",
+                  "value": 5
+                },
+                "String": "Freitag, 18:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/226",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Theoretische und praktische Auseinandersetzung mit kalligrafischen Gestaltungsfragen. Experimentelle Werkzeug- und Formerfahrungen sowie die projektorientierte Anwendung kalligrafischer Studienergebnisse. \r\nDie Realisierung der projektorientierten Aufgabenstellungen beinhaltet auch die Vermittlung elementarer buchbinderischer Fertigkeiten. \r\nHans-J\u00fcrgen Willuhn\r\n"
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/d06aa27684f55220ba7b592dcbb4be1c"
+        }
+      }, {
+        "type": "course",
+        "_id": "c13be094ff637e94bf3c8c1f7ba822bf",
+        "attributes": {
+          "type": null,
+          "title": "Gestaltungsgrundlagen Atelier Zeichnen: Kopf-Hand-Fu\u00df",
+          "teacher": "Frank Gottsmann",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11At-Z",
+            "name": "11At-Z Zeichnen",
+            "category": "I\/1 Gestaltungsgrundlagen Atelier"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 14:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 18
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 18:30 Uhr"
+              }
+            }
+          },
+          "room": "D\/323",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Vom Sch\u00e4del zum Portr\u00e4t, konstruktive Grundformen, die Architektur von Kopf \u2013 Hand und Fu\u00df, Form und Funktion  \r\nFrank Gottsmann "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/c13be094ff637e94bf3c8c1f7ba822bf"
+        }
+      }, {
+        "type": "course",
+        "_id": "d65de8e5037ba4c5e4161470a6b1024a",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Basics: MATERIALIZE. Dreidimensionale Grundlagen",
+          "teacher": "Prof. Alexandra Martini",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-B",
+            "name": "11EG-B Basics",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": "09"
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 09:30 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 14:00 Uhr"
+              }
+            }
+          },
+          "room": "LW 229",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Grundlegende Kenntnisse zu Materialit\u00e4t, Oberfl\u00e4che, Struktur, Verbindung, K\u00f6rper und Raum erhalten Sie mit diesem Kurs.\u2028Wir untersuchen verschiedene Aspekte dreidimensionaler Gestaltung. Anhand von Aufgaben, \u00dcbungen, Vortr\u00e4gen sowie einer Projektarbeit lernen Sie das Spektrum von experimentellen und ergebnisorientierten Methodiken kennen nach dem Prinzip Designing is imposing will upon matter (Ron Arad). Wir starten mit \u00dcbungen zum Thema Verbindung, K\u00f6rper- und Raumwahrnehmung. In einer Projektarbeit untersuchen Sie systematisch einen Alltagsgegenstand im Hinblick auf Form, Funktionalit\u00e4t, Symbolik, Herstellungsprozess. Besonders stehen spannende Qualit\u00e4ten des Materials dabei im Fokus, denn f\u00fcr eine Transformation nutzen Sie diese ungew\u00f6hnlich. Damit erarbeiten Sie sich Ihren ersten Toolkit zur analytisch-inhaltlichen Konzeptentwicklung.  \r\nSie optimieren Ihre handwerklichen F\u00e4higkeiten und arbeiten in Einzel- und Teamarbeit.  Weitere Themen sind gestalterisches Abstraktionsverm\u00f6gen und Formfindung. Parallel dazu erhalten Sie Einblicke in Ergonomie (Human Factors), spezifische Gestaltgesetze, grundlegende Begriffsdefinitionen und designrelevante Technologien.  \r\n\r\nOrganisatorisches: \r\nDer Kurs richtet sich vorwiegend an alle Einsteiger des Studiengang Design (Interfacedesign, Kommunikationsdesign, Produktdesign). Scheinerwerb durch regelm\u00e4\u00dfige Teilnahme, analoge und digitale (incom und CD) Dokumentation der Arbeitsergebnisse.  Kursbeginn ist am Mittwoch, 24. Oktober 2018, 9:30h in LW 229. Die Teilnehmerzahl ist auf 20 Personen begrenzt. \u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag. Eintrag \u00fcber den Workspace. \r\n\r\nIncom: https:\/\/fhp.incom.org\/workspace\/8018\r\n\r\nProf. Alexandra Martini "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/d65de8e5037ba4c5e4161470a6b1024a"
+        }
+      }, {
+        "type": "course",
+        "_id": "4aa4cc875ea2c5a20da80e82d833a1d4",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Basics: Eingabe Ausgabe",
+          "teacher": "Prof. Myriel Milicevic",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-B",
+            "name": "11EG-B Basics",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 18
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 18:00 Uhr"
+              }
+            }
+          },
+          "room": "",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Grundlagen des Quantifizierten Selbst \r\n\r\nBin ich heute schneller gelaufen als sonst? Habe ich heute Nacht gut geschlafen? Ist meine Nahrungsaufnahme f\u00f6rderlich f\u00fcr mein Zukunfts-Ich? Was verraten meine Augenbewegungen \u00fcber meine Pers\u00f6nlichkeit? Wie viel sozialen Kontakt hatte ich diese Woche? Brauche ich eine Pause? \r\n\r\nVermessen, z\u00e4hlen, kartieren, vergleichen, auswerten - die Quantifizierung des Selbst geht einher mit Selbstwahrnehmung, Selbstoptimierung und Selbstkontrolle. Durch die Zunahme von Sensoren im Alltag und dem Generieren unendlich vieler Vermessungspunkte erstellen wir unsere eigenen Datenportraits. Die Kontrolle dar\u00fcber liegt dabei nicht immer nur bei uns. Firmen, Banken, Beh\u00f6rden, Krankenkassen interessieren sich ebenfalls daf\u00fcr. \r\n\r\nWelche M\u00f6glichkeiten und positiven Anwendungen bringen die Formen der Selbstvermessung? Welche Entwicklungen m\u00fcssen wir kritisch betrachten? Wie sollten wir daf\u00fcr gestalten? Denn Produkte, Interfaces und Services zur Selbstvermessung werden letztlich auch von Desiger*innen mit entwickelt. Daf\u00fcr betrachten wir Beispiele aus Kunst und Design, werden selbst Sensoren programmieren, Augenbewegungen verfolgen, Datenportraits erstellen und fiktive Szenarien entwickeln. \r\n\r\nIn diesem Kurs werden wir uns also dem Thema des \u201cQuantified Self\u201d sowohl gestalterisch, spielerisch, diskursiv und konzeptionell n\u00e4hern, als auch durch technische Umsetzungen in Form von Teilprojekten mit Arduino und Processing. Hierf\u00fcr werden in einer Reihe von experimentellen, Hands-On \u00dcbungen Grundlagen der Generativen Gestaltung (Processing) und des Physical Computing (Arduino u.a.) vermittelt und gemeinsam erarbeitet. Technische Vorkenntnisse sind keine Voraussetzung. \r\n\r\nHinweise: \r\nKursbeginn ist am Montag, 29. Oktober 2018, 10 Uhr: Interface Lab (LW 126) \r\nTeilnehmerzahl: 16 \r\n\r\nDer Kurs richtet sich an alle Studierende des ersten Studienabschnitts (Interfacedesign, Kommunikationsdesign, Produktdesign). Scheinerwerb durch regelm\u00e4\u00dfige und aktive Teilnahme im Kurs, Referat, Diskursbeitr\u00e4ge, Arbeitsergebnisse, Pr\u00e4sentationen und digitale Dokumentation. \r\nDurch die Gesamtzahl der SWS + CP (10\/10) wird eine hohe Bereitschaft f\u00fcr eigenst\u00e4ndiges Arbeiten \u00fcber die Pr\u00e4senzzeit im Kurs hinaus erwartet. \r\n\r\nEintrag \u00fcber den Workspace und das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag ist ausschlaggebend. \r\nWorkspace:  https:\/\/fhp.incom.org\/workspace\/8069\r\nDer Workspace wird am Montag 22.10. um 10 Uhr ge\u00f6ffnet. \r\nProf. Myriel Milicevic, Lina Wassong "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/4aa4cc875ea2c5a20da80e82d833a1d4"
+        }
+      }, {
+        "type": "course",
+        "_id": "bdc97548a76309b3f5b5086837e33a6c",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Basics: Farbe & Form",
+          "teacher": "Prof. Klaus Keller",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-B",
+            "name": "11EG-B Basics",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 15
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 15:00 Uhr"
+              }
+            }
+          },
+          "room": "LW 226",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Am Anfang stehen analytische, zeichnerische und fotografische Skizzen von Pflanzenstudien. \r\nDas recherchierte Formenvokabular wird in einem mehrw\u00f6chigen Prozess zu grafischen Umsetzungen und fl\u00e4chigen Motiven entwickelt. \r\nFarbe und Form, Kontraste und Gr\u00f6\u00dfen wirken im Wechselspiel und k\u00f6nnen dabei niemals isoliert betrachtet werden. \r\nBei der Gestaltung werden Bildaufbau und -ausschnitt variiert, bevor analoge Entw\u00fcrfe mittels Adobe Illustrator zu Vektorgrafiken umgearbeitet werden, um sie f\u00fcr die Reproduktion vorzubereiten. \r\nDie Druckvorlagen f\u00fcr den Risographen und der entsprechend reduzierten Farbpalette werden manuell erstellt. Die verschiedenen Verfahren bestimmen und ver\u00e4ndern die visuelle Wirkung eines Entwurfs im Wesentlichen. \r\nIm weiteren Verlauf des Kurses werden florale Motive mittels Adobe Illustrator malerische ins Digitale \u00fcbertragen und als Ausdruck auf Papier r\u00fcckgef\u00fchrt. \r\n\r\nVorgehensweise: \r\nIn aufeinander aufbauenden Schritten, werden verschiedene Darstellungweisen (-techniken) und entsprechende Druckvorlagen f\u00fcr Risodruck manuell erstellt. Im Verlauf des Kurses erweitern sich zunehmend die Dimensionen und F\u00e4higkeiten der Umsetzung in den verschiedenen Verfahren &amp; Medien. \r\n\r\nOrganisatorisches: \r\nDer Kurs richtet sich prim\u00e4r an Studienanf\u00e4nger (Kommunikationsdesign, Produktdesign, Interfacedesign). \r\nKenntnisse im Umgang mit vektorbasierten Grafik- und Zeichenprogrammen (z.B. Illustator) ist vorteilhaft. \r\n\r\n Kursbeginn am 23. Oktober 2018, 10:00 Uhr in Raum LW 226. \r\nDie Teilnehmerzahl ist auf 20 Personen begrenzt. \r\n\u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag. Eintrag \u00fcber den Workspace. \r\nhttps:\/\/fhp.incom.org\/workspace\/8011 \r\n\r\nProf. Klaus Keller "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/bdc97548a76309b3f5b5086837e33a6c"
+        }
+      }, {
+        "type": "course",
+        "_id": "7a7bab3ab7aeeae85c769db8061427f5",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Basics: Licht & Schatten",
+          "teacher": "Prof. Klaus Keller",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-B",
+            "name": "11EG-B Basics",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 4
+                },
+                "String": "Donnerstag, 14:30 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 19
+                },
+                "day": {
+                  "type": "number",
+                  "value": 4
+                },
+                "String": "Donnerstag, 19:30 Uhr"
+              }
+            }
+          },
+          "room": "LW 226",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Schattenbilder geh\u00f6ren zu unserem Alltag und wo Schatten ist da ist auch Licht! Die allt\u00e4glichen Ph\u00e4nomene zwischen Licht und Schatten wollen wir ergr\u00fcnden und gestalterisch f\u00fcr uns nutzen. \r\n\r\nIn verschiedenen \u00dcbungen experimentieren wir mit Licht und Schatten als Gestaltungsmittel in unterschiedlichen Anwendungsbereichen und Dimensionen. Die vielf\u00e4ltigen gestalterischen und kreativen M\u00f6glichkeiten, die Licht und Schatten bieten, werden ausprobiert. \r\n\r\n\u00dcber experimentelles Arbeiten werden wir z.B. Helligkeit, Kontraste (Wesentliches hervorheben), Projektionen\/Silhouetten (Vor-Bilder und Abbild), (Gestalt-) Pr\u00e4gnanz (und Unerkennbarkeit), Fl\u00e4chenkomposition und -wirkung, Proportion, Sch\u00e4rfe\/Unsch\u00e4rfe, Farbe und Lichtmischung entdecken und beleuchten. \r\nEs wird spielerisch experimentiert, \u2013 prozessorientiert und ergebnisoffen. Dabei wechseln wir vom Raum \u00fcber die Fl\u00e4che in den Raum. \r\n\r\nVorgehensweise: \r\nBegleitet von Theorie werden in aufeinander folgenden, elementaren und formalen \u00dcbungen die gestalterischen M\u00f6glichkeiten von Licht und Schatten fantasievoll ausgelotet. Im Verlauf des Kurses erweitern sich zunehmend die Dimensionen und Interventionen und die Komplexit\u00e4t der Versuche und \u00dcbungen der Lichtarbeiten nimmt zu. Die Ergebnisse werden begleitend fotografisch dokumentiert. \r\n\r\nOrganisatorisches: \r\nDer Kurs richtet sich prim\u00e4r an Studienanf\u00e4nger (Kommunikationsdesign, Produktdesign, Interfacedesign). \r\n\r\nVoraussetzung: \r\nTiefgr\u00fcndige Bereitschaft zum Experimentieren! \r\n\r\nKursbeginn am 25. Oktober 2018, 14:30 Uhr in Raum LW 226. \r\nDie Teilnehmerzahl ist auf 15 Personen begrenzt. \u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag. Eintrag \u00fcber den Workspace. \r\nhttps:\/\/fhp.incom.org\/workspace\/8013 \r\n\r\nProf. Klaus Keller "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/7a7bab3ab7aeeae85c769db8061427f5"
+        }
+      }, {
+        "type": "course",
+        "_id": "04e984133568d05b0468419d2895e713",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Kontext: Elementares Gestalten Kontext: Storytelling with Data",
+          "teacher": "",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-K",
+            "name": "11EG-K Kontext",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 14:30 Uhr"
+              }
+            }
+          },
+          "room": "D\/311",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Ziel des Kurses ist die Entwicklung von F\u00e4higkeiten, um sowohl quantitative als auch qualitative Informationen eigenst\u00e4ndig zu recherchieren, zu analysieren und so zu pr\u00e4sentieren, dass ein besseres Verst\u00e4ndnis eines Themas m\u00f6glich wird. Studierende werden: \r\n    \u2022 in praktischen \u00dcbungen und Referaten in das Thema Informationsvisualisierung eintauchen     \r\n\u2022 effektives und ineffektives Informationsdesign diskutieren, analysieren und bewerten     \r\n\u2022 eine umfassende Sammlung von Daten \/ Informationen zu einem frei w\u00e4hlbaren Thema recherchieren und zusammenstellen     \r\n\u2022 das Material in sinnvolle Datengrafiken \/ Visualisierungen \u00fcberf\u00fchren \r\n    \u2022 Datengrafiken, Informationsvisualisierungen und Text zu \u00fcberzeugenden Geschichten organisieren \r\n\r\nDabei lernen Studierende verschiedene Arbeitsmethoden kennen, \u00fcben visuell zu arbeiten und Ideen und Konzepte effektiv zu kommunizieren. Finale Abgabe als Poster und als digitale Dokumentation des Arbeitsprozesses und der Ergebnisse auf incom. \r\n\r\nChristian Ivanis ist freiberuflicher Designer aus Berlin und war von 2012 bis 2017 Senior Visual Designer bei IXDS GmbH mit den Schwerpunkten: Marke, User Interface, Produktvorentwicklung (Consumer Electronics, Automotive, Industry 4.0). \r\n\r\n Hinweise: \r\nKursbeginn ist am Montag, 29. Oktober 2018, 10 Uhr \r\nDer Kurs richtet sich an alle Studierende des ersten Studienabschnitts (Interfacedesign, Kommunikationsdesign, Produktdesign). Scheinerwerb durch regelm\u00e4\u00dfige und aktive Teilnahme im Kurs, Referat, Mitarbeit, Arbeitsergebnisse, Pr\u00e4sentationen und digitale Dokumentation. \r\nDie Teilnehmerzahl ist auf 20 Personen begrenzt. \u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag und Eintrag \u00fcber den Workspace. \r\n\r\nWorkspace: https:\/\/fhp.incom.org\/workspace\/8077 \r\nDer Workspace wird am Montag 22.10. um 10 Uhr ge\u00f6ffnet. \r\n\r\nChristian Ivanis "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/04e984133568d05b0468419d2895e713"
+        }
+      }, {
+        "type": "course",
+        "_id": "17e53b68247f3f685d1742a68c489a5e",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Kontext: Ornamente",
+          "teacher": "Prof. Klaus Keller",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-K",
+            "name": "11EG-K Kontext",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": "09"
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 09:30 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 14:00 Uhr"
+              }
+            }
+          },
+          "room": "LW 226",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Ornament, Rapport und Muster, \u2013 es wird der Frage nachgegangen, wo Muster zum Einsatz kommen, wie sie sich entwickelt haben und wie Muster mit heutigen Denkweisen und Techniken generiert werden k\u00f6nnen. Unterschiedliche Herstellungstechniken werden vorgestellt und zum Teil ausprobiert. \r\n\r\nIn verschieden Kursabschnitten wird anhand formaler \u00dcbungen mit symmetrischen und geometrischen Mustern und unterschiedlichen Konstruktionsprinzipien experimentiert (z.B. Symmetrien und Geometrien, geometrische Gesetzm\u00e4\u00dfigkeiten durch Verschiebung, Drehung, Spiegelung, etc \u2026). Techniken zur Herstellung von Mustern\/ Ornamenten werden analog und am Computer erarbeitet. Inspirationen aus unterschiedlichen Kulturkreisen geben Einblick in kulturgeschichtliche Entwicklungen. Im Vordergrund steht die Entwurfsarbeit mit Variantenbildung anhand der Repetition von Bildelementen nach Schema und Parametern sowie Repetition und Bruch (Interpretation) in der modernen Ornamentik. \r\n\r\nIm Kursverlauf erh\u00f6ht sich die Komplexit\u00e4t in Entwurf, Umsetzung und Technik. Anhand visueller Varianten wird die Wirkungsweise sowie die in den Raum ausgreifende Dynamik untersucht. Abschlie\u00dfend wird ein selbst\u00e4ndig gestaltetes, freies Muster auf Large-Format-Druck umgesetzt. \r\n\r\nOrganisatorisches: \r\nDer Kurs richtet sich prim\u00e4r an Studienanf\u00e4nger (Kommunikationsdesign, Produktdesign, Interfacedesign). \r\nKenntnisse im Umgang mit vektorbasierten Grafik- und Zeichenprogrammen (z.B. Illustator) und auch Photoshop sind vorteilhaft. \r\n\r\nKursbeginn ist am 24. Oktober 2018, 10:00 Uhr in Raum LW 226. \r\nDie Teilnehmerzahl ist auf 20 Personen begrenzt. \u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag. Eintrag \u00fcber den Workspace. \r\nhttps:\/\/fhp.incom.org\/workspace\/8012 \r\n\r\nProf. Klaus Keller "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/17e53b68247f3f685d1742a68c489a5e"
+        }
+      }, {
+        "type": "course",
+        "_id": "a6150230cde1506cdcbfbb137d6f9c07",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Prozess: The Fantastic Spaceship Earth Garage",
+          "teacher": "Prof. Myriel Milicevic",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-P",
+            "name": "11EG-P Prozess",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 15
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 15:30 Uhr"
+              }
+            }
+          },
+          "room": "",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Re-designing everyday products, social routines and public life from the bottom up. Thema: Slow Planet \r\n\r\nKursbeschreibung: \r\nDas Bild der Erde als Raumschiff stammt von dem ber\u00fchmten Architekten, Designer und Vision\u00e4r Buckminster Fuller und seinem Buch \u201eBedienungsanleitung f\u00fcr das Raumschiff Erde\u201c. Auf den Farbfotos der Apollo 8 Mission im Jahr 1968, konnte die Menschheit zum ersten Mal ihren blauen Heimatplaneten sehen, ebenso wie dessen Verletzlichkeit und Einzigartigkeit. Zur gleichen Zeit wurden Garagen \u2013 eigentlich Orte zum Parken und Reparieren von Autos \u2013 zu Geburtst\u00e4tten weltver\u00e4ndernder Erfindungen. \r\n\r\nUnsere Welt als mechanisch funktionierende Kugel umherzusteuern und als Ganzes zu ver\u00e4ndern ist jedoch unm\u00f6glich. Viele \u00f6kologische, technische und gesellschaftliche Prozesse greifen ineinander. Desiger*innen m\u00fcssen sich heute selbst\u00e4ndig mit komplexen Situationen auseinandersetzen und Fragen stellen k\u00f6nnen, auf die es noch keine Antworten gibt. Daf\u00fcr bauen sie Gestaltungsprozesse, um M\u00f6glichkeiten und Freir\u00e4ume f\u00fcr die eigene Handlungsf\u00e4higkeit zu schaffen. \r\n\r\n In der Spaceship Earth Garage zoomen wir uns darum wieder hinein auf \u00fcberschaubare Dimensionen und untersuchen, wo im Alltag praktische wie fantastische Design-Reparaturen vorgenommen werden k\u00f6nnten. Konkret beziehen wir uns in diesem Kurs, entgegen der allgemeinen Beschleunigung durch technischen Fortschritt, auf den Aspekt der Verlangsamung und Entschleunigung. \r\nWie k\u00f6nnte Kinderspielzeug mit uns altern? Wie k\u00f6nnten Verkehrsfl\u00fcsse zu Spielstra\u00dfen werden? Arbeitswege sich verlangsamen? Eine Bushaltestelle zum Verweilen einladen? Mobile Kommunikation die Zeit verl\u00e4ngern? Und wie w\u00fcrde all das unsere Wahrnehmung und das gesellschaftliche Miteinander beeinflussen? Wie s\u00e4he das Leben auf einem Slow Planet aus? \r\n\r\nAusgehend von Beobachtungen unserer Lebenswelten werden wir in kleinen Aktionen, Re-Konstruktionen und Interventionen selbst Versuchsanordnungen ausprobieren, Szenarien entwerfen und Prozesse spielerisch umgestalten, umdenken und umfunktionieren. Neben Einf\u00fchrungen in Gestaltungsmethoden, experimentellen \u00dcbungen und praktischen Umsetzungen werden wir uns dabei ebenso mit aktuellen Diskursen auseinandersetzen, und mit Beispielen aus Literatur, Kunst und Design besch\u00e4ftigen. \r\n\r\nHinweise: \r\nKursbeginn ist am Dienstag, 23. Oktober 2018, 10 Uhr: LW 218 \r\nDer Kurs richtet sich an alle Studierende des ersten Studienabschnitts (Interfacedesign, Kommunikationsdesign, Produktdesign). Scheinerwerb durch regelm\u00e4\u00dfige und aktive Teilnahme im Kurs, Referat, Diskursbeitr\u00e4ge, Arbeitsergebnisse, Pr\u00e4sentationen und digitale Dokumentation. \r\nEintrag \u00fcber den Workspace und das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag ist ausschlaggebend. \r\nTeilnehmerzahl: 20 \r\nWorkspace: https:\/\/fhp.incom.org\/workspace\/8062\r\nDer Workspace wird am Montag 22.10. um 10 Uhr ge\u00f6ffnet. \r\n\r\nProf. Myriel Milicevic "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/a6150230cde1506cdcbfbb137d6f9c07"
+        }
+      }, {
+        "type": "course",
+        "_id": "0a5e71d2f4f2e974469fecbcd362f616",
+        "attributes": {
+          "type": null,
+          "title": "Elementares Gestalten Prozess: WHITE CUBE",
+          "teacher": "Prof. Alexandra Martini",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "11EG-P",
+            "name": "11EG-P Prozess",
+            "category": "I\/1 Gestaltungsgrundlagen Elementares Gestalten"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": "09"
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 09:30 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 14:00 Uhr"
+              }
+            }
+          },
+          "room": "LW 229",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Poesie des Raumes (G. Bachelard), Geometrie der Dinge: In diesem Kurs vertiefen Sie Ihre r\u00e4umliche Wahrnehmung, erstellen Materialtypologien, experimentieren mit Abformtechniken unterschiedlichster Arten und entwickeln daraus prozesshaft eine eigenst\u00e4ndige mehrdimensionale Projektarbeit. Der Besuch von Museen und Austellungen ist eingeplant. \r\n\r\nDas Semester gliedert sich in drei Abschnitte: \r\n1_ \u00dcbung und Kurzeinf\u00fchrung in die Abformtechnik \r\n2_ Geometrische Formstudie \u2013 traditional cast project: Elementare Volumenmodifikation mit Tonskizzen. Ma\u00dfstabs\u00fcbertragen und Abformen durch Abgu\u00df. Sie lernen die Materialien Gips und Ton und deren zahlreichen Anwendungsm\u00f6glichkeiten in Modellbau und anderen gestalterischen Anwendungskontexten kennen. \r\n3_ Phase 1, Analysieren \u2013 research: Inhaltliche und visuelle Analyse eines k\u00fcnstlerisch gestalterischen Werks\/Arbeitsweise einer kreativ schaffenden Pers\u00f6nlichkeit aus dem Bereich Kunst, Design oder Architektur und zweidimensionale Darstellung der Ergebnisse. \r\nPhase 2, Experimentieren \u2013 feel free to explore: Im \u201eMateriallabor\u201c entwickeln Sie innovative Materialtypologien anhand experimenteller Kombinationen von Gips mit anderen Materialien, erforschen Struktur, Techniken, Aggregatszust\u00e4nde und Sinnlichkeit des Minerals. Exploration artverwandter Materialien und Abformtechniken (z.B. Tiefziehen) f\u00fcr Kleinserien durch intelligente Formteilung. \r\nPhase 3, Realisieren \u2013 realisation of scenarios (object\/space): Als Synthese aus inhaltlicher Analyse und Materialexperimenten entwickeln Sie transformativ und ein\/e Raumstruktur, Installation, Objekt oder Produkt in mehreren Dimensionen unter Verwendung einer Abformtechnik. \r\n\r\nOrganisatorisches: \r\nDer Kurs richtet sich an Studierende des ersten Studienabschnitts im Studiengang Design (Interfacedesign, Kommunikationsdesign, Produktdesign). An den Kurs ist der Werkstattkurs Modellierwerkstatt (4CP) angegliedert. Ist dieser bereits vorhanden, kann der Kurs auch belegt werden. Scheinerwerb durch regelm\u00e4\u00dfige Teilnahme, analoge und digitale (incom und CD) Dokumentation der Arbeitsergebnisse.  \r\nKursbeginn am Dienstag, 23. Oktober 2018, 09.30 Uhr in Raum LW 229 \r\nDie Teilnehmerzahl ist auf 20 Personen begrenzt. Eintragung \u00fcber den Workspace. Das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag ist ausschlaggebend. \r\n Incom: https:\/\/fhp.incom.org\/workspace\/8019 \r\nProf. Alexandra Martini, J\u00f6rg Misch (Leitung Modellierwerkstatt) "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/0a5e71d2f4f2e974469fecbcd362f616"
+        }
+      }, {
+        "type": "course",
+        "_id": "000d0cd09fbeb1de629b1bb0fbcf64f6",
+        "attributes": {
+          "type": null,
+          "title": "Physical-& Virtual Interfaces: Service Design Grundlagen",
+          "teacher": "Prof. Reto Wettach",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOId-PI",
+            "name": "12FOId-PI Physical- & Virtual Interfaces",
+            "category": "I\/2 Fachorientierung Interfacedesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": "09"
+                },
+                "day": {
+                  "type": "number",
+                  "value": 5
+                },
+                "String": "Freitag, 09:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 5
+                },
+                "String": "Freitag, 13:30 Uhr"
+              }
+            }
+          },
+          "room": "D\/106",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Service design aims at designing services that are useful, usable and desirable from the user perspective, and efficient, effective and different from the provider perspective.\u201c (B. Mager, et al.: Designing for Services, 2011) \r\n\r\nDienstleistungen spielen sowohl wirtschaftlich als auch bei der Erfahrung mit einer Marke eine immer gr\u00f6\u00dfere Rolle. Gerade in Zeiten von mobilen Endger\u00e4ten und vernetzen Produkten spielen ganzheitlich gestaltete Services eine entscheidende Rolle f\u00fcr die Akzeptanz von Angeboten am Markt. Produkte, Kommunikationsma\u00dfnahmen, Interfaces, aber auch pers\u00f6nliche Begegnungen oder Erfahrungen mit dem Call-Center sind sog. \u201eTouchpoints\u201c eines Services, die gestaltet werden k\u00f6nnen und m\u00fcssen \u2013 um eine konsistente Erfahrung zu erm\u00f6glichen. \r\n\r\nF\u00fcr Designerinnen aller Fachdisziplinen ist es wichtig, ihre Gestaltungsherausforderung im gr\u00f6\u00dferen Kontext zu verstehen. Daher empfiehlt sich dieser Kurs als Grundlage einer ganzheitlichen Design-Auffassung. \r\n\r\nIn diesem Grundlagenkurs werden wir existierende Services analysieren, zentrale Texte zu dem Thema lesen und selbst nach den aktuellen Methoden des Services Design einen Service gestalten und prototypisch umsetzen. \r\n\r\nProf. Reto Wettach"
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/000d0cd09fbeb1de629b1bb0fbcf64f6"
+        }
+      }, {
+        "type": "course",
+        "_id": "ab0883de2eb3063a0f125701545021dd",
+        "attributes": {
+          "type": null,
+          "title": "Visual Interfacedesign: Grundlagen Interfacedesign: ANALYSE \u2014 Informationsarchitektur, Bedienprozess und Visualisierung",
+          "teacher": "Prof. Constanze Langer",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOId-VI",
+            "name": "12FOId-VI Visual Interfacedesign",
+            "category": "I\/2 Fachorientierung Interfacedesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/106",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Nach wie vor spielt der visuelle Sinn eine zentrale Rolle im Interfacedesign. Denn trotz vielfacher Innovation im Bereich multimodaler Interaktion ist die zentrale Schnittstelle zwischen Mensch und Computer nach wie vor der Screen \u2013 in allen Gr\u00f6\u00dfen und Auspr\u00e4gungen. F\u00fcr die Konzeption und Gestaltung von Interfaces, Services oder auch physischen Artefakten ist jedoch die Analyse des Kontextes ausschlaggebend, da sich darauf basierenden Rahmenbedingungen f\u00fcr den Entwurf ableiten lassen k\u00f6nnen. In diesem Kurs liegt der Fokus auf Designmethoden und Darstellungstechniken zur Analyse des Kontextes. \r\nTheoretischer Input und Diskurs wird es zu folgenden Themen geben: \r\n: die menschliche Wahrnehmung mit Fokus auf den visuellen Sinn; \r\n: die Analyse von bestehenden Zeichensystemen; \r\n: die Visualisierung von Daten, Zusammenh\u00e4ngen und Prozessen sowie \r\n: Ordnungs- und Strukturierungsmethoden. \r\nZiel des Kurses ist es, dass die Teilnehmer*innen die M\u00f6glichkeiten der visuellen Darstellung und grundlegende Methoden f\u00fcr die Entwurfsarbeit kennenlernen und ihre Anwendung \u00fcben, pr\u00e4sentieren und ihre gestalterischen Prozesse und Entscheidungen nachvollziehbar aufzeigen und begr\u00fcnden k\u00f6nnen.   \r\n\r\nhttps:\/\/fhp.incom.org\/workspace8150 \r\nAnzahl der Kursteilnehmer*innen: 15\u201320 \r\nProzedere Auswahlverfahren: Die endg\u00fcltige Zulassung zum Kurs erfolgt in der ersten Veranstaltung am 23.10.2018, 10:00 Uhr. \r\n\r\n Prof. Constanze Langer "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/ab0883de2eb3063a0f125701545021dd"
+        }
+      }, {
+        "type": "course",
+        "_id": "ac7a485a6d98935442bb3ec7d94c7f01",
+        "attributes": {
+          "type": null,
+          "title": "Interaction Design: Entwurf - Basics Interfacedesign",
+          "teacher": "Prof. Boris M\u00fcller",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOId-XD",
+            "name": "12FOId-XD Interaction Design",
+            "category": "I\/2 Fachorientierung Interfacedesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 4
+                },
+                "String": "Donnerstag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 4
+                },
+                "String": "Donnerstag, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/226",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Dieser Kurs stellt eine grundlegende Auseinandersetzung mit den zentralen Themen des Interface Designs dar. Ausgehend von einer Reihe von Entw\u00fcrfen und Experimenten wird die Herangehensweise an gestalterische Probleme im Interface Design vermittelt. Konkret werden im Kurs die Themen Screen-Design, grafische User-Interfaces, Visualisierung und Semiotik behandelt. Dabei stehen insbesondere konzeptionelle Studien im Mittelpunkt. Weiterhin wird ein \u00dcberblick auf die Geschichte des Interface Designs gegeben, wobei relevante Projekte im Detail diskutiert werden.\r\nhttps:\/\/fhp.incom.org\/workspace\/8055\r\nProf. Boris M\u00fcller"
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/ac7a485a6d98935442bb3ec7d94c7f01"
+        }
+      }, {
+        "type": "course",
+        "_id": "56ac6c5563ca55696055b4fc4bf90371",
+        "attributes": {
+          "type": null,
+          "title": "Advertising Design: Redaktionelle Gestaltung 01: Wieso? Weshalb? Warum?",
+          "teacher": "Prof. Franziska Morlok",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-AD",
+            "name": "12FOKd-AD Advertising Design",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/307",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "In diesem Grundlagenseminar besch\u00e4ftigen wir uns mit der Analyse, Konzeption, Gestaltung und Umsetzung von Publikationen. Thema der Publikation ist dabei die Darstellung einer (pers\u00f6nlichen) Sammlung. In Zusammenarbeit mit dem Grafiklabor experimentieren wir mit der Darstellung von Typografie und Objekten im zweidimensionalen Format einer Publikation durch unterschiedliche Druckverfahren (Kopierer, Riso). \r\nThemen im Seminar sind Formate, das Verh\u00e4ltnis von Text und Bild, Schriftwahl und Layoutkonzeption, Umsetzung und Herstellung von Publikationen. Das Seminar richtet sich an Studierende, die keine oder sehr wenig Erfahrung im Umgang mit Layoutprogrammen haben. \r\nVoraussetzungen f\u00fcr den Erwerb von Credit Points sind f\u00fcr dieses Projekt: regelm\u00e4\u00dfige Teilnahme und Beteiligung am Seminar, Kurzreferat, gestalterische Arbeit (Publikation), Abgabe von Dokumentationsmaterial (Bilder, Text \u00fcber das Projekt) \r\nTeilnehmerzahl: max. 20 Studierende \r\nProf. Franziska Morlok \/ Felix Walser "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/56ac6c5563ca55696055b4fc4bf90371"
+        }
+      }, {
+        "type": "course",
+        "_id": "547f78e4077362483f397d341e1ff3a6",
+        "attributes": {
+          "type": null,
+          "title": "Corporate Design: Vom Zeichen zur Marke",
+          "teacher": "Prof. Matthias Beyrow",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-CD",
+            "name": "12FOKd-CD Corporate Design",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 4
+                },
+                "String": "Donnerstag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 4
+                },
+                "String": "Donnerstag, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/310",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Workshops, \u00dcbungen, Stegreifentw\u00fcrfe zu den Grundlagen der Konzeption visueller Markenzeichen und zur Gestaltung familien\u00e4hnlicher grafischer Systeme. \r\n\r\nProf. Matthias Beyrow "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/547f78e4077362483f397d341e1ff3a6"
+        }
+      }, {
+        "type": "course",
+        "_id": "142e33fee7d9c87980df961aea9a1283",
+        "attributes": {
+          "type": null,
+          "title": "Fotografie: Lichtf\u00e4nger I - \u00dcber die Mittel der Fotografie",
+          "teacher": "Prof. Wiebke Loeper",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-FG",
+            "name": "12FOKd-FG Fotografie",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 13:30 Uhr"
+              }
+            }
+          },
+          "room": "D\/308",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Der Kurs zielt auf die Schulung des Sehens und die Beobachtung des Lichtes.  Thema ist die bewusste Wahl fotografischer Mittel wie z.B. Sch\u00e4rfe\/Unsch\u00e4rfe, Sch\u00e4rfeverlauf, Kontrastumfang, Lichtf\u00fchrung etc.  Zum Verst\u00e4ndnis werden beispielhafte Positionen aus der Fotografiegeschichte vorgestellt. \u201eWas ist ein gutes Bild? ... und was macht dessen Zauber aus?\u201c sind die zentralen Fragen des Kurses und der gemeinsamen Bilddiskussionen.  \r\n\r\nTeilnehmerzahl: max. 20 \r\nParallel muss der Werkstattkurs bei Frau Katzek belegt werden. \r\nEinschreibung zum jeweils ersten Kurstermin, pers\u00f6nlich im Raum, siehe Workspace. \r\nProf. Wiebke Loeper "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/142e33fee7d9c87980df961aea9a1283"
+        }
+      }, {
+        "type": "course",
+        "_id": "42a532d4d39462d13fed975db4a8198a",
+        "attributes": {
+          "type": null,
+          "title": "Illustration:",
+          "teacher": "",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-IL",
+            "name": "12FOKd-IL Illustration",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 1
+                },
+                "String": "Montag, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/309",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Wir besch\u00e4ftigen uns in dem Kurs mit den Anfangsbuchstaben eurer Namen \u2013 den Initialen. Welche Worte lassen sich ableiten? Welche Bilder kann man illustrieren? Die M\u00f6glichkeiten und \u00dcbungen f\u00fchren dabei \u00fcber Buchstaben, Farben und Klischees (Bildmotive) zu Kombinatorik, Varianz und Aufbau. Durch das handwerkliche Repertoire l\u00e4sst die Bleisatzwerkstatt die Technik und das Drucken analog sp\u00fcrbar werden. \r\n(f\u00fcr die Werkstatt alte Sachen mitbringen, Sch\u00fcrzen vorhanden) \r\n1. Treffen am 29. Oktober 2018 \r\nTeilnehmer: 12 Personen \r\n\r\nRobert Steinm\u00fcller "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/42a532d4d39462d13fed975db4a8198a"
+        }
+      }, {
+        "type": "course",
+        "_id": "0babe5bdce49fbbb96f65910026dc1bc",
+        "attributes": {
+          "type": null,
+          "title": "Motiongraphics: Motion Basis.07: Dynamic Type",
+          "teacher": "Prof. Klaus Dufke",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-MG",
+            "name": "12FOKd-MG Motiongraphics",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "LW 117",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "# Dynamic Type # Bewegtschrift # Motion Branding # Corporate Motion # Maintitle Design # Onair Design  #  TV Design # Station ID  # Station Idents # Network  Idents # Studio ID  \r\n\r\nAUFGABENSTELLUNG \r\nKonzeption und Entwicklung einer Bewegtschrift. Im Seminar \u201cDynamic Type\u201d werden Zeichens\u00e4tze im Kontext einer Corporate Design Entwicklung animiert \u2013  zum Beispiel f\u00fcr das Titeldesign eines Spielfilms, einer TV Serie oder eines Festivals.  Eine animierte Schriftart unterscheidet sich von einer konventionellen \u201cstatischen\u201d Schriftart dadurch, da\u00df jedes einzelne Zeichen als eine eigenst\u00e4ndige Animation vorliegt und mit den anderen Zeichen der Schriftart kombiniert werden kann. Die Animation des Schriftzeichens kann als Fade-In, als FadeOut oder als Loop-f\u00e4hige Sequenz von beliebiger L\u00e4nge vorliegen.  Beispiele finden Sie im Incom Workspace und dem Dokument Motion: Dynamic Type.  \r\n\r\nWir entwerfen einen animierten Zeichensatz und eine exemplarische  Anwendung. Gegenstand der Entwicklung kann sein: \r\n-  eine animierte Schrift f\u00fcr das Titeldesign eines Films, \r\n-  eine animierte Schrift f\u00fcr das Titeldesign einer TV Serie, \r\n-  eine animierte Schrift f\u00fcr einen  Konferenz- oder Festivaltrailer; \r\n-  eine animierte Schrift f\u00fcr ein Fictonal User Interface  \r\n-  eine animierte Schrift im Kontext einer Corporate Design-Entwicklung \r\n\r\nSEMINAR-\/PROJEKTORGANISATION: \r\nInnerhalb des Seminars werden in mehreren Einzelprojekten unterschiedliche Bewegtbildformate konzipiert und entwickelt. Es werden dabei produktionstechnische, materialtechnische und logistische Kompetenz in der Entwicklung von zeitbasierten Medienproduktionen vermittelt. Der Kurs organisiert sich in der Form eines praxisbezogenen Studienprojekts in Kombination mit Vorlesungen und \u00dcbungen. Die Vorlesungen dienen der systematischen Vermittlung fachspezifischer Kenntnisse, die \u00dcbungen dienen der Anwendung der vorgetragenen Methoden  und der Ein\u00fcbung der instrumentellen Fertigkeiten.  \r\n\r\nVoraussetzung: Sicherer Umgang mit den Grundwerkzeugen der digitalen 2D-Mediengestaltung.  Anmeldung erfolgt \u00fcber diesen Incom-Workspace:  https:\/\/fhp.incom.org\/workspace\/7981  \r\nTeilnehmerzahl: Die Teilnehmerzahl ist begrenzt.   \r\nBeginn: Das Seminar beginnt am.  \r\nProf. Klaus Dufke"
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/0babe5bdce49fbbb96f65910026dc1bc"
+        }
+      }, {
+        "type": "course",
+        "_id": "283d3d95918d13f69dd4f8e32e89a5be",
+        "attributes": {
+          "type": null,
+          "title": "Typedesign: Startkurs",
+          "teacher": "Prof. Lucas de Groot",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-TD",
+            "name": "12FOKd-TD Typedesign",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "\u00bbStartkurs\u00ab\r\nDienstag 10.00-13.00, Raum D\/103 \r\nProf. Lucas de Groot"
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/283d3d95918d13f69dd4f8e32e89a5be"
+        }
+      }, {
+        "type": "course",
+        "_id": "c8aefb51b3554b977e1459b982692654",
+        "attributes": {
+          "type": null,
+          "title": "Typografie: Grundlagen der Typografie \"Von Makro bis Mikro(typografie) und zur\u00fcck\"",
+          "teacher": "",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-TY",
+            "name": "12FOKd-TY Typografie",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/223",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Wir n\u00e4hern uns den Zeichen mit ihren individuellen Eigenarten, den W\u00f6rtern mit ihren typografischen Ausdrucksformen, einem Text und dessen Lesbarkeit und einer Publikation mit ihren Rastern.  \r\nDer Kurs gibt Einblick in die Geschichte, Gegenwart und Zukunft der Typografie und beinhaltet praktische Aufgaben zum experimentellen und angewandten Umgang mit Schrift. \r\n\r\nScheinerwerb durch regelm\u00e4\u00dfige Teilnahme, Mitarbeit, Referat, Arbeitsergebnisse, Pr\u00e4sentationen und digitale Dokumentation. \r\nDie Teilnehmerzahl ist auf 20 Personen begrenzt. \u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag und Eintrag \u00fcber den Workspace. \r\nhttps:\/\/fhp.incom.org\/workspace\/8023\r\nKatrin Holst, Professorenstellenvertretung "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/c8aefb51b3554b977e1459b982692654"
+        }
+      }, {
+        "type": "course",
+        "_id": "9e19a4346dd8f65cf0566c5ef9a9e97a",
+        "attributes": {
+          "type": null,
+          "title": "Typografie: Experimentelle Typografie Grundlagen, Geschichte & Methoden",
+          "teacher": "Prof. Sven V\u00f6lker",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOKd-TY",
+            "name": "12FOKd-TY Typografie",
+            "category": "I\/2 Fachorientierung Kommunikationsdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 3
+                },
+                "String": "Mittwoch, 13:00 Uhr"
+              }
+            }
+          },
+          "room": "D\/226",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Experimentelle Typografie Grundlagen, Geschichte &amp; Methoden \r\n\r\nIn diesem Kurs f\u00fcr Studierende des ersten Studienabschnitts besch\u00e4ftigen wir uns mit den Grundlagen der experimentellen Typografie. Wir diskutieren, produzieren und pr\u00e4sentieren gemeinsam in 12 w\u00f6chentlichen Kapiteln. Dieses Seminar ist eine Tour de Force f\u00fcr Mutige und damit ausdr\u00fccklich der falsche Ort um sich entspannt berieseln zu lassen. Wir verzichten au\u00dferdem auf das meiste, was man in Grundlagenb\u00fcchern schneller nachlesen k\u00f6nnte und konzentrieren uns stattdessen auf die Magie des gestalteten Wortes. \r\nEin Seminar f\u00fcr maximal 20 Teilnehmer. \r\nIncom Workspace: https:\/\/fhp.incom.org\/workspace\/7998\r\nProf. Sven V\u00f6lker "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/9e19a4346dd8f65cf0566c5ef9a9e97a"
+        }
+      }, {
+        "type": "course",
+        "_id": "b687b4cb9fbc64f65d460f629cd5173f",
+        "attributes": {
+          "type": null,
+          "title": "Produktdesign mit digitalen Medien: Wasser kochen- Der Wasserkocher zwischen Funktion und Repr\u00e4sentation",
+          "teacher": "",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOPd-DP",
+            "name": "12FOPd-DP Produktdesign mit digitalen Medien",
+            "category": "I\/2 Fachorientierung Produktdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 14
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 14:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 17
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 17:30 Uhr"
+              }
+            }
+          },
+          "room": "D\/311",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Der Wasserkocher ist in fast jedem Haushalt fester Bestandteil des allt\u00e4glichen Lebens. In K\u00fcchen steht er meist an zentraler Stelle. Umso wichtiger scheint die ernsthafte Auseinandersetzung mit seiner Gestaltung. \r\nIn diesem Kurs werden Geschichte und kulturelle Bedeutung des Wasserkochens sowie relevante Objekte aus der Designgeschichte im Feld des Wasserkochers untersucht. Der Gestaltungsqualit\u00e4t der Objekte wird dabei besondere Aufmerksamkeit gewidmet. Zudem werden die aktuelle Marktsituation und der Stand der Technik in diesem Produktfeld analysiert. \r\nAuf der Basis der Recherche soll ein innovatives Bild- und Funktionskonzept f\u00fcr Wasserkocher entwickelt werden. Dieses wird in einem intensiven, dynamischen Entwurfsprozess verdichtet, bei dem der Modellbau eine zentrale Rolle spielt. Alle Studierenden durchlaufen verschiedene Phasen des Modellbaus \u2013 von physischen Modellen in unterschiedlichen Materialien bis hin zur Umsetzung digitaler Modelle im 3D-Druck. Dieser Prozess l\u00e4uft im Zusammenspiel mit h\u00e4ndischem Zeichnen und digitalem Modelling. \r\nAm Ende des Prozesses stehen Prototypen im Originalma\u00dfstab. Dar\u00fcber hinaus sollen der konstruktive Aufbau des Wasserkochers, sowie Material- und Farbkonzepte in Zeichnungen, Materialcollagen und 3D-Darstellungen beschrieben werden. Wichtiger Bestandteil des Projekts ist ferner die Reflexion des Gestaltungsprozess im Kontext des Wechselspiels analoger und digitaler Gestaltungsmittel. Der Prozess selbst wird in Text und Bild dokumentiert. \r\n\r\n Voraussetzung f\u00fcr den Kurs sind der Werkstattschein bei Anne Boenisch und die Grundlagen des Designzeichnens und Grundlagen in Fusion 360 bei Johannes Cremer. \r\n\r\nIn den Projektwochen gibt es ein kursvorbereitendes Angebot mit der Vermittlung von Grundlagen im 3D-Programm Autodesk Fusion 360. \r\n\r\nhttps:\/\/fhp.incom.org\/workspace\/8014 \r\n\r\nJulia L\u00e4ufer\/Johannes Cremer "
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/b687b4cb9fbc64f65d460f629cd5173f"
+        }
+      }, {
+        "type": "course",
+        "_id": "972a2494395fbb50f3e785eb51390936",
+        "attributes": {
+          "type": null,
+          "title": "Industrialdesign: *Design M\u00c4ANDERN*",
+          "teacher": "Prof. Hermann Weizenegger",
+          "semester": "",
+          "graduateProgram": "",
+          "module": {
+            "id": "12FOPd-ID",
+            "name": "12FOPd-ID Industrialdesign",
+            "category": "I\/2 Fachorientierung Produktdesign"
+          },
+          "time": {
+            "firstDate": [],
+            "fixture": {
+              "begin": {
+                "minutes": {
+                  "type": "number",
+                  "value": "00"
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 10
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 10:00 Uhr"
+              },
+              "end": {
+                "minutes": {
+                  "type": "number",
+                  "value": 30
+                },
+                "hour": {
+                  "type": "number",
+                  "value": 13
+                },
+                "day": {
+                  "type": "number",
+                  "value": 2
+                },
+                "String": "Dienstag, 13:30 Uhr"
+              }
+            }
+          },
+          "room": "D\/307",
+          "descriptionText": {
+            "type": "html\/md",
+            "value": "Im Entwurfsseminar Design M\u00e4andern geht es darum, ein Verst\u00e4ndnis daf\u00fcr zu bekommen, wie handwerkliche serielle Produkte in unterschiedlichsten Arbeitsabl\u00e4ufen entstehen oder welche Materialien verwendet werden. Dabei entstehen Fragen, wie &quot;Was sind Negativ- und Positivform, wann spricht man von Mutterform?&quot;  Dazu recherchiert der Kurs Handwerkst\u00e4tigkeiten und deren Formwerkzeuge. Basierend auf einem erstellten Material- und Produktionsmapping werden unterschiedliche Werkzeugstrategien entwickelt. \r\n\r\nAm Ende des Projekts soll ein niederkomplexes Produkt stehen, welches sich durch mehrere Werkzeugstufen m\u00e4andert, welches im Entstehungsprozess unterschiedliche Werkzeuge erfahren und zugleich selbst als Werkzeug fungiert hat. \r\n\r\nTops: Recherche, Entwicklung von Konzeptionen, Darstellung in Form von Skizzen und 3D-Renderings, Materialien, 1:1 Prototyp, Dokumentation \r\nIncom Workspace: https:\/\/fhp.incom.org\/workspace\/8034\r\n\r\nProf. Hermann Weizenegger"
+          },
+          "maxStudents": 0,
+          "credits": "6",
+          "workspace": ""
+        },
+        "included": [],
+        "request": {
+          "type": "GET",
+          "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/course\/972a2494395fbb50f3e785eb51390936"
+        }
+      }]
+    }
+  }
+}

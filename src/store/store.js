@@ -23,6 +23,7 @@ export default new Vuex.Store({
     },
     courses: [],
     coursesStash: [],
+    currentCourse: Object,
     modulePlan: {
       basicStudyPeriod: {
         elementares_gestalten: {
@@ -128,7 +129,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async loadCourses ({commit, dispatch}, queries) {
+    async loadCourses_OFFLINE ({commit}, ) {
+      await axios
+        .get('data/course-data.json')
+        .then(r => r.data)
+        .then((result) => {
+          commit('STASH_LOADED_COURSES', result)
+        }); 
+    },
+    async loadCourses ({ commit }) {
         await axios
           .get('http://localhost:3000/courses')
           .then(r => r.data)
@@ -147,6 +156,9 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE (state, payload) {
       state.queries.studyType = payload;
+    },
+    SET_CURRENT_COURSE (state, payload) {
+      state.currentCourse = payload;
     },
     QUERY_COURSES (state) {
       let courses;

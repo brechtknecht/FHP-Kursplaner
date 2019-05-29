@@ -49,9 +49,10 @@
             teacher:  course.attributes.teacher,
             module: {
               id:     course.attributes.module.id,
-              name:   course.attributes.module.category,
-              category: ''
-            }
+              name:   course.attributes.module.name,
+              category: course.attributes.module.category,
+            },
+            description: course.attributes.descriptionText.value
           }"
           ></course>
         </div>
@@ -69,7 +70,7 @@
       Course
     },
     created () {
-      this.$store.dispatch('loadCourses', this.queries).then(() => {
+      this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
     },
