@@ -1,6 +1,6 @@
 <template>
     <!-- <div class="course" :style="{'grid-column' : column}"> -->
-      <div class="course" :style=coursePosition>
+      <div class="course" :style=coursePosition @click="setCurrentCourse">
         <div class="course--checkbox">
             <input type="checkbox">
         </div>
@@ -12,6 +12,8 @@
 </template>
 
 <script>
+  import store, { mapState, mapMutations }  from 'vuex'
+
   export default {
     name: 'Course',
     props: {
@@ -36,7 +38,13 @@
           left: startPosition + offsetStart + 'px',
           width: (endPosition + offsetEnd) - (startPosition + offsetStart)  + 'px'
         }
-      },
+      }
+    },
+    methods: {
+        setCurrentCourse: function () {
+          this.$store.commit('SET_CURRENT_COURSE', this.$props.info);
+          this.$emit('CURRENT_COURSE_TRIGGERED');
+        }
     }
   }
 </script>
@@ -54,7 +62,7 @@
         border-radius: 2rem;
         background: $c-TH;
         display: flex;
-        transition: 250ms ease-in;
+        transition: $animation-default;
         cursor: pointer;
         .course--checkbox {
             display: flex;

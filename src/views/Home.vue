@@ -1,7 +1,9 @@
 <template>
   <div class="app">
     <Sidebar/>
-    <CourseCanvas msg="Welcome to Your Vue.js App"/>
+    <Modules/>
+    <CourseCanvas @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
+    <Details :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
   </div>
 </template>
 
@@ -9,12 +11,26 @@
 // @ is an alias to /src
 import CourseCanvas from '@/components/courseCanvas.vue'
 import Sidebar from '@/components/sidebar.vue'
+import Modules from '@/components/modules.vue'
+import Details from '@/components/details.vue'
 
 export default {
   name: 'home',
   components: {
     CourseCanvas,
-    Sidebar
+    Sidebar,
+    Modules,
+    Details
+  },
+  data () {
+    return {
+      detailsModalIsActive: false
+    }
+  },
+  methods: {
+    toggleCurrentCourse: function () {
+      this.detailsModalIsActive = !this.detailsModalIsActive;
+    }
   }
 }
 </script>

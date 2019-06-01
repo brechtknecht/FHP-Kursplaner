@@ -49,10 +49,12 @@
             teacher:  course.attributes.teacher,
             module: {
               id:     course.attributes.module.id,
-              name:   course.attributes.module.category,
-              category: ''
-            }
+              name:   course.attributes.module.name,
+              category: course.attributes.module.category,
+            },
+            description: course.attributes.descriptionText.value
           }"
+          @CURRENT_COURSE_TRIGGERED="passTrigger"
           ></course>
         </div>
       </div>
@@ -68,21 +70,19 @@
     components : {
       Course
     },
-    data () {
-      return {
-        queries: {
-          studyType: "Grundstudium"
-        }
-      }
-    },
     created () {
-      this.$store.dispatch('queryCourses', this.queries)
+      this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
+        this.$store.commit('QUERY_COURSES');
+      });
     },
     computed: mapState([
-      'courses'
+      'courses',
+      'queries'
     ]),
-    queries: {
-      studyType: "Grundstudium"
+    methods: {
+      passTrigger: function () {
+        this.$emit('CURRENT_COURSE_TRIGGERED');
+      }
     }
   }
 </script>

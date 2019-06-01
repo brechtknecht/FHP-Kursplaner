@@ -1,0 +1,74 @@
+{
+    "data": {
+      "semester": {
+        "name": "WiSe 18\/19",
+        "courses": [{
+          "type": "course",
+          "_id": "38c5d9d7122e4ada974ce711e946b067",
+          "attributes": {
+            "type": "Grundstudium",
+            "title": "Gestaltungsgrundlagen Atelier Farbe: Farbe-Raum-Installationen - Fl\u00e4che - Collage - Relief - (Farbe 1)",
+            "teacher": "",
+            "semester": "",
+            "graduateProgram": "",
+            "module": {
+              "id": "11At-F",
+              "name": "11At-F Farbe",
+              "category": "I\/1 Gestaltungsgrundlagen Atelier"
+            },
+            "time": {
+              "firstDate": [],
+              "fixture": {
+                "begin": {
+                  "minutes": {
+                    "type": "number",
+                    "value": 30
+                  },
+                  "hour": {
+                    "type": "number",
+                    "value": "09"
+                  },
+                  "day": {
+                    "type": "number",
+                    "value": 3
+                  },
+                  "String": "Mittwoch, 09:30 Uhr"
+                },
+                "end": {
+                  "minutes": {
+                    "type": "number",
+                    "value": 30
+                  },
+                  "hour": {
+                    "type": "number",
+                    "value": 14
+                  },
+                  "day": {
+                    "type": "number",
+                    "value": 3
+                  },
+                  "String": "Mittwoch, 14:30 Uhr"
+                }
+              }
+            },
+            "room": "D\/323",
+            "descriptionText": {
+              "type": "html\/md",
+              "value": "Aristoteles: \u201eKeine Farbe sehen wir aber rein wie sie ist, sondern entweder durch Einfluss fremder Farben, oder durch Licht und Schatten ver\u00e4ndert.\u201c \r\n\r\nIn diesem Satz stecken andeutungsweise schon sp\u00e4ter genauer untersuchte Farbph\u00e4nomene, wie der Simultankontrast. Dieser beeinflusst alle andern Farbkontraste und verst\u00e4rkt die r\u00e4umliche Wahrnehmung. Begonnen wird mit gemeinsamen \u00dcbungen zu selbst gew\u00e4hlten Farbbereichen und zu den Farbkontrasten. In der Folge werden kleine individuelle Projekte oder Teamarbeiten entwickelt, bei denen die Untersuchung von Farbr\u00e4umlichkeit im Vordergrund steht. Wahlweise kann in einzelnen Farbteams mit den Mitteln der Malerei auf der Fl\u00e4che, der Collage und Reliefs (aus Papier und Pappe) gearbeitet werden. Das Ziel sind Farbrauminstallationen zu einzelnen Farbschwerpunkten. Parallel werden individuelle Farbtageb\u00fccher gef\u00fchrt. Der Unterricht wird durch farbtheoretische Vortr\u00e4ge und Diskussionen begleitet und durch eine Exkursion erg\u00e4nzt. \r\n\r\nDie Teilnehmer*innenzahl ist auf 20 begrenzt.  \r\n\u00dcber die Teilnahme am Kurs entscheidet das pers\u00f6nliche Erscheinen am ersten Veranstaltungstag! \r\nEva Niemann "
+            },
+            "maxStudents": 0,
+            "credits": "6",
+            "workspace": ""
+          },
+          "included": [],
+          "request": {
+            "type": "GET",
+            "url": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/section\/1\/course\/38c5d9d7122e4ada974ce711e946b067\/course\/38c5d9d7122e4ada974ce711e946b067"
+          }
+        }]
+      }
+    },
+    "links": {
+      "self": "https:\/\/www.fh-potsdam.de\/course-api\/storage\/7087\/section\/1\/course\/38c5d9d7122e4ada974ce711e946b067\/"
+    }
+  }
