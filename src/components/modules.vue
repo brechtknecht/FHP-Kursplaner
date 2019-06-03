@@ -97,6 +97,8 @@ export default {
         position: fixed;
         height: 100vh;
         width: 0;
+        overflow-y: scroll;
+        max-height: calc(100vh - 4rem);
         padding: 2.5rem 1.5rem;
         z-index: 300;
         right: -100%;

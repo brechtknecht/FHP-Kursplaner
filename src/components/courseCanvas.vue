@@ -61,7 +61,8 @@
             description: course.attributes.descriptionText.value,
             time: course.attributes.time,
             room: course.attributes.room,
-            credits: course.attributes.credits
+            credits: course.attributes.credits,
+            colorCode: course.attributes.colorCode
           }"
           @CURRENT_COURSE_TRIGGERED="passTrigger"
           ></course>
