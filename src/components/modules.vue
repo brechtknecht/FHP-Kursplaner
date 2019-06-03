@@ -11,7 +11,7 @@
                     <div v-for="module in category.modules" 
                          class="module" 
                          :key="module.id" 
-                         :style="{background: module.colorCode}"
+                         :style="{ background: module.colorCode }"
                          @click="moduleFilterTriggered">
                         <h4>  {{ module.id }} </h4>
                         <span>{{ module.title }}</span>
