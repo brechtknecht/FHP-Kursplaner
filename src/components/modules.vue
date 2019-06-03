@@ -6,17 +6,26 @@
         <div class="modulesWrapper" v-bind:class="{ active: isActive }"> 
             <button @click="triggerModules">close</button>
             <div v-for="category in modulePlan.basicStudyPeriod" class="category" :key="category.title">
-                <h2>{{ category.title }}</h2>
+                <h1>{{ category.title }}</h1>
                 <div class="modules">
-                    <div v-for="module in category.modules" class="module" :key="module.id" :style="{background: module.colorCode}">
-                        <h4> {{ module.id }} </h4>
+                    <div v-for="module in category.modules" 
+                         class="module" 
+                         :key="module.id" 
+                         :style="{background: module.colorCode}"
+                         @click="moduleFilterTriggered">
+                        <h4>  {{ module.id }} </h4>
                         <span>{{ module.title }}</span>
                     </div>
+                    <!-- If the datastructure is deeper — go one layer deeper -->
                     <div v-if="!category.modules">
                         <div v-for="studyType in category" :key="studyType.title">
                             <h4>{{ studyType.title }}</h4>
                             <div class="modules">
-                                <div v-for="module in studyType.modules" class="module" :key="module.id" :style="{background: module.colorCode}">
+                                <div v-for="module in studyType.modules" 
+                                    class="module" 
+                                    :key="module.id" 
+                                    :style="{ background: module.colorCode }"
+                                    @click="moduleFilterTriggered">
                                     <h4> {{ module.id }} </h4>
                                     <span>{{ module.title }}</span>
                                 </div>
@@ -41,8 +50,11 @@ export default {
       'queries'
     ]),
     methods: {
-        triggerModules: function (e) {
+        triggerModules: function () {
             this.isActive = !this.isActive;
+        },
+        moduleFilterTriggered: function (event) {
+            console.log(this);
         } 
     }
     
@@ -56,21 +68,24 @@ export default {
         z-index: 200;
         right: 0;
         .btn {
-            width: 100px;
-            height: 100px;
+            width: 64px;
+            height: 64px;
             border: none;
             border-radius: 50%;
             background: $active;
             top: 45vh;
             right: 2rem;
+            outline: none;
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
                 &:before {
-                    content: 'Moldulplan öffnen';
+                    content: 'Moldulplan anzeigen';
+                    font-family: 'FHPSun-Bold';
                     color: $active;
                     position: relative;
-                    width: 200px;
+                    display: block;
+                    width: 100%;
                     left: -150%;
                     font-weight: 900;
                 }
@@ -100,15 +115,16 @@ export default {
     .modules {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 1.5rem;
+        grid-gap: 1rem;
     }
 
     .module {
-        width: 12rem;
+        width: 9rem;
+        height: 4rem;
+        cursor: pointer;
         padding: .75rem 1.5rem 2rem 1.5rem;
-        border: 1px solid $stroke;
         h4 {
-            margin: .75rem 0;
+            margin: .75rem 0 .5rem 0;
         }
         &:hover {
             background: red;

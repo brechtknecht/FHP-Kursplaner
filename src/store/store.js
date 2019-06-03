@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
-import { cpus } from 'os';
+import { cpus, setPriority } from 'os';
 
 Vue.use(Vuex)
 
@@ -17,6 +17,7 @@ export default new Vuex.Store({
         thursday: true,
         friday: true
       },
+      modules: [],
       sorting: {
         //...
       }
@@ -176,7 +177,6 @@ export default new Vuex.Store({
       } 
 
       
-
       // 2. Select all weekdays you need from the specification
       let monday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 1)]");
       let tuesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 2)]");
@@ -184,40 +184,59 @@ export default new Vuex.Store({
       let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
       let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
 
+      // 3. Sort all courses by daytime
+      monday = sortProperties(monday);
+      tuesday = sortProperties(tuesday);
+      wednesday = sortProperties(wednesday);
+      thursday = sortProperties(thursday);
+      friday = sortProperties(friday);
+    
+
+
       courses = {
         status: {
           ready: true
         },
-        days: {
-          monday: {
+        days: [
+          {
             string: "Montag",
             data: monday,
             key: "monday"
-          },
-          tuesday: {
+          }, {
             string: "Dienstag",
             data: tuesday,
             key: "tuesday",
-          },
-          wednesday: {
+          },{
             string: "Mittwoch",
             data: wednesday,
             key: "wednesday"
-          },
-          thursday: {
+          },{
             string: "Donnerstag",
             data: thursday,
             key: "thursday"
-          },
-          friday: {
+          }, {
             string: "Freitag",
             data: friday,
             key: "friday"
           }
-        }
+        ]
       }
+      
+
       state.courses = courses;
     }
   }
   
 })
+
+
+// Vuex helper functions
+
+function sortProperties(obj) {	
+  // sort items by value
+	obj.sort(function(a, b) {
+	  return a.attributes.time.fixture.begin.hour.value - b.attributes.time.fixture.begin.hour.value; // compare numbers
+  });
+  
+	return obj; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+}

@@ -33,7 +33,13 @@
       <span>22:00</span>
     </div>
     <div v-if="!courses.status" class="course-loader"></div>
-    <div class="overview" day="monday" v-for="courses in courses.days" :key="courses.key">
+    <div 
+      class="overview"
+      :day=courses.string
+      v-for="courses in courses.days"
+      :key="courses.key"
+      v-in-viewport>
+
       <div class="overview-head"> 
         <h1 class="regular">{{ courses.string }}</h1>
       </div>
@@ -52,7 +58,10 @@
               name:   course.attributes.module.name,
               category: course.attributes.module.category,
             },
-            description: course.attributes.descriptionText.value
+            description: course.attributes.descriptionText.value,
+            time: course.attributes.time,
+            room: course.attributes.room,
+            credits: course.attributes.credits
           }"
           @CURRENT_COURSE_TRIGGERED="passTrigger"
           ></course>
@@ -71,7 +80,7 @@
       Course
     },
     created () {
-      this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
+      this.$store.dispatch('loadCourses', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
     },
@@ -82,6 +91,9 @@
     methods: {
       passTrigger: function () {
         this.$emit('CURRENT_COURSE_TRIGGERED');
+      },
+      tastyTest: function () {
+        console.log('ficky');
       }
     }
   }

@@ -5,8 +5,8 @@
             <input type="checkbox">
         </div>
         <div class="course--info">
-            <h3> {{ this.$props.info.module.category }}  {{ this.$props.info.title }} </h3>
-            <h4> {{ this.$props.info.teacher }} {{ this.$props.info.module.id }}</h4>
+            <h3> {{ this.$props.info.title }} </h3>
+            <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.id }}</h4>
         </div>
     </div>
 </template>
@@ -59,7 +59,7 @@
         }
         height: 100%;
         width: 100%;
-        border-radius: 2rem;
+        border-radius: 4rem;
         background: $c-TH;
         display: flex;
         transition: $animation-default;

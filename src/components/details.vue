@@ -5,6 +5,14 @@
             <button class="btn" @click="triggerDetails" >close den affen</button>
             
             <h1> {{ currentCourse.title }} </h1>
+            <h4>Kursdetails</h4>
+            <ul>
+                <li>  {{ currentCourse.teacher }} </li>
+                <li>  {{ currentCourse.time.fixture.begin.String }} </li>
+                <li>  Raum: {{ currentCourse.room }} </li>
+                <li>  Credits: {{ currentCourse.credits }} </li>
+            </ul>
+            <h4>Kursbeschreibung</h4>
             <p> {{ currentCourse.description }}</p>
 
         </div>
@@ -22,7 +30,7 @@ export default {
         ])
     },
     methods: {
-        triggerDetails: function (e) {
+        triggerDetails: function () {
             this.$emit('CURRENT_COURSE_TRIGGERED');
         } 
     }

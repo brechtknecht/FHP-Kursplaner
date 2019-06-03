@@ -13,6 +13,7 @@
     "jsonpath": "^1.0.1",
     "searchjs": "^1.0.1",
     "vue": "^2.6.10",
+    "vue-in-viewport-directive": "^2.0.0",
     "vue-router": "^3.0.3",
     "vuex": "^3.1.1"
   },
