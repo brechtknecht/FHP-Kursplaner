@@ -159,7 +159,7 @@ export default new Vuex.Store({
           modules: [{
             id: "14W4D-IL",
             title: "Interface Labor",
-            colorCode: "#F87060"
+            colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 18px, #C6DEE2 18px, #C6DEE2 36px)"
           }, {
             id: "14W3D-TV",
             title: "Wurst",

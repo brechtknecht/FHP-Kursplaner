@@ -1,6 +1,6 @@
 <template>
     <!-- <div class="course" :style="{'grid-column' : column}"> -->
-      <div class="course" :style=courseStyle @click="setCurrentCourse">
+      <div class="course" :style="[soursePosition, courseBackground]" @click="setCurrentCourse">
         <div class="course--checkbox">
             <input type="checkbox">
         </div>
@@ -30,7 +30,7 @@
     },
     computed: {
       /* Calculates the Position of the Line in the Grid */ 
-      courseStyle () {
+      soursePosition () {
         let columnWidth = 150;
 
         let start = this.$props.position.start;
@@ -42,13 +42,19 @@
         let offsetStart = Math.floor(startPosition / columnWidth);
         let offsetEnd = Math.floor(endPosition / columnWidth);
 
-        let colorCode = this.$props.info.colorCode;
+        
 
         return {
           left: startPosition + offsetStart + 'px',
           width: (endPosition + offsetEnd) - (startPosition + offsetStart)  + 'px',
-          background: colorCode
         }
+      },
+      courseBackground () {
+          let colorCode = this.$props.info.colorCode;
+          console.log(colorCode);
+          return {
+            background: colorCode
+          }
       }
     },
     methods: {

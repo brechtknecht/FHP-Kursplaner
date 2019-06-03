@@ -2,7 +2,7 @@
     <div class="details-container">
         <div class="detailsWrapper" v-bind:class="{ active: isActive }"> 
             <div class="header" :style="componentStyle">
-                <button class="btn" @click="triggerDetails" >close den affen</button>
+                <button class="btn" @click="triggerDetails" >Schließen</button>
                  <label>
                       <input type="checkbox" name="zutat" value="sardellen">
                         merken
@@ -85,7 +85,7 @@ export default {
             );
 
             // Using the HSP value, determine whether the color is light or dark
-            if (hsp > 200) {
+            if (hsp > 170) {
 
                 return 'light';
             } 
@@ -126,10 +126,16 @@ export default {
     }
 
     .content {
-        padding-top: 3rem;
+        margin-top: 3rem;
         padding-bottom: 2rem;
+        overflow-y: scroll;
+        max-height: 35rem;
         h4 {
             font-weight: 700;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.5rem;
         }
     }
 
