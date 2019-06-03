@@ -168,7 +168,7 @@
     flex-direction: row;
     justify-content: space-around;
     margin-left: -24px;
-    position: fixed;
+    position: sticky;
     border-bottom: 1px solid $stroke;
     top: 0;
     padding: 24px 0 12px 0;

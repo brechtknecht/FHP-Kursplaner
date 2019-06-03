@@ -51,7 +51,7 @@ export default {
         height: 100vh;
         width: 0;
         padding: 2.5rem 1.5rem;
-        z-index: 100;
+        z-index: 200;
         max-height: 100vh;
         overflow: none;
         right: -70rem;
