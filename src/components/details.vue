@@ -1,6 +1,6 @@
 <template>
     <div class="details-container">
-        <div class="detailsWrapper" v-bind:class="{ active: isActive }"> 
+        <div class="detailsWrapper" v-bind:class="{ active: isActive }" :style="{'border-top': '2rem solid' + currentCourse.colorCode}"> 
             
             <button class="btn" @click="triggerDetails" >close den affen</button>
             
@@ -54,8 +54,8 @@ export default {
         z-index: 200;
         max-height: 100vh;
         overflow: none;
-        right: -70rem;
-        width: 60rem;
+        right: -40rem;
+        width: 30rem;
         text-align: left;
         background: $white;
         transition: $animation-default;

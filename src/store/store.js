@@ -29,27 +29,35 @@ export default new Vuex.Store({
       basicStudyPeriod: {
         elementares_gestalten: {
           title: "I/1 Gestaltungsgrundlagen",
-          modules: [{
-            id: "11EG-B",
-            title: "Basics",
-            colorCode: "#E7E8E9"
-          },{
-            id: "11EG-K",
-            title: "Kontext",
-            colorCode: "#E7E8E9"
-          },{
-            id: "11EG-P",
-            title: "Prozess",
-            colorCode: "#E7E8E9"
-          },{
-            id: "11At-Z",
+          elementares_gestalten: {
+            title: "Elementares Gestalten",
+            modules: [{
+              id: "11EG-B",
+              title: "Basics",
+              colorCode: "#E7E8E9"
+            },{
+              id: "11EG-K",
+              title: "Kontext",
+              colorCode: "#E7E8E9"
+            },{
+              id: "11EG-P",
+              title: "Prozess",
+              colorCode: "#E7E8E9"
+            }]
+          },
+          atelier: {
             title: "Atelier",
-            colorCode: "#E7E8E9"
-          },{
-            id: "11At-F",
-            title: "Atelier",
-            colorCode: "#E7E8E9"
-          }]
+            modules: [{
+              id: "11At-Z",
+              title: "Atelier",
+              colorCode: "#E7E8E9"
+            },{
+              id: "11At-F",
+              title: "Atelier",
+              colorCode: "#E7E8E9"
+            }]
+          }
+          
         },
         entwurfsgrundlagen: {
           title: "I/2 Entwurfsgrundlagen",
