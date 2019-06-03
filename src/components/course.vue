@@ -1,12 +1,12 @@
 <template>
     <!-- <div class="course" :style="{'grid-column' : column}"> -->
-      <div class="course" :style=coursePosition @click="setCurrentCourse">
+      <div class="course" :style="[soursePosition, courseBackground]" @click="setCurrentCourse">
         <div class="course--checkbox">
             <input type="checkbox">
         </div>
         <div class="course--info">
-            <h3> {{ this.$props.info.module.category }}  {{ this.$props.info.title }} </h3>
-            <h4> {{ this.$props.info.teacher }} {{ this.$props.info.module.id }}</h4>
+            <h3> {{ this.$props.info.title }} </h3>
+            <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.id }}</h4>
         </div>
     </div>
 </template>
@@ -18,11 +18,19 @@
     name: 'Course',
     props: {
         position: { row: String, start: Object, end: Object },
-        info:     { title: String, teacher: String, module: { id: String, name: String, category: String }}
+        info:     { 
+          title: String, 
+          teacher: String, 
+          module: { 
+            id: String, 
+            name: String, 
+            category: String 
+        },
+        colorCode: String}
     },
     computed: {
       /* Calculates the Position of the Line in the Grid */ 
-      coursePosition () {
+      soursePosition () {
         let columnWidth = 150;
 
         let start = this.$props.position.start;
@@ -34,10 +42,19 @@
         let offsetStart = Math.floor(startPosition / columnWidth);
         let offsetEnd = Math.floor(endPosition / columnWidth);
 
+        
+
         return {
           left: startPosition + offsetStart + 'px',
-          width: (endPosition + offsetEnd) - (startPosition + offsetStart)  + 'px'
+          width: (endPosition + offsetEnd) - (startPosition + offsetStart)  + 'px',
         }
+      },
+      courseBackground () {
+          let colorCode = this.$props.info.colorCode;
+          console.log(colorCode);
+          return {
+            background: colorCode
+          }
       }
     },
     methods: {
@@ -59,7 +76,7 @@
         }
         height: 100%;
         width: 100%;
-        border-radius: 2rem;
+        border-radius: 4rem;
         background: $c-TH;
         display: flex;
         transition: $animation-default;

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
-import { cpus } from 'os';
+import { cpus, setPriority } from 'os';
 
 Vue.use(Vuex)
 
@@ -17,6 +17,7 @@ export default new Vuex.Store({
         thursday: true,
         friday: true
       },
+      modules: [],
       sorting: {
         //...
       }
@@ -28,23 +29,35 @@ export default new Vuex.Store({
       basicStudyPeriod: {
         elementares_gestalten: {
           title: "I/1 Gestaltungsgrundlagen",
-          modules: [{
-            id: "11EG-B",
-            title: "Basics",
-            colorCode: "#E7E8E9"
-          },{
-            id: "11EG-KB",
-            title: "Kontext",
-            colorCode: "#E7E8E9"
-          },{
-            id: "11EG-P",
-            title: "Prozess",
-            colorCode: "#E7E8E9"
-          },{
-            id: "11-AT",
+          elementares_gestalten: {
+            title: "Elementares Gestalten",
+            modules: [{
+              id: "11EG-B",
+              title: "Basics",
+              colorCode: "#E7E8E9"
+            },{
+              id: "11EG-K",
+              title: "Kontext",
+              colorCode: "#E7E8E9"
+            },{
+              id: "11EG-P",
+              title: "Prozess",
+              colorCode: "#E7E8E9"
+            }]
+          },
+          atelier: {
             title: "Atelier",
-            colorCode: "#E7E8E9"
-          }]
+            modules: [{
+              id: "11At-Z",
+              title: "Atelier",
+              colorCode: "#E7E8E9"
+            },{
+              id: "11At-F",
+              title: "Atelier",
+              colorCode: "#E7E8E9"
+            }]
+          }
+          
         },
         entwurfsgrundlagen: {
           title: "I/2 Entwurfsgrundlagen",
@@ -54,37 +67,45 @@ export default new Vuex.Store({
               id: "12EId-MK",
               title: "Mensch + Kontext",
               colorCode: "#D8F0F4"
-            },{
-              id: "12EId-MP",
-              title: "Methoden + Prozesse",
+            }, {
+              id: "12FOId-VI",
+              title: "wurst",
               colorCode: "#D8F0F4"
-            },{
-              id: "12EId-FI",
-              title: "Form + Interaktion",
-              colorCode: "#D8F0F4"
-            },{
-              id: "12EId-AD",
-              title: "Algorithmen + Daten",
+            }, {
+              id: "12FOId-XD",
+              title: "wurst",
               colorCode: "#D8F0F4"
             }]
           },
           kommunikationsdesign: {
             title: "Kommunikationsdesign",
             modules: [{
-              id: "12EKd-SA",
+              id: "12FOKd-IL",
               title: "Schrift + Ausdruck",
               colorCode: "#EDF3DA"
-            },{
-              id: "12EKd-BW",
-              title: "Bild + Wirkung",
+            }, {
+              id: "12FOKd-TD",
+              title: "Wurst",
               colorCode: "#EDF3DA"
-            },{
-              id: "12EKd-FN",
-              title: "Formate + Narration",
+            }, {
+              id: "12FOKd-AD",
+              title: "Wurst",
               colorCode: "#EDF3DA"
-            },{
-              id: "12EKd-ZA",
-              title: "Zeichen + Ansprache",
+            }, {
+              id: "12FOKd-FG",
+              title: "Wurst",
+              colorCode: "#EDF3DA"
+            }, {
+              id: "12FOKd-MG",
+              title: "Wurst",
+              colorCode: "#EDF3DA"
+            }, {
+              id: "12FOKd-TY",
+              title: "Wurst",
+              colorCode: "#EDF3DA"
+            }, {
+              id: "12FOKd-CD",
+              title: "Wurst",
               colorCode: "#EDF3DA"
             }]
           },
@@ -94,17 +115,25 @@ export default new Vuex.Store({
               id: "12EPd-ST",
               title: "Material + Technik",
               colorCode: "#CFE4BC"
-            },{
-              id: "12EPd-FG",
-              title: "Form + Gestaltung",
+            }, {
+              id: "12FOPd-ID",
+              title: "Wurst",
               colorCode: "#CFE4BC"
-            },{
-              id: "12EPd-RK",
-              title: "Raum + Kontext",
+            }, {
+              id: "12FOPd-PU",
+              title: "Wurst",
               colorCode: "#CFE4BC"
-            },{
-              id: "12EPd-OI",
-              title: "Objekt + Intention",
+            }, {
+              id: "12FOPd-DP",
+              title: "Wurst",
+              colorCode: "#CFE4BC"
+            }, {
+              id: "12FOPd-PD",
+              title: "Wurst",
+              colorCode: "#CFE4BC"
+            }, {
+              id: "12FOId-PI",
+              title: "Wurst",
               colorCode: "#CFE4BC"
             }]
           }
@@ -123,6 +152,46 @@ export default new Vuex.Store({
             id: "13Th-DM",
             title: "Designmanagement und -recht",
             colorCode: "#E7E8E9"
+          }]
+        },
+        werkstatt: {
+          title: 'Werkstatt',
+          modules: [{
+            id: "14W4D-IL",
+            title: "Interface Labor",
+            colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 18px, #C6DEE2 18px, #C6DEE2 36px)"
+          }, {
+            id: "14W3D-TV",
+            title: "Wurst",
+            colorCode: "#F87060"
+          }, {
+            id: "14W2D-D",
+            title: "Wurst",
+            colorCode: "#F87060"
+          }, {
+            id: "14W2D-DP",
+            title: "Wurst",
+            colorCode: "#F87060"
+          }, {
+            id: "14W2D-WV",
+            title: "Wurst",
+            colorCode: "#F87060"
+          }, {
+            id: "14W3D-MW",
+            title: "Wurst",
+            colorCode: "#F87060"
+          }, {
+            id: "14W4D-AVtest",
+            title: "Wurst",
+            colorCode: "#F87060"
+          }]
+        },
+        projekte: {
+          title: 'Projektarbeiten',
+          modules: [{
+            id: "15PP-KF",
+            title: "Wurst",
+            colorCode: "#91C4F2"
           }]
         }
       }
@@ -176,7 +245,6 @@ export default new Vuex.Store({
       } 
 
       
-
       // 2. Select all weekdays you need from the specification
       let monday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 1)]");
       let tuesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 2)]");
@@ -184,40 +252,96 @@ export default new Vuex.Store({
       let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
       let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
 
+      // 3. Sort all courses by daytime
+      monday = sortProperties(monday);
+      tuesday = sortProperties(tuesday);
+      wednesday = sortProperties(wednesday);
+      thursday = sortProperties(thursday);
+      friday = sortProperties(friday);
+
       courses = {
         status: {
           ready: true
         },
-        days: {
-          monday: {
+        days: [
+          {
             string: "Montag",
             data: monday,
             key: "monday"
-          },
-          tuesday: {
+          }, {
             string: "Dienstag",
             data: tuesday,
             key: "tuesday",
-          },
-          wednesday: {
+          },{
             string: "Mittwoch",
             data: wednesday,
             key: "wednesday"
-          },
-          thursday: {
+          },{
             string: "Donnerstag",
             data: thursday,
             key: "thursday"
-          },
-          friday: {
+          }, {
             string: "Freitag",
             data: friday,
             key: "friday"
           }
-        }
+        ]
       }
+
+      // Parse Color Coding into the courses
+      courses.days.forEach(function(day) {
+        day.data.forEach(function(course, i) {
+          let result = getObjects(state.modulePlan, 'id', course.attributes.module.id);
+
+          if(typeof(result[0]) == 'undefined'){
+            return;
+          }
+
+          if (result[0].hasOwnProperty('colorCode')) {
+              let colorCode = result[0].colorCode;
+              day.data[i].attributes.colorCode = colorCode;
+          }
+        });
+      });
+
+      
+
+      
+
       state.courses = courses;
     }
   }
   
 })
+
+
+// Vuex helper functions
+
+function sortProperties(obj) {	
+  // sort items by value
+	obj.sort(function(a, b) {
+	  return a.attributes.time.fixture.begin.hour.value - b.attributes.time.fixture.begin.hour.value; // compare numbers
+  });
+  
+	return obj; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+}
+
+function getObjects(obj, key, val) {
+  var objects = [];
+  for (var i in obj) {
+      if (!obj.hasOwnProperty(i)) continue;
+      if (typeof obj[i] == 'object') {
+          objects = objects.concat(getObjects(obj[i], key, val));    
+      } else 
+      //if key matches and value matches or if key matches and value is not passed (eliminating the case where key matches but passed value does not)
+      if (i == key && obj[i] == val || i == key && val == '') { //
+          objects.push(obj);
+      } else if (obj[i] == val && key == ''){
+          //only add if the object is not already in the array
+          if (objects.lastIndexOf(obj) == -1){
+              objects.push(obj);
+          }
+      }
+  }
+  return objects;
+}

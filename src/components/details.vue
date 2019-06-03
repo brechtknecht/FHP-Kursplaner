@@ -1,12 +1,27 @@
 <template>
     <div class="details-container">
         <div class="detailsWrapper" v-bind:class="{ active: isActive }"> 
-            
-            <button class="btn" @click="triggerDetails" >close den affen</button>
-            
-            <h1> {{ currentCourse.title }} </h1>
-            <p> {{ currentCourse.description }}</p>
-
+            <div class="header" :style="componentStyle">
+                <button class="btn" @click="triggerDetails" >Schließen</button>
+                 <label>
+                      <input type="checkbox" name="zutat" value="sardellen">
+                        merken
+                </label>
+                <hr>
+                <h1> {{ currentCourse.title }} </h1>
+                <h5> {{ currentCourse.module.id }} KURSZUGEHÖRIGKEIT + TAGAME </h5>
+                <ul>
+                    <li>  {{ currentCourse.teacher }} </li>
+                    <li>  {{ currentCourse.time.fixture.begin.String }} </li>
+                    <li>  Raum: {{ currentCourse.room }} </li>
+                    <li>  Credits: {{ currentCourse.credits }} </li>
+                </ul>
+                <button class="btn workspace">Zum Workspace</button>
+            </div>
+            <div class="content">        
+                <h4>Kursbeschreibung</h4>
+                <p> {{ currentCourse.description }}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -17,14 +32,68 @@ export default {
         isActive () {
             return this.$attrs.isActive;
         },
+        componentStyle() {
+            let colorMode = this.lightOrDark(this.currentCourse.colorCode);
+            let color;
+    
+            colorMode == 'light' ? color = '#3D4043' : color = '#fff' 
+
+            console.log(colorMode);
+            return {
+                'background': this.currentCourse.colorCode,
+                'color': color
+            }
+        },
         ...mapState([
         'currentCourse'
         ])
     },
     methods: {
-        triggerDetails: function (e) {
+        triggerDetails: function () {
             this.$emit('CURRENT_COURSE_TRIGGERED');
-        } 
+        },
+        lightOrDark: function (color) {
+            // Variables for red, green, blue values
+            var r, g, b, hsp;
+            
+            // Check the format of the color, HEX or RGB?
+            if (color.match(/^rgb/)) {
+
+                // If HEX --> store the red, green, blue values in separate variables
+                color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+                
+                r = color[1];
+                g = color[2];
+                b = color[3];
+            } 
+            else {
+                
+                // If RGB --> Convert it to HEX: http://gist.github.com/983661
+                color = +("0x" + color.slice(1).replace( 
+                color.length < 5 && /./g, '$&$&'));
+
+                r = color >> 16;
+                g = color >> 8 & 255;
+                b = color & 255;
+            }
+            
+            // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+            hsp = Math.sqrt(
+            0.299 * (r * r) +
+            0.587 * (g * g) +
+            0.114 * (b * b)
+            );
+
+            // Using the HSP value, determine whether the color is light or dark
+            if (hsp > 170) {
+
+                return 'light';
+            } 
+            else {
+
+                return 'dark';
+            }
+        }
     }
     
 }
@@ -34,20 +103,52 @@ export default {
 
     .btn {
         width: 200px;
-        height: 20px;
+        height: 2rem;
         top: 200px;
+        background: $c-light-grey;
+        border: 2px solid $c-font;
+        border-radius: 3rem;
+        &.workspace {
+            position: absolute;
+            height: 4rem;
+            top: calc(100% - 2rem);
+        }
+    }
+
+    .header, .content {
+        padding: 0 1.5rem 0 1.5rem;
+    }
+
+    .header {
+        position: relative;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .content {
+        margin-top: 3rem;
+        padding-bottom: 2rem;
+        overflow-y: scroll;
+        max-height: 35rem;
+        h4 {
+            font-weight: 700;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
     }
 
     .detailsWrapper {
         position: fixed;
         height: 100vh;
         width: 0;
-        padding: 2.5rem 1.5rem;
-        z-index: 100;
+        padding: 0 0 2.5rem 0;
+        z-index: 200;
         max-height: 100vh;
         overflow: none;
-        right: -70rem;
-        width: 60rem;
+        right: -40rem;
+        width: 30rem;
         text-align: left;
         background: $white;
         transition: $animation-default;
