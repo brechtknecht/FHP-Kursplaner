@@ -154,7 +154,6 @@
   .number {
     width: 150px;
     z-index: 10;
-    border-top: 1px solid $stroke;
     border-left: 1px solid $stroke;
     outline-offset: -10px;
     span {
@@ -169,6 +168,12 @@
     flex-direction: row;
     justify-content: space-around;
     margin-left: -24px;
+    position: fixed;
+    border-bottom: 1px solid $stroke;
+    top: 0;
+    padding: 24px 0 12px 0;
+    background: #fff;
+    z-index: 200;
   }
 
   .overview {

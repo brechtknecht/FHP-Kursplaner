@@ -183,7 +183,7 @@ export default new Vuex.Store({
           modules: [{
             id: "15PP-KF",
             title: "Wurst",
-            colorCode: "#432234"
+            colorCode: "#91C4F2"
           }]
         }
       }
