@@ -3,11 +3,11 @@
         <h2>Lehrangebot</h2>
         <h4>Wochentage</h4>
         <ul>
-            <li class="listElement" :class="{ active: monday }" @click="scrollToDay">Montag</li>
-            <li class="listElement" :class="{ active: tuesday }" @click="scrollToDay">Dienstag</li>
-            <li class="listElement" :class="{ active: wednesday }" @click="scrollToDay">Mittwoch</li>
-            <li class="listElement" :class="{ active: thursday }" @click="scrollToDay">Donnerstag</li>
-            <li class="listElement" :class="{ active: friday }" @click="scrollToDay">Freitag</li>
+            <li class="listElement Montag" :class="{ active: monday }" @click="scrollToDay">Montag</li>
+            <li class="listElement Dienstag" :class="{ active: tuesday }" @click="scrollToDay">Dienstag</li>
+            <li class="listElement Mittwoch" :class="{ active: wednesday }" @click="scrollToDay">Mittwoch</li>
+            <li class="listElement Donnerstag" :class="{ active: thursday }" @click="scrollToDay">Donnerstag</li>
+            <li class="listElement Freitag" :class="{ active: friday }" @click="scrollToDay">Freitag</li>
         </ul>
         <input type="radio" id="mc" name="Vorgemerkte Kurse" value="selectedCourses">
         <label>Vorgemerkte Kurse</label>
@@ -69,8 +69,11 @@
             ])
         },
         methods: {
-            scrollToDay : function () {
-                console.log('todo scrolltoday');
+            scrollToDay : function (e) {
+                let ref = e.target.classList[1];
+                let element  = document.getElementsByClassName(ref).item(1);
+
+                element.scrollIntoView({block: "end", behavior: "smooth"});
             }
         }
     }

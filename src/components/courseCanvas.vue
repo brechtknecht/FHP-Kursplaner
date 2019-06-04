@@ -35,7 +35,7 @@
     </div>
     <div v-if="!courses.status" class="course-loader"></div>
     <div 
-      class="overview"
+      :class="'overview ' + courses.string"
       :day=courses.string
       v-for="courses in courses.days"
       :key="courses.key"
