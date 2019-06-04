@@ -231,7 +231,7 @@ export default new Vuex.Store({
     },
     async loadCourses ({ commit }) {
         await axios
-          .get('http://localhost:3000/courses')
+          .get('http://döner.jetzt:5000/courses')
           .then(r => r.data)
           .then((result) => {
             commit('STASH_LOADED_COURSES', result);
