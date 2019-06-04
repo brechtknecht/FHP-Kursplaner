@@ -1,0 +1,5 @@
+{
+    "name": "project-name",
+    "script": "npm",
+    "args": "serve"
+  }
