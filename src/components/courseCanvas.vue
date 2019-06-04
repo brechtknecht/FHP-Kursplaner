@@ -44,7 +44,7 @@
       <div class="overview-head"> 
         <h1 class="regular">{{ courses.string }}</h1>
       </div>
-      <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id" >
+      <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
         <course
           :position="{ 
             row: index,
@@ -63,7 +63,8 @@
             time: course.attributes.time,
             room: course.attributes.room,
             credits: course.attributes.credits,
-            colorCode: course.attributes.colorCode
+            colorCode: course.attributes.colorCode,
+            subtitle: course.attributes.subtitle
           }"
           @CURRENT_COURSE_TRIGGERED="passTrigger"
           ></course>
@@ -76,15 +77,23 @@
   import Course from '@/components/course.vue';
 
   import { mapState } from 'vuex'
+  import { log } from 'util';
 
   export default {
     components : {
       Course
     },
     created () {
+      window.addEventListener('scroll', () => {
+        this.scrollListener();
+      });
+    
       this.$store.dispatch('loadCourses', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
+    },
+    destroyed: function () {
+        window.removeEventListener('scroll', this.scrollListener);
     },
     computed: {
       currentTimePosition: function() {
@@ -112,6 +121,17 @@
       },
       tastyTest: function () {
         console.log('ficky');
+      },
+      scrollListener: function (e) {
+        let days = document.getElementsByClassName('overview');
+        let displayedDays = [];
+        for (var item of days) {
+          if(item.classList.contains('in-viewport')){
+            displayedDays.push(item.getAttribute('day'));
+          }
+        }
+
+        this.$store.commit('SET_ACTIVE_DAYS', displayedDays);
       }
     }
   }

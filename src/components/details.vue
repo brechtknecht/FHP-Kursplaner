@@ -9,7 +9,7 @@
                 </label>
                 <hr>
                 <h1> {{ currentCourse.title }} </h1>
-                <h5> {{ currentCourse.module.id }} KURSZUGEHÖRIGKEIT + TAGAME </h5>
+                <h4> {{ currentCourse.module.id }} — {{ currentCourse.subtitle }} </h4>
                 <ul>
                     <li>  {{ currentCourse.teacher }} </li>
                     <li>  {{ currentCourse.time.fixture.begin.String }} </li>
@@ -123,6 +123,9 @@ export default {
         position: relative;
         padding-top: 3rem;
         padding-bottom: 3rem;
+        ul > li {
+            line-height: 1.5rem;
+        }
     }
 
     .content {
