@@ -1,6 +1,7 @@
 <template>
   <div class="course-canvas">
     <div class="timeline">
+      <div class="time-indicator" :style="currentTimePosition"></div>
       <div class="number"></div>
       <div class="number"></div>
       <div class="number"></div>
@@ -85,10 +86,26 @@
         this.$store.commit('QUERY_COURSES');
       });
     },
-    computed: mapState([
-      'courses',
-      'queries'
-    ]),
+    computed: {
+      currentTimePosition: function() {
+          let date = new Date();
+          let hours = date.getHours();
+          let minutes = date.getMinutes();
+
+          let columnWidth = 150;
+
+          let startPosition = ((hours - 9) * columnWidth) + (minutes * (columnWidth / 60));
+          let offsetStart = Math.floor(startPosition / columnWidth);
+
+          return {
+            left: startPosition + offsetStart + 'px',
+          }
+      },
+      ...mapState([
+        'courses',
+        'queries'
+      ])
+    },
     methods: {
       passTrigger: function () {
         this.$emit('CURRENT_COURSE_TRIGGERED');
@@ -148,6 +165,23 @@
       width: 100px;
       height: 1px;
       background: $stroke;
+    }
+    .time-indicator {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        $stroke,
+        $stroke 50%,
+        $white 50%,
+        $white
+      );
+      background-size: 100% 20px;
+      z-index: 100;
     }
   }
 
