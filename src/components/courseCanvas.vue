@@ -1,6 +1,7 @@
 <template>
   <div class="course-canvas">
     <div class="timeline">
+      <div class="time-indicator" :style="currentTimePosition"></div>
       <div class="number"></div>
       <div class="number"></div>
       <div class="number"></div>
@@ -34,7 +35,7 @@
     </div>
     <div v-if="!courses.status" class="course-loader"></div>
     <div 
-      class="overview"
+      :class="'overview ' + courses.string"
       :day=courses.string
       v-for="courses in courses.days"
       :key="courses.key"
@@ -43,7 +44,7 @@
       <div class="overview-head"> 
         <h1 class="regular">{{ courses.string }}</h1>
       </div>
-      <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id" >
+      <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
         <course
           :position="{ 
             row: index,
@@ -62,7 +63,8 @@
             time: course.attributes.time,
             room: course.attributes.room,
             credits: course.attributes.credits,
-            colorCode: course.attributes.colorCode
+            colorCode: course.attributes.colorCode,
+            subtitle: course.attributes.subtitle
           }"
           @CURRENT_COURSE_TRIGGERED="passTrigger"
           ></course>
@@ -75,26 +77,61 @@
   import Course from '@/components/course.vue';
 
   import { mapState } from 'vuex'
+  import { log } from 'util';
 
   export default {
     components : {
       Course
     },
     created () {
+      window.addEventListener('scroll', () => {
+        this.scrollListener();
+      });
+    
       this.$store.dispatch('loadCourses', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
     },
-    computed: mapState([
-      'courses',
-      'queries'
-    ]),
+    destroyed: function () {
+        window.removeEventListener('scroll', this.scrollListener);
+    },
+    computed: {
+      currentTimePosition: function() {
+          let date = new Date();
+          let hours = date.getHours();
+          let minutes = date.getMinutes();
+
+          let columnWidth = 150;
+
+          let startPosition = ((hours - 9) * columnWidth) + (minutes * (columnWidth / 60));
+          let offsetStart = Math.floor(startPosition / columnWidth);
+
+          return {
+            left: startPosition + offsetStart + 'px',
+          }
+      },
+      ...mapState([
+        'courses',
+        'queries'
+      ])
+    },
     methods: {
       passTrigger: function () {
         this.$emit('CURRENT_COURSE_TRIGGERED');
       },
       tastyTest: function () {
         console.log('ficky');
+      },
+      scrollListener: function (e) {
+        let days = document.getElementsByClassName('overview');
+        let displayedDays = [];
+        for (var item of days) {
+          if(item.classList.contains('in-viewport')){
+            displayedDays.push(item.getAttribute('day'));
+          }
+        }
+
+        this.$store.commit('SET_ACTIVE_DAYS', displayedDays);
       }
     }
   }
@@ -148,6 +185,23 @@
       width: 100px;
       height: 1px;
       background: $stroke;
+    }
+    .time-indicator {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        $stroke,
+        $stroke 50%,
+        $white 50%,
+        $white
+      );
+      background-size: 100% 20px;
+      z-index: 100;
     }
   }
 

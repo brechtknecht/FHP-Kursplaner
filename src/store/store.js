@@ -34,15 +34,18 @@ export default new Vuex.Store({
             modules: [{
               id: "11EG-B",
               title: "Basics",
-              colorCode: "#E7E8E9"
+              colorCode: "#E7E8E9",
+              subtitle: "Grundlagenkurs"
             },{
               id: "11EG-K",
               title: "Kontext",
-              colorCode: "#E7E8E9"
+              colorCode: "#E7E8E9",
+              subtitle: "Grundlagenkurs"
             },{
               id: "11EG-P",
               title: "Prozess",
-              colorCode: "#E7E8E9"
+              colorCode: "#E7E8E9",
+              subtitle: "Grundlagenkurs"
             }]
           },
           atelier: {
@@ -50,7 +53,7 @@ export default new Vuex.Store({
             modules: [{
               id: "11At-Z",
               title: "Atelier",
-              colorCode: "#E7E8E9"
+              colorCode: "#E7E8E9",
             },{
               id: "11At-F",
               title: "Atelier",
@@ -66,15 +69,18 @@ export default new Vuex.Store({
             modules: [{
               id: "12EId-MK",
               title: "Mensch + Kontext",
-              colorCode: "#D8F0F4"
+              colorCode: "#D8F0F4",
+              subtitle: "Interfacedesign"
             }, {
               id: "12FOId-VI",
               title: "wurst",
-              colorCode: "#D8F0F4"
+              colorCode: "#D8F0F4",
+              subtitle: "Interfacedesign"
             }, {
               id: "12FOId-XD",
               title: "wurst",
-              colorCode: "#D8F0F4"
+              colorCode: "#D8F0F4",
+              subtitle: "Interfacedesign"
             }]
           },
           kommunikationsdesign: {
@@ -82,31 +88,38 @@ export default new Vuex.Store({
             modules: [{
               id: "12FOKd-IL",
               title: "Schrift + Ausdruck",
-              colorCode: "#EDF3DA"
+              colorCode: "#EDF3DA",
+              subtitle: "Kommunikationsdesign"
             }, {
               id: "12FOKd-TD",
               title: "Wurst",
-              colorCode: "#EDF3DA"
+              colorCode: "#EDF3DA",
+              subtitle: "Kommunikationsdesign"
             }, {
               id: "12FOKd-AD",
               title: "Wurst",
-              colorCode: "#EDF3DA"
+              colorCode: "#EDF3DA",
+              subtitle: "Kommunikationsdesign"
             }, {
               id: "12FOKd-FG",
               title: "Wurst",
-              colorCode: "#EDF3DA"
+              colorCode: "#EDF3DA",
+              subtitle: "Kommunikationsdesign"
             }, {
               id: "12FOKd-MG",
               title: "Wurst",
-              colorCode: "#EDF3DA"
+              colorCode: "#EDF3DA",
+              subtitle: "Kommunikationsdesign"
             }, {
               id: "12FOKd-TY",
               title: "Wurst",
-              colorCode: "#EDF3DA"
+              colorCode: "#EDF3DA",
+              subtitle: "Kommunikationsdesign"
             }, {
               id: "12FOKd-CD",
               title: "Wurst",
-              colorCode: "#EDF3DA"
+              colorCode: "#EDF3DA",
+              subtitle: "Kommunikationsdesign"
             }]
           },
           produktdesign: {
@@ -114,27 +127,33 @@ export default new Vuex.Store({
             modules: [{
               id: "12EPd-ST",
               title: "Material + Technik",
-              colorCode: "#CFE4BC"
+              colorCode: "#CFE4BC",
+              subtitle: "Produktdesign"
             }, {
               id: "12FOPd-ID",
               title: "Wurst",
-              colorCode: "#CFE4BC"
+              colorCode: "#CFE4BC",
+              subtitle: "Produktdesign"
             }, {
               id: "12FOPd-PU",
               title: "Wurst",
-              colorCode: "#CFE4BC"
+              colorCode: "#CFE4BC",
+              subtitle: "Produktdesign"
             }, {
               id: "12FOPd-DP",
               title: "Wurst",
-              colorCode: "#CFE4BC"
+              colorCode: "#CFE4BC",
+              subtitle: "Produktdesign"
             }, {
               id: "12FOPd-PD",
               title: "Wurst",
-              colorCode: "#CFE4BC"
+              colorCode: "#CFE4BC",
+              subtitle: "Produktdesign"
             }, {
               id: "12FOId-PI",
               title: "Wurst",
-              colorCode: "#CFE4BC"
+              colorCode: "#CFE4BC",
+              subtitle: "Produktdesign"
             }]
           }
         },
@@ -159,31 +178,32 @@ export default new Vuex.Store({
           modules: [{
             id: "14W4D-IL",
             title: "Interface Labor",
-            colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 18px, #C6DEE2 18px, #C6DEE2 36px)"
+            colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 18px, #C6DEE2 18px, #C6DEE2 36px)",
+            subtitle: "Interfacedesign — Werkstatt"
           }, {
             id: "14W3D-TV",
             title: "Wurst",
-            colorCode: "#F87060"
+            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
           }, {
             id: "14W2D-D",
             title: "Wurst",
-            colorCode: "#F87060"
+            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
           }, {
             id: "14W2D-DP",
             title: "Wurst",
-            colorCode: "#F87060"
+            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
           }, {
             id: "14W2D-WV",
             title: "Wurst",
-            colorCode: "#F87060"
+            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
           }, {
             id: "14W3D-MW",
             title: "Wurst",
-            colorCode: "#F87060"
+            colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 18px, #BFD3AE 18px, #BFD3AE 36px)",
           }, {
-            id: "14W4D-AVtest",
+            id: "14W4D-AV",
             title: "Wurst",
-            colorCode: "#F87060"
+            colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 18px, #BFD3AE 18px, #BFD3AE 36px)",
           }]
         },
         projekte: {
@@ -195,6 +215,9 @@ export default new Vuex.Store({
           }]
         }
       }
+    },
+    view: {
+      activeDays: Array
     }
   },
   actions: {
@@ -208,7 +231,7 @@ export default new Vuex.Store({
     },
     async loadCourses ({ commit }) {
         await axios
-          .get('http://localhost:3000/courses')
+          .get('http://döner.jetzt:5000/courses')
           .then(r => r.data)
           .then((result) => {
             commit('STASH_LOADED_COURSES', result);
@@ -228,6 +251,9 @@ export default new Vuex.Store({
     },
     SET_CURRENT_COURSE (state, payload) {
       state.currentCourse = payload;
+    },
+    SET_ACTIVE_DAYS (state, payload) {
+      state.view.activeDays = payload;
     },
     QUERY_COURSES (state) {
       let courses;
@@ -301,8 +327,16 @@ export default new Vuex.Store({
               let colorCode = result[0].colorCode;
               day.data[i].attributes.colorCode = colorCode;
           }
+
+          if (result[0].hasOwnProperty('colorCode')) {
+            let subtitle = result[0].subtitle;
+            day.data[i].attributes.subtitle = subtitle;
+          }
+          
         });
       });
+
+    
 
       
 

@@ -26,7 +26,9 @@
             name: String, 
             category: String 
         },
-        colorCode: String}
+        colorCode: String,
+        subtitle: String
+        }
     },
     computed: {
       /* Calculates the Position of the Line in the Grid */ 
@@ -51,7 +53,7 @@
       },
       courseBackground () {
           let colorCode = this.$props.info.colorCode;
-          console.log(colorCode);
+          
           return {
             background: colorCode
           }
