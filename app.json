@@ -1,0 +1,5 @@
+{
+    "name": "kursplaner",
+    "script": "npm",
+    "args": "serve"
+  }
