@@ -9,8 +9,6 @@
             <li class="listElement Donnerstag" :class="{ active: thursday }" @click="scrollToDay">Donnerstag</li>
             <li class="listElement Freitag" :class="{ active: friday }" @click="scrollToDay">Freitag</li>
         </ul>
-        <input type="radio" id="mc" name="Vorgemerkte Kurse" value="selectedCourses">
-        <label>Vorgemerkte Kurse</label>
         <hr>
         <h4>Anzeigen</h4>
         <div class="studySelection">       
@@ -25,6 +23,10 @@
                 <div class="selectionElement">
                     <input type="radio"  name="studyType" value="Master" v-model="studyType">
                     <label>Masterstudium</label>
+                </div>
+                <div class="selectionElement">
+                    <input type="radio"  name="studyType" value="selectedCourses" v-model="studyType">
+                    <label>Ausgewählte Kurse</label>
                 </div>
         </div>
         <hr>
@@ -87,6 +89,10 @@
         padding: 0;
     }
 
+    hr {
+        margin-top: 1.5rem;
+    }
+
     .sidebar {
         position: fixed;
         width: 15rem;
@@ -95,10 +101,14 @@
         z-index: 400;
         text-align: left;
         background: $c-light-grey;
+        h2, h4 {
+            margin-left: 1.5rem;
+        }
     }
 
     .selectionElement {
         display: flex;
+        margin: 0 0 .5rem 2rem;
         label {
             margin-left: .5rem;
         }

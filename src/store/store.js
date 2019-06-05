@@ -217,7 +217,7 @@ export default new Vuex.Store({
       }
     },
     view: {
-      activeDays: Array
+      activeDays: ['Montag']
     }
   },
   actions: {
