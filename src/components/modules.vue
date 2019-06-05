@@ -23,11 +23,12 @@
                             <div class="modules">
                                 <div v-for="module in studyType.modules" 
                                     class="module" 
+                                    :id="module.id"
                                     :key="module.id" 
                                     :style="{ background: module.colorCode }"
                                     @click="moduleFilterTriggered">
-                                    <h4> {{ module.id }} </h4>
-                                    <span>{{ module.title }}</span>
+                                    <h4 :id="module.id"> {{ module.id }} </h4>
+                                    <span :id="module.id">{{ module.title }}</span>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +40,12 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+
+import Module from '@/components/module.vue'
 export default {
+    components: {
+        Module
+    },
     data () {
         return {
             isActive: false
@@ -54,7 +60,9 @@ export default {
             this.isActive = !this.isActive;
         },
         moduleFilterTriggered: function (event) {
-            console.log(this);
+            console.log(document.getElementById(event.target.id));
+            this.$store.commit('SET_MODULE_QUERY', event.target.id);
+            this.$store.commit('QUERY_COURSES');
         } 
     }
     

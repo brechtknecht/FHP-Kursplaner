@@ -255,6 +255,18 @@ export default new Vuex.Store({
     SET_ACTIVE_DAYS (state, payload) {
       state.view.activeDays = payload;
     },
+    SET_MODULE_QUERY (state, payload) {
+      let query = state.queries.modules;
+      for (let i = 0; i < query.length; i++) {
+
+        if(query[i] == payload) {
+           state.queries.modules.splice(i);
+           return;
+        }
+      }
+
+      state.queries.modules.push(payload);
+    },
     QUERY_COURSES (state) {
       let courses;
       let queries = state.queries;
@@ -270,6 +282,21 @@ export default new Vuex.Store({
         courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("3"))]');
       } 
 
+      console.log(courses);
+
+      // Filter all courses based on the given module group attributes & if empty just pass all
+      let queriedCourses = [];
+      if (!state.queries.modules.length == 0) {
+        for (let moduleQuery of state.queries.modules) {
+          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]")[0]);
+        }
+
+        console.log(queriedCourses);
+        courses = queriedCourses;
+      }
+      
+      
+
       
       // 2. Select all weekdays you need from the specification
       let monday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 1)]");
@@ -277,6 +304,7 @@ export default new Vuex.Store({
       let wednesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 3)]");
       let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
       let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
+
 
       // 3. Sort all courses by daytime
       monday = sortProperties(monday);
