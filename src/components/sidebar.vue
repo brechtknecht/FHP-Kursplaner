@@ -108,10 +108,19 @@
         padding: 0.5rem 1rem;
         border-radius: 12px;
         margin: .5rem 0;
-        padding-left: 2.5rem;
         cursor: pointer;
+        transition: $animation-default;
+        &:before {
+            content: url('../assets/img/arrow.svg');
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            transition: $animation-default;
+            opacity: 0;
+        }
         &.active {
-            font-weight: 900;
+            font-weight: 800;
             background: #fff;
             padding-left: 0;
             &:before {
@@ -120,6 +129,7 @@
                 height: 1.5rem;
                 margin-left: 1rem;
                 margin-right: 1rem;
+                opacity: 1;
             }
         }
         li {
