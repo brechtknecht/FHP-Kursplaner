@@ -38,14 +38,13 @@ export default {
     
             colorMode == 'light' ? color = '#3D4043' : color = '#fff' 
 
-            console.log(colorMode);
             return {
                 'background': this.currentCourse.colorCode,
                 'color': color
             }
         },
         ...mapState([
-        'currentCourse'
+            'currentCourse'
         ])
     },
     methods: {
@@ -55,7 +54,7 @@ export default {
         lightOrDark: function (color) {
             // Variables for red, green, blue values
             var r, g, b, hsp;
-            
+
             // Check the format of the color, HEX or RGB?
             if (color.match(/^rgb/)) {
 

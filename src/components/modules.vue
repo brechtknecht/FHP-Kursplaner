@@ -9,7 +9,7 @@
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
                     <div v-for="module in category.modules" 
-                         class="module" 
+                         class="module active" 
                          :key="module.id" 
                          :style="{ background: module.colorCode }"
                          @click="moduleFilterTriggered">
@@ -25,7 +25,7 @@
                                     class="module" 
                                     :id="module.id"
                                     :key="module.id" 
-                                    :style="{ background: module.colorCode }"
+                                    :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
                                     @click="moduleFilterTriggered">
                                     <h4 :id="module.id"> {{ module.id }} </h4>
                                     <span :id="module.id">{{ module.title }}</span>
@@ -60,7 +60,7 @@ export default {
             this.isActive = !this.isActive;
         },
         moduleFilterTriggered: function (event) {
-            console.log(document.getElementById(event.target.id));
+            document.getElementById(event.target.id).classList.toggle('active');
             this.$store.commit('SET_MODULE_QUERY', event.target.id);
             this.$store.commit('QUERY_COURSES');
         } 
@@ -133,11 +133,14 @@ export default {
         height: 4rem;
         cursor: pointer;
         padding: .75rem 1.5rem 2rem 1.5rem;
+        &.active {
+            background: $white !important;
+        }
         h4 {
             margin: .75rem 0 .5rem 0;
         }
         &:hover {
-            background: red;
+            background: $white;
         }
     }
 </style>

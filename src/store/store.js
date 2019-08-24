@@ -275,20 +275,20 @@ export default new Vuex.Store({
       // Throw error, because the courseStash is not loaded yet
 
       if(queries.studyType == 'Grundstudium'){
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("1"))]');
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("1"))]');
       } else if (queries.studyType == 'Hauptstudium'){
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("2"))]');
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("2"))]');
       } else if (queries.studyType == 'Master') {
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("3"))]');
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("3"))]');
       } 
 
-      console.log(courses);
+      console.log('Kurse', courses);
 
       // Filter all courses based on the given module group attributes & if empty just pass all
       let queriedCourses = [];
       if (!state.queries.modules.length == 0) {
         for (let moduleQuery of state.queries.modules) {
-          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]")[0]);
+          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.name == '" + moduleQuery + "')]")[0]);
         }
 
         console.log(queriedCourses);
