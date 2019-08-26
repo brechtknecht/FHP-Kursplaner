@@ -1,6 +1,9 @@
 <template>
     <!-- <div class="course" :style="{'grid-column' : column}"> -->
-      <div class="course" :style="[soursePosition, courseBackground]" @click="setCurrentCourse">
+      <div class="course" 
+        :class="{ selected: isSelected }"
+        :style="[soursePosition, courseBackground]" 
+        @click="setCurrentCourse">
         <div class="course--checkbox">
             <input type="checkbox">
         </div>
@@ -18,7 +21,8 @@
     name: 'Course',
     props: {
         position: { row: String, start: Object, end: Object },
-        info:     { 
+        info:     {
+          _id: String,
           title: String, 
           teacher: String, 
           module: { 
@@ -57,6 +61,13 @@
           return {
             background: colorCode
           }
+      },
+      isSelected () {
+        if(this.$props.info._id == this.$store.state.currentCourse._id) {
+          console.log('Found Active Course 🔥');
+          return true;
+        }
+        return false
       }
     },
     methods: {
@@ -71,18 +82,29 @@
 <style lang="scss">
     @import '../assets/scss/main.scss';
 
+    .selected {
+        background: $active !important;
+        .course--info {
+          h3, h4 {
+            color: #fff !important;
+          }
+          
+        }
+    }
+
     .course {
       position: relative;
         &:hover {
-          box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.15);
+          border: 3px solid $active;
         }
         height: 100%;
         width: 100%;
         border-radius: 4rem;
         background: $c-TH;
         display: flex;
-        transition: $animation-default;
+        transition: $animation-fast;
         cursor: pointer;
+        border: 3px solid transparent;  
         .course--checkbox {
             display: flex;
             align-items: center;

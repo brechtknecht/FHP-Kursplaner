@@ -33,10 +33,9 @@ export default {
             return this.$attrs.isActive;
         },
         componentStyle() {
-            let colorMode = this.lightOrDark(this.currentCourse.colorCode);
-            let color;
-    
-            colorMode == 'light' ? color = '#3D4043' : color = '#fff' 
+            // Checks if a color is refered in the modules json in the store.js file
+            let colorMode = this.currentCourse.colorCode ? this.lightOrDark(this.currentCourse.colorCode) : 'light'
+            let color = colorMode == 'light' ? color = '#3D4043' : color = '#fff' 
 
             return {
                 'background': this.currentCourse.colorCode,

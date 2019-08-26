@@ -46,12 +46,14 @@
       </div>
       <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
         <course
+          :id ="course._id"
           :position="{ 
             row: index,
             start:    course.attributes.time.fixture.begin,
             end:      course.attributes.time.fixture.end,
           }" 
           :info="{
+            _id:      course._id,
             title:    course.attributes.title,
             teacher:  course.attributes.teacher,
             module: {
@@ -144,6 +146,7 @@
     position: relative;
     left: 20rem;
     top: 1.5rem;
+    max-width: 2200px;
   }
   
   .timeline,

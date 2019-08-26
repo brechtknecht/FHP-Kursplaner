@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
-import { cpus, setPriority } from 'os';
 
 Vue.use(Vuex)
 
