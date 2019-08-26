@@ -216,7 +216,8 @@ export default new Vuex.Store({
       }
     },
     view: {
-      activeDays: ['Montag']
+      activeDays: ['Montag'],
+      detailsSelected: Boolean
     }
   },
   actions: {
@@ -242,6 +243,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    VIEW_DETAILS_SELECTED (state, toggle) {
+      state.view.detailsSelected = toggle;
+    },
     STASH_LOADED_COURSES (state, courses) {
       state.coursesStash = courses;
     },

@@ -230,7 +230,7 @@
     top: 0;
     padding: 24px 0 12px 0;
     background: #fff;
-    z-index: 200;
+    z-index: 100;
   }
 
   .overview {

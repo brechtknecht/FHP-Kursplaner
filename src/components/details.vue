@@ -1,8 +1,8 @@
 <template>
-    <div class="details-container">
+    <div class="details-container"  v-bind:class="{ closingModal: isActive}" @click.self="triggerDetails">
         <div class="detailsWrapper" v-bind:class="{ active: isActive }"> 
             <div class="header" :style="componentStyle">
-                <button class="btn" @click="triggerDetails" >Schließen</button>
+                <button class="btn" @click="triggerDetails()" >Schließen</button>
                  <label>
                       <input type="checkbox" name="zutat" value="sardellen">
                         merken
@@ -47,7 +47,8 @@ export default {
         ])
     },
     methods: {
-        triggerDetails: function () {
+        triggerDetails: function (e) {
+            this.$store.commit('VIEW_DETAILS_SELECTED', false);
             this.$emit('CURRENT_COURSE_TRIGGERED');
         },
         lightOrDark: function (color) {
@@ -139,7 +140,15 @@ export default {
             line-height: 1.5rem;
         }
     }
-
+    .details-container {
+        &.closingModal {
+            position: fixed;
+            width: calc(100vw -  30rem);
+            left: 0;
+            height: 100vh;
+            z-index: 100;
+        }
+    }
     .detailsWrapper {
         position: fixed;
         height: 100vh;

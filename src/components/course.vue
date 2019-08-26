@@ -63,7 +63,7 @@
           }
       },
       isSelected () {
-        if(this.$props.info._id == this.$store.state.currentCourse._id) {
+        if(this.$props.info._id == this.$store.state.currentCourse._id && this.$store.state.view.detailsSelected) {
           console.log('Found Active Course 🔥');
           return true;
         }
@@ -73,6 +73,7 @@
     methods: {
         setCurrentCourse: function () {
           this.$store.commit('SET_CURRENT_COURSE', this.$props.info);
+          this.$store.commit('VIEW_DETAILS_SELECTED', true);
           this.$emit('CURRENT_COURSE_TRIGGERED');
         }
     }
