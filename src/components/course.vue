@@ -1,13 +1,19 @@
 <template>
   <!-- <div class="course" :style="{'grid-column' : column}"> -->
-  <div class="course" :class="{ selected: isSelected,
-                  remembered: isRemembered }" :style="[soursePosition, courseBackground]" @click="setCurrentCourse">
+  <div  class="course"
+        :class="{ 
+          selected: isSelected,
+          remembered: isRemembered,
+          conflict: hasConflict
+        }" 
+        :style="[soursePosition, courseBackground]" 
+        @click="setCurrentCourse">
     <div class="course--checkbox">
       <input type="checkbox">
     </div>
     <div class="course--info">
       <h3> {{ this.$props.info.title }} </h3>
-      <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.id }}</h4>
+      <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.name }}</h4>
     </div>
   </div>
 </template>
@@ -77,11 +83,35 @@
         let rememberedCoursesRef = this.$store.state.user.rememberedCourses;
         let id = this.$props.info._id;
 
+        // Disable colorCoding on selected Courses Screen
+        if(this.$store.state.queries.studyType == "selectedCourses") {
+          return false;
+        }
+
         if (rememberedCoursesRef.includes(id)) {
           return true;
         }
 
         return false;
+      },
+      hasConflict () {
+        if(this.$store.state.queries.studyType == "selectedCourses"){
+          let days = this.$store.state.courses.days;
+
+          for(var i = 0; i < days.length; i++){
+            if(days[i].data.length > 1) {
+              console.log('i', i, 'day', this.$props.position.start.day.value);
+              if(this.$props.position.start.day.value - 1 == i) {
+                console.log('Potential Conflict @index: ' + i +' ⚠️ detected');
+                return true;
+              }
+            }
+          }
+
+        } else {
+          return false;
+        }
+
       }
     },
     methods: {
@@ -89,7 +119,7 @@
         this.$store.commit('SET_CURRENT_COURSE', this.$props.info);
         this.$store.commit('VIEW_DETAILS_SELECTED', true);
         this.$emit('CURRENT_COURSE_TRIGGERED');
-      }
+      },
     }
   }
 </script>
@@ -99,6 +129,18 @@
 
   .selected {
     border: 3px solid $active !important;
+  }
+
+  .conflict {
+    border: 3px solid $warn !important;
+    &:before {
+      position: absolute;
+      font-size: 0.8rem;
+      font-family: 'FHPSun-Regular';
+      top: -1.5rem;
+      color: $warn;
+      content: 'Achtung— dieser Kurs findet zeitgleich mit einem anderen Kus statt.'
+    }
   }
 
   .remembered {

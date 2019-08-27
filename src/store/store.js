@@ -86,6 +86,7 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE (state, payload) {
       state.queries.studyType = payload;
+      this.commit('SET_ACTIVE_DAYS');
     },
     SET_CURRENT_COURSE (state, payload) {
       state.currentCourse = payload;

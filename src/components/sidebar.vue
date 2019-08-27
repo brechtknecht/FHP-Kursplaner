@@ -92,12 +92,14 @@
                 get() {
                     return 'todo'
                 },
-                set () {
+                set() {
                     return 'todo'
                 }
             },
-            activeDays: function () {
-                return Object.values(this.view.activeDays);
+            activeDays: {
+                get() {
+                    return Object.values(this.$store.state.view.activeDays);
+                }
             },
             monday: function () {
                 for (let day of this.activeDays) {
@@ -137,7 +139,7 @@
 
             numberOfCoursesSelected: function () {
                 let count = this.$store.state.user.rememberedCourses.length;
-                return  (count > 0) ?  count : ''
+                return (count > 0) ? count : ''
             },
 
             ...mapState([
