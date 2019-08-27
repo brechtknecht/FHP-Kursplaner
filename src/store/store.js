@@ -101,11 +101,20 @@ export default new Vuex.Store({
       state.queries.modules.push(payload);
     },
     QUERY_COURSES (state) {
-      let courses;
+      let courses = [];
       let queries = state.queries;
       let result = state.coursesStash;
 
       // Throw error, because the courseStash is not loaded yet
+
+      if(queries.studyType == 'selectedCourses') {
+        // Iterate over states
+        state.user.rememberedCourses.forEach(function (courseID) {
+          let query = '$..courses[?(@._id == "' + courseID + '")]';
+          courses.push(jsonPath.query(result, query)[0]);
+        }); 
+
+      }
 
       if(queries.studyType == 'Grundstudium'){
         courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("1"))]');
@@ -146,9 +155,17 @@ export default new Vuex.Store({
       thursday = sortProperties(thursday);
       friday = sortProperties(friday);
 
+      let isEmpty;
+      if(!monday.length && !tuesday.length && !wednesday.length && !thursday.length && !friday.length) {
+        isEmpty = true;
+      } else {
+        isEmpty = false;
+      }
+
       courses = {
         status: {
-          ready: true
+          ready: true,
+          isEmpty: isEmpty
         },
         days: [
           {

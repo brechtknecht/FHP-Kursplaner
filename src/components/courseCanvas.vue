@@ -33,28 +33,23 @@
       <span>21:00</span>
       <span>22:00</span>
     </div>
-    <div v-if="!courses.status" class="course-loader"></div>
-    <div 
-      :class="'overview ' + courses.string"
-      :day=courses.string
-      v-for="courses in courses.days"
-      :key="courses.key"
-      v-in-viewport>
+    <div v-if="!courses" class="course-loader"></div>
+    <div v-if="courses.status.isEmpty" class="empty">lel alla is empty</div>
+    <div v-if="!courses.status.isEmpty" class="courses">
+      <div :class="'overview ' + courses.string" :day=courses.string v-for="courses in courses.days" :key="courses.key"
+        v-in-viewport>
 
-      <div class="overview-head"> 
-        <h1 class="regular">{{ courses.string }}</h1>
-      </div>
-      <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
-        <course
-          :id ="course._id"
-          :position="{ 
+        <div v-if="courses.data.length" class="overview-head">
+          <h1 class="regular">{{ courses.string }}</h1>
+        </div>
+        <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
+          <course :id="course._id" :position="{ 
             row: index,
             start:    course.attributes.time.fixture.begin,
             end:      course.attributes.time.fixture.end,
-          }" 
-          :info="{
+          }" :info="{
             _id:      course._id,
-            title:    course.attributes.title,
+            title:    course.attributes.title, 
             teacher:  course.attributes.teacher,
             module: {
               id:     course.attributes.module.id,
@@ -67,50 +62,53 @@
             credits: course.attributes.credits,
             colorCode: course.attributes.colorCode,
             subtitle: course.attributes.subtitle
-          }"
-          @CURRENT_COURSE_TRIGGERED="passTrigger"
-          ></course>
+          }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
   import Course from '@/components/course.vue';
 
-  import { mapState } from 'vuex'
-  import { log } from 'util';
+  import {
+    mapState
+  } from 'vuex'
+  import {
+    log
+  } from 'util';
 
   export default {
-    components : {
+    components: {
       Course
     },
-    created () {
+    created() {
       window.addEventListener('scroll', () => {
         this.scrollListener();
       });
-    
+
       this.$store.dispatch('loadCourses', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
     },
     destroyed: function () {
-        window.removeEventListener('scroll', this.scrollListener);
+      window.removeEventListener('scroll', this.scrollListener);
     },
     computed: {
-      currentTimePosition: function() {
-          let date = new Date();
-          let hours = date.getHours();
-          let minutes = date.getMinutes();
+      currentTimePosition: function () {
+        let date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
 
-          let columnWidth = 150;
+        let columnWidth = 150;
 
-          let startPosition = ((hours - 9) * columnWidth) + (minutes * (columnWidth / 60));
-          let offsetStart = Math.floor(startPosition / columnWidth);
+        let startPosition = ((hours - 9) * columnWidth) + (minutes * (columnWidth / 60));
+        let offsetStart = Math.floor(startPosition / columnWidth);
 
-          return {
-            left: startPosition + offsetStart + 'px',
-          }
+        return {
+          left: startPosition + offsetStart + 'px',
+        }
       },
       ...mapState([
         'courses',
@@ -128,7 +126,7 @@
         let days = document.getElementsByClassName('overview');
         let displayedDays = [];
         for (var item of days) {
-          if(item.classList.contains('in-viewport')){
+          if (item.classList.contains('in-viewport')) {
             displayedDays.push(item.getAttribute('day'));
           }
         }
@@ -148,7 +146,7 @@
     top: 1.5rem;
     max-width: 2200px;
   }
-  
+
   .timeline,
   .overview,
   .numbers {
@@ -157,6 +155,7 @@
     margin: 0 3.5rem;
     width: 2100px;
     max-width: 2100px;
+
     .overview-head {
       position: absolute;
       top: 1.5rem;
@@ -179,6 +178,7 @@
     padding: 2rem 0 .75rem 0;
     border-bottom: 1px solid $stroke;
     text-align: center;
+
     &:before {
       content: '';
       display: block;
@@ -189,6 +189,7 @@
       height: 1px;
       background: $stroke;
     }
+
     .time-indicator {
       display: block;
       position: absolute;
@@ -196,13 +197,11 @@
       left: 2rem;
       width: 1px;
       height: 100%;
-      background: linear-gradient(
-        to bottom,
-        $stroke,
-        $stroke 50%,
-        $white 50%,
-        $white
-      );
+      background: linear-gradient(to bottom,
+          $stroke,
+          $stroke 50%,
+          $white 50%,
+          $white);
       background-size: 100% 20px;
       z-index: 100;
     }
@@ -213,6 +212,7 @@
     z-index: 10;
     border-left: 1px solid $stroke;
     outline-offset: -10px;
+
     span {
       position: relative;
       top: -2rem;
@@ -243,7 +243,7 @@
     margin-top: 1.5rem;
   }
 
-  .overview{
+  .overview {
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -261,6 +261,7 @@
     margin-top: 5rem;
     margin-left: 5rem;
     background: $c-light-grey;
+
     &::after {
       content: '';
       position: absolute;
@@ -270,7 +271,7 @@
       right: 0;
       width: 5rem;
       height: 7rem;
-      background: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 50%, rgba(255,255,255, 0));
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0));
       transform: translate(0, 50%);
       animation: sheen 750ms ease-in-out infinite;
     }
@@ -278,7 +279,7 @@
 
   @keyframes sheen {
     100% {
-      transform:  translate(70vw, 50%);
+      transform: translate(70vw, 50%);
     }
   }
 </style>
