@@ -2,11 +2,7 @@
     <div class="details-container"  v-bind:class="{ closingModal: isActive}" @click.self="triggerDetails">
         <div class="detailsWrapper" v-bind:class="{ active: isActive }"> 
             <div class="header" :style="componentStyle">
-                <button class="btn" @click="triggerDetails()" >Schließen</button>
-                 <label>
-                      <input type="checkbox" name="zutat" value="sardellen">
-                        merken
-                </label>
+                <button class="btn" @click="triggerDetails()">Schließen</button>
                 <hr>
                 <h1> {{ currentCourse.title }} </h1>
                 <h4> {{ currentCourse.module.id }} — {{ currentCourse.subtitle }} </h4>
@@ -16,7 +12,10 @@
                     <li>  Raum: {{ currentCourse.room }} </li>
                     <li>  Credits: {{ currentCourse.credits }} </li>
                 </ul>
-                <button class="btn workspace">Zum Workspace</button>
+                <button class="btn btn-primary remember" 
+                    :class="{ selected : currentCourse.isSelected }"
+                    @click="rememberCourse()">Merken</button>
+                <button class="btn btn-secondary workspace">Zum Workspace</button>
             </div>
             <div class="content">        
                 <h4>Kursbeschreibung</h4>
@@ -47,6 +46,9 @@ export default {
         ])
     },
     methods: {
+        rememberCourse: function() {
+            this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$store.state.currentCourse);
+        },
         triggerDetails: function (e) {
             this.$store.commit('VIEW_DETAILS_SELECTED', false);
             this.$emit('CURRENT_COURSE_TRIGGERED');
@@ -105,11 +107,27 @@ export default {
         height: 2rem;
         top: 200px;
         background: $c-light-grey;
-        border: 2px solid $c-font;
+        margin-right: 1rem;
+        border: 1.5px solid $c-font;
         border-radius: 3rem;
+        &.selected {
+            background: $active;
+            border: transparent;
+            color: #fff;
+        }
+        &.btn-primary {
+            border: 2px solid $active;
+            color: $active;
+        }
+        &.remember {
+            position: relative;
+            height: 3rem;
+            top: calc(100% - 2rem);
+            left: 0;
+        }
         &.workspace {
-            position: absolute;
-            height: 4rem;
+            position: relative;
+            height: 3rem;
             top: calc(100% - 2rem);
         }
     }
