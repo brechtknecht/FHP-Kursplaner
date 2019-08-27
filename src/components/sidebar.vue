@@ -1,6 +1,57 @@
 <template>
     <div class="sidebar">
         <h2>Lehrangebot</h2>
+        <h4>Studienordnung</h4>
+        <div class="examOrder">
+            <label class="container selectionElement">
+                <input type="radio" checked="checked" name="examOrder" value="PO:2010" v-model="examOrder">
+                <div class="checkmark">
+                    <span>2010—2013</span>
+                </div>
+            </label>
+            <label class="container selectionElement">
+                <input type="radio" checked="checked" name="examOrder" value="PO:2014" v-model="examOrder">
+                <div class="checkmark">
+                    <span>2014—2018</span>
+                </div>
+            </label>
+            <label class="container selectionElement">
+                <input type="radio" checked="checked" name="examOrder" value="PO:2019" v-model="examOrder">
+                <div class="checkmark">
+                    <span>ab 2019</span>
+                </div>
+            </label>
+        </div>
+        <hr>
+        <h4>Anzeigen</h4>
+        <div class="studySelection">
+            <label class="container selectionElement">
+                <input type="radio" checked="checked" name="studyType" value="Grundstudium" v-model="studyType">
+                <div class="checkmark">
+                    <span>Grundstudium</span>
+                </div>
+            </label>
+            <label class="container selectionElement">
+                <input type="radio" checked="checked" name="studyType" value="Hauptstudium" v-model="studyType">
+                <div class="checkmark">
+                    <span>Hauptstudium</span>
+                </div>
+            </label>
+            <label class="container selectionElement">
+                <input type="radio" checked="checked" name="studyType" value="Master" v-model="studyType">
+                <div class="checkmark">
+                    <span>Master</span>
+                </div>
+            </label>
+            <label class="container selectionElement">
+                <input type="radio" checked="checked" name="studyType" value="selectedCourses" v-model="studyType">
+                <div class="checkmark">
+                    <span>Ausgewählt</span>
+                    <span v-if="this.numberOfCoursesSelected" class="badge">{{ numberOfCoursesSelected }}</span>
+                </div>
+            </label>
+        </div>
+        <hr>
         <h4>Wochentage</h4>
         <ul>
             <li class="listElement Montag" :class="{ active: monday }" @click="scrollToDay">Montag</li>
@@ -9,71 +60,99 @@
             <li class="listElement Donnerstag" :class="{ active: thursday }" @click="scrollToDay">Donnerstag</li>
             <li class="listElement Freitag" :class="{ active: friday }" @click="scrollToDay">Freitag</li>
         </ul>
-        <input type="radio" id="mc" name="Vorgemerkte Kurse" value="selectedCourses">
-        <label>Vorgemerkte Kurse</label>
-        <hr>
-        <h4>Anzeigen</h4>
-        <div class="studySelection">       
-                <div class="selectionElement">
-                    <input type="radio" name="studyType"  value="Grundstudium" v-model="studyType" >
-                    <label>Grundstudium</label>
-                </div>
-                <div class="selectionElement">
-                    <input type="radio"  name="studyType" value="Hauptstudium" v-model="studyType">
-                    <label>Hauptstudium</label>
-                </div>
-                <div class="selectionElement">
-                    <input type="radio"  name="studyType" value="Master" v-model="studyType">
-                    <label>Masterstudium</label>
-                </div>
-        </div>
         <hr>
         <h4>Sortieren nach:</h4>
-        <div class="courseFilters">
-            <div class="selectionElement">
-                <input type="radio" id="mc" name="Kursnummer" value="courseId">
-                <label>Kursnummer</label>
-            </div>
-            <div class="selectionElement">
-                <input type="radio" id="mc" name="Kurszeit" value="courseTime">
-                <label>Kurszeit</label>
-            </div>
-        </div>
+        <ul class="courseFilters">
+            <li class="listElement Kursnummer" :class="{ active: true }" @click="0">Kursnummer</li>
+            <li class="listElement Zeit" :class="{ active: false }" @click="0">Zeit</li>
+        </ul>
     </div>
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    export default {    
+    import {
+        mapState
+    } from 'vuex'
+    import RadioButton from '@/components/base/radioButton.vue'
+    export default {
         name: 'Sidebar',
+        components: {
+            RadioButton
+        },
         computed: {
-            studyType : {
-                get () {
+            studyType: {
+                get() {
                     return this.$store.state.queries.studyType;
                 },
-                set (studyType) {
+                set(studyType) {
                     this.$store.dispatch('SWITCH_STUDY_TYPE', studyType);
+                }
+            },
+            examOrder: {
+                get() {
+                    return 'todo'
+                },
+                set () {
+                    return 'todo'
                 }
             },
             activeDays: function () {
                 return Object.values(this.view.activeDays);
             },
-            monday : function () { for (let day of this.activeDays) { if(day == "Montag") { return true; }}},
-            tuesday : function () { for (let day of this.activeDays) { if(day == "Dienstag") { return true; }}},
-            wednesday : function () { for (let day of this.activeDays) { if(day == "Mittwoch") { return true; }}},
-            thursday : function () { for (let day of this.activeDays) { if(day == "Donnerstag") { return true; }}},
-            friday : function () { for (let day of this.activeDays) { if(day == "Freitag") { return true; }}},
-            
+            monday: function () {
+                for (let day of this.activeDays) {
+                    if (day == "Montag") {
+                        return true;
+                    }
+                }
+            },
+            tuesday: function () {
+                for (let day of this.activeDays) {
+                    if (day == "Dienstag") {
+                        return true;
+                    }
+                }
+            },
+            wednesday: function () {
+                for (let day of this.activeDays) {
+                    if (day == "Mittwoch") {
+                        return true;
+                    }
+                }
+            },
+            thursday: function () {
+                for (let day of this.activeDays) {
+                    if (day == "Donnerstag") {
+                        return true;
+                    }
+                }
+            },
+            friday: function () {
+                for (let day of this.activeDays) {
+                    if (day == "Freitag") {
+                        return true;
+                    }
+                }
+            },
+
+            numberOfCoursesSelected: function () {
+                let count = this.$store.state.user.rememberedCourses.length;
+                return  (count > 0) ?  count : ''
+            },
+
             ...mapState([
                 'view'
             ])
         },
         methods: {
-            scrollToDay : function (e) {
+            scrollToDay: function (e) {
                 let ref = e.target.classList[1];
-                let element  = document.getElementsByClassName(ref).item(1);
+                let element = document.getElementsByClassName(ref).item(1);
 
-                element.scrollIntoView({block: "end", behavior: "smooth"});
+                element.scrollIntoView({
+                    block: "end",
+                    behavior: "smooth"
+                });
             }
         }
     }
@@ -87,6 +166,10 @@
         padding: 0;
     }
 
+    hr {
+        margin-top: 1.5rem;
+    }
+
     .sidebar {
         position: fixed;
         width: 15rem;
@@ -95,12 +178,23 @@
         z-index: 400;
         text-align: left;
         background: $c-light-grey;
+
+        h2,
+        h4 {
+            margin-left: 1.5rem;
+        }
     }
 
     .selectionElement {
         display: flex;
-        label {
-            margin-left: .5rem;
+        margin: 0 0 .5rem 1rem;
+        height: 2rem;
+
+        span {
+            margin-left: 2.5rem;
+            vertical-align: super;
+            font-size: 1rem;
+            line-height: 1rem;
         }
     }
 
@@ -108,23 +202,107 @@
         padding: 0.5rem 1rem;
         border-radius: 12px;
         margin: .5rem 0;
-        padding-left: 2.5rem;
         cursor: pointer;
+        transition: $animation-default;
+
+        &:before {
+            position: relative;
+            top: -2px;
+            content: url('../assets/img/arrow.svg');
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            transition: $animation-default;
+            opacity: 0;
+        }
+
         &.active {
-            font-weight: 900;
+            font-weight: 800;
+            color: $active;
             background: #fff;
             padding-left: 0;
+
             &:before {
                 content: url('../assets/img/arrow.svg');
                 width: 1.5rem;
                 height: 1.5rem;
                 margin-left: 1rem;
                 margin-right: 1rem;
+                opacity: 1;
             }
         }
+
         li {
             list-style-type: none;
         }
+
+
+
+        /* Customize the label (the container) */
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default radio button */
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom radio button */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .container input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .container .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
     }
 </style>
-

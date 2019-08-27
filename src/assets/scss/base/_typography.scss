@@ -79,7 +79,7 @@ span {
     letter-spacing: 0.03rem;
 }
 
-input, label, li {
+input, label, li, span {
     font-family: 'FHPSun-Regular'
 }
 
@@ -87,6 +87,21 @@ span,
 span.regular,
 span.caption {
     font-family: 'FHPSun-Regular';
+}
+
+span.badge {
+    background: $active;
+    padding: 0.1rem 0.5rem 0.3rem 0.5rem;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 700;
+    color: #fff;
+}
+
+button {
+    font-family: 'FHPSun-Regular';
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
 span.bold {

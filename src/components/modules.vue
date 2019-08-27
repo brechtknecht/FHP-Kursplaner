@@ -9,7 +9,7 @@
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
                     <div v-for="module in category.modules" 
-                         class="module" 
+                         class="module active" 
                          :key="module.id" 
                          :style="{ background: module.colorCode }"
                          @click="moduleFilterTriggered">
@@ -23,11 +23,12 @@
                             <div class="modules">
                                 <div v-for="module in studyType.modules" 
                                     class="module" 
+                                    :id="module.id"
                                     :key="module.id" 
-                                    :style="{ background: module.colorCode }"
+                                    :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
                                     @click="moduleFilterTriggered">
-                                    <h4> {{ module.id }} </h4>
-                                    <span>{{ module.title }}</span>
+                                    <h4 :id="module.id"> {{ module.id }} </h4>
+                                    <span :id="module.id">{{ module.title }}</span>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +40,12 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+
+import Module from '@/components/module.vue'
 export default {
+    components: {
+        Module
+    },
     data () {
         return {
             isActive: false
@@ -54,7 +60,9 @@ export default {
             this.isActive = !this.isActive;
         },
         moduleFilterTriggered: function (event) {
-            console.log(this);
+            document.getElementById(event.target.id).classList.toggle('active');
+            this.$store.commit('SET_MODULE_QUERY', event.target.id);
+            this.$store.commit('QUERY_COURSES');
         } 
     }
     
@@ -125,11 +133,14 @@ export default {
         height: 4rem;
         cursor: pointer;
         padding: .75rem 1.5rem 2rem 1.5rem;
+        &.active {
+            background: $white !important;
+        }
         h4 {
             margin: .75rem 0 .5rem 0;
         }
         &:hover {
-            background: red;
+            background: $white;
         }
     }
 </style>

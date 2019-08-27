@@ -2,9 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
-import { cpus, setPriority } from 'os';
+
+import modulePlan from './metadata/modulePlan'
 
 Vue.use(Vuex)
+
+
 
 export default new Vuex.Store({
   state: {
@@ -22,202 +25,21 @@ export default new Vuex.Store({
         //...
       }
     },
-    courses: [],
-    coursesStash: [],
-    currentCourse: Object,
-    modulePlan: {
-      basicStudyPeriod: {
-        elementares_gestalten: {
-          title: "I/1 Gestaltungsgrundlagen",
-          elementares_gestalten: {
-            title: "Elementares Gestalten",
-            modules: [{
-              id: "11EG-B",
-              title: "Basics",
-              colorCode: "#E7E8E9",
-              subtitle: "Grundlagenkurs"
-            },{
-              id: "11EG-K",
-              title: "Kontext",
-              colorCode: "#E7E8E9",
-              subtitle: "Grundlagenkurs"
-            },{
-              id: "11EG-P",
-              title: "Prozess",
-              colorCode: "#E7E8E9",
-              subtitle: "Grundlagenkurs"
-            }]
-          },
-          atelier: {
-            title: "Atelier",
-            modules: [{
-              id: "11At-Z",
-              title: "Atelier",
-              colorCode: "#E7E8E9",
-            },{
-              id: "11At-F",
-              title: "Atelier",
-              colorCode: "#E7E8E9"
-            }]
-          }
-          
-        },
-        entwurfsgrundlagen: {
-          title: "I/2 Entwurfsgrundlagen",
-          interfacedesign: {
-            title: "Interfacedesign",
-            modules: [{
-              id: "12EId-MK",
-              title: "Mensch + Kontext",
-              colorCode: "#D8F0F4",
-              subtitle: "Interfacedesign"
-            }, {
-              id: "12FOId-VI",
-              title: "wurst",
-              colorCode: "#D8F0F4",
-              subtitle: "Interfacedesign"
-            }, {
-              id: "12FOId-XD",
-              title: "wurst",
-              colorCode: "#D8F0F4",
-              subtitle: "Interfacedesign"
-            }]
-          },
-          kommunikationsdesign: {
-            title: "Kommunikationsdesign",
-            modules: [{
-              id: "12FOKd-IL",
-              title: "Schrift + Ausdruck",
-              colorCode: "#EDF3DA",
-              subtitle: "Kommunikationsdesign"
-            }, {
-              id: "12FOKd-TD",
-              title: "Wurst",
-              colorCode: "#EDF3DA",
-              subtitle: "Kommunikationsdesign"
-            }, {
-              id: "12FOKd-AD",
-              title: "Wurst",
-              colorCode: "#EDF3DA",
-              subtitle: "Kommunikationsdesign"
-            }, {
-              id: "12FOKd-FG",
-              title: "Wurst",
-              colorCode: "#EDF3DA",
-              subtitle: "Kommunikationsdesign"
-            }, {
-              id: "12FOKd-MG",
-              title: "Wurst",
-              colorCode: "#EDF3DA",
-              subtitle: "Kommunikationsdesign"
-            }, {
-              id: "12FOKd-TY",
-              title: "Wurst",
-              colorCode: "#EDF3DA",
-              subtitle: "Kommunikationsdesign"
-            }, {
-              id: "12FOKd-CD",
-              title: "Wurst",
-              colorCode: "#EDF3DA",
-              subtitle: "Kommunikationsdesign"
-            }]
-          },
-          produktdesign: {
-            title: "Produktdesign",
-            modules: [{
-              id: "12EPd-ST",
-              title: "Material + Technik",
-              colorCode: "#CFE4BC",
-              subtitle: "Produktdesign"
-            }, {
-              id: "12FOPd-ID",
-              title: "Wurst",
-              colorCode: "#CFE4BC",
-              subtitle: "Produktdesign"
-            }, {
-              id: "12FOPd-PU",
-              title: "Wurst",
-              colorCode: "#CFE4BC",
-              subtitle: "Produktdesign"
-            }, {
-              id: "12FOPd-DP",
-              title: "Wurst",
-              colorCode: "#CFE4BC",
-              subtitle: "Produktdesign"
-            }, {
-              id: "12FOPd-PD",
-              title: "Wurst",
-              colorCode: "#CFE4BC",
-              subtitle: "Produktdesign"
-            }, {
-              id: "12FOId-PI",
-              title: "Wurst",
-              colorCode: "#CFE4BC",
-              subtitle: "Produktdesign"
-            }]
-          }
-        },
-        theorie: {
-          title: "I/3 Theorie",
-          modules: [{
-            id: "13Th-DT",
-            title: "Design-/Medien-theorie",
-            colorCode: "#E7E8E9"
-          },{
-            id: "13Th-DG",
-            title: "Design-/Kultur-geschichte",
-            colorCode: "#E7E8E9"
-          },{
-            id: "13Th-DM",
-            title: "Designmanagement und -recht",
-            colorCode: "#E7E8E9"
-          }]
-        },
-        werkstatt: {
-          title: 'Werkstatt',
-          modules: [{
-            id: "14W4D-IL",
-            title: "Interface Labor",
-            colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 18px, #C6DEE2 18px, #C6DEE2 36px)",
-            subtitle: "Interfacedesign — Werkstatt"
-          }, {
-            id: "14W3D-TV",
-            title: "Wurst",
-            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
-          }, {
-            id: "14W2D-D",
-            title: "Wurst",
-            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
-          }, {
-            id: "14W2D-DP",
-            title: "Wurst",
-            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
-          }, {
-            id: "14W2D-WV",
-            title: "Wurst",
-            colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 18px, #DBE1C9 18px, #DBE1C9 36px)",
-          }, {
-            id: "14W3D-MW",
-            title: "Wurst",
-            colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 18px, #BFD3AE 18px, #BFD3AE 36px)",
-          }, {
-            id: "14W4D-AV",
-            title: "Wurst",
-            colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 18px, #BFD3AE 18px, #BFD3AE 36px)",
-          }]
-        },
-        projekte: {
-          title: 'Projektarbeiten',
-          modules: [{
-            id: "15PP-KF",
-            title: "Wurst",
-            colorCode: "#91C4F2"
-          }]
-        }
+    courses: {
+      days: [],
+      status: {
+        isEmpty: true
       }
     },
+    coursesStash: [],
+    currentCourse: Object,
+    modulePlan: modulePlan,
     view: {
-      activeDays: Array
+      activeDays: ['Montag'],
+      detailsSelected: Boolean
+    },
+    user: {
+      rememberedCourses: []
     }
   },
   actions: {
@@ -231,7 +53,7 @@ export default new Vuex.Store({
     },
     async loadCourses ({ commit }) {
         await axios
-          .get('http://döner.jetzt:5000/courses')
+          .get('http://localhost:3000/courses')
           .then(r => r.data)
           .then((result) => {
             commit('STASH_LOADED_COURSES', result);
@@ -243,6 +65,22 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    USER_ADD_REMEMBERED_COURSE (state, course) {
+      // Check if course already exist and delete it
+      let rememberedCoursesRef = state.user.rememberedCourses;
+      let id = course._id;
+      
+      if(rememberedCoursesRef.includes(id)){
+        rememberedCoursesRef.pop(id);
+        return;
+      }
+
+      // Add course reference to list
+      rememberedCoursesRef.push(course._id);
+    },
+    VIEW_DETAILS_SELECTED (state, toggle) {
+      state.view.detailsSelected = toggle;
+    },
     STASH_LOADED_COURSES (state, courses) {
       state.coursesStash = courses;
     },
@@ -253,22 +91,65 @@ export default new Vuex.Store({
       state.currentCourse = payload;
     },
     SET_ACTIVE_DAYS (state, payload) {
-      state.view.activeDays = payload;
+      let days = document.getElementsByClassName('overview');
+      let displayedDays = [];
+      for (var item of days) {
+        if (item.classList.contains('in-viewport')) {
+          displayedDays.push(item.getAttribute('day'));
+        }
+      }
+      state.view.activeDays = displayedDays;
+    },
+    SET_MODULE_QUERY (state, payload) {
+      let query = state.queries.modules;
+      for (let i = 0; i < query.length; i++) {
+
+        if(query[i] == payload) {
+           state.queries.modules.splice(i);
+           return;
+        }
+      }
+
+      state.queries.modules.push(payload);
     },
     QUERY_COURSES (state) {
-      let courses;
+      let courses = [];
       let queries = state.queries;
       let result = state.coursesStash;
 
       // Throw error, because the courseStash is not loaded yet
 
+      if(queries.studyType == 'selectedCourses') {
+        // Iterate over states
+        state.user.rememberedCourses.forEach(function (courseID) {
+          let query = '$..courses[?(@._id == "' + courseID + '")]';
+          courses.push(jsonPath.query(result, query)[0]);
+        }); 
+
+      }
+
       if(queries.studyType == 'Grundstudium'){
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("1"))]');
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("1"))]');
       } else if (queries.studyType == 'Hauptstudium'){
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("2"))]');
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("2"))]');
       } else if (queries.studyType == 'Master') {
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.id.startsWith("3"))]');
+        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("3"))]');
       } 
+
+      console.log('Kurse', courses);
+
+      // Filter all courses based on the given module group attributes & if empty just pass all
+      let queriedCourses = [];
+      if (!state.queries.modules.length == 0) {
+        for (let moduleQuery of state.queries.modules) {
+          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.name == '" + moduleQuery + "')]")[0]);
+        }
+
+        console.log(queriedCourses);
+        courses = queriedCourses;
+      }
+      
+      
 
       
       // 2. Select all weekdays you need from the specification
@@ -278,6 +159,7 @@ export default new Vuex.Store({
       let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
       let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
 
+
       // 3. Sort all courses by daytime
       monday = sortProperties(monday);
       tuesday = sortProperties(tuesday);
@@ -285,9 +167,17 @@ export default new Vuex.Store({
       thursday = sortProperties(thursday);
       friday = sortProperties(friday);
 
+      let isEmpty;
+      if(!monday.length && !tuesday.length && !wednesday.length && !thursday.length && !friday.length) {
+        isEmpty = true;
+      } else {
+        isEmpty = false;
+      }
+
       courses = {
         status: {
-          ready: true
+          ready: true,
+          isEmpty: isEmpty
         },
         days: [
           {
