@@ -7,11 +7,11 @@
           conflict: hasConflict
         }" 
         :style="[soursePosition, courseBackground]" 
-        @click="setCurrentCourse">
+        @click.self="setCurrentCourse">
     <div class="course--checkbox">
-      <input type="checkbox">
+      <Checkbox :id="this.$props.info._id" ></Checkbox>
     </div>
-    <div class="course--info">
+    <div class="course--info" @click="setCurrentCourse">
       <h3> {{ this.$props.info.title }} </h3>
       <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.name }}</h4>
     </div>
@@ -24,8 +24,13 @@
     mapMutations
   } from 'vuex'
 
+  import Checkbox from '@/components/base/checkbox'
+
   export default {
     name: 'Course',
+    components: {
+      Checkbox
+    },
     props: {
       position: {
         row: String,
@@ -119,7 +124,7 @@
         this.$store.commit('SET_CURRENT_COURSE', this.$props.info);
         this.$store.commit('VIEW_DETAILS_SELECTED', true);
         this.$emit('CURRENT_COURSE_TRIGGERED');
-      },
+      }
     }
   }
 </script>
@@ -132,6 +137,8 @@
   }
 
   .conflict {
+    top: 0.5rem;
+    bottom: 0.5rem;
     border: 3px solid $warn !important;
     &:before {
       position: absolute;
@@ -165,10 +172,10 @@
 
     height: 100%;
     width: 100%;
-    border-radius: 4rem;
+    border-radius: 1.5rem;
     background: $c-TH;
     display: flex;
-    transition: $animation-fast;
+    transition: background $animation-fast;
     cursor: pointer;
     border: 3px solid transparent;
 
@@ -210,6 +217,7 @@
     h4 {
       margin-top: .5rem;
       margin-bottom: 1.1rem;
+      line-height: 1.5rem;
     }
   }
 </style>

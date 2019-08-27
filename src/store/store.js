@@ -4,10 +4,9 @@ import axios from 'axios'
 import jsonPath from 'jsonpath'
 
 import modulePlan from './metadata/modulePlan'
+import viewController from './view'
 
 Vue.use(Vuex)
-
-
 
 export default new Vuex.Store({
   state: {
@@ -65,10 +64,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    USER_ADD_REMEMBERED_COURSE (state, course) {
+    USER_ADD_REMEMBERED_COURSE (state, id) {
       // Check if course already exist and delete it
       let rememberedCoursesRef = state.user.rememberedCourses;
-      let id = course._id;
       
       if(rememberedCoursesRef.includes(id)){
         rememberedCoursesRef.pop(id);
@@ -76,7 +74,7 @@ export default new Vuex.Store({
       }
 
       // Add course reference to list
-      rememberedCoursesRef.push(course._id);
+      rememberedCoursesRef.push(id);
     },
     VIEW_DETAILS_SELECTED (state, toggle) {
       state.view.detailsSelected = toggle;
