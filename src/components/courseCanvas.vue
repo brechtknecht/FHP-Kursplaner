@@ -123,15 +123,7 @@
         console.log('ficky');
       },
       scrollListener: function (e) {
-        let days = document.getElementsByClassName('overview');
-        let displayedDays = [];
-        for (var item of days) {
-          if (item.classList.contains('in-viewport')) {
-            displayedDays.push(item.getAttribute('day'));
-          }
-        }
-
-        this.$store.commit('SET_ACTIVE_DAYS', displayedDays);
+        this.$store.commit('SET_ACTIVE_DAYS');
       }
     }
   }

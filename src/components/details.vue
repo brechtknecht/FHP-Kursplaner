@@ -1,7 +1,8 @@
 <template>
     <div class="details-container" v-bind:class="{ closingModal: isActive}" @click.self="triggerDetails">
         <div class="detailsWrapper" v-bind:class="{ active: isActive }">
-            <div class="header" :style="componentStyle">
+            <div v-if="isActive">
+                <div class="header" :style="componentStyle">
                 <button class="btn" @click="triggerDetails()">Schließen</button>
                 <hr>
                 <h1> {{ currentCourse.title }} </h1>
@@ -20,6 +21,8 @@
                 <h4>Kursbeschreibung</h4>
                 <p> {{ currentCourse.description }}</p>
             </div>
+            </div>
+            
         </div>
     </div>
 </template>

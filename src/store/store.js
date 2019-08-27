@@ -25,7 +25,12 @@ export default new Vuex.Store({
         //...
       }
     },
-    courses: [],
+    courses: {
+      days: [],
+      status: {
+        isEmpty: true
+      }
+    },
     coursesStash: [],
     currentCourse: Object,
     modulePlan: modulePlan,
@@ -86,7 +91,14 @@ export default new Vuex.Store({
       state.currentCourse = payload;
     },
     SET_ACTIVE_DAYS (state, payload) {
-      state.view.activeDays = payload;
+      let days = document.getElementsByClassName('overview');
+      let displayedDays = [];
+      for (var item of days) {
+        if (item.classList.contains('in-viewport')) {
+          displayedDays.push(item.getAttribute('day'));
+        }
+      }
+      state.view.activeDays = displayedDays;
     },
     SET_MODULE_QUERY (state, payload) {
       let query = state.queries.modules;
