@@ -46,7 +46,8 @@
             <label class="container selectionElement">
                 <input type="radio" checked="checked" name="studyType" value="selectedCourses" v-model="studyType">
                 <div class="checkmark">
-                    <span>Ausgewählt {{ numberOfCoursesSelected }} </span>
+                    <span>Ausgewählt</span>
+                    <span v-if="this.numberOfCoursesSelected" class="badge">{{ numberOfCoursesSelected }}</span>
                 </div>
             </label>
         </div>
@@ -136,7 +137,7 @@
 
             numberOfCoursesSelected: function () {
                 let count = this.$store.state.user.rememberedCourses.length;
-               return  (count > 0) ?  count : ''
+                return  (count > 0) ?  count : ''
             },
 
             ...mapState([

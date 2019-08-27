@@ -55,7 +55,7 @@ export default new Vuex.Store({
           })
     },
     SWITCH_STUDY_TYPE ({commit}, studyType) {
-      commit('SWITCH_S TUDY_TYPE', studyType);
+      commit('SWITCH_STUDY_TYPE', studyType);
       commit('QUERY_COURSES');
     }
   },
