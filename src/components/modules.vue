@@ -5,7 +5,7 @@
         </div>
         <div class="modulesWrapper" v-bind:class="{ active: isActive }"> 
             <button @click="triggerModules">close</button>
-            <div v-for="category in modulePlan.basicStudyPeriod" class="category" :key="category.title">
+            <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
                     <div v-for="module in category.modules" 
@@ -15,7 +15,7 @@
                          :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
                          @click="moduleFilterTriggered">
                          <h4 :id="module.id"> {{ module.id }} </h4>
-                         <span :id="module.id">{{ module.title }}</span>
+                         <span :id="module.id"> {{ module.title }} </span>
                     </div>
                     <!-- If the datastructure is deeper — go one layer deeper -->
                     <div v-if="!category.modules">
@@ -52,10 +52,25 @@ export default {
             isActive: false
         }
     },
-    computed : mapState([
-      'modulePlan',
-      'queries'
-    ]),
+    computed : {
+        studyType() {
+            // Switches the interface based on the Study type queries from 
+            // @/components/sidebar.vue
+            if(this.queries.studyType == "Grundstudium") {
+                return this.modulePlan.basicStudyPeriod;
+            }
+            if(this.queries.studyType == "Hauptstudium") {
+                return this.modulePlan.mainStudyPeriod;
+            }
+            if(this.queries.studyType == "Master") {
+                return this.modulePlan.master ;
+            }
+        },
+        ...mapState([
+        'modulePlan',
+        'queries'
+        ])
+    },
     methods: {
         triggerModules: function () {
             this.isActive = !this.isActive;
@@ -135,7 +150,7 @@ export default {
         cursor: pointer;
         padding: .75rem 1.5rem 2rem 1.5rem;
         &.active {
-            background: $white !important;
+            border: 3px solid $active !important;
         }
         h4 {
             margin: .75rem 0 .5rem 0;
