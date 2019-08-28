@@ -102,7 +102,6 @@ export default new Vuex.Store({
     SET_MODULE_QUERY (state, payload) {
       let query = state.queries.modules;
       for (let i = 0; i < query.length; i++) {
-
         if(query[i] == payload) {
            state.queries.modules.splice(i);
            return;
@@ -141,10 +140,10 @@ export default new Vuex.Store({
       let queriedCourses = [];
       if (!state.queries.modules.length == 0) {
         for (let moduleQuery of state.queries.modules) {
-          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.name == '" + moduleQuery + "')]")[0]);
+          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]")[0]);
         }
 
-        console.log(queriedCourses);
+        console.log('Modulbasierte Suche: ', queriedCourses);
         courses = queriedCourses;
       }
       

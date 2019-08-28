@@ -9,12 +9,13 @@
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
                     <div v-for="module in category.modules" 
-                         class="module active" 
+                         class="module" 
+                         :id="module.id"
                          :key="module.id" 
-                         :style="{ background: module.colorCode }"
+                         :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
                          @click="moduleFilterTriggered">
-                        <h4>  {{ module.id }} </h4>
-                        <span>{{ module.title }}</span>
+                         <h4 :id="module.id"> {{ module.id }} </h4>
+                         <span :id="module.id">{{ module.title }}</span>
                     </div>
                     <!-- If the datastructure is deeper — go one layer deeper -->
                     <div v-if="!category.modules">
