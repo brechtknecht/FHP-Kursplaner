@@ -141,6 +141,9 @@
         &.btn-primary {
             border: 2px solid $active;
             color: $active;
+            & > div {
+                display: inline;
+            }
         }
 
         &.remember {
