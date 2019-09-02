@@ -164,13 +164,15 @@
   }
 
   .course {
+    clip-path: inset(3px round 1.5rem);
     position: relative;
 
     &:hover {
       border: 3px solid $active;
+      clip-path: inset(0 round 1rem);
     }
 
-    height: 100%;
+    height: calc(100% - 6px);
     width: 100%;
     border-radius: 1.5rem;
     background: $c-TH;

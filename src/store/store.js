@@ -4,7 +4,7 @@ import axios from 'axios'
 import jsonPath from 'jsonpath'
 
 import modulePlan from './metadata/modulePlan'
-import viewController from './view'
+// import viewController from './view'
 
 Vue.use(Vuex)
 

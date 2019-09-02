@@ -63,7 +63,7 @@ export default {
                 return this.modulePlan.mainStudyPeriod;
             }
             if(this.queries.studyType == "Master") {
-                return this.modulePlan.master ;
+                return this.modulePlan.masterStudyPeriod;
             }
         },
         ...mapState([
@@ -149,8 +149,10 @@ export default {
         height: 4rem;
         cursor: pointer;
         padding: .75rem 1.5rem 2rem 1.5rem;
+        clip-path: inset(3.2px);
+        border: 3px solid $active !important;
         &.active {
-            border: 3px solid $active !important;
+            clip-path: inset(0);
         }
         h4 {
             margin: .75rem 0 .5rem 0;
