@@ -13,8 +13,13 @@
                     <li> Raum: {{ currentCourse.room }} </li>
                     <li> Credits: {{ currentCourse.credits }} </li>
                 </ul>
-                <button class="btn btn-primary remember" :class="{ selected : isSelected }"
-                    @click="rememberCourse()">Merken</button>
+                <button 
+                    class="btn btn-primary remember" 
+                    :class="{ selected : isSelected }"
+                    @click="rememberCourse()">
+                    <Checkbox @click="rememberCourse()"></Checkbox>
+                    Merken
+                </button>
                 <button class="btn btn-secondary workspace">Zum Workspace</button>
             </div>
             <div class="content">
@@ -30,7 +35,11 @@
     import {
         mapState
     } from 'vuex'
+    import Checkbox from '@/components/base/checkbox'
     export default {
+        components: {
+            Checkbox
+        },
         computed: {
             isActive() {
                 return this.$attrs.isActive;
@@ -61,7 +70,7 @@
         },
         methods: {
             rememberCourse: function () {
-                this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$store.state.currentCourse);
+                this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$store.state.currentCourse._id);
             },
             triggerDetails: function (e) {
                 this.$store.commit('VIEW_DETAILS_SELECTED', false);
@@ -132,6 +141,9 @@
         &.btn-primary {
             border: 2px solid $active;
             color: $active;
+            & > div {
+                display: inline;
+            }
         }
 
         &.remember {

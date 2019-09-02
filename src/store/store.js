@@ -4,10 +4,9 @@ import axios from 'axios'
 import jsonPath from 'jsonpath'
 
 import modulePlan from './metadata/modulePlan'
+import viewController from './view'
 
 Vue.use(Vuex)
-
-
 
 export default new Vuex.Store({
   state: {
@@ -65,10 +64,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    USER_ADD_REMEMBERED_COURSE (state, course) {
+    USER_ADD_REMEMBERED_COURSE (state, id) {
       // Check if course already exist and delete it
       let rememberedCoursesRef = state.user.rememberedCourses;
-      let id = course._id;
       
       if(rememberedCoursesRef.includes(id)){
         rememberedCoursesRef.pop(id);
@@ -76,7 +74,7 @@ export default new Vuex.Store({
       }
 
       // Add course reference to list
-      rememberedCoursesRef.push(course._id);
+      rememberedCoursesRef.push(id);
     },
     VIEW_DETAILS_SELECTED (state, toggle) {
       state.view.detailsSelected = toggle;
@@ -86,6 +84,7 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE (state, payload) {
       state.queries.studyType = payload;
+      this.commit('SET_ACTIVE_DAYS');
     },
     SET_CURRENT_COURSE (state, payload) {
       state.currentCourse = payload;
@@ -103,7 +102,6 @@ export default new Vuex.Store({
     SET_MODULE_QUERY (state, payload) {
       let query = state.queries.modules;
       for (let i = 0; i < query.length; i++) {
-
         if(query[i] == payload) {
            state.queries.modules.splice(i);
            return;
@@ -142,10 +140,10 @@ export default new Vuex.Store({
       let queriedCourses = [];
       if (!state.queries.modules.length == 0) {
         for (let moduleQuery of state.queries.modules) {
-          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.name == '" + moduleQuery + "')]")[0]);
+          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]")[0]);
         }
 
-        console.log(queriedCourses);
+        console.log('Modulbasierte Suche: ', queriedCourses);
         courses = queriedCourses;
       }
       

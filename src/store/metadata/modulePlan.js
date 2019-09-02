@@ -187,5 +187,196 @@ export default {
           colorCode: "#91C4F2"
         }]
       }
+    }, 
+    mainStudyPeriod: {
+      entwurf: {
+        title: "II/1 Entwurf",
+        entwurf_projekt_interfacedesign: {
+          title: "Entuwrf/Projekt Interfacedesign",
+          modules: [{
+            id: "PO 2013 21P-Id",
+            title: "Projekt Id",
+            colorCode: "#D8F0F4",
+            subtitle: "Interfacedesign"
+          }]
+        },
+        entwurf_projekt_kommunikationsdesign: {
+          title: "Entuwrf/Projekt Kommunikationsdesign",
+          modules: [{
+            id: "PO 2013 21P-Kd",
+            title: "Projekt Kd",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"
+          }]
+        },
+        entwurf_projekt_produktdesign: {
+          title: "Entuwrf/Projekt Produktdesign",
+          modules: [{
+            id: "PO 2013 21P-Pd",
+            title: "Projekt Pd",
+            colorCode: "#CFE4BC",
+            subtitle: "Produktdesign"
+          }]
+        },
+        entwurf_fachvertiefung_interfacedesign: {
+          title: "Entuwrf/Fachvertiefung Interfacedesign",
+          modules: [{
+            id: "PO 2013 21FVId-PI",
+            title: "Physical- &Virtual Interfaces",
+            colorCode: "#D8F0F4",
+            subtitle: "Interfacedesign"
+          },{
+            id: "PO 2013 21FVId-XD",
+            title: "Interaction Design",
+            colorCode: "#D8F0F4",
+            subtitle: "Interfacedesign"
+          },{
+            id: "PO 2013 21FVId-SI",
+            title: "Software Interfaces",
+            colorCode: "#D8F0F4",
+            subtitle: "Interfacedesign"
+          },{
+            id: "PO 2013 21FVId-VI",
+            title: "Visual Interfacedesign",
+            colorCode: "#D8F0F4",
+            subtitle: "Interfacedesign"	
+          },{
+            id: "PO 2013 21FVId-AM",
+            title: "Advanced Media",
+            colorCode: "#D8F0F4",
+            subtitle: "Interfacedesign"	
+          }]
+        },
+        entwurf_fachvertiefung_kommunikationsdesign: {
+          title: "Entuwrf/Fachvertiefung Kommunikationsdesign",
+          modules: [{
+            id: "PO 2013 21FVKd-TY",
+            title: "Typografie",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"
+          },{
+            id: "PO 2013 21FVKd-TD",
+            title: "Type Design",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"
+          },{
+            id: "PO 2013 21FVKd-GD",
+            title: "Grafikdesign",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"
+          },{
+            id: "PO 2013 21FVKd-IL",
+            title: "Illustration",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"	
+          },{
+            id: "PO 2013 21FVKd-FG",
+            title: "Fotografie",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"	
+          },{
+            id: "PO 2013 21FVKd-AD",
+            title: "Advertising Design",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"
+          },{
+            id: "PO 2013 21FVKd-CI",
+            title: "Corporate Identity",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"
+          },{
+            id: "PO 2013 21FVKd-MG",
+            title: "Motion Graphics",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"	
+          },{
+            id: "PO 2013 21FVKd-DM",
+            title: "Digitale Medien",
+            colorCode: "#EDF3DA",
+            subtitle: "Kommunikationsdesign"	
+          }]
+        },
+        entwurf_fachvertiefung_produktdesign: {
+          title: "Entuwrf/Fachvertiefung Produktdesign",
+          modules: [{
+            id: "PO 2013 21FVPd-PD",
+            title: "Produktdesign",
+            colorCode: "#CFE4BC",
+            subtitle: "Produktdesign"
+          },{
+            id: "PO 2013 21FVPd-PU",
+            title: "Produkt- & Umweltdesign",
+            colorCode: "#CFE4BC",
+            subtitle: "Produktdesign"
+          },{
+            id: "PO 2013 21FVPd-ID",
+            title: "Industrialdesign",
+            colorCode: "#CFE4BC",
+            subtitle: "Produktdesign"
+          },{
+            id: "PO 2013 21FVPd-RA",
+            title: "Raum- & Ausstellungsdesign",
+            colorCode: "#CFE4BC",
+            subtitle: "Produktdesign"	
+          },{
+            id: "PO 2013 21FVPd-DP",
+            title: "Produktdesign mit digitalen Medien",
+            colorCode: "#CFE4BC",
+            subtitle: "Produktdesign"	
+          }]
+        }
+      },
+     theorie: {
+        title: "II/2 Theorie",
+        modules: [{
+          id: "PO 2013 22Th-DT",
+          title: "Design-/Medien-theorie",
+          colorCode: "#E7E8E9"
+        },{
+          id: "PO 2013 22Th-DG",
+          title: "Designgeschichte",
+          colorCode: "#E7E8E9"
+        },{
+          id: "PO 2013 22Th-DM",
+          title: "Designmanagement und -recht",
+          colorCode: "#E7E8E9"
+        }]
+      },
+      praxis_perspektive: {
+        title: "II/3 Praxis & Perspektive",
+        modules: [{
+          id: "PO 2013 23PP-PS",
+          title: "Praxissemester",
+          colorCode: "#E7E8E9" //gestreift
+        },{
+          id: "PO 2013 23PP-PB",
+          title: "Bericht",
+          colorCode: "#E7E8E9" //gestreift
+        },{
+          id: "PO 2013 23PP-KF",
+          title: "Komplementärfach / „Flex“",
+          colorCode: "#E7E8E9" //gestreift
+        },{
+          id: "PO 2013 23PP-HT",
+          title: "Handwerk / Technik",
+          colorCode: "#E7E8E9" //gestreift
+        },{
+          id: "PO 2013 23PP-PW",
+          title: "Projektwochen",
+          colorCode: "#E7E8E9" //gestreift
+        },{
+          id: "PO 2013 23PP-PA",
+          title: "Projektarbeit",
+          colorCode: "#E7E8E9" //gestreift
+        }]
+      },
+      bachelor: {
+        title: "II/4 Bachelor",
+        modules: [{
+          id: "PO 2013 24-BA",
+          title: "Bachelor-Arbeit, Bachelor-Prüfung",
+          colorCode: "#E7E8E9" //bunt gestreift
+        }]
+      }
     }
   }

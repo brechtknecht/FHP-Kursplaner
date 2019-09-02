@@ -1,13 +1,19 @@
 <template>
   <!-- <div class="course" :style="{'grid-column' : column}"> -->
-  <div class="course" :class="{ selected: isSelected,
-                  remembered: isRemembered }" :style="[soursePosition, courseBackground]" @click="setCurrentCourse">
+  <div  class="course"
+        :class="{ 
+          selected: isSelected,
+          remembered: isRemembered,
+          conflict: hasConflict
+        }" 
+        :style="[soursePosition, courseBackground]" 
+        @click.self="setCurrentCourse">
     <div class="course--checkbox">
-      <input type="checkbox">
+      <Checkbox :id="this.$props.info._id" ></Checkbox>
     </div>
-    <div class="course--info">
+    <div class="course--info" @click="setCurrentCourse">
       <h3> {{ this.$props.info.title }} </h3>
-      <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.id }}</h4>
+      <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.name }}</h4>
     </div>
   </div>
 </template>
@@ -18,8 +24,13 @@
     mapMutations
   } from 'vuex'
 
+  import Checkbox from '@/components/base/checkbox'
+
   export default {
     name: 'Course',
+    components: {
+      Checkbox
+    },
     props: {
       position: {
         row: String,
@@ -77,11 +88,35 @@
         let rememberedCoursesRef = this.$store.state.user.rememberedCourses;
         let id = this.$props.info._id;
 
+        // Disable colorCoding on selected Courses Screen
+        if(this.$store.state.queries.studyType == "selectedCourses") {
+          return false;
+        }
+
         if (rememberedCoursesRef.includes(id)) {
           return true;
         }
 
         return false;
+      },
+      hasConflict () {
+        if(this.$store.state.queries.studyType == "selectedCourses"){
+          let days = this.$store.state.courses.days;
+
+          for(var i = 0; i < days.length; i++){
+            if(days[i].data.length > 1) {
+              console.log('i', i, 'day', this.$props.position.start.day.value);
+              if(this.$props.position.start.day.value - 1 == i) {
+                console.log('Potential Conflict @index: ' + i +' ⚠️ detected');
+                return true;
+              }
+            }
+          }
+
+        } else {
+          return false;
+        }
+
       }
     },
     methods: {
@@ -99,6 +134,20 @@
 
   .selected {
     border: 3px solid $active !important;
+  }
+
+  .conflict {
+    top: 0.5rem;
+    bottom: 0.5rem;
+    border: 3px solid $warn !important;
+    &:before {
+      position: absolute;
+      font-size: 0.8rem;
+      font-family: 'FHPSun-Regular';
+      top: -1.5rem;
+      color: $warn;
+      content: 'Achtung— dieser Kurs findet zeitgleich mit einem anderen Kus statt.'
+    }
   }
 
   .remembered {
@@ -123,10 +172,10 @@
 
     height: 100%;
     width: 100%;
-    border-radius: 4rem;
+    border-radius: 1.5rem;
     background: $c-TH;
     display: flex;
-    transition: $animation-fast;
+    transition: background $animation-fast;
     cursor: pointer;
     border: 3px solid transparent;
 
@@ -168,6 +217,7 @@
     h4 {
       margin-top: .5rem;
       margin-bottom: 1.1rem;
+      line-height: 1.5rem;
     }
   }
 </style>
