@@ -36,9 +36,14 @@
                             <Checkbox @click="rememberCourse()"></Checkbox>
                             Merken
                         </button>
-                        <button class="btn btn-secondary workspace">
-                            <a :href=" this.workspaceLink ">Zum Workspace</a>
+                        <button v-if="this.workspaceLink" class="btn btn-secondary workspace">
+                            <a :href="this.workspaceLink" target="_blank">Zum Workspace</a>
                         </button>
+                        <div v-else>
+                            <button  class="btn btn-secondary workspace warning">
+                                <a :href="'http://fhp.incom.org/search/' + currentCourseTitle.title + '/workspaces'" target="_blank">Suche auf Incom</a>
+                            </button>
+                        </div>
                     </div>
             </div>
             <div class="content">
@@ -73,13 +78,18 @@
         },
         computed: {
             workspaceLink() {
-                let description = this.currentCourse.description;
-                let RegExpWorkspaceLink = new RegExp(/(?:(https?:\/\/fhp\.incom\.org\/workspace\/\d+$))/gm);
+                if(this.currentCourse.workspace == "") {
+                    let description = this.currentCourse.description;
+                    let RegExpWorkspaceLink = new RegExp(/(?:(https?:\/\/fhp\.incom\.org\/workspace\/\d+$))/gm);
 
-                let workspaceLink = RegExpWorkspaceLink.exec(description);
+                    let workspaceLink = RegExpWorkspaceLink.exec(description);
 
-                // Return extracted Link or Link to itself
-                return (workspaceLink) ? workspaceLink[0] : '#'
+                    // Return extracted Link or Link to itself
+                    return (workspaceLink) ? workspaceLink[0] : null
+                } else {
+                    return this.currentCourse.workspace;
+                }
+                
             },
             currentCourseDescription() {
                 console.log(this.currentCourse.description);
@@ -274,6 +284,19 @@
                 display: inline;
             }
         }
+
+        &.btn-secondary {
+            a {
+                text-decoration: none;
+                color: $c-font;
+            }
+        }
+        &.warning {
+            border: 1.5px solid $warn;
+            a {
+                color: $warn;
+            }
+        }
     }
 
     .header,
@@ -339,6 +362,15 @@
                 div {
                     position: relative;
                     top: -4px;
+                }
+            }
+            span {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: -3rem;
+                &.warning {
+                    color: red;
                 }
             }
         }

@@ -66,7 +66,8 @@
             room: course.attributes.room,
             credits: course.attributes.credits,
             colorCode: course.attributes.colorCode,
-            subtitle: course.attributes.subtitle
+            subtitle: course.attributes.subtitle,
+            workspace: course.attributes.workspace
           }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>
         </div>
       </div>
