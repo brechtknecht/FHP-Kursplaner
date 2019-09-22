@@ -33,11 +33,11 @@
       <span>21:00</span>
       <span>22:00</span>
     </div>
-    <div v-if="!courses" class="course-loader"></div>
-
-
+  
     <!-- Wenn keine Daten da sind -->
-    <div v-if="courses.status.isEmpty" class="empty">lel alla is empty</div>
+    <div v-if="courses.status.isEmpty" class="empty">
+      <div class="course-loader"></div>
+    </div>
 
 
     <div v-if="!courses.status.isEmpty" class="courses">
@@ -94,7 +94,7 @@
         this.scrollListener();
       });
 
-      this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
+      this.$store.dispatch('loadCourses', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
     },

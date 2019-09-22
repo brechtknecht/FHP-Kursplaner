@@ -84,6 +84,9 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE (state, payload) {
       state.queries.studyType = payload;
+
+      // 👨‍💻 UX Change: Scroll to top
+      window.scrollTo(0,0);
       this.commit('SET_ACTIVE_DAYS');
     },
     SET_CURRENT_COURSE (state, payload) {
