@@ -13,7 +13,14 @@
     </div>
     <div class="course--info" @click="setCurrentCourse">
       <h3> {{ this.$props.info.title }} </h3>
-      <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.name }}</h4>
+      <div class="course--sub">
+        <div v-if="this.$props.info.teacher">
+          <h4>{{ this.$props.info.teacher }} — </h4>
+        </div>  
+        <div>
+          <h4>{{ this.$props.info.module.name }}</h4>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -162,10 +169,13 @@
     background: $active !important;
 
     .course--info {
-
       h3,
       h4 {
         color: #fff !important;
+      }
+
+      h4 {
+        display: flex;
       }
 
     }
@@ -210,6 +220,19 @@
       text-align: left;
       margin-left: 1.5rem;
       margin-right: 2rem;
+    }
+
+
+    .course--sub {
+      div:last-child {
+        margin-bottom: 1rem;
+      }
+      div {
+        display: inline-block;
+        h4 {
+          margin-bottom: 0;
+        }
+      }
     }
 
     h3 {

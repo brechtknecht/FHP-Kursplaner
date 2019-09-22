@@ -78,8 +78,8 @@
         &:checked+label:after {
             content: '';
             position: absolute;
-            left: 5px;
-            top: 9px;
+            left: 10px;
+            top: 15px;
             background: $active;
             width: 2px;
             height: 2px;

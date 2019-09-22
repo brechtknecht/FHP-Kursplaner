@@ -4,14 +4,14 @@
             <div class="gui">
                 <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerDetails" ></button>
             </div>
-            <div v-if="isActive">
+            <div class="details" v-if="isActive">
                 <div class="header" :style="componentStyle">
                     <h4 class="category"> {{ currentCourseTitle.category }}</h4>
                     <h1 class="title"> {{ currentCourseTitle.title }} </h1>
                     <div class="badge">{{ currentCourseModuleId.studyOrder }}</div>
                     <h4 class="moduleId"> {{ currentCourseModuleId.moduleId }} — {{ currentCourse.subtitle }} </h4>
                     <ul>
-                        <li> 
+                        <li v-if="currentCourse.teacher"> 
                             <icon-base width="20" height="20" icon-name="head"><icon-head /></icon-base>
                             <div>{{ currentCourse.teacher }}</div> 
                         </li>
@@ -28,18 +28,20 @@
                             <div>Credits: {{ currentCourse.credits }} </div>
                         </li>
                     </ul>
-                    <button 
-                        class="btn btn-primary remember" 
-                        :class="{ selected : isSelected }"
-                        @click="rememberCourse()">
-                        <Checkbox @click="rememberCourse()"></Checkbox>
-                        Merken
-                    </button>
-                    <button class="btn btn-secondary workspace">Zum Workspace</button>
+                    <div class="actions">
+                        <button 
+                            class="btn btn-primary remember" 
+                            :class="{ selected : isSelected }"
+                            @click="rememberCourse()">
+                            <Checkbox @click="rememberCourse()"></Checkbox>
+                            Merken
+                        </button>
+                        <button class="btn btn-secondary workspace">Zum Workspace</button>
+                    </div>
             </div>
             <div class="content">
                 <h4>Kursbeschreibung</h4>
-                <p> {{ currentCourse.description }}</p>
+                <p> {{ currentCourseDescription }}</p>
             </div>
             </div>
             
@@ -68,6 +70,10 @@
             Checkbox
         },
         computed: {
+            currentCourseDescription() {
+                console.log(this.currentCourse.description);
+                return this.currentCourse.description;
+            },
             currentCourseModuleId () {
                 let regExStudyOrder = new RegExp(/^PO \d{4}/);
 
@@ -183,6 +189,12 @@
         right: 0;
     }
 
+    .details {
+        display: flex;
+        flex-direction: column;
+        max-height: 100vh;
+    }
+
     .gui {
         position: relative;
         height: 0;
@@ -194,7 +206,7 @@
             border: none;
             border-radius: 50%;
             background: $active;
-            background-image: url('../assets/img/arrow-cross.svg');
+            background-image: url('../assets/img/none-cross.svg');
             background-repeat: no-repeat;
             background-position: -4% center;
             background-size: 6.5rem;
@@ -251,24 +263,14 @@
                 display: inline;
             }
         }
-
-        &.remember {
-            position: relative;
-            height: 3rem;
-            top: calc(100% - 2rem);
-            left: 0;
-        }
-
-        &.workspace {
-            position: relative;
-            height: 3rem;
-            top: calc(100% - 2rem);
-        }
     }
 
     .header,
     .content {
         padding: 0 1.5rem 0 1.5rem;
+        p {
+            white-space: pre-line;
+        }
     }
 
     .header {
@@ -313,11 +315,30 @@
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
         }
+
+        .actions {
+            display: flex;
+            position: absolute;
+            bottom: -1.75rem;
+            button {
+                height: 3.5rem;
+                &.remember {
+                    padding-top: 10px;
+                }
+                div {
+                    position: relative;
+                    top: -4px;
+                }
+            }
+        }
+
     }
 
     .content {
         margin-top: 3rem;
         padding-bottom: 2rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
         overflow-y: scroll;
         max-height: 35rem;
 
@@ -328,13 +349,14 @@
         p {
             font-size: 1rem;
             line-height: 1.5rem;
+            text-indent: .5rem hanging each-line;
         }
     }
 
     .details-container {
         &.closingModal {
             position: fixed;
-            width: calc(100vw - 30rem);
+            width: calc(100vw - 33rem);
             left: 0;
             height: 100vh;
             z-index: 100;
@@ -350,7 +372,7 @@
         max-height: 100vh;
         overflow: none;
         right: -40rem;
-        width: 30rem;
+        width: 33rem;
         text-align: left;
         background: $white;
         transition: $animation-default;

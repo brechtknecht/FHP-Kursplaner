@@ -9,15 +9,16 @@
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
-                    <div v-for="module in category.modules" 
+                    <div  v-for="module in category.modules" 
                          class="module" 
                          :id="module.id"
                          :key="module.id" 
                          :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
                          @click="moduleFilterTriggered">
-                         <h4 :id="module.id"> {{ module.id }} </h4>
-                         <span :id="module.id"> {{ module.title }} </span>
+                         <span :id="module.id"> {{ module.id.replace('PO 2013', '') }} </span>
+                         <h4 :id="module.id"> {{ module.title }} </h4>
                     </div>
+
                     <!-- If the datastructure is deeper — go one layer deeper -->
                     <div v-if="!category.modules">
                         <div v-for="studyType in category" :key="studyType.title">
@@ -29,8 +30,8 @@
                                     :key="module.id" 
                                     :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
                                     @click="moduleFilterTriggered">
-                                    <h4 :id="module.id"> {{ module.id }} </h4>
-                                    <span :id="module.id">{{ module.title }}</span>
+                                    <span :id="module.id"> {{ module.id.replace('PO 2013', '') }} </span>
+                                    <h4 :id="module.id">{{ module.title }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -69,8 +70,8 @@ export default {
             }
         },
         ...mapState([
-        'modulePlan',
-        'queries'
+            'modulePlan',
+            'queries'
         ])
     },
     methods: {
@@ -148,7 +149,7 @@ export default {
         width: 0;
         overflow-y: scroll;
         max-height: calc(100vh - 4rem);
-        padding: 2.5rem 1.5rem;
+        padding: 3.5rem 4.5rem;
         z-index: 300;
         right: -100%;
         text-align: left;
@@ -165,22 +166,27 @@ export default {
 
     .modules {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-gap: 1rem;
     }
 
     .module {
-        width: 9rem;
-        height: 4rem;
+        width: 12rem;
+        height: 5rem;
         cursor: pointer;
-        padding: .75rem 1.5rem 2rem 1.5rem;
+        padding: 1.25rem 1.5rem 2rem 1.5rem;
         clip-path: inset(3.2px);
         border: 3px solid $active !important;
         &.active {
             clip-path: inset(0);
         }
+        span {
+            margin-bottom: 0;
+        }
         h4 {
             margin: .75rem 0 .5rem 0;
+            line-height: 1.5rem;
+            font-weight: 700;
         }
         &:hover {
             background: $white;
