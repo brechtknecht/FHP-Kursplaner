@@ -36,7 +36,9 @@
                             <Checkbox @click="rememberCourse()"></Checkbox>
                             Merken
                         </button>
-                        <button class="btn btn-secondary workspace">Zum Workspace</button>
+                        <button class="btn btn-secondary workspace">
+                            <a :href=" this.workspaceLink ">Zum Workspace</a>
+                        </button>
                     </div>
             </div>
             <div class="content">
@@ -70,6 +72,15 @@
             Checkbox
         },
         computed: {
+            workspaceLink() {
+                let description = this.currentCourse.description;
+                let RegExpWorkspaceLink = new RegExp(/(?:(https?:\/\/fhp\.incom\.org\/workspace\/\d+$))/gm);
+
+                let workspaceLink = RegExpWorkspaceLink.exec(description);
+
+                // Return extracted Link or Link to itself
+                return (workspaceLink) ? workspaceLink[0] : '#'
+            },
             currentCourseDescription() {
                 console.log(this.currentCourse.description);
                 return this.currentCourse.description;
