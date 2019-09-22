@@ -354,10 +354,13 @@
     }
 
     .details-container {
+        transition: $animation-default;
+        background: rgba(255, 255, 255, 0);
         &.closingModal {
             position: fixed;
             width: calc(100vw - 33rem);
             left: 0;
+            background: rgba(255, 255, 255, .6);
             height: 100vh;
             z-index: 100;
         }

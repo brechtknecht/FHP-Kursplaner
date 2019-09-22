@@ -177,7 +177,7 @@
         width: 15rem;
         height: 100vh;
         padding: 2.5rem 1.5rem;
-        z-index: 400;
+        z-index: 100;
         text-align: left;
         background: $c-light-grey;
 

@@ -147,6 +147,7 @@
   @import '../assets/scss/main.scss';
 
   .selected {
+    clip-path: none !important;
     border: 3px solid $active !important;
   }
 
@@ -154,6 +155,7 @@
     top: 0.5rem;
     bottom: 0.5rem;
     border: 3px solid $warn !important;
+    clip-path: none !important;
     &:before {
       position: absolute;
       font-size: 0.8rem;
