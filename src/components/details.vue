@@ -1,26 +1,38 @@
 <template>
     <div class="details-container" v-bind:class="{ closingModal: isActive}" @click.self="triggerDetails">
         <div class="detailsWrapper" v-bind:class="{ active: isActive }">
+            <div class="gui">
+                <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerDetails" ></button>
+            </div>
             <div v-if="isActive">
                 <div class="header" :style="componentStyle">
-                <button class="btn" @click="triggerDetails()">Schließen</button>
-                <hr>
-                <h1> {{ currentCourse.title }} </h1>
-                <h4> {{ currentCourse.module.id }} — {{ currentCourse.subtitle }} </h4>
-                <ul>
-                    <li> {{ currentCourse.teacher }} </li>
-                    <li> {{ currentCourse.time.fixture.begin.String }} </li>
-                    <li> Raum: {{ currentCourse.room }} </li>
-                    <li> Credits: {{ currentCourse.credits }} </li>
-                </ul>
-                <button 
-                    class="btn btn-primary remember" 
-                    :class="{ selected : isSelected }"
-                    @click="rememberCourse()">
-                    <Checkbox @click="rememberCourse()"></Checkbox>
-                    Merken
-                </button>
-                <button class="btn btn-secondary workspace">Zum Workspace</button>
+                    <h4 class="category"> {{ currentCourseTitle.category }}</h4>
+                    <h1 class="title"> {{ currentCourseTitle.title }} </h1>
+                    <h4> {{ currentCourse.module.id }} — {{ currentCourse.subtitle }} </h4>
+                    <ul>
+                        <li> 
+                            <icon-base icon-name="head"><icon-head /></icon-base>
+                            {{ currentCourse.teacher }} 
+                        </li>
+                        <li> 
+                            <icon-base icon-name="clock"><icon-clock /></icon-base>
+                            {{ currentCourse.time.fixture.begin.String }} 
+                        </li>
+                        <li>
+                            <icon-base icon-name="pin"><icon-pin /></icon-base> 
+                            Raum: {{ currentCourse.room }} </li>
+                        <li>
+                            <icon-base icon-name="layer"><icon-layer /></icon-base> 
+                            Credits: {{ currentCourse.credits }} </li>
+                    </ul>
+                    <button 
+                        class="btn btn-primary remember" 
+                        :class="{ selected : isSelected }"
+                        @click="rememberCourse()">
+                        <Checkbox @click="rememberCourse()"></Checkbox>
+                        Merken
+                    </button>
+                    <button class="btn btn-secondary workspace">Zum Workspace</button>
             </div>
             <div class="content">
                 <h4>Kursbeschreibung</h4>
@@ -35,12 +47,39 @@
     import {
         mapState
     } from 'vuex'
+
     import Checkbox from '@/components/base/checkbox'
+    import IconBase from '@/components/base/IconBase';
+    import IconHead from '@/assets/icon/IconHead'
+    import IconClock from '@/assets/icon/IconClock'
+    import IconLayer from '@/assets/icon/IconLayer'
+    import IconPin from '@/assets/icon/IconPin'
+
     export default {
         components: {
+            IconBase,
+            IconClock,
+            IconLayer,
+            IconPin,
+            IconHead,
             Checkbox
         },
         computed: {
+            currentCourseTitle () {
+                let regExBeforeComma = new RegExp(/[^:]*/);
+                let regExAfterComma = new RegExp(/(\:\s)(.*)/);
+
+                let category = regExBeforeComma.exec(this.currentCourse.title);
+                let title = regExAfterComma.exec(this.currentCourse.title);
+
+                if(category == null) {category= ['undefined']}
+                if(title == null) {title= ['undefined']}
+
+                return {
+                    category: category[0],
+                    title: title[0].replace(': ', '')
+                }
+            },
             isActive() {
                 return this.$attrs.isActive;
             },
@@ -123,6 +162,59 @@
 <style lang="scss" scoped>
     @import '../assets/scss/main.scss';
 
+    .details-container {
+        display: flex;
+        position: fixed;
+        z-index: 100;
+        right: 0;
+    }
+
+    .gui {
+        position: relative;
+        height: 0;
+        z-index: 1000;
+        right: 0;
+        .btn {
+            width: 64px;
+            height: 64px;
+            border: none;
+            border-radius: 50%;
+            background: $active;
+            background-image: url('../assets/img/arrow-cross.svg');
+            background-repeat: no-repeat;
+            background-position: -4% center;
+            background-size: 6.5rem;
+            top: 45vh;
+            right: 5rem;
+            outline: none;
+            transition: $animation-slow;
+            &.moduleTrigger {
+                position: relative;
+                z-index: -1;
+                .caption {
+                    font-family: 'FHPSun-Bold';
+                    font-size: 1rem;
+                    color: $active;
+                    position: relative;
+                    display: block;
+                    white-space: pre;
+                    width: 100%;
+                    left: calc(-50% - 16px);
+                    top: 3.5rem;
+                    font-weight: 900;
+                    opacity: 1;
+                    transition: $animation-default;
+                }
+                &.active {
+                    background-position: 110% center;
+                    .caption {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
     .btn {
         width: 200px;
         height: 2rem;
@@ -169,6 +261,15 @@
         position: relative;
         padding-top: 3rem;
         padding-bottom: 3rem;
+
+        h4.category {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1.title {
+            margin-top: 1rem;
+        }
 
         ul>li {
             line-height: 1.5rem;

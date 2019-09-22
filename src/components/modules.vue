@@ -93,7 +93,7 @@ export default {
     .modules-container {
         display: flex;
         position: fixed;
-        z-index: 1000;
+        z-index: 100;
         right: 0;
     }
 
