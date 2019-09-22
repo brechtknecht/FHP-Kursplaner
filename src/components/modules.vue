@@ -1,7 +1,9 @@
 <template>
     <div class="modules-container">
         <div class="gui">
-            <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerModules" ></button>
+            <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerModules" >
+                <div class="caption">Modulplan öffnen</div>
+            </button>
         </div>
         <div class="modulesWrapper" :class="{ active: isActive }"> 
             <div v-for="category in this.studyType" class="category" :key="category.title">
@@ -85,6 +87,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    @charset "utf-8";
     @import '../assets/scss/main.scss';
 
     .modules-container {
@@ -115,23 +118,23 @@ export default {
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
-                &:before {
-                    content: 'Moldulplan \00f6 ffnen';
-                    clear: both;
+                .caption {
                     font-family: 'FHPSun-Bold';
                     font-size: 1rem;
                     color: $active;
                     position: relative;
                     display: block;
+                    white-space: pre;
                     width: 100%;
-                    left: -200%;
+                    left: calc(-50% - 16px);
+                    top: 3.5rem;
                     font-weight: 900;
                     opacity: 1;
                     transition: $animation-default;
                 }
                 &.active {
                     background-position: 110% center;
-                    &::before {
+                    .caption {
                         opacity: 0;
                     }
                 }
@@ -150,7 +153,7 @@ export default {
         right: -100%;
         text-align: left;
         background: $white;
-        transition: $animation-default;
+        transition:  $animation-default;
         -webkit-box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
         -moz-box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
         box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
