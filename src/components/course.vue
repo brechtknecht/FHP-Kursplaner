@@ -65,6 +65,11 @@
         let start = this.$props.position.start;
         let end = this.$props.position.end;
 
+        // 👋 Excape for wrong end Values
+        if(end.hour.value == '00') {
+          end.hour.value = 22;
+        }
+
         let startPosition = ((start.hour.value - 9) * columnWidth) + (start.minutes.value * (columnWidth / 60));
         let endPosition = ((end.hour.value - 9) * columnWidth) + (end.minutes.value * (columnWidth / 60));
 
