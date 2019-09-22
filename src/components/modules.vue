@@ -1,7 +1,7 @@
 <template>
     <div class="modules-container">
         <div class="gui">
-            <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerModules" >
+            <button class="btn moduleTrigger" :class="{ active: isActive, disabled: isDisabled }" @click="triggerModules" >
                 <div class="caption">Modulplan öffnen</div>
             </button>
         </div>
@@ -67,6 +67,13 @@ export default {
             }
             if(this.queries.studyType == "Master") {
                 return this.modulePlan.masterStudyPeriod;
+            }
+        },
+        isDisabled () {
+            if(this.queries.studyType == 'selectedCourses') {
+                return true;
+            } else {
+                return false
             }
         },
         ...mapState([
@@ -138,6 +145,9 @@ export default {
                     .caption {
                         opacity: 0;
                     }
+                }
+                &.disabled {
+                    display: none;
                 }
             }
         }
