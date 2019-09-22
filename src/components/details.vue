@@ -8,22 +8,25 @@
                 <div class="header" :style="componentStyle">
                     <h4 class="category"> {{ currentCourseTitle.category }}</h4>
                     <h1 class="title"> {{ currentCourseTitle.title }} </h1>
-                    <h4> {{ currentCourse.module.id }} — {{ currentCourse.subtitle }} </h4>
+                    <div class="badge">{{ currentCourseModuleId.studyOrder }}</div>
+                    <h4 class="moduleId"> {{ currentCourseModuleId.moduleId }} — {{ currentCourse.subtitle }} </h4>
                     <ul>
                         <li> 
-                            <icon-base icon-name="head"><icon-head /></icon-base>
-                            {{ currentCourse.teacher }} 
+                            <icon-base width="20" height="20" icon-name="head"><icon-head /></icon-base>
+                            <div>{{ currentCourse.teacher }}</div> 
                         </li>
                         <li> 
-                            <icon-base icon-name="clock"><icon-clock /></icon-base>
-                            {{ currentCourse.time.fixture.begin.String }} 
+                            <icon-base width="20" height="20" icon-name="clock"><icon-clock /></icon-base>
+                            <div>{{ currentCourse.time.fixture.begin.String }} </div>
                         </li>
                         <li>
-                            <icon-base icon-name="pin"><icon-pin /></icon-base> 
-                            Raum: {{ currentCourse.room }} </li>
+                            <icon-base width="20" height="20" icon-name="pin"><icon-pin /></icon-base> 
+                            <div>Raum: {{ currentCourse.room }}</div> 
+                        </li>
                         <li>
-                            <icon-base icon-name="layer"><icon-layer /></icon-base> 
-                            Credits: {{ currentCourse.credits }} </li>
+                            <icon-base width="20" height="20" icon-name="layer"><icon-layer /></icon-base> 
+                            <div>Credits: {{ currentCourse.credits }} </div>
+                        </li>
                     </ul>
                     <button 
                         class="btn btn-primary remember" 
@@ -65,6 +68,17 @@
             Checkbox
         },
         computed: {
+            currentCourseModuleId () {
+                let regExStudyOrder = new RegExp(/^PO \d{4}/);
+
+                let studyOrder = regExStudyOrder.exec(this.currentCourse.module.id);
+                let moduleId = this.currentCourse.module.id.replace(studyOrder, '');
+
+                return {
+                    moduleId: moduleId,
+                    studyOrder: studyOrder[0]
+                }
+            },         
             currentCourseTitle () {
                 let regExBeforeComma = new RegExp(/[^:]*/);
                 let regExAfterComma = new RegExp(/(\:\s)(.*)/);
@@ -271,8 +285,33 @@
             margin-top: 1rem;
         }
 
-        ul>li {
-            line-height: 1.5rem;
+        h4.moduleId {
+            display: inline;
+        }
+
+        ul {
+            margin-top: 2rem;
+            margin-left: .25rem;
+            li {
+                line-height: 1.8rem;
+                svg {
+                    position: relative;
+                    top: .3rem;
+                }
+                div {
+                    display: inline-block;
+                    margin-left: .25rem;
+                }
+            }
+        }
+
+        .badge {
+            font-family: 'FHPSun-Bold';
+            display: inline-block;
+            margin-right: .5rem;
+            background: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
         }
     }
 
