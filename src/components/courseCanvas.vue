@@ -34,7 +34,12 @@
       <span>22:00</span>
     </div>
     <div v-if="!courses" class="course-loader"></div>
+
+
+    <!-- Wenn keine Daten da sind -->
     <div v-if="courses.status.isEmpty" class="empty">lel alla is empty</div>
+
+
     <div v-if="!courses.status.isEmpty" class="courses">
       <div :class="'overview ' + courses.string" :day=courses.string v-for="courses in courses.days" :key="courses.key"
         v-in-viewport>
@@ -149,9 +154,18 @@
     max-width: 2100px;
 
     .overview-head {
-      position: absolute;
+      position: sticky;
+      top: 92px !important;
+      width: 10rem;
+      padding: .5rem .75rem;
+      border-radius: 1rem;
+      z-index: 300;
+      text-align: left;
+      color: $c-font;
       top: 1.5rem;
-      left: 2rem;
+      h1 {
+        margin: 0;
+      }
     }
   }
 
@@ -226,9 +240,11 @@
   }
 
   .overview {
-    padding-top: 6.5rem;
     z-index: 10;
     grid-template-columns: repeat(13 * 4, 1fr);
+    .course-wrapper:first {
+      display: none;
+    }
   }
 
   .overview[day="monday"] {
