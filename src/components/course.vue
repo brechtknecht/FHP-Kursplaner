@@ -85,7 +85,7 @@
         return false
       },
       isRemembered() {
-        let rememberedCoursesRef = this.$store.state.user.rememberedCourses;
+        let rememberedCoursesRef = this.user.rememberedCourses;
         let id = this.$props.info._id;
 
         // Disable colorCoding on selected Courses Screen
@@ -93,11 +93,14 @@
           return false;
         }
 
-        if (rememberedCoursesRef.includes(id)) {
+        if (this.$store.state.user.rememberedCourses.includes(id)) {
+          console.log('isactive')
           return true;
+        } else {
+          return false;  
         }
 
-        return false;
+        
       },
       hasConflict () {
         if(this.$store.state.queries.studyType == "selectedCourses"){
@@ -117,7 +120,11 @@
           return false;
         }
 
-      }
+      },
+      ...mapState([
+        'queries',
+        'user'
+      ])
     },
     methods: {
       setCurrentCourse: function () {
@@ -151,6 +158,7 @@
   }
 
   .remembered {
+    clip-path: inset(0 round 1.5rem) !important; 
     background: $active !important;
 
     .course--info {

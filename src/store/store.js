@@ -69,7 +69,7 @@ export default new Vuex.Store({
       let rememberedCoursesRef = state.user.rememberedCourses;
       
       if(rememberedCoursesRef.includes(id)){
-        rememberedCoursesRef.pop(id);
+        rememberedCoursesRef.splice(rememberedCoursesRef.indexOf(id), 1);
         return;
       }
 

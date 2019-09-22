@@ -88,7 +88,7 @@
         this.scrollListener();
       });
 
-      this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
+      this.$store.dispatch('loadCourses', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
     },

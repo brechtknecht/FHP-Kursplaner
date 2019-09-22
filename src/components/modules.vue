@@ -1,10 +1,9 @@
 <template>
     <div class="modules-container">
         <div class="gui">
-            <button class="btn moduleTrigger" @click="triggerModules" ></button>
+            <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerModules" ></button>
         </div>
-        <div class="modulesWrapper" v-bind:class="{ active: isActive }"> 
-            <button @click="triggerModules">close</button>
+        <div class="modulesWrapper" :class="{ active: isActive }"> 
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
@@ -53,6 +52,7 @@ export default {
         }
     },
     computed : {
+        // Detects if a course is existing
         studyType() {
             // Switches the interface based on the Study type queries from 
             // @/components/sidebar.vue
@@ -87,9 +87,16 @@ export default {
 <style lang="scss" scoped>
     @import '../assets/scss/main.scss';
 
-    .gui {
+    .modules-container {
+        display: flex;
         position: fixed;
-        z-index: 200;
+        z-index: 1000;
+        right: 0;
+    }
+
+    .gui {
+        position: relative;
+        z-index: 1000;
         right: 0;
         .btn {
             width: 64px;
@@ -97,28 +104,43 @@ export default {
             border: none;
             border-radius: 50%;
             background: $active;
+            background-image: url('../assets/img/arrow-cross.svg');
+            background-repeat: no-repeat;
+            background-position: -4% center;
+            background-size: 6.5rem;
             top: 45vh;
             right: 2rem;
             outline: none;
+            transition: $animation-slow;
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
                 &:before {
-                    content: 'Moldulplan anzeigen';
+                    content: 'Moldulplan \00f6 ffnen';
+                    clear: both;
                     font-family: 'FHPSun-Bold';
+                    font-size: 1rem;
                     color: $active;
                     position: relative;
                     display: block;
                     width: 100%;
-                    left: -150%;
+                    left: -200%;
                     font-weight: 900;
+                    opacity: 1;
+                    transition: $animation-default;
+                }
+                &.active {
+                    background-position: 110% center;
+                    &::before {
+                        opacity: 0;
+                    }
                 }
             }
         }
     }
 
     .modulesWrapper {
-        position: fixed;
+        position: relative;
         height: 100vh;
         width: 0;
         overflow-y: scroll;
