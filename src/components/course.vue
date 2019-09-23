@@ -9,7 +9,11 @@
         :style="[soursePosition, courseBackground]" 
         @click.self="setCurrentCourse">
     <div class="course--checkbox">
-      <Checkbox :id="this.$props.info._id" ></Checkbox>
+      <Checkbox 
+        :id="this.$props.info._id" 
+        :key="this.$props.info._id"
+        :isClickable="true"
+      ></Checkbox>
     </div>
     <div class="course--info" @click="setCurrentCourse">
       <h3> {{ this.$props.info.title }} </h3>
@@ -106,7 +110,6 @@
         }
 
         if (this.$store.state.user.rememberedCourses.includes(id)) {
-          console.log('isactive')
           return true;
         } else {
           return false;  

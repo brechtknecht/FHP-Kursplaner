@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <input class="styled-checkbox" :id="this.$props._id" type="checkbox" :value="this.$props._id" @click="rememberCourse()" >
+    <div class="checkbox">
+        <input 
+            type="checkbox"
+            :id="this.$props.id"
+            :value="this.$props.id"
+            @click="rememberCourse()"
+            :class="[{checked : isChecked}, this.$props.id]">
         <label :for="this.$props._id">{{ label }}</label>
     </div>
 
@@ -9,12 +14,40 @@
 <script>
     export default {
         props: {
-            _id: String,
-            label: String
+            id: String,
+            label: String,
+            isClickable: Boolean
+        },
+        mounted () {
+            // Fix for the case if the checbox is not loaded yet
+            this.setCheckboxes(this.isChecked);
+        },
+        computed : {
+            isChecked () {
+                let rememberedCoursesRef = this.$store.state.user.rememberedCourses;
+                if(typeof rememberedCoursesRef == 'undefined') { return false }
+
+                if(rememberedCoursesRef.includes(this.$props.id)) {
+                    this.setCheckboxes(true);
+                    return true;
+                } else {
+                    this.setCheckboxes(false);
+                    return false;
+                }
+                this.triggerButtons();
+            }
         },
         methods: {
+            setCheckboxes (isChecked) {
+                let activeCheckboxes = document.getElementsByClassName(this.$props.id);
+                for (let item of activeCheckboxes) {
+                    item.checked = isChecked;
+                }
+            },
             rememberCourse: function () {
-                this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$attrs.id);
+                if(this.isClickable) {
+                    this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.id);
+                }
             },
         }
     }

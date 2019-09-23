@@ -33,7 +33,11 @@
                             class="btn btn-primary remember" 
                             :class="{ selected : isSelected }"
                             @click="rememberCourse()">
-                            <Checkbox @click="rememberCourse()"></Checkbox>
+                            <Checkbox 
+                                :id="this.currentCourse._id" 
+                                :key="this.currentCourse._id"
+                                :isClickable="false"
+                            ></Checkbox>
                             Merken
                         </button>
                         <button v-if="this.workspaceLink" class="btn btn-secondary workspace">
@@ -92,7 +96,6 @@
                 
             },
             currentCourseDescription() {
-                console.log(this.currentCourse.description);
                 return this.currentCourse.description;
             },
             currentCourseModuleId () {

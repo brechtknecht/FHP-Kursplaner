@@ -151,8 +151,10 @@
                 let ref = e.target.classList[1];
                 let element = document.getElementsByClassName(ref).item(1);
 
+                console.log(element);
+
                 element.scrollIntoView({
-                    block: "end",
+                    block: "start",
                     behavior: "smooth"
                 });
             }
