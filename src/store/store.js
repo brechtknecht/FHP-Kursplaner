@@ -4,6 +4,7 @@ import axios from 'axios'
 import jsonPath from 'jsonpath'
 
 import modulePlan from './metadata/modulePlan'
+import { _ } from 'core-js'
 // import viewController from './view'
 
 Vue.use(Vuex)
@@ -168,12 +169,25 @@ export default new Vuex.Store({
       thursday = sortProperties(thursday);
       friday = sortProperties(friday);
 
+      // Check if everything is empty
       let isEmpty;
       if(!monday.length && !tuesday.length && !wednesday.length && !thursday.length && !friday.length) {
         isEmpty = true;
       } else {
         isEmpty = false;
       }
+
+      let _mondayEmpty;
+      let _tuesdayEmpty;
+      let _wednesdayEmpty;
+      let _thursdayEmpty;
+      let _fridayEmpty;
+
+      (!monday.length) ? (_mondayEmpty = true) : (_mondayEmpty = false);
+      (!tuesday.length) ? (_tuesdayEmpty = true) : (_tuesdayEmpty = false);
+      (!wednesday.length) ? (_wednesdayEmpty = true) : (_wednesdayEmpty = false);
+      (!thursday.length) ? (_thursdayEmpty = true) : (_thursdayEmpty = false);
+      (!friday.length) ? (_fridayEmpty = true) : (_fridayEmpty = false);
 
       courses = {
         status: {
@@ -184,23 +198,28 @@ export default new Vuex.Store({
           {
             string: "Montag",
             data: monday,
-            key: "monday"
+            key: "monday",
+            isEmpty: _mondayEmpty
           }, {
             string: "Dienstag",
             data: tuesday,
             key: "tuesday",
+            isEmpty: _tuesdayEmpty
           },{
             string: "Mittwoch",
             data: wednesday,
-            key: "wednesday"
+            key: "wednesday",
+            isEmpty: _wednesdayEmpty
           },{
             string: "Donnerstag",
             data: thursday,
-            key: "thursday"
+            key: "thursday",
+            isEmpty: _thursdayEmpty
           }, {
             string: "Freitag",
             data: friday,
-            key: "friday"
+            key: "friday",
+            isEmpty: _fridayEmpty
           }
         ]
       }

@@ -54,11 +54,11 @@
         <hr>
         <h4>Wochentage</h4>
         <ul>
-            <li class="listElement Montag" :class="{ active: monday }" @click="scrollToDay">Montag</li>
-            <li class="listElement Dienstag" :class="{ active: tuesday }" @click="scrollToDay">Dienstag</li>
-            <li class="listElement Mittwoch" :class="{ active: wednesday }" @click="scrollToDay">Mittwoch</li>
-            <li class="listElement Donnerstag" :class="{ active: thursday }" @click="scrollToDay">Donnerstag</li>
-            <li class="listElement Freitag" :class="{ active: friday }" @click="scrollToDay">Freitag</li>
+            <li class="listElement Montag" :class="{ active: monday, disabled: _hasMonday }" @click="scrollToDay">Montag</li>
+            <li class="listElement Dienstag" :class="{ active: tuesday, disabled: _hasTuesday }" @click="scrollToDay">Dienstag</li>
+            <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday }" @click="scrollToDay">Mittwoch</li>
+            <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
+            <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
         </ul>
         <hr>
         <h4>Sortieren nach:</h4>
@@ -100,6 +100,21 @@
                 get() {
                     return Object.values(this.$store.state.view.activeDays);
                 }
+            },
+            _hasMonday () {
+                return this.getEmptyState(0);
+            },
+            _hasTuesday () {
+                return this.getEmptyState(1);
+            },
+            _hasWednesday  () {
+                return this.getEmptyState(2);
+            },
+            _hasThursday () {
+                return this.getEmptyState(3);
+            },
+            _hasFriday () {
+                return this.getEmptyState(4);
             },
             monday: function () {
                 for (let day of this.activeDays) {
@@ -147,6 +162,13 @@
             ])
         },
         methods: {
+            getEmptyState () {
+                // 👉 Escape for initial load
+                if (typeof this.$store.state.courses.days[0] === "undefined") { 
+                    return false;
+                }
+                return this.$store.state.courses.days[0].isEmpty;
+            },
             scrollToDay: function (e) {
                 let ref = e.target.classList[1];
                 let element = document.getElementsByClassName(ref).item(1);
@@ -235,6 +257,18 @@
                 margin-right: 1rem;
                 opacity: 1;
             }
+        }
+
+        &.disabled {
+            color: $c-small-font;
+            font-weight: 400;
+            padding: 0.5rem 1rem;
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+            }
+            background: $c-light-grey;
         }
 
         li {
