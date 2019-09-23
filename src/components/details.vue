@@ -8,8 +8,15 @@
                 <div class="header" :style="componentStyle">
                     <h4 class="category"> {{ currentCourseTitle.category }}</h4>
                     <h1 class="title"> {{ currentCourseTitle.title }} </h1>
-                    <div class="badge">{{ currentCourseModuleId.studyOrder }}</div>
-                    <h4 class="moduleId"> {{ currentCourseModuleId.moduleId }} — {{ currentCourse.subtitle }} </h4>
+                    <h4 class="subject">{{ currentCourse.subtitle }}</h4>
+                    <div class="moduleId-wrapper">
+                        <div class="badge">{{ currentCourseModuleId.studyOrder }}</div>
+                        <h4 class="moduleId"> {{ currentCourseModuleId.moduleId }} </h4>
+                    </div>
+                    <div class="moduleId-wrapper">
+                        <div class="badge">Neue Prüfungsordnung</div>
+                        <h4 class="moduleId"> 12FOId </h4>
+                    </div>
                     <ul>
                         <li v-if="currentCourse.teacher"> 
                             <icon-base width="20" height="20" icon-name="head"><icon-head /></icon-base>
@@ -145,9 +152,22 @@
                 // Checks if a color is refered in the modules json in the store.js file
                 let colorMode = this.currentCourse.colorCode ? this.lightOrDark(this.currentCourse.colorCode) : 'light'
                 let color = colorMode == 'light' ? color = '#3D4043' : color = '#fff'
+                let background = this.currentCourse.colorCode;
+
+                if(background.length > 5) {
+                    return {
+                        'border-top': '5rem solid transparent',
+                        'border-image' : background,
+                        'border-width' : "5rem",
+                        'border-image-slice' : "70",
+                        'color' : 'black',
+                        'background' : '#D8F0F4',
+                        'padding-top' : '0'
+                    }
+                }
 
                 return {
-                    'background': this.currentCourse.colorCode,
+                    'background': background,
                     'color': color
                 }
             },
@@ -339,6 +359,13 @@
         padding-top: 3rem;
         padding-bottom: 3rem;
 
+        .moduleId-wrapper {
+            margin-top: .75rem;
+            @include for-phone-only { 
+                margin-top: 0;
+            }
+        }
+
         h4.category {
             margin-top: 2.5rem;
             margin-bottom: 1rem;
@@ -349,7 +376,18 @@
         }
 
         h4.moduleId {
+            font-size: 1rem;
             display: inline;
+            @include for-phone-only {
+                margin-top: 1rem;
+                line-height: 3rem;
+                font-weight: 300;
+            }
+        }
+
+        h4.subject {
+            margin-top: .25rem;
+            margin-bottom: 1rem;
         }
 
         ul {
@@ -411,6 +449,9 @@
         padding-right: 2.5rem;
         overflow-y: scroll;
         max-height: 35rem;
+        @include for-phone-only { 
+            padding-bottom: 10rem;
+        }
 
         h4 {
             font-weight: 700;
