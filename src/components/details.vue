@@ -380,7 +380,7 @@
             button {
                 height: 3.5rem;
                 &.remember {
-                    padding-top: 10px;
+                    // padding-top: 10px;
                 }
                 div {
                     position: relative;

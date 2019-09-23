@@ -1,14 +1,9 @@
 <template>
-    <div class="checkbox">
-        <input 
-            type="checkbox"
-            :id="this.$props.id"
-            :value="this.$props.id"
-            @click="rememberCourse()"
+    <label :for="this.$props._id" class="container">
+        <input type="checkbox" :id="this.$props.id" :value="this.$props.id" @click="rememberCourse()"
             :class="[{checked : isChecked}, this.$props.id]">
-        <label :for="this.$props._id">{{ label }}</label>
-    </div>
-
+        <span class="checkmark">{{ label }}</span>
+    </label>
 </template>
 
 <script>
@@ -18,16 +13,18 @@
             label: String,
             isClickable: Boolean
         },
-        mounted () {
+        mounted() {
             // Fix for the case if the checbox is not loaded yet
             this.setCheckboxes(this.isChecked);
         },
-        computed : {
-            isChecked () {
+        computed: {
+            isChecked() {
                 let rememberedCoursesRef = this.$store.state.user.rememberedCourses;
-                if(typeof rememberedCoursesRef == 'undefined') { return false }
+                if (typeof rememberedCoursesRef == 'undefined') {
+                    return false
+                }
 
-                if(rememberedCoursesRef.includes(this.$props.id)) {
+                if (rememberedCoursesRef.includes(this.$props.id)) {
                     this.setCheckboxes(true);
                     return true;
                 } else {
@@ -38,14 +35,14 @@
             }
         },
         methods: {
-            setCheckboxes (isChecked) {
+            setCheckboxes(isChecked) {
                 let activeCheckboxes = document.getElementsByClassName(this.$props.id);
                 for (let item of activeCheckboxes) {
                     item.checked = isChecked;
                 }
             },
             rememberCourse: function () {
-                if(this.isClickable) {
+                if (this.isClickable) {
                     this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.id);
                 }
             },
@@ -55,75 +52,71 @@
 <style lang="scss" scoped>
     @import '@/assets/scss/main.scss';
 
-    .styled-checkbox {
-        position: absolute; // take it out of document flow
-        opacity: 0; // hide it
-        z-index: 200;
-        width: 32px;
-        height: 32px;
+    /* Customize the label (the container) */
+    .container {
+        display: inline-block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 24px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
-        &+label {
-            position: relative;
-            cursor: pointer;
-            padding: 0;
-        }
+    /* Hide the browser's default checkbox */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
 
-        // Box.
-        &+label:before {
-            content: '';
-            margin-right: 10px;
-            display: inline-block;
-            vertical-align: text-top;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background: white;
-        }
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #fff;
+    }
 
-        // Box hover
-        &:hover+label:before {
-            background: #fff;
-        }
+    /* On mouse-over, add a grey background color */
+    .container:hover input~.checkmark {}
 
-        // Box focus
-        &:focus+label:before {
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
-        }
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked~.checkmark {
+        background-color: #2196F3;
+    }
 
-        // Box checked
-        &:checked+label:before {
-            background: #fff;
-        }
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
 
-        // Disabled state label.
-        &:disabled+label {
-            color: #b8b8b8;
-            cursor: auto;
-        }
+    /* Show the checkmark when checked */
+    .container input:checked~.checkmark:after {
+        display: block;
+    }
 
-        // Disabled box.
-        &:disabled+label:before {
-            box-shadow: none;
-            background: #ddd;
-        }
-
-        // Checkmark. Could be replaced with an image
-        &:checked+label:after {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 15px;
-            background: $active;
-            width: 2px;
-            height: 2px;
-            box-shadow:
-                2px 0 0 $active,
-                4px 0 0 $active,
-                4px -2px 0 $active,
-                4px -4px 0 $active,
-                4px -6px 0 $active,
-                4px -8px 0 $active;
-            transform: rotate(45deg);
-        }
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        margin-top: -4px;
+        margin-left: -4px;
+        background: white;
+        border-radius: 50%;
+        background-image: url('../../assets/img/checkmark.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 60%;
     }
 </style>
