@@ -51,6 +51,14 @@ export default new Vuex.Store({
           commit('STASH_LOADED_COURSES', result)
         }); 
     },
+    async loadCourses_2019_OFFLINE ({commit}, ) {
+      await axios
+        .get('data/course-data-2019.json')
+        .then(r => r.data)
+        .then((result) => {
+          commit('STASH_LOADED_COURSES', result)
+        }); 
+    },
     async loadCourses ({ commit }) {
         await axios
           .get('http://localhost:3000/courses')

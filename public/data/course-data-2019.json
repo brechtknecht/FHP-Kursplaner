@@ -1,0 +1,78 @@
+{
+  "data" : {
+    "data" : {
+      "semester" : {
+        "name" : "WiSe 18/19",
+        "courses" : [
+          {
+            "type" : "course",
+            "_id" : "38c5d9d7122e4ada974ce711e946b067",
+            "attributes" : {
+              "type" : null,
+              "title" : "Gestaltungsgrundlagen Atelier: Grenzgänge - Farbe zwischen Kunst und Design (Farbe II)",
+              "teacher" : "Eva Niemann, Meisterschülerin",
+              "semester" : "",
+              "graduateProgram" : "",
+              "module" : {
+                "id" : "PO 2013 11At-F",
+                "name" : "11At-F Farbe",
+                "category" : "I/1 Gestaltungsgrundlagen Atelier"
+              },
+              "time" : {
+                "firstDate" : [],
+                "fixture" : {
+                  "begin" : {
+                    "minutes" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "hour" : {
+                      "type" : "number",
+                      "value" : "10"
+                    },
+                    "day" : {
+                      "type" : "number",
+                      "value" : 5
+                    },
+                    "String" : "Freitag, 10:00 Uhr"
+                  },
+                  "end" : {
+                    "minutes" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "hour" : {
+                      "type" : "number",
+                      "value" : 15
+                    },
+                    "day" : {
+                      "type" : "number",
+                      "value" : 5
+                    },
+                    "String" : "Freitag, 15:00 Uhr"
+                  }
+                }
+              },
+              "room" : "D/323",
+              "descriptionText" : {
+                "type" : "html/md",
+                "value" : "Farbkonzepte im Design und in der Kunst beeinflussen und befruchten sich oft gegenseitig. Die Grenzen zwischen angewandtem und freiem Umgang mit Farbe sind zunehmend fließend. Eine kritische Auseinandersetzung über Grenzen und mögliche Grenzüberschreitungen mit den Medium Farbe wird in diesem Kurs praktisch versucht. Anhand ausgewählter Positionen aus der Malerei werden zunächst in gemeinsamen Übungen Farbmischungen erprobt und die zugehörigen Kontraste praktisch untersucht. Im zweiten Schritt stehen selbst gewählte Beispiele aus der Kunst im Focus. Anhand dieser werden im Laufe des Kurses kleine Einzel- oder Gemeinschaftsprojekte entwickelt, bei denen Bildausschnitte oder gesamte Kompostionen Ausgangspunkte für Abstraktion, Verfremdung geben. Diese sollen in eine zum eigenen Studienfach passende Farbgestaltung transponiert werden. Umgekehrt kann auch ein ausgewähltes Farbdesign Anlass bieten, es von seiner anwendungsbezogenen Botschaft zu lösen und in neue Farbformationen zu übertragen.\n\nFür die praktische Arbeit kommen Pigmente und Collage-Techniken zum Einsatz. Eine digitale Umsetzung ist im weiteren Verlauf ebenso möglich, wie die Anwendung verschiedener Farbmittel für Produktmodelle. Parallel zur Praxis werden einige Kunst- und Designpositionen ab den 50er Jahren des letzten Jahrhunderts bis zur Gegenwart auf ihre Farbkomposition und ihre Farbcodes hin analysiert.\n\nDer Kurs wird durch theoretische Einführungen in die Kontrastlehre und Farbsysteme begleitet. Ergänzend findet eine zum Thema passende Exkursion statt. Ziel ist es, das Verständnis für komplexe Farbverhältnisse und Abstraktionen zu fördern.\n\nBitte schon zum ersten Kurstermin ein eigenes Set Borstenflachpinsel (Breiten: 0,8 – 3 cm) und ein kleines Schraubglas für Acrylbinder mitbringen!\n\n \n\nDer Kurs ist auf 20 Teilnehmer*innen beschränkt.\n\nWorkspace: https://fhp.incom.org/workspace/8492\n\nEva Niemann"
+              },
+              "maxStudents" : 0,
+              "credits" : "3",
+              "workspace" : ""
+            },
+            "included" : [],
+            "request" : {
+              "type" : "GET",
+              "url" : "https://www.fh-potsdam.de/course-api/storage/7087/course/38c5d9d7122e4ada974ce711e946b067"
+            }
+          }
+        ]
+      }
+    },
+    "links" : {
+      "self" : "https://www.fh-potsdam.de/course-api/storage/7087/"
+    }
+  }
+}

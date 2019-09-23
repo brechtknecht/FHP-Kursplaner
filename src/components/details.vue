@@ -104,6 +104,10 @@
                 let studyOrder = regExStudyOrder.exec(this.currentCourse.module.id);
                 let moduleId = this.currentCourse.module.id.replace(studyOrder, '');
 
+                if (studyOrder[0] == 'PO 2013') {
+                    studyOrder[0] = "Alte Prüfungsordnung"
+                }
+
                 return {
                     moduleId: moduleId,
                     studyOrder: studyOrder[0]
