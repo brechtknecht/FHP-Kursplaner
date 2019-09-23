@@ -204,10 +204,12 @@
         z-index: 100;
         text-align: left;
         background: $c-light-grey;
-
         h2,
         h4 {
             margin-left: 1.5rem;
+        }
+        @include for-phone-only {
+            display: none;
         }
     }
 

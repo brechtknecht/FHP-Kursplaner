@@ -94,7 +94,7 @@
         this.scrollListener();
       });
 
-      this.$store.dispatch('loadCourses', this.queries).then(() => {
+      this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
     },
@@ -143,6 +143,11 @@
     left: 20rem;
     top: 1.5rem;
     max-width: 2200px;
+    @include for-phone-only {
+        max-width: 100wh;
+        overflow-x: scroll;
+        left: 0;
+    }
   }
 
   .timeline,

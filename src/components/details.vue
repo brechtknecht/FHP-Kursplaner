@@ -224,6 +224,11 @@
         height: 0;
         z-index: 1000;
         right: 0;
+         @include for-phone-only {
+             position: absolute;
+             width: auto;
+             left: 0;
+         }
         .btn {
             width: 64px;
             height: 64px;
@@ -238,9 +243,20 @@
             right: 5rem;
             outline: none;
             transition: $animation-slow;
+            @include for-phone-only { 
+                background-image: url('../assets/img/none-cross-vert.svg');
+                background-position: 50% center;  
+                background-size: 100%;
+            }
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
+                 @include for-phone-only { 
+                    position: fixed;
+                    top: 100vh;
+                    left: 25vh;
+                    z-index: 100 !important;
+                 }
                 .caption {
                     font-family: 'FHPSun-Bold';
                     font-size: 1rem;
@@ -257,6 +273,10 @@
                 }
                 &.active {
                     background-position: 110% center;
+                    @include for-phone-only { 
+                        top: calc(100vh - 8rem);
+                        background-position: 50% 98%;
+                    }
                     .caption {
                         opacity: 0;
                     }
@@ -428,9 +448,21 @@
         -webkit-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
         -moz-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
         box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
-
         &.active {
             right: 0;
+            @include for-phone-only {
+                position: absolute;
+                max-width: 100vw;
+                overflow: auto;
+                left: 0;
+                .details {
+                    max-height: initial;
+                }
+                .content {
+                    max-height: initial;
+                }
+            }
+        
         }
     }
 </style>

@@ -103,6 +103,9 @@ export default {
         position: fixed;
         z-index: 100;
         right: 0;
+        @include for-phone-only {
+            display: none;
+        }
     }
 
     .gui {
