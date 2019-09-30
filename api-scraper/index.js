@@ -25,8 +25,8 @@ scrape(LINKS.LINK_MASTER_STUDYPERIOD);
 async function scrape (LINK) {
   (async () => {
     const browser = await puppeteer.launch({
-      headless: true,
-      devtools: false
+      headless: false,
+      devtools: true
     });
     const page = await browser.newPage();
     await page.goto(LINK);
@@ -95,7 +95,6 @@ async function scrape (LINK) {
   
   
     for (let i = 0; i < meta.length; i++) {
-      
       courses.push({
         "type": "course",
         "_id": Utils.uid(),
@@ -114,8 +113,7 @@ async function scrape (LINK) {
           "room": meta[i].room,
           "descriptionText": {
             "type": "html/md",
-            "value": ""
-            // "value": details[i].description,
+            "value": details[i].description,
           },
           "maxStudents": 0,
           "credits": "6",
@@ -128,7 +126,8 @@ async function scrape (LINK) {
           // "url": "https://www.fh-potsdam.de/course-api/storage/7087/course/38c5d9d7122e4ada974ce711e946b067"
         }
       }); 
-  
+
+
       modules.push({
         "module": {
           "id": "PO 2013 " + details[i].id,
@@ -151,6 +150,7 @@ async function scrape (LINK) {
         }
       }
     });
+
     fs.writeFileSync('../public/data/courses.json', data);
   
     let moduleData = JSON.stringify({ modules });

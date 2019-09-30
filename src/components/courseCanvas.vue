@@ -161,16 +161,27 @@
 
     .overview-head {
       position: sticky;
-      top: 92px !important;
+      top: 59px !important;
       width: 10rem;
-      padding: .5rem .75rem;
+      padding: 1rem .75rem .75rem .75rem;
       border-radius: 1rem;
       z-index: 300;
       text-align: left;
       color: $c-font;
       top: 1.5rem;
       h1 {
+        font-weight: 800;
         margin: 0;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        left: -1rem;
+        top: -.05rem;
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+        background: rgba(255, 255, 255, 0.6);
       }
     }
   }
