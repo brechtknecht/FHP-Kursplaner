@@ -1,0 +1,20 @@
+{
+  "name": "api-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ignore '*.json' index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "utils": "nodemon utils.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}

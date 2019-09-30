@@ -89,6 +89,7 @@ export default {
             document.getElementById(event.target.id).classList.toggle('active');
             this.$store.commit('SET_MODULE_QUERY', event.target.id);
             this.$store.commit('QUERY_COURSES');
+            this.$store.commit('PUSH_NOTIFICATION', 'Modulfilter aktiv — deaktivieren', 'Info');
         } 
     }
     

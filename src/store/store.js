@@ -40,12 +40,13 @@ export default new Vuex.Store({
     },
     user: {
       rememberedCourses: []
-    }
+    },
+    notification: {}
   },
   actions: {
     async loadCourses_OFFLINE ({commit}, ) {
       await axios
-        .get('data/course-data.json')
+        .get('data/courses.json')
         .then(r => r.data)
         .then((result) => {
           commit('STASH_LOADED_COURSES', result)
@@ -53,7 +54,7 @@ export default new Vuex.Store({
     },
     async loadCourses_2019_OFFLINE ({commit}, ) {
       await axios
-        .get('data/course-data-2019.json')
+        .get('data/course-data.json')
         .then(r => r.data)
         .then((result) => {
           commit('STASH_LOADED_COURSES', result)
@@ -254,13 +255,17 @@ export default new Vuex.Store({
         });
       });
 
-    
-
-      
-
-      
-
       state.courses = courses;
+    },
+    PUSH_NOTIFICATION (state, message, type, options) {
+      state.notification = {
+        message: message,
+        type: type,
+        options: options
+      };
+    },
+    WIPE_NOTIFICATION (state) {
+      state.notification = {};
     }
   }
   

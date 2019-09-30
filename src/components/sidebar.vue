@@ -4,13 +4,7 @@
         <h4>Studienordnung</h4>
         <div class="examOrder">
             <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO:2010" v-model="examOrder">
-                <div class="checkmark">
-                    <span>2010—2013</span>
-                </div>
-            </label>
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO:2014" v-model="examOrder">
+                <input type="radio" checked="checked" name="examOrder" value="PO:2013" v-model="examOrder">
                 <div class="checkmark">
                     <span>2014—2018</span>
                 </div>
