@@ -282,7 +282,7 @@
                     z-index: 100 !important;
                  }
                 .caption {
-                    font-family: 'FHP Sun';
+                    font-family: 'FHPSun-Bold';
                     font-size: 1rem;
                     color: $active;
                     position: relative;
@@ -413,7 +413,7 @@
         }
 
         .badge {
-            font-family: 'FHP Sun';
+            font-family: 'FHPSun-Bold';
             display: inline-block;
             margin-right: .5rem;
             background: #fff;

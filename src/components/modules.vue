@@ -131,7 +131,7 @@ export default {
                 position: relative;
                 z-index: -1;
                 .caption {
-                    font-family: 'FHP Sun';
+                    font-family: 'FHPSun-Regular';
                     font-size: 1rem;
                     color: $active;
                     position: relative;
