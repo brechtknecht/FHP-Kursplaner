@@ -22,7 +22,7 @@
           <h4>{{ this.$props.info.teacher }} — </h4>
         </div>  
         <div>
-          <h4>{{ this.$props.info.module.name }}</h4>
+          <h4 style="font-feature-settings: 'tnum'">{{ this.$props.info.module.name }}</h4>
         </div>
       </div>
     </div>

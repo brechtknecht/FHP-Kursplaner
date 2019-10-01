@@ -254,6 +254,9 @@
     padding: 24px 0 12px 0;
     background: #fff;
     z-index: 70;
+    span {
+      font-feature-settings: "tnum";
+    }
   }
 
   .overview {

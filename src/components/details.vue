@@ -45,7 +45,7 @@
                                 :key="this.currentCourse._id"
                                 :isClickable="false"
                             ></Checkbox>
-                            Merken
+                            <span class="checkbox-label">Merken</span>
                         </button>
                         <button v-if="this.workspaceLink" class="btn btn-secondary workspace">
                             <a :href="this.workspaceLink" target="_blank">Zum Workspace</a>
@@ -309,8 +309,12 @@
         }
     }
 
+    .checkbox-label {
+        display: inline-block;
+    }
+
     .btn {
-        width: 200px;
+        width: 175px;
         height: 2rem;
         top: 200px;
         background: $c-light-grey;
@@ -369,10 +373,12 @@
         h4.category {
             margin-top: 2.5rem;
             margin-bottom: 1rem;
+            line-height: 1.5rem;
         }
 
         h1.title {
             margin-top: 1rem;
+            margin-bottom: .75rem;
         }
 
         h4.moduleId {
@@ -387,7 +393,7 @@
 
         h4.subject {
             margin-top: .25rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         ul {
@@ -430,10 +436,12 @@
                 }
             }
             span {
-                display: block;
-                position: absolute;
+                display: inline-block;
+                position: relative;
                 left: 0;
-                top: -3rem;
+                top: -4px;
+                left: .25rem;
+                font-size: 1.2rem;
                 &.warning {
                     color: red;
                 }
