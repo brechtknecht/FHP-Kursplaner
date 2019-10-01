@@ -16,32 +16,32 @@
 	}
 }
 
-@include font-face("FHPSun-Bold", "/assets/fonts/FHP-Sun");
-@include font-face("FHPSun-Regular", "/assets/fonts/FHP-Sun");
-@include font-face("FHPSun-ExtraBold", "/assets/fonts/FHP-Sun");
+@include font-face("FHPSun-Bold", "/assets/fonts/FHP-Sun/FHP-Sun");
+@include font-face("FHPSun-Regular", "/assets/fonts/FHP-Sun/FHP-Sun");
+@include font-face("FHPSun-ExtraBold", "/assets/fonts/FHP-Sun/FHP-Sun");
 
 body {
     text-rendering: optimizeLegibility;
 }
 
 h1 {
-    font-family: 'FHPSun-Bold';
+    font-family: 'FHP Sun';
     font-size: 2.25rem;
     letter-spacing: 0.01rem;
     &.regular {
-        font-family: 'FHPSun-Regular' !important;
+        font-family: 'FHP Sun' !important;
         font-weight: 100;
     }
 }
 
 h2 {
-    font-family: 'FHPSun-Regular';
+    font-family: 'FHP Sun';
     font-size: 1.5rem;
     letter-spacing: 0.01rem;
 }
 
 h3 {
-    font-family: 'FHPSun-ExtraBold';
+    font-family: 'FHP Sun';
     font-size: 1.2rem;
     color: $c-font;
     letter-spacing: 0.01rem;
@@ -49,7 +49,7 @@ h3 {
 }
 
 h4 {
-    font-family: 'FHPSun-Regular';
+    font-family: 'FHP Sun';
     font-size: 1.2rem;
     font-weight: 100;
     color: $c-font;
@@ -65,12 +65,12 @@ p.caption {
 }
 
 p {
-    font-family: 'FHPSun-Regular';
+    font-family: 'FHP Sun';
     letter-spacing: 0.01rem;
 }
 
 p.caption {
-    font-family: 'FHPSun-Bold';
+    font-family: 'FHP Sun';
 }
 
 span {
@@ -80,13 +80,13 @@ span {
 }
 
 input, label, li, span {
-    font-family: 'FHPSun-Regular'
+    font-family: 'FHP Sun'
 }
 
 span,
 span.regular,
 span.caption {
-    font-family: 'FHPSun-Regular';
+    font-family: 'FHP Sun';
 }
 
 span.badge {
@@ -99,13 +99,13 @@ span.badge {
 }
 
 button {
-    font-family: 'FHPSun-Regular';
+    font-family: 'FHP Sun';
     font-weight: 700;
     font-size: 1.2rem;
 }
 
 span.bold {
-    font-family: 'FHPSun-Bold';
+    font-family: 'FHP Sun';
 }
 
 .number {

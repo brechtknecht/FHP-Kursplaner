@@ -167,7 +167,7 @@
     &:before {
       position: absolute;
       font-size: 0.8rem;
-      font-family: 'FHPSun-Regular';
+      font-family: 'FHP Sun';
       top: -1.5rem;
       color: $warn;
       content: 'Achtung— dieser Kurs findet zeitgleich mit einem anderen Kus statt.'
