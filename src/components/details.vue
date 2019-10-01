@@ -154,6 +154,10 @@
                 let color = colorMode == 'light' ? color = '#3D4043' : color = '#fff'
                 let background = this.currentCourse.colorCode;
 
+                if(typeof background == 'undefined') {
+                    background = '#D8F0F4';
+                }
+
                 if(background.length > 5) {
                     return {
                         'border-top': '5rem solid transparent',
