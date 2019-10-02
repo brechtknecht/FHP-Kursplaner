@@ -158,7 +158,7 @@
                     background = '#D8F0F4';
                 }
 
-                if(background.length > 5) {
+                if(background.length > 7) {
                     return {
                         'border-top': '5rem solid transparent',
                         'border-image' : background,
