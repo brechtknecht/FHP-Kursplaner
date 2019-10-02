@@ -166,6 +166,7 @@
       width: 10rem;
       padding: 1rem .75rem .75rem .75rem;
       margin-left: -3.85rem;
+      margin-bottom: 4rem;
       // padding-left: 3.85rem;
       border-radius: 1rem;
       z-index: 300;
@@ -266,8 +267,8 @@
   .overview {
     z-index: 10;
     grid-template-columns: repeat(13 * 4, 1fr);
-    .course-wrapper:first {
-      display: none;
+    .course-wrapper:first-child {
+      border: 2px solid red;
     }
   }
 
