@@ -165,6 +165,8 @@
       top: 59px !important;
       width: 10rem;
       padding: 1rem .75rem .75rem .75rem;
+      margin-left: -3.85rem;
+      // padding-left: 3.85rem;
       border-radius: 1rem;
       z-index: 300;
       text-align: left;
@@ -182,7 +184,8 @@
         width: 100vw;
         height: 100%;
         z-index: -1;
-        background: rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid $stroke;
+        background: rgba(255, 255, 255, .95);
       }
     }
   }
