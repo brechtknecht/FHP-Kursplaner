@@ -16,7 +16,7 @@
       ></Checkbox>
     </div>
     <div class="course--info" @click="setCurrentCourse">
-      <h3> {{ this.$props.info.title }} </h3>
+      <h3> {{ currentCourseTitle.title }} </h3>
       <div class="course--sub">
         <div v-if="this.$props.info.teacher">
           <h4>{{ this.$props.info.teacher }} — </h4>
@@ -54,6 +54,7 @@
         teacher: String,
         module: {
           id: String,
+          id_new: String,
           name: String,
           category: String
         },
@@ -86,6 +87,21 @@
           left: startPosition + offsetStart + 'px',
           width: (endPosition + offsetEnd) - (startPosition + offsetStart) + 'px',
         }
+      },
+      currentCourseTitle () {
+          let regExBeforeComma = new RegExp(/[^:]*/);
+          let regExAfterComma = new RegExp(/(\:\s)(.*)/);
+
+          let category = regExBeforeComma.exec(this.$props.info.title);
+          let title = regExAfterComma.exec(this.$props.info.title);
+
+          if(category == null) {category= ['undefined']}
+          if(title == null) { title = category;}
+
+          return {
+              category: category[0],
+              title: title[0].replace(': ', '')
+          }
       },
       courseBackground() {
         let colorCode = this.$props.info.colorCode;

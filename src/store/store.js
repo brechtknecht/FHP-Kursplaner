@@ -74,18 +74,6 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    USER_ADD_REMEMBERED_COURSE (state, id) {
-      // Check if course already exist and delete it
-      let rememberedCoursesRef = state.user.rememberedCourses;
-      
-      if(rememberedCoursesRef.includes(id)){
-        rememberedCoursesRef.splice(rememberedCoursesRef.indexOf(id), 1);
-        return;
-      }
-
-      // Add course reference to list
-      rememberedCoursesRef.push(id);
-    },
     VIEW_DETAILS_SELECTED (state, toggle) {
       state.view.detailsSelected = toggle;
     },
@@ -116,12 +104,24 @@ export default new Vuex.Store({
       let query = state.queries.modules;
       for (let i = 0; i < query.length; i++) {
         if(query[i] == payload) {
-           state.queries.modules.splice(i);
+           state.queries.modules.splice(i, 1);
            return;
         }
       }
 
       state.queries.modules.push(payload);
+    },
+    USER_ADD_REMEMBERED_COURSE (state, id) {
+      // Check if course already exist and delete it
+      let rememberedCoursesRef = state.user.rememberedCourses;
+      
+      if(rememberedCoursesRef.includes(id)){
+        rememberedCoursesRef.splice(rememberedCoursesRef.indexOf(id), 1);
+        return;
+      }
+
+      // Add course reference to list
+      rememberedCoursesRef.push(id);
     },
     QUERY_COURSES (state) {
       let courses = [];

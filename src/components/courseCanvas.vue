@@ -58,6 +58,7 @@
             teacher:  course.attributes.teacher,
             module: {
               id:     course.attributes.module.id,
+              id_new: course.attributes.module.id_new,
               name:   course.attributes.module.name,
               category: course.attributes.module.category,
             },

@@ -15,7 +15,7 @@
                     </div>
                     <div class="moduleId-wrapper">
                         <div class="badge">Neue Prüfungsordnung</div>
-                        <h4 class="moduleId"> 12FOId </h4>
+                        <h4 class="moduleId"> {{ currentCourse.module.id_new }} </h4>
                     </div>
                     <ul>
                         <li v-if="currentCourse.teacher"> 
@@ -128,7 +128,7 @@
                 let title = regExAfterComma.exec(this.currentCourse.title);
 
                 if(category == null) {category= ['undefined']}
-                if(title == null) {title= ['undefined']}
+                if(title == null) { title = category;}
 
                 return {
                     category: category[0],

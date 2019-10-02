@@ -60,11 +60,13 @@ async function scrape (LINK) {
       for (let i = 0; i < tableDetails.length; i++) {
         creditRegEx = new RegExp(/\d{1,2} \bCredits\b/gm);
         moduleIdRegEx = new RegExp(/\d{1,2}\w{1,5}-\w{1,5}/gm);
+        newModuleIdRegEx = new RegExp(/\d{2} \w{1,5}(\-\w{1,5})?/gm);
         moduleNameRegEx = new RegExp(/\d{1,2}\w{1,5}-\w{1,5}.+?(?=\-)/gm);
   
         // Regex Exceptions
         let resId = moduleIdRegEx.exec(tableDetails[i].children[0].innerText);
         let resName = moduleNameRegEx.exec(tableDetails[i].children[0].innerText);
+        let newModuleId = newModuleIdRegEx.exec(tableDetails[i].children[0].innerText);
   
         if(resId == null) {
             resId = new RegExp(/\d{1,2} \w{1,5}-\w{1,5}/gm).exec(tableDetails[i].children[0].innerText);
@@ -76,12 +78,17 @@ async function scrape (LINK) {
         if(resName == null) {
           resName = resId;
         }
+
+        if(newModuleId == null) {
+          newModuleId = [''];
+        }
   
-        console.log("RESNAME: ", resName)
+        console.log("New Module ID: ", newModuleId);
   
         detailsArray[i] = {
           id: resId[0].replace(/\s/g, ''),
           name: resName[0],
+          newModuleId: newModuleId[0],
           category: tableDetails[i].children[0].children[2].innerText,
           workspace: tableDetails[i].children[0].children[7],
           credits: creditRegEx.exec(tableDetails[i].children[0].innerText),
@@ -106,6 +113,7 @@ async function scrape (LINK) {
           "graduateProgram": "",
           "module": {
             "id": "PO 2013 " + details[i].id,
+            "id_new": details[i].newModuleId,
             "name": details[i].name,
             "category": details[i].category
           },
@@ -156,7 +164,7 @@ async function scrape (LINK) {
     let moduleData = JSON.stringify({ modules });
     fs.writeFileSync('modules.json', moduleData);
   
-    await page.waitFor(4000)
-      // await browser.close();
+    // await page.waitFor(4000)
+      await browser.close();
   })();
 }
