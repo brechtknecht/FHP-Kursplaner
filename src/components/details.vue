@@ -500,6 +500,11 @@
         overflow: none;
         right: -40rem;
         width: 33rem;
+        @include for-phone-only { 
+            right: auto;
+            top: 100vh;
+        }
+
         text-align: left;
         background: $white;
         transition: $animation-default;
@@ -512,6 +517,7 @@
                 position: absolute;
                 max-width: 100vw;
                 overflow: auto;
+                top: 0;
                 left: 0;
                 .details {
                     max-height: initial;

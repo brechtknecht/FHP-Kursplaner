@@ -185,6 +185,9 @@
       text-align: left;
       color: $c-font;
       top: 1.5rem;
+      @include for-tablet-portrait-up {
+        left: 0 !important;
+      }
       h1 {
         font-weight: 800;
         margin: 0;
