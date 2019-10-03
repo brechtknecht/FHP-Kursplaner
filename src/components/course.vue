@@ -185,7 +185,7 @@
       font-family: 'FHPSun-Regular';
       top: -1.5rem;
       color: $warn;
-      content: 'Achtung— dieser Kurs findet zeitgleich mit einem anderen Kus statt.'
+      content: 'Achtung— dieser Kurs findet zeitgleich mit einem anderen Kurs statt.'
     }
   }
 

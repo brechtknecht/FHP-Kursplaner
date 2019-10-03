@@ -81,6 +81,7 @@
 <script>
   import Course from '@/components/course.vue';
 
+
   import {
     mapState
   } from 'vuex'
@@ -176,7 +177,7 @@
       width: calc(100vw - 20rem);
       padding: 1rem .75rem .75rem .75rem;
       margin-left: -3.85rem;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
       will-change: margin-left;
       // padding-left: 3.85rem;
       border-radius: 1rem;

@@ -64,6 +64,7 @@
 </template>
 
 <script>
+    import smoothscroll from 'smoothscroll-polyfill';
     import {
         mapState
     } from 'vuex'
@@ -168,7 +169,7 @@
                 let element = document.getElementsByClassName(ref).item(1);
 
                 console.log(element);
-
+                smoothscroll.polyfill();
                 window.scroll({
                     top: element.offsetTop,
                     behavior: 'smooth', 
