@@ -233,7 +233,7 @@
         border-radius: 4px;
       }
 
-      margin-left: 2rem;
+      margin: 0 .5rem 0 1rem;
     }
 
     .course--info {

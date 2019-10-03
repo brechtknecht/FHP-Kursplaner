@@ -112,7 +112,7 @@ export default new Vuex.Store({
            return;
         }
       }
-
+      this.commit('QUERY_COURSES');
       state.queries.modules.push(payload);
     },
     WIPE_MODULE_QUERY (state) {
@@ -162,11 +162,21 @@ export default new Vuex.Store({
       let queriedCourses = [];
       if (!state.queries.modules.length == 0) {
         for (let moduleQuery of state.queries.modules) {
-          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]")[0]);
+          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]"));
         }
 
+        let coursesStash = [];
         console.log('Modulbasierte Suche: ', queriedCourses);
-        courses = queriedCourses;
+        
+        if(queriedCourses[0].length == 1) {
+          coursesStash = queriedCourses[0]
+        } else {
+          for(let course of queriedCourses[0]) {
+            coursesStash.push(course);
+          }
+        }
+        
+        courses = coursesStash;
       }
       
       
