@@ -168,13 +168,14 @@ export default new Vuex.Store({
         let coursesStash = [];
         console.log('Modulbasierte Suche: ', queriedCourses);
         
-        if(queriedCourses[0].length == 1) {
-          coursesStash = queriedCourses[0]
-        } else {
-          for(let course of queriedCourses[0]) {
-            coursesStash.push(course);
-          }
+        for(let i = 0; i < queriedCourses.length; i++) {
+          
+            for(let k = 0; k < queriedCourses[i].length; k++){
+              coursesStash.push(queriedCourses[i][k]);
+            }
+          
         }
+
         
         courses = coursesStash;
       }
