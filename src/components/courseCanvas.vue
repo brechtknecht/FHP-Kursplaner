@@ -41,7 +41,7 @@
 
 
     <div v-if="!courses.status.isEmpty" class="courses">
-      <div :class="'overview ' + courses.string" :day=courses.string v-for="courses in courses.days" :key="courses.key"
+      <div :class="'overview ' + courses.string" :day=courses.string v-for="(courses, index) in courses.days" :key="courses.key"
         v-in-viewport>
 
         

@@ -11,6 +11,7 @@
                 <div class="modules">
                     <div  v-for="module in category.modules" 
                          class="module" 
+                         :class="{ disabled: hasNoCourse(module.id) }"
                          :id="module.id"
                          :key="module.id" 
                          :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
@@ -26,6 +27,7 @@
                             <div class="modules">
                                 <div v-for="module in studyType.modules" 
                                     class="module" 
+                                    :class="{ disabled: hasNoCourse(module.id) }"
                                     :id="module.id"
                                     :key="module.id" 
                                     :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
@@ -60,13 +62,13 @@ export default {
             // Switches the interface based on the Study type queries from 
             // @/components/sidebar.vue
             if(this.queries.studyType == "Grundstudium") {
-                return this.modulePlan.basicStudyPeriod;
+                return this.modulePlan.old.basicStudyPeriod;
             }
             if(this.queries.studyType == "Hauptstudium") {
-                return this.modulePlan.mainStudyPeriod;
+                return this.modulePlan.old.mainStudyPeriod;
             }
             if(this.queries.studyType == "Master") {
-                return this.modulePlan.masterStudyPeriod;
+                return this.modulePlan.old.masterStudyPeriod;
             }
         },
         isDisabled () {
@@ -84,6 +86,18 @@ export default {
     methods: {
         triggerModules: function () {
             this.isActive = !this.isActive;
+        },
+        hasNoCourse(id) {
+            let courses = this.$store.state.coursesStash.data.data.semester.courses;
+
+            for (const course of courses) {
+                if(course.attributes.module.id == id){
+                    return false;
+                }
+            }
+
+            
+            return true;
         },
         moduleFilterTriggered: function (event) {
             document.getElementById(event.target.id).classList.toggle('active');
@@ -193,6 +207,9 @@ export default {
         border: 3px solid $active !important;
         &.active {
             clip-path: inset(0);
+        }
+        &.disabled {
+            opacity: .4;
         }
         span {
             margin-bottom: 0;

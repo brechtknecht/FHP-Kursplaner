@@ -139,6 +139,7 @@ async function scrape (LINK) {
       modules.push({
         "module": {
           "id": "PO 2013 " + details[i].id,
+          "id_new": details[i].newModuleId,
           "name": details[i].name,
           "category": details[i].category
         }

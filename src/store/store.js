@@ -12,6 +12,7 @@ export default new Vuex.Store({
   state: {
     queries: {
       studyType: "Grundstudium",
+      studyOrder: "PO 2013",
       days: {
         monday: true,
         tuesday: true,
@@ -86,6 +87,9 @@ export default new Vuex.Store({
       // 👨‍💻 UX Change: Scroll to top
       window.scrollTo(0,0);
       this.commit('SET_ACTIVE_DAYS');
+    },
+    SWITCH_STUDY_ORDER (state, payload) {
+      state.queries.examOrder = payload;
     },
     SET_CURRENT_COURSE (state, payload) {
       state.currentCourse = payload;

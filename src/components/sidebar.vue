@@ -4,13 +4,13 @@
         <h4>Studienordnung</h4>
         <div class="examOrder">
             <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO:2013" v-model="examOrder">
+                <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
                 <div class="checkmark">
-                    <span>2014—2018</span>
+                    <span>2013—2018</span>
                 </div>
             </label>
             <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO:2019" v-model="examOrder">
+                <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
                 <div class="checkmark">
                     <span>ab 2019</span>
                 </div>
@@ -85,10 +85,10 @@
             },
             examOrder: {
                 get() {
-                    return 'todo'
+                    return this.$store.state.queries.studyOrder;
                 },
-                set() {
-                    return 'todo'
+                set(examOrder) {
+                    this.$store.commit('SWITCH_STUDY_ORDER', examOrder);
                 }
             },
             activeDays: {
