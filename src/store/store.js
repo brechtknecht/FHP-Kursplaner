@@ -74,6 +74,7 @@ export default new Vuex.Store({
   },
   mutations: {
     VIEW_DETAILS_SELECTED (state, toggle) {
+      document.getElementsByClassName('detailsWrapper')[0].scrollTop = 0;
       state.view.detailsSelected = toggle;
     },
     STASH_LOADED_COURSES (state, courses) {
