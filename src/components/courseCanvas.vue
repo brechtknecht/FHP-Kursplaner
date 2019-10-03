@@ -46,9 +46,7 @@
 
         
           <div v-if="courses.data.length" class="overview-head">
-            <div class="left-fix">
-              <h1 class="regular">{{ courses.string }}</h1>
-            </div>
+              <h1 class="regular left-fix">{{ courses.string }}</h1>
           </div>
         
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
@@ -94,6 +92,7 @@
     created() {
       window.addEventListener('scroll', () => {
         this.scrollListener();
+
       });
 
       this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
@@ -131,6 +130,10 @@
         console.log('ficky');
       },
       scrollListener: function () {
+        let overviewHeader = document.getElementsByClassName('overview-head');
+        for(let element of overviewHeader) {
+          element.style.left = '19rem';
+        }
         this.$store.commit('SET_ACTIVE_DAYS');
       }
     }
@@ -143,11 +146,13 @@
   .course-canvas {
     position: relative;
     left: 20rem;
+    
     top: 1.5rem;
-    max-width: calc(100vw - 20rem);
-    @include for-phone-only {
-        max-width: 100wh;
+    max-width: calc(100vw - 15rem);
+    @include for-tablet-portrait-up {
+        max-width: 100vw;
         overflow-x: scroll;
+        overflow-y: hidden;
         left: 0;
     }
   }
@@ -168,10 +173,11 @@
     .overview-head {
       position: sticky;
       top: 59px !important;
-      width: 10rem;
+      width: calc(100vw - 20rem);
       padding: 1rem .75rem .75rem .75rem;
       margin-left: -3.85rem;
       margin-bottom: 4rem;
+      will-change: margin-left;
       // padding-left: 3.85rem;
       border-radius: 1rem;
       z-index: 300;
@@ -183,7 +189,8 @@
         margin: 0;
       }
       .left-fix {
-        position: sticky;
+        position: relative;
+
       }
       &::before {
         content: '';

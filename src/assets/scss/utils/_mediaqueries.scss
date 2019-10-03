@@ -2,7 +2,7 @@
     @media (max-width: 599px) { @content; }
 }
 @mixin for-tablet-portrait-up {
-    @media (min-width: 600px) { @content; }
+    @media (max-width: 600px) { @content; }
 }
 @mixin for-tablet-landscape-up {
     @media (min-width: 900px) { @content; }

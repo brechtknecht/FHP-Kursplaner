@@ -103,7 +103,7 @@ export default {
         display: flex;
         position: fixed;
         z-index: 100;
-        right: 0;
+        right: -64px;
         @include for-phone-only {
             display: none;
         }
