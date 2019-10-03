@@ -30,9 +30,8 @@
 </template>
 
 <script>
-  import store, {
+  import {
     mapState,
-    mapMutations
   } from 'vuex'
 
   import Checkbox from '@/components/base/checkbox'
@@ -90,7 +89,7 @@
       },
       currentCourseTitle () {
           let regExBeforeComma = new RegExp(/[^:]*/);
-          let regExAfterComma = new RegExp(/(\:\s)(.*)/);
+          let regExAfterComma = new RegExp(/(:\s)(.*)/);
 
           let category = regExBeforeComma.exec(this.$props.info.title);
           let title = regExAfterComma.exec(this.$props.info.title);
@@ -117,7 +116,7 @@
         return false
       },
       isRemembered() {
-        let rememberedCoursesRef = this.user.rememberedCourses;
+        // let rememberedCoursesRef = this.user.rememberedCourses;
         let id = this.$props.info._id;
 
         // Disable colorCoding on selected Courses Screen
@@ -150,7 +149,7 @@
         } else {
           return false;
         }
-
+        return undefined;
       },
       ...mapState([
         'queries',

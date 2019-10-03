@@ -158,6 +158,7 @@
                     background = '#D8F0F4';
                 }
 
+                // If color is something else then normal HEX-Value
                 if(background.length > 7) {
                     return {
                         'border-top': '5rem solid transparent',

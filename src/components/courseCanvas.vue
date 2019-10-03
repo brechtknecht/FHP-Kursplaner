@@ -44,9 +44,13 @@
       <div :class="'overview ' + courses.string" :day=courses.string v-for="courses in courses.days" :key="courses.key"
         v-in-viewport>
 
-        <div v-if="courses.data.length" class="overview-head">
-          <h1 class="regular">{{ courses.string }}</h1>
-        </div>
+        
+          <div v-if="courses.data.length" class="overview-head">
+            <div class="left-fix">
+              <h1 class="regular">{{ courses.string }}</h1>
+            </div>
+          </div>
+        
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
           <course :id="course._id" :position="{ 
             row: index,
@@ -82,9 +86,6 @@
   import {
     mapState
   } from 'vuex'
-  import {
-    log
-  } from 'util';
 
   export default {
     components: {
@@ -129,7 +130,7 @@
       tastyTest: function () {
         console.log('ficky');
       },
-      scrollListener: function (e) {
+      scrollListener: function () {
         this.$store.commit('SET_ACTIVE_DAYS');
       }
     }
@@ -143,7 +144,7 @@
     position: relative;
     left: 20rem;
     top: 1.5rem;
-    max-width: 2200px;
+    max-width: calc(100vw - 20rem);
     @include for-phone-only {
         max-width: 100wh;
         overflow-x: scroll;
@@ -156,9 +157,13 @@
   .numbers {
     position: absolute;
     display: grid;
-    margin: 0 3.5rem;
-    width: 2100px;
-    max-width: 2100px;
+    margin-left: 3rem;
+    width: 2116px;
+    max-width: 2116px;
+
+    span {
+      margin-left: 1rem;
+    }
 
     .overview-head {
       position: sticky;
@@ -176,6 +181,9 @@
       h1 {
         font-weight: 800;
         margin: 0;
+      }
+      .left-fix {
+        position: sticky;
       }
       &::before {
         content: '';
@@ -211,10 +219,11 @@
       content: '';
       display: block;
       position: absolute;
-      top: 2rem;
+      top: 3.55rem;
       left: -100px;
       width: 100px;
       height: 1px;
+      z-index: 1000;
       background: $stroke;
     }
 
@@ -252,7 +261,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-left: -24px;
+    margin-left: -2rem;
     position: sticky;
     border-bottom: 1px solid $stroke;
     top: 0;
