@@ -169,11 +169,11 @@
 
                 console.log(element);
 
-                element.scrollIntoView({
-                    top: "-200px",
-                    block: "start",
-                    behavior: "smooth"
+                window.scroll({
+                    top: element.offsetTop,
+                    behavior: 'smooth', 
                 });
+
             }
         }
     }
