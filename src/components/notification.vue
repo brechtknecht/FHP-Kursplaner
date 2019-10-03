@@ -1,7 +1,7 @@
 <template>
     <div class="notification-wrapper">
         <div v-if="notification.message" class="notification">
-            {{ notification.message }}
+            <a @click="action(notification.action)">{{ notification.message }}</a>
         </div>
     </div>
 </template>
@@ -16,6 +16,11 @@ export default {
         ...mapState([
             'notification'
         ])
+    },
+    methods: {
+        action (action) {
+            this.$store.commit(action);
+        }
     }
 }
 </script>
@@ -29,6 +34,7 @@ export default {
         left: 0;
         right: 0;
         .notification {
+            font-family: "FHPSun-Regular";
             position: relative;
             left: 50%;
             right: 50%;

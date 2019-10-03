@@ -105,7 +105,10 @@ export default {
             element.classList.toggle('active');
             this.$store.commit('SET_MODULE_QUERY', event.target.id);
             this.$store.commit('QUERY_COURSES');
-            this.$store.commit('PUSH_NOTIFICATION', 'Modulfilter aktiv — deaktivieren', 'Info');
+            this.$store.commit('PUSH_NOTIFICATION', {
+                message: 'Modulfilter deaktivieren',
+                action: 'WIPE_MODULE_QUERY'
+            });
         } 
     }
     

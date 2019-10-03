@@ -115,6 +115,11 @@ export default new Vuex.Store({
 
       state.queries.modules.push(payload);
     },
+    WIPE_MODULE_QUERY (state) {
+        state.queries.modules = [];
+        this.commit('QUERY_COURSES');
+        this.commit('WIPE_NOTIFICATION');
+    },
     USER_ADD_REMEMBERED_COURSE (state, id) {
       // Check if course already exist and delete it
       let rememberedCoursesRef = state.user.rememberedCourses;
@@ -261,11 +266,10 @@ export default new Vuex.Store({
 
       state.courses = courses;
     },
-    PUSH_NOTIFICATION (state, message, type, options) {
+    PUSH_NOTIFICATION (state, payload) {
       state.notification = {
-        message: message,
-        type: type,
-        options: options
+        message: payload.message,
+        action: payload.action,
       };
     },
     WIPE_NOTIFICATION (state) {
