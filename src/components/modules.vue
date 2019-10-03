@@ -138,7 +138,7 @@ export default {
                     display: block;
                     white-space: pre;
                     width: 100%;
-                    left: calc(-50% - 16px);
+                    left: calc(-50% - 10px);
                     top: 3.5rem;
                     font-weight: 900;
                     opacity: 1;

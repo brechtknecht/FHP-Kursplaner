@@ -158,6 +158,18 @@
     }
   }
 
+  .numbers:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 1px;
+      background: $stroke;
+      right: -80px;
+      top: 57px;
+      width: 200px;
+      z-index: 400;
+  }
+
   .timeline,
   .overview,
   .numbers {
@@ -170,6 +182,7 @@
     span {
       margin-left: 1rem;
     }
+
 
     .overview-head {
       position: sticky;
