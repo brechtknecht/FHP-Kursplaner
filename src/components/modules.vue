@@ -1,5 +1,5 @@
 <template>
-    <div class="modules-container">
+    <div class="modules-container" v-bind:class="{ closingModal: isActive}" @click.self="triggerModules">
         <div class="gui">
             <button class="btn moduleTrigger" :class="{ active: isActive, disabled: isDisabled }" @click="triggerModules" >
                 <div class="caption">Modulplan öffnen</div>
@@ -126,13 +126,23 @@ export default {
         @include for-phone-only {
             display: none;
         }
+        &.closingModal {
+            position: fixed;
+            width: auto;
+            right: 0;
+            left: 0;
+            background: rgba(255, 255, 255, .6);
+            height: 100vh;
+            z-index: 100;
+        }
     }
 
     .gui {
-        position: relative;
-        z-index: 1000;
+        position: absolute;
+        z-index: 100;
         right: 0;
         .btn {
+            position: relative;
             width: 64px;
             height: 64px;
             border: none;
@@ -143,7 +153,7 @@ export default {
             background-position: -4% center;
             background-size: 6.5rem;
             top: 45vh;
-            right: 2rem;
+            right: 8rem;
             outline: none;
             transition: $animation-slow;
             &.moduleTrigger {
@@ -161,9 +171,10 @@ export default {
                     top: 3.5rem;
                     font-weight: 900;
                     opacity: 1;
-                    transition: $animation-default;
+                    transition: $animation-slow;
                 }
                 &.active {
+                    right: 62rem;
                     background-position: 110% center;
                     .caption {
                         opacity: 0;
@@ -192,7 +203,7 @@ export default {
         -moz-box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
         box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
         &.active {
-            right: 0;
+            right: -60rem;
             width: 60rem;
         }
     }

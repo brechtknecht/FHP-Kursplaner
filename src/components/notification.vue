@@ -36,6 +36,7 @@ export default {
         .notification {
             font-family: "FHPSun-Regular";
             position: relative;
+            cursor: pointer;
             left: 50%;
             right: 50%;
             background: $active;
