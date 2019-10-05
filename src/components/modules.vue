@@ -1,23 +1,21 @@
 <template>
     <div class="modules-container" v-bind:class="{ closingModal: isActive}" @click.self="triggerModules">
         <div class="gui">
-            <button class="btn moduleTrigger" :class="{ active: isActive, disabled: isDisabled }" @click="triggerModules" >
+            <button class="btn moduleTrigger" :class="{ active: isActive, disabled: isDisabled }"
+                @click="triggerModules">
                 <div class="caption">Modulplan öffnen</div>
             </button>
         </div>
-        <div class="modulesWrapper" :class="{ active: isActive }"> 
+        <div v-if="this.$store.state.queries.examOrder == 'PO 2013'" class="modulesWrapper" :class="{ active: isActive }">
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
-                    <div  v-for="module in category.modules" 
-                         class="module" 
-                         :class="{ disabled: hasNoCourse(module.id) }"
-                         :id="module.id"
-                         :key="module.id" 
-                         :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
-                         @click="moduleFilterTriggered">
-                         <span :id="module.id"> {{ module.id.replace('PO 2013', '') }} </span>
-                         <h4 :id="module.id"> {{ module.title }} </h4>
+                    <div v-for="module in category.modules" class="module" :class="{ disabled: hasNoCourse(module.id) }"
+                        :id="module.id" :key="module.id"
+                        :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
+                        @click="moduleFilterTriggered">
+                        <span :id="module.id"> {{ module.id.replace('PO 2013', '') }} </span>
+                        <h4 :id="module.id"> {{ module.title }} </h4>
                     </div>
 
                     <!-- If the datastructure is deeper — go one layer deeper -->
@@ -25,11 +23,8 @@
                         <div v-for="studyType in category" :key="studyType.title">
                             <h4>{{ studyType.title }}</h4>
                             <div class="modules">
-                                <div v-for="module in studyType.modules" 
-                                    class="module" 
-                                    :class="{ disabled: hasNoCourse(module.id) }"
-                                    :id="module.id"
-                                    :key="module.id" 
+                                <div v-for="module in studyType.modules" class="module"
+                                    :class="{ disabled: hasNoCourse(module.id) }" :id="module.id" :key="module.id"
                                     :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
                                     @click="moduleFilterTriggered">
                                     <span :id="module.id"> {{ module.id.replace('PO 2013', '') }} </span>
@@ -41,78 +36,140 @@
                 </div>
             </div>
         </div>
+        <div v-if="this.$store.state.queries.examOrder == 'PO 2019'" class="modulesWrapper" :class="{ active: isActive }">
+            <div v-for="category in this.studyType" class="category" :key="category.title">
+                <h1>{{ category.title }}</h1>
+                <div class="modules">
+                    <div v-for="module in category.modules" class="module" :class="{ disabled: hasNoCourse(module.id) }"
+                        :id="module.id" :key="module.id"
+                        :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
+                        @click="moduleFilterTriggered">
+                        <span :id="module.id"> {{ module.id.replace('PO 2019', '') }} </span>
+                        <h4 :id="module.id"> {{ module.title }} </h4>
+                        <span>{{ module.subtitle }}</span>
+                    </div>
+
+                    <!-- If the datastructure is deeper — go one layer deeper -->
+                    <div v-if="!category.modules">
+                        <div v-for="studyType in category" :key="studyType.title">
+                            <h4>{{ studyType.title }}</h4>
+                            <div class="modules">
+                                <div v-for="module in studyType.modules" class="module"
+                                    :class="{ disabled: hasNoCourse(module.id) }" :id="module.id" :key="module.id"
+                                    :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
+                                    @click="moduleFilterTriggered">
+                                    <span :id="module.id"> {{ module.id.replace('PO 2019', '') }} </span>
+                                    <h4 :id="module.id">{{ module.title }}</h4>
+                                    <span>{{ module.subtitle }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+    import {
+        mapState
+    } from 'vuex'
 
-import Module from '@/components/module.vue'
-export default {
-    components: {
-        Module
-    },
-    data () {
-        return {
-            isActive: false
-        }
-    },
-    computed : {
-        // Detects if a course is existing
-        studyType() {
-            // Switches the interface based on the Study type queries from 
-            // @/components/sidebar.vue
-            if(this.queries.studyType == "Grundstudium") {
-                return this.modulePlan.old.basicStudyPeriod;
-            }
-            if(this.queries.studyType == "Hauptstudium") {
-                return this.modulePlan.old.mainStudyPeriod;
-            }
-            if(this.queries.studyType == "Master") {
-                return this.modulePlan.old.masterStudyPeriod;
+    import Module from '@/components/module.vue'
+    export default {
+        components: {
+            Module
+        },
+        data() {
+            return {
+                isActive: false
             }
         },
-        isDisabled () {
-            if(this.queries.studyType == 'selectedCourses') {
-                return true;
-            } else {
-                return false
-            }
-        },
-        ...mapState([
-            'modulePlan',
-            'queries'
-        ])
-    },
-    methods: {
-        triggerModules: function () {
-            this.isActive = !this.isActive;
-        },
-        hasNoCourse(id) {
-            let courses = this.$store.state.coursesStash.data.data.semester.courses;
+        computed: {
+            // Detects if a course is existing
+            studyType() {
+                // Switches the interface based on the Study type queries from 
+                // @/components/sidebar.vue
+                if (this.queries.studyType == "Grundstudium") {
+                    if (this.queries.examOrder == 'PO 2013') {
+                        return this.modulePlan.old.basicStudyPeriod;
+                    } else if (this.queries.examOrder == 'PO 2019') {
+                        return this.modulePlan.new.basicStudyPeriod;
+                    }
 
-            for (const course of courses) {
-                if(course.attributes.module.id == id){
-                    return false;
                 }
-            }
+                if (this.queries.studyType == "Hauptstudium") {
+                    if (this.queries.examOrder == 'PO 2013') {
+                        return this.modulePlan.old.mainStudyPeriod;
+                    } else if (this.queries.examOrder == 'PO 2019') {
+                        return this.modulePlan.new.mainStudyPeriod;
+                    }
 
-            
-            return true;
+                }
+                if (this.queries.studyType == "Master") {
+                    if (this.queries.examOrder == 'PO 2013') {
+                        return this.modulePlan.old.masterStudyPeriod;
+                    } else if (this.queries.examOrder == 'PO 2019') {
+                        return this.modulePlan.new.masterStudyPeriod;
+                    }
+                }
+            },
+            isDisabled() {
+                if (this.queries.studyType == 'selectedCourses') {
+                    return true;
+                } else {
+                    return false
+                }
+            },
+            ...mapState([
+                'modulePlan',
+                'queries'
+            ])
         },
-        moduleFilterTriggered: function (event) {
-            let element = document.getElementById(event.target.id);
-            if(element.classList.contains("disabled")){ return; }
-            element.classList.toggle('active');
-            this.$store.commit('SET_MODULE_QUERY', event.target.id);
-            this.$store.commit('QUERY_COURSES');
-            this.$store.commit('PUSH_NOTIFICATION', {
-                message: 'Modulfilter deaktivieren',
-                action: 'WIPE_MODULE_QUERY'
-            });
-        } 
+        methods: {
+            triggerModules: function () {
+                this.isActive = !this.isActive;
+            },
+            hasNoCourse(id) {
+                let courses = this.$store.state.coursesStash.data.data.semester.courses;
+
+                if (this.$store.state.queries.examOrder == 'PO 2013') {
+                    for (const course of courses) {
+                        if (course.attributes.module.id == id) {
+                            return false;
+                        }
+                    }
+                }
+
+                if (this.$store.state.queries.examOrder == 'PO 2019') {
+                    for (const course of courses) {
+                        if (course.attributes.module.id_new == id.replace('PO 2019 ', '')) {
+                            return false;
+                        }
+                    }
+                }
+
+
+
+
+                return true;
+            },
+            moduleFilterTriggered: function (event) {
+                let element = document.getElementById(event.target.id);
+                if (element.classList.contains("disabled")) {
+                    return;
+                }
+                element.classList.toggle('active');
+                this.$store.commit('SET_MODULE_QUERY', event.target.id);
+                this.$store.commit('QUERY_COURSES');
+                this.$store.commit('PUSH_NOTIFICATION', {
+                    message: 'Modulfilter deaktivieren',
+                    action: 'WIPE_MODULE_QUERY'
+                });
+            }
+        }
+
     }
-    
-}
 </script>
 <style lang="scss" scoped>
     @charset "utf-8";
@@ -123,9 +180,11 @@ export default {
         position: fixed;
         z-index: 100;
         right: -64px;
+
         @include for-phone-only {
             display: none;
         }
+
         &.closingModal {
             position: fixed;
             width: auto;
@@ -141,6 +200,7 @@ export default {
         position: absolute;
         z-index: 100;
         right: 0;
+
         .btn {
             position: relative;
             width: 64px;
@@ -155,11 +215,12 @@ export default {
             top: 45vh;
             right: 8rem;
             outline: none;
-            transition: $animation-default
-            ;
+            transition: $animation-default;
+
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
+
                 .caption {
                     font-family: 'FHPSun-Regular';
                     font-size: 1rem;
@@ -174,13 +235,16 @@ export default {
                     opacity: 1;
                     transition: $animation-slow;
                 }
+
                 &.active {
                     right: 62rem;
                     background-position: 110% center;
+
                     .caption {
                         opacity: 0;
                     }
                 }
+
                 &.disabled {
                     display: none;
                 }
@@ -199,10 +263,11 @@ export default {
         transform: translateX(100vw);
         text-align: left;
         background: $white;
-        transition:  $animation-default;
-        -webkit-box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
-        -moz-box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
-        box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
+        transition: $animation-default;
+        -webkit-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
+        box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
+
         &.active {
             transform: translateX(60rem);
             width: 60rem;
@@ -222,24 +287,27 @@ export default {
         padding: 1.25rem 1.5rem 2rem 1.5rem;
         clip-path: inset(3.2px);
         border: 3px solid $active !important;
+
         &.active {
             clip-path: inset(0);
         }
+
         &.disabled {
             opacity: .4;
         }
+
         span {
             margin-bottom: 0;
         }
+
         h4 {
             margin: .75rem 0 .5rem 0;
             line-height: 1.5rem;
             font-weight: 700;
         }
+
         &:hover {
             background: $white;
         }
     }
 </style>
-
-

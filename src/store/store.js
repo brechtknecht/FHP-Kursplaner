@@ -12,7 +12,7 @@ export default new Vuex.Store({
   state: {
     queries: {
       studyType: "Grundstudium",
-      studyOrder: "PO 2013",
+      examOrder: "PO 2013",
       days: {
         monday: true,
         tuesday: true,
@@ -162,7 +162,14 @@ export default new Vuex.Store({
       let queriedCourses = [];
       if (!state.queries.modules.length == 0) {
         for (let moduleQuery of state.queries.modules) {
-          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]"));
+          if(state.queries.examOrder == 'PO 2013') {
+            queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]"));  
+            console.log('Modulsuche 2013');
+          } else if (state.queries.examOrder == 'PO 2019'){
+            let query = moduleQuery.replace('PO 2019 ', '');
+            console.log("moduleQuery", query);
+            queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id_new == '" + query + "')]"));
+          }
         }
 
         let coursesStash = [];

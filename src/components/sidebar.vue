@@ -85,7 +85,7 @@
             },
             examOrder: {
                 get() {
-                    return this.$store.state.queries.studyOrder;
+                    return this.$store.state.queries.examOrder;
                 },
                 set(examOrder) {
                     this.$store.commit('SWITCH_STUDY_ORDER', examOrder);

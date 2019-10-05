@@ -22,7 +22,7 @@
           <h4>{{ this.$props.info.teacher }} — </h4>
         </div>  
         <div>
-          <h4 style="font-feature-settings: 'tnum'">{{ this.$props.info.module.name }}</h4>
+          <h4 style="font-feature-settings: 'tnum'">{{ moduleNameStringify }}</h4>
         </div>
       </div>
     </div>
@@ -101,6 +101,10 @@
               category: category[0],
               title: title[0].replace(': ', '')
           }
+      },
+      moduleNameStringify() {
+        let string = this.$props.info.module.name;
+        return string;
       },
       courseBackground() {
         let colorCode = this.$props.info.colorCode;

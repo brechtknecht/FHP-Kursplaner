@@ -1,7 +1,220 @@
 export default {
   // Grundstudium
   new: {
-    //...
+    basicStudyPeriod: {
+      elementares_gestalten: {
+        title: "Ⅰ/1 Gestaltungsgrundlagen",
+        elementares_gestalten: {
+          title: "Elementares Gestalten",
+          modules:[{
+            id: "PO 2019 11 EG-B",
+            title: "Basics",
+            subtitle: "Grundlegende Darstellungstechniken",
+            colorcCode: "#E7E8E9"
+          },{
+            id: "PO 2019 11 EG-K",
+            title: "Kontext",
+            subtitle: "Wahrnehmung und Differenzierung",
+            colorcCode: "#E7E8E9"
+          },{
+            id: "PO 2019 11 EG-P",
+            title: "Prozess",
+            subtitle: "Gestaltungsabläufe und Methoden",
+            colorcCode: "#E7E8E9"
+          }]
+        },
+        atelier : {
+            title: "Atelier",
+            modules: [{
+              id: "PO 2019 11 AT",
+              title: "Atelier",
+              subtitle: "",
+              colorcCode: "#E7E8E9"
+            }]
+        }
+      },
+      entwurfsgrundlagen: {
+        title: "Ⅰ/2 Entwurfsgrundlagen",
+        interfacedesign: {
+          title: "Interface",
+          modules: [{
+            id: "PO 2019 12 EId-MK",
+            title: "Mensch + Kontext",
+            colorCode: "#C6DEE2",
+            subtitle: "Nutzer*innen zentrierte Analyse von Anwendungskontexten"
+          },
+          {
+            id: "PO 2019 12 EId-MP",
+            title: "Methoden + Prozesse",
+            colorCode: "#C6DEE2",
+            subtitle: "Methodische Entwicklungsprozesse für interaktive Systeme"
+          },
+          {
+            id: "PO 2019 12 EId-FI",
+            title: "Form + Interaktion",
+            colorCode: "#C6DEE2",
+            subtitle: "Konzeption und Entwurf von User-Interfaces"
+          },
+          {
+            id: "PO 2019 12 EId-AD",
+            title: "Algorithmen + Daten",
+            colorCode: "#C6DEE2",
+            subtitle: "Gestaltung mit Daten und Algorithmen, Programmierung"
+          }]
+        },
+        kommunikationsdesign: {
+          title: "Kommunikation",
+          modules: [{
+            id: "PO 2019 12 EKd-SA",
+            title: "Schrift + Ausdruck",
+            colorCode: "#DBE1C9",
+            subtitle: "Gestaltung von und mit Schrift"
+          },
+          {
+            id: "PO 2019 12 EKd-BW",
+            title: "Bild + Wirkung",
+            colorCode: "#DBE1C9",
+            subtitle: "Bildproduktion und Rezeption"
+          },
+          {
+            id: "PO 2019 12 EKd-FN",
+            title: "Formate + Narration",
+            colorCode: "#DBE1C9",
+            subtitle: "Publikationsformate"
+          },
+          {
+            id: "PO 2019 12 EKd-ZA",
+            title: "Zeichen + Ansprache",
+            colorCode: "#DBE1C9",
+            subtitle: "Kommunikationssysteme"
+          }]
+        },
+        produktdesign: {
+          title: "Produkt",
+          modules:[{
+            id: "PO 2019 12 EPd-TP",
+            title: "Technik + Produkt",
+            colorCode: "#BFD3AE",
+            subtitle: "Produktion und Produktentwicklung"
+          },
+          {
+            id: "PO 2019 12 EPd-FZ",
+            title: "Form + Zweck",
+            colorCode: "#BFD3AE",
+            subtitle: "Ästhetische Grundlagen der Stilentwicklung"
+          },
+          {
+            id: "PO 2019 12 EPd-RK",
+            title: "Raum + Kontext",
+            colorCode: "#BFD3AE",
+            subtitle: "Synergien der gestalterischen Kommunikation"
+          },
+          {
+            id: "PO 2019 12 EPd-OI",
+            title: "Objekt + Intention",
+            colorCode: "#BFD3AE",
+            subtitle: "Strategie und Praxis der Produktentstehung"
+          }]
+        }
+      },
+      theorie: {
+        title: "Ⅰ/3 Theorie",
+        modules: [{
+          id: "PO 2019 13 Th-DT",
+          title: "Design-/Medientheorie",
+          colorCode: "#F8F8F8",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 13 Th-DG",
+          title: "Design-/Kulturgeschichte",
+          colorCode: "#F8F8F8",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 13 Th-DM",
+          title: "Designmanagement und -recht",
+          colorCode: "#F8F8F8",
+          subtitle: ""
+        }]
+      },
+      werkstatt: {
+        title: "Ⅰ/4 Werkstattpraxis",
+        modules: [{
+          id: "PO 2019 14 W-IL",
+          title: "Interfacelabore",
+          colorCode: "#C6DEE2",
+          subtitle: "Physical Computing, interaktive Systeme"
+        },
+        {
+          id: "PO 2019 14 W-DL",
+          title: "Drucklabore",
+          colorCode: "#DBE1C9",
+          subtitle: "Prepress, Farbmanagement, FineArt-Print"
+        },
+        {
+          id: "PO 2019 14 W-GL",
+          title: "Grafiklabor",
+          colorCode: "#DBE1C9",
+          subtitle: "Experimentelle Drucktechniken"
+        },
+        {
+          id: "PO 2019 14 W-BW",
+          title: "Buchbindewerkstatt",
+          colorCode: "#DBE1C9",
+          subtitle: ""
+        },{
+          id: "PO 2019 14 W-FW",
+          title: "Fotowerkstätten",
+          colorCode: "#DBE1C9",
+          subtitle: "SW-Labor, Studio"
+        },{
+          id: "PO 2019 14 W-AV",
+          title: "Audio-/Videowerkstätten",
+          colorCode: "#DBE1C9",
+          subtitle: "Studio, Schnitt"
+        },
+        {
+          id: "PO 2019 14 W-MW",
+          title: "Modellierwerkstatt",
+          colorCode: "#BFD3AE",
+          subtitle: "Plastisches Gestalten"
+        },
+        {
+          id: "PO 2019 14 W-AM",
+          title: "Analoge Modellbauwerkstätten",
+          colorCode: "#BFD3AE",
+          subtitle: "Holz, Metall, Finish"
+        },
+        {
+          id: "PO 2019 14 W-DM",
+          title: "Digitale Modellbauwerkstätten",
+          colorCode: "#BFD3AE",
+          subtitle: "CAD, CAM"
+        }]
+      },
+      perspektive: {
+        title: "Ⅰ/5 Perspektiven und Social Skills",
+        modules: [{
+          id: "PO 2019 15 PSs-PW",
+          title: "Projektwochen",
+          colorCode: "#F8F8F8",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 15 PSs-PO",
+          title: "Projektorganisation",
+          colorCode: "#F8F8F8",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 15 PSs-FM",
+          title: "Flex-Modul",
+          colorCode: "#F8F8F8",
+          subtitle: ""
+        }]
+      }
+    } 
   },
   old: {
     basicStudyPeriod: {
