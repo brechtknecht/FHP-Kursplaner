@@ -271,7 +271,7 @@
             top: 45vh;
             right: 5rem;
             outline: none;
-            transition: $animation-slow;
+            transition: $animation-default;
             @include for-phone-only { 
                 background-image: url('../assets/img/none-cross-vert.svg');
                 background-position: 50% center;  

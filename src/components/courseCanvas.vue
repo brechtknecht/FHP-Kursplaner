@@ -50,7 +50,7 @@
           </div>
         
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
-          <course :id="course._id" :position="{ 
+          <course :tabindex="index" :id="course._id" :position="{ 
             row: index,
             start:    course.attributes.time.fixture.begin,
             end:      course.attributes.time.fixture.end,
@@ -226,6 +226,9 @@
   .overview {
     .course-wrapper {
       margin: 0.75rem 0;
+      &:focus {
+        outline: 0;
+      }
     }
   }
 

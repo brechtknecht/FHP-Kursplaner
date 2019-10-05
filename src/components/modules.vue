@@ -155,7 +155,8 @@ export default {
             top: 45vh;
             right: 8rem;
             outline: none;
-            transition: $animation-default;
+            transition: $animation-default
+            ;
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
@@ -195,7 +196,7 @@ export default {
         max-height: calc(100vh - 4rem);
         padding: 3.5rem 4.5rem;
         z-index: 300;
-        right: -100%;
+        transform: translateX(100vw);
         text-align: left;
         background: $white;
         transition:  $animation-default;
@@ -203,7 +204,7 @@ export default {
         -moz-box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
         box-shadow: -8px 0px 38px -7px rgba(0,0,0,0.15);
         &.active {
-            right: -60rem;
+            transform: translateX(60rem);
             width: 60rem;
         }
     }
