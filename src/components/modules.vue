@@ -155,7 +155,7 @@ export default {
             top: 45vh;
             right: 8rem;
             outline: none;
-            transition: $animation-slow;
+            transition: $animation-default;
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
