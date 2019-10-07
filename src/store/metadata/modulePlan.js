@@ -40,25 +40,25 @@ export default {
           modules: [{
             id: "PO 2019 12 EId-MK",
             title: "Mensch + Kontext",
-            colorCode: "#C6DEE2",
+            colorCode: "#D8F0F4",
             subtitle: "Nutzer*innen zentrierte Analyse von Anwendungskontexten"
           },
           {
             id: "PO 2019 12 EId-MP",
             title: "Methoden + Prozesse",
-            colorCode: "#C6DEE2",
+            colorCode: "#D8F0F4",
             subtitle: "Methodische Entwicklungsprozesse für interaktive Systeme"
           },
           {
             id: "PO 2019 12 EId-FI",
             title: "Form + Interaktion",
-            colorCode: "#C6DEE2",
+            colorCode: "#D8F0F4",
             subtitle: "Konzeption und Entwurf von User-Interfaces"
           },
           {
             id: "PO 2019 12 EId-AD",
             title: "Algorithmen + Daten",
-            colorCode: "#C6DEE2",
+            colorCode: "#D8F0F4",
             subtitle: "Gestaltung mit Daten und Algorithmen, Programmierung"
           }]
         },
@@ -67,25 +67,25 @@ export default {
           modules: [{
             id: "PO 2019 12 EKd-SA",
             title: "Schrift + Ausdruck",
-            colorCode: "#DBE1C9",
+            colorCode: "#EDF3DA",
             subtitle: "Gestaltung von und mit Schrift"
           },
           {
             id: "PO 2019 12 EKd-BW",
             title: "Bild + Wirkung",
-            colorCode: "#DBE1C9",
+            colorCode: "#EDF3DA",
             subtitle: "Bildproduktion und Rezeption"
           },
           {
             id: "PO 2019 12 EKd-FN",
             title: "Formate + Narration",
-            colorCode: "#DBE1C9",
+            colorCode: "#EDF3DA",
             subtitle: "Publikationsformate"
           },
           {
             id: "PO 2019 12 EKd-ZA",
             title: "Zeichen + Ansprache",
-            colorCode: "#DBE1C9",
+            colorCode: "#EDF3DA",
             subtitle: "Kommunikationssysteme"
           }]
         },
@@ -94,25 +94,25 @@ export default {
           modules:[{
             id: "PO 2019 12 EPd-TP",
             title: "Technik + Produkt",
-            colorCode: "#BFD3AE",
+            colorCode: "#CFE4BC",
             subtitle: "Produktion und Produktentwicklung"
           },
           {
             id: "PO 2019 12 EPd-FZ",
             title: "Form + Zweck",
-            colorCode: "#BFD3AE",
+            colorCode: "#CFE4BC",
             subtitle: "Ästhetische Grundlagen der Stilentwicklung"
           },
           {
             id: "PO 2019 12 EPd-RK",
             title: "Raum + Kontext",
-            colorCode: "#BFD3AE",
+            colorCode: "#CFE4BC",
             subtitle: "Synergien der gestalterischen Kommunikation"
           },
           {
             id: "PO 2019 12 EPd-OI",
             title: "Objekt + Intention",
-            colorCode: "#BFD3AE",
+            colorCode: "#CFE4BC",
             subtitle: "Strategie und Praxis der Produktentstehung"
           }]
         }
@@ -122,19 +122,19 @@ export default {
         modules: [{
           id: "PO 2019 13 Th-DT",
           title: "Design-/Medientheorie",
-          colorCode: "#F8F8F8",
+          colorCode: "#E7E8E9",
           subtitle: ""
         },
         {
           id: "PO 2019 13 Th-DG",
           title: "Design-/Kulturgeschichte",
-          colorCode: "#F8F8F8",
+          colorCode: "#E7E8E9",
           subtitle: ""
         },
         {
           id: "PO 2019 13 Th-DM",
           title: "Designmanagement und -recht",
-          colorCode: "#F8F8F8",
+          colorCode: "#E7E8E9",
           subtitle: ""
         }]
       },
@@ -143,53 +143,53 @@ export default {
         modules: [{
           id: "PO 2019 14 W-IL",
           title: "Interfacelabore",
-          colorCode: "#C6DEE2",
+          colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 16px, #B5D4D2 16px, #B5D4D2 32px)",
           subtitle: "Physical Computing, interaktive Systeme"
         },
         {
           id: "PO 2019 14 W-DL",
           title: "Drucklabore",
-          colorCode: "#DBE1C9",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
           subtitle: "Prepress, Farbmanagement, FineArt-Print"
         },
         {
           id: "PO 2019 14 W-GL",
           title: "Grafiklabor",
-          colorCode: "#DBE1C9",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
           subtitle: "Experimentelle Drucktechniken"
         },
         {
           id: "PO 2019 14 W-BW",
           title: "Buchbindewerkstatt",
-          colorCode: "#DBE1C9",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
           subtitle: ""
         },{
           id: "PO 2019 14 W-FW",
           title: "Fotowerkstätten",
-          colorCode: "#DBE1C9",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
           subtitle: "SW-Labor, Studio"
         },{
           id: "PO 2019 14 W-AV",
           title: "Audio-/Videowerkstätten",
-          colorCode: "#DBE1C9",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
           subtitle: "Studio, Schnitt"
         },
         {
           id: "PO 2019 14 W-MW",
           title: "Modellierwerkstatt",
-          colorCode: "#BFD3AE",
+          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
           subtitle: "Plastisches Gestalten"
         },
         {
           id: "PO 2019 14 W-AM",
           title: "Analoge Modellbauwerkstätten",
-          colorCode: "#BFD3AE",
+          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
           subtitle: "Holz, Metall, Finish"
         },
         {
           id: "PO 2019 14 W-DM",
           title: "Digitale Modellbauwerkstätten",
-          colorCode: "#BFD3AE",
+          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
           subtitle: "CAD, CAM"
         }]
       },
@@ -198,24 +198,208 @@ export default {
         modules: [{
           id: "PO 2019 15 PSs-PW",
           title: "Projektwochen",
-          colorCode: "#F8F8F8",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
           subtitle: ""
         },
         {
           id: "PO 2019 15 PSs-PO",
           title: "Projektorganisation",
-          colorCode: "#F8F8F8",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
           subtitle: ""
         },
         {
           id: "PO 2019 15 PSs-FM",
           title: "Flex-Modul",
-          colorCode: "#F8F8F8",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
           subtitle: ""
         }]
       }
-    } 
+    },
+    // Haupstudium
+    mainStudyPeriod: {
+    entwurf: {
+      title: "II/1 Entwurf",
+      design_als_spekulation: {
+        title: "Design als Spekulation",
+        modules: [{
+          id: "PO 2019 21 EId-S",
+          title: "Interfacedesign als Spekulation",
+          colorCode: "#D8F0F4",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 21 EKd-S",
+          title: "Kommunikationsdesign als Spekulation",
+          colorCode: "#EDF3DA",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 21 EPd-S",
+          title: "Produktdesign als Spekulation",
+          colorCode: "#CFE4BC",
+          subtitle: ""
+        }]
+      },
+      design_als_designforschung: {
+        title: "Design als Designforschung",
+        modules: [{
+          id: "PO 2019 21 EId-F",
+          title: "Interfacedesign als Designforschung",
+          colorCode: "#D8F0F4",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 21 EKd-F",
+          title: "Kommunikationsdesign als Designforschung",
+          colorCode: "#EDF3DA",
+          subtitle: ""
+        },
+        {
+          id: "PO 2019 21 EPd-F",
+          title: "Produktdesign als Designforschung",
+          colorCode: "#CFE4BC",
+          subtitle: ""
+        }]
+      },
+      design_als_kuenstlerische_praxis: {
+        title: "Design als Künstlerische Praxis",
+        modules: [{
+          id: "PO 2019 21 EId-K",
+          title: "Interfacedesign als Künstlerische Praxis",
+          colorCode: "#D8F0F4",
+          subtitle: ""
+        },{
+          id: "PO 2019 21 EKd-K",
+          title: "Kommunikationsdesign als Künstlerische Praxis",
+          colorCode: "#EDF3DA",
+          subtitle: ""
+        },{
+          id: "PO 2019 21 EPd-K",
+          title: "Produktdesign als Künstlerische Praxis",
+          colorCode: "#CFE4BC",
+          subtitle: ""
+        }]
+      },
+      design_als_Problemlösung: {
+        title: "Design als Problemlösung",
+        modules: [{
+          id: "PO 2019 21 EId-P",
+          title: "Interfacedesign als Problemlösung",
+          colorCode: "#D8F0F4",
+          subtitle: ""
+        },{
+          id: "PO 2019 21 EKd-P",
+          title: "Kommunikationsdesign als Problemlösung",
+          colorCode: "#EDF3DA",
+          subtitle: ""
+        },{
+          id: "PO 2019 21 EPd-P",
+          title: "Produktdesign als Problemlösung",
+          colorCode: "#CFE4BC",
+          subtitle: ""
+        }]
+      },
+      theorie: {
+        title: "II/2 Theorie",
+        modules: [{
+          id: "PO 2019 22 Th-DT",
+          title: "Design-/Medientheorie",
+          colorCode: "#E7E8E9",
+          subtitle: ""
+        },{
+          id: "PO 2019 22 Th-DG",
+          title: "Design-/Kulturgeschichte",
+          colorCode: "#E7E8E9",
+          subtitle: ""
+        },{
+          id: "PO 2019 22 Th-DM",
+          title: "Designmanagement und -recht",
+          colorCode: "#E7E8E9",
+          subtitle: ""
+        }]
+      },
+      praxissemester: {
+        title: "II/3 Praxissemester",
+        modules: [{
+          id: "PO 2019 23 PS-P",
+          title: "Praktikum",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          subtitle: "Voraussetzung siehe Modulbeschreibung"
+        },{
+          id: "PO 201) 23 PS-PB",
+          title: "Praxisbericht",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          subtitle: "Dokumentation und Präsentation"
+        }]
+      },
+      perspektive: {
+        title: "II/4 Perspektiven und Social Skills",
+        modules: [{
+          id: "PO 2019 24 PSs-PW",
+          title: "Projektwochen",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+        },{
+          id: "PO 2019 24 PSs-FM",
+          title: "Flex-Modul",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+        },{
+          id: "PO 2019 24 PSs-T",
+          title: "Tutorium",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+        },{
+          id: "PO 2019 24 PSs-PO",
+          title: "Projektorganisation",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+        },{
+          id: "PO 2019 24 PSs-HT",
+          title: "Handwerk/Technik",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          subtitle: "Vertiefung"
+        },{
+          id: "PO 2019 24 PSs-AT",
+          title: "Atelier",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          subtitle: "Vertiefung"
+        }]
+      }
+    }
   },
+    // Master
+    masterStudyPeriod: {
+      labor_entwurfsstrategien: {
+        title: "III/1 Labor-/Entwurfsstrategien",
+        modules: [{
+          id: "PO 2019 31 LE-S",
+          title: "Spezialisierung",
+          colorCode: "#E7E8E9"
+        },{
+          id: "PO 2019 31 LE-DR",
+          title: "Reflexion",
+          colorCode: "#E7E8E9"
+        }]
+      },
+      thesisentwicklung: {
+        title: "III/2 Thesisentwicklung",
+        modules: [{
+          id: "PO 2019 32 TE-WD",
+          title: "Wissenschaftsmethodik + Designforschung",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+        },{
+          id: "PO 2019 32 TE-DA",
+          title: "Designdiskurs + Argumentation",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+        }]
+      },
+      didaktik: {
+        title: "III/3 Didaktik",
+        modules: [{
+          id: "PO 2019 33 D-TM",
+          title: "Tutoring/Mentoring",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+        }]
+      }
+    }
+  } ,
   old: {
     basicStudyPeriod: {
       elementares_gestalten: {
@@ -703,6 +887,5 @@ export default {
         }]
       }
     }
-  }
-  
+  } 
 }
