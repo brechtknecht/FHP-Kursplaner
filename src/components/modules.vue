@@ -263,7 +263,7 @@
         transform: translateX(100vw);
         text-align: left;
         background: $white;
-        transition: $animation-default;
+        transition: transform $animation-default;
         -webkit-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
         -moz-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
         box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);

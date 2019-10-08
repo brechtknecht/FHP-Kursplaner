@@ -21,5 +21,8 @@
       color: #42b983;
     }
   }
+  button {
+    cursor: pointer;
+  }
 }
 </style>

@@ -54,12 +54,12 @@
             <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
             <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
         </ul>
-        <hr>
+        <!-- <hr>
         <h4>Sortieren nach:</h4>
         <ul class="courseFilters">
             <li class="listElement Kursnummer" :class="{ active: true }" @click="0">Kursnummer</li>
             <li class="listElement Zeit" :class="{ active: false }" @click="0">Zeit</li>
-        </ul>
+        </ul> -->
     </div>
 </template>
 

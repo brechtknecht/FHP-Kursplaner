@@ -74,11 +74,13 @@
           end.hour.value = 22;
         }
 
+        let BORDER_WIDTH = 2;
+
         let startPosition = ((start.hour.value - 9) * columnWidth) + (start.minutes.value * (columnWidth / 60));
         let endPosition = ((end.hour.value - 9) * columnWidth) + (end.minutes.value * (columnWidth / 60));
 
-        let offsetStart = Math.floor(startPosition / columnWidth);
-        let offsetEnd = Math.floor(endPosition / columnWidth);
+        let offsetStart = Math.floor(startPosition / columnWidth) - BORDER_WIDTH;
+        let offsetEnd = Math.floor(endPosition / columnWidth) - BORDER_WIDTH;
 
 
 
@@ -213,6 +215,7 @@
   .course {
     clip-path: inset(3px round 1.5rem);
     position: relative;
+    outline: 0;
 
     &:hover {
       border: 3px solid $active;

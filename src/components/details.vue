@@ -47,13 +47,17 @@
                             ></Checkbox>
                             <span class="checkbox-label">Merken</span>
                         </button>
-                        <button v-if="this.workspaceLink" class="btn btn-secondary workspace">
-                            <a :href="this.workspaceLink" target="_blank">Zum Workspace</a>
-                        </button>
-                        <div v-else>
-                            <button  class="btn btn-secondary workspace warning">
-                                <a :href="'http://fhp.incom.org/search/' + currentCourseTitle.title + '/workspaces'" target="_blank">Suche auf Incom</a>
+                        <a v-if="this.workspaceLink" :href="this.workspaceLink" target="_blank">
+                            <button class="btn btn-secondary workspace">
+                                Zum Workspace
                             </button>
+                        </a>
+                        <div v-else>
+                            <a :href="'http://fhp.incom.org/search/' + currentCourseTitle.title + '/workspaces'" target="_blank">
+                                <button class="btn btn-secondary workspace warning">
+                                    Suche auf Incom
+                                </button>
+                            </a>
                         </div>
                     </div>
             </div>
