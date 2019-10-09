@@ -101,9 +101,6 @@
 
           title = title[0].replace(': ', '');
 
-          console.log(title);
-          title = title.replace(/['"]/g,'');
-
           return {
               category: category[0],
               title: title
