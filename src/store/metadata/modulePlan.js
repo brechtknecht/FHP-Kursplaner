@@ -10,17 +10,17 @@ export default {
             id: "PO 2019 11 EG-B",
             title: "Basics",
             subtitle: "Grundlegende Darstellungstechniken",
-            colorcCode: "#E7E8E9"
+            colorCode: "#E7E8E9"
           },{
             id: "PO 2019 11 EG-K",
             title: "Kontext",
             subtitle: "Wahrnehmung und Differenzierung",
-            colorcCode: "#E7E8E9"
+            colorCode: "#E7E8E9"
           },{
             id: "PO 2019 11 EG-P",
             title: "Prozess",
             subtitle: "Gestaltungsabläufe und Methoden",
-            colorcCode: "#E7E8E9"
+            colorCode: "#E7E8E9"
           }]
         },
         atelier : {

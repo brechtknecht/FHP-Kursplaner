@@ -282,7 +282,7 @@
 
     .module {
         width: 12rem;
-        height: 5rem;
+        height: 7.5rem;
         cursor: pointer;
         padding: 1.25rem 1.5rem 2rem 1.5rem;
         clip-path: inset(3.2px);
