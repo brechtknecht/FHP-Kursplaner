@@ -99,9 +99,14 @@
           if(category == null) {category= ['undefined']}
           if(title == null) { title = category;}
 
+          title = title[0].replace(': ', '');
+
+          console.log(title);
+          title = title.replace(/['"]/g,'');
+
           return {
               category: category[0],
-              title: title[0].replace(': ', '')
+              title: title
           }
       },
       moduleNameStringify() {

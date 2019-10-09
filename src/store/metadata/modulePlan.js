@@ -29,7 +29,7 @@ export default {
               id: "PO 2019 11 AT",
               title: "Atelier",
               subtitle: "",
-              colorcCode: "#E7E8E9"
+              colorCode: "#E7E8E9"
             }]
         }
       },
