@@ -21,6 +21,7 @@ export default new Vuex.Store({
         friday: true
       },
       modules: [],
+      moduleQueryStudyType: String,
       sorting: {
         //...
       }
@@ -71,6 +72,7 @@ export default new Vuex.Store({
     SWITCH_STUDY_TYPE ({commit}, studyType) {
       commit('SWITCH_STUDY_TYPE', studyType);
       commit('QUERY_COURSES');
+      commit('WIPE_MODULE_QUERY');
     }
   },
   mutations: {
@@ -156,6 +158,7 @@ export default new Vuex.Store({
         courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("3"))]');
       } 
 
+
       console.log('Kurse', courses);
 
       // Filter all courses based on the given module group attributes & if empty just pass all
@@ -176,13 +179,11 @@ export default new Vuex.Store({
         console.log('Modulbasierte Suche: ', queriedCourses);
         
         for(let i = 0; i < queriedCourses.length; i++) {
-          
             for(let k = 0; k < queriedCourses[i].length; k++){
               coursesStash.push(queriedCourses[i][k]);
             }
-          
         }
-
+        
         
         courses = coursesStash;
       }

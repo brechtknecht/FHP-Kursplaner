@@ -436,9 +436,6 @@
             bottom: -1.75rem;
             button {
                 height: 3.5rem;
-                &.remember {
-                    // padding-top: 10px;
-                }
                 div {
                     position: relative;
                     top: -4px;
