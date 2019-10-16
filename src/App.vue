@@ -24,5 +24,9 @@
   button {
     cursor: pointer;
   }
+
+  .modal-open {
+    overflow: hidden;
+  }
 }
 </style>

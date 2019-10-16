@@ -129,6 +129,7 @@
         methods: {
             triggerModules: function () {
                 this.isActive = !this.isActive;
+                document.getElementsByTagName('body').classlist.toggle('modal-open');
             },
             hasNoCourse(id) {
                 let courses = this.$store.state.coursesStash.data.data.semester.courses;
