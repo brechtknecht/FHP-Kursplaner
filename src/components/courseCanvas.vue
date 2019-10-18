@@ -93,7 +93,6 @@
     created() {
       window.addEventListener('scroll', () => {
         this.scrollListener();
-
       });
 
       this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {

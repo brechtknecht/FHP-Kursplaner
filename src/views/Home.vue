@@ -2,7 +2,7 @@
   <div class="app">
     <Sidebar/>
     <Modules/>
-    <CourseCanvas @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
+    <CourseCanvas                             @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Details :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Notification></Notification>
   </div>

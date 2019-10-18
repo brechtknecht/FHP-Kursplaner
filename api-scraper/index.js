@@ -82,8 +82,12 @@ async function scrape (LINK) {
         if(newModuleId == null) {
           newModuleId = [''];
         }
+        if(typeof newModuleId === "undefined") {
+          newModuleId = [''];
+        }
   
-        console.log("New Module ID: ", newModuleId);
+        console.log("New Module IDsheesh: ", newModuleId);
+        console.log(resId[0]);
   
         detailsArray[i] = {
           id: resId[0].replace(/\s/g, ''),
