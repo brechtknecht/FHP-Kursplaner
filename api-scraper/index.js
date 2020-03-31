@@ -15,11 +15,13 @@ const puppeteer = require('puppeteer');
 let courses = [];
 let modules = [];
 
+init();
 
-scrape(LINKS.LINK_BASIC_STUDYPERIOD);
-scrape(LINKS.LINK_MAIN_STUDYPERIOD);
-scrape(LINKS.LINK_MASTER_STUDYPERIOD);
-
+async function init () {
+  await scrape(LINKS.LINK_BASIC_STUDYPERIOD);
+  await scrape(LINKS.LINK_MAIN_STUDYPERIOD);
+  await scrape(LINKS.LINK_MASTER_STUDYPERIOD);
+} 
 
 
 async function scrape (LINK) {
@@ -164,7 +166,8 @@ async function scrape (LINK) {
       }
     });
 
-    fs.writeFileSync('../public/data/courses.json', data);
+    // fs.writeFileSync('../public/data/courses.json', data);
+    fs.writeFileSync('courses.json', data);
   
     let moduleData = JSON.stringify({ modules });
     fs.writeFileSync('modules.json', moduleData);

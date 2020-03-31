@@ -267,7 +267,7 @@ export default new Vuex.Store({
           let result = getObjects(state.modulePlan, 'id', course.attributes.module.id);
 
           if(typeof(result[0]) == 'undefined'){
-            return;
+            return;   
           }
 
           if (result[0].hasOwnProperty('colorCode')) {
