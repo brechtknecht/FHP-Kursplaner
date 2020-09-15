@@ -27,15 +27,18 @@ async function init () {
 async function scrape (LINK) {
   (async () => {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       devtools: true
     });
     const page = await browser.newPage();
+    console.log("Link:", LINK)
     await page.goto(LINK);
   
     await page.evaluate(() => {
       let elements = document.querySelectorAll('td.data_spalte1');
       Array.from(elements).forEach((element) => element.click());
+
+      console.log("I Am Evaluating")
     });
   
     let meta = await page.evaluate(() => {
@@ -159,7 +162,7 @@ async function scrape (LINK) {
       "data" : {
         "data" : {
           "semester" : {
-            "name" : "WiSe 2019/2020",
+            "name" : "WiSe 2020/2021",
             courses
           }
         }
@@ -168,11 +171,12 @@ async function scrape (LINK) {
 
     // fs.writeFileSync('../public/data/courses.json', data);
     fs.writeFileSync('courses.json', data);
+    console.log("Created File")
   
     let moduleData = JSON.stringify({ modules });
     fs.writeFileSync('modules.json', moduleData);
   
-    // await page.waitFor(4000)
-      await browser.close();
+    // await page.waitFor(40000)
+      // await browser.close();
   })();
 }
