@@ -22,23 +22,55 @@ app.get('/api', (req, res) => {
   });
 });
 
-app.post('/api/posts', verifyToken, (req, res) => {  
+app.post('/api/getUserData', verifyToken, (req, res) => {  
   jwt.verify(req.token, 'secretkey', (err, authData) => {
     if(err) {
       res.sendStatus(403)
     } else {
-      res.json({
-        message: 'Post created...',
-        authData
-      })
+		const userData = db.get('users')
+							.find({ passphrase: authData.user.passphrase })
+
+      	res.json({
+        	message: 'Found User',
+			authData,
+			userData
+      	})
     }
+  })
+})
+
+app.post('/api/signIn', (req, res) => {
+  // Mock user
+  const user = {
+    passphrase: req.headers['passphrase']
+  }
+
+  const databaseHasPassphrase = db.get('users')
+    .find({ passphrase: user.passphrase})
+    .value()  
+
+  // If Database does not already have the Users Passphrase Create one
+  if(typeof databaseHasPassphrase === 'undefined') {
+    db.get('users')
+      .push({
+          passphrase: user.passphrase,
+          data: "Hier kommen die Daten rein"
+      })
+      .write()
+	}
+
+
+  jwt.sign({user}, 'secretkey', { expiresIn: '7d' }, (err, token) => {
+		res.json({
+			token
+		})
   })
 })
 
 app.post('/api/login', (req, res) => {
   // Mock user
   const user = {
-    passphrase: 'all-i-want-is-doggys'
+    passphrase: req.headers['passphrase']
   }
 
   const databaseHasPassphrase = db.get('users')
@@ -47,14 +79,10 @@ app.post('/api/login', (req, res) => {
 
   // If Database does not already have the Users Passphrase Create one
   if(typeof databaseHasPassphrase === 'undefined') {
-      db.get('users')
-        .push({
-            passphrase: user.passphrase,
-            data: "Hier kommen die Daten rein"
-        })
-        .write()
+	  // Error: User is not in the Database return to SignIn
+	  res.sendStatus(404)
+	  return
   }
-
 
   jwt.sign({user}, 'secretkey', { expiresIn: '7d' }, (err, token) => {
     res.json({
