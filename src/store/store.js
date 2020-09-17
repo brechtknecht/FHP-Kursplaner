@@ -63,6 +63,7 @@ export default new Vuex.Store({
           resolve(resp)
         })
         .catch(err => {
+          console.log("Login Error")
           commit('auth_error')
           localStorage.removeItem('token')
           reject(err)
@@ -120,6 +121,7 @@ export default new Vuex.Store({
     auth_success(state, token, user){
       state.user.status = 'success'
       state.user.token = token
+      state.user.toggleAuth = false;
       console.log("Auth Success — User: " + user)
       // state.user = user
     },
