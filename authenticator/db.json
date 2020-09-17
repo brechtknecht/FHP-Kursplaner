@@ -1,23 +1,4 @@
 {
-  "users": [
-    {
-      "passphrase": "all-i-want-is-dogs",
-      "data": "Hier kommen die Daten rein 2"
-    },
-    {
-      "passphrase": "all-i-want-is-doggys",
-      "data": "Hier kommen die Daten rein"
-    },
-    {
-      "passphrase": "mein-name-ist-pass",
-      "data": {
-        "courses": [
-          {
-            "name": "Alla"
-          }
-        ]
-      }
-    }
-  ],
+  "users": [],
   "count": 0
 }
