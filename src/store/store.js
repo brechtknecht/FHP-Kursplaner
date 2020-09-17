@@ -8,10 +8,11 @@ import modulePlan from './metadata/modulePlan'
 
 Vue.use(Vuex)
 
+
 export default new Vuex.Store({
   state: {
     user: {
-      status: '',
+      status: localStorage.getItem('token') ? 'success' : '',
       token: localStorage.getItem('token') || '',
       rememberedCourses: [],
       toggleAuth: false
@@ -182,6 +183,7 @@ export default new Vuex.Store({
     },
     USER_ADD_REMEMBERED_COURSE (state, id) {
       this.commit('CHECK_AUTH');
+      console.log(localStorage.getItem('token'))
       // Check if course already exist and delete it
       let rememberedCoursesRef = state.user.rememberedCourses;
       

@@ -13,9 +13,10 @@ if (token) {
   Vue.prototype.$http.defaults.headers.common['Authorization'] = token
 }
 
-Vue.config.productionTip = false
 Vue.use(Vuex);
+Vue.config.productionTip = false
 Vue.directive('in-viewport', inViewportDirective);
+
 
 new Vue({
   router,
