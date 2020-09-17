@@ -2,6 +2,7 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 
 const app = express()
+var bodyParser = require('body-parser')
 
 // LowDB Database
 const low = require('lowdb')
@@ -9,6 +10,7 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
+// When the Database is empty create a simple user Model
 const DBState = db.getState()
 if(Object.keys(DBState).length === 0 && DBState.constructor === Object) {
     console.log("Database is empty. Create Dummy Data")
@@ -16,11 +18,20 @@ if(Object.keys(DBState).length === 0 && DBState.constructor === Object) {
         .write()
 }
 
+var phonetic = require('phonetic');
+
 app.get('/api', (req, res) => {
   res.json({
     message: 'Welcome to the Authentication API'
   });
 });
+
+app.get('/api/generate', (req, res) => {
+	const passphrase = phonetic.generate({ syllables: 2 });
+	res.json({
+		passphrase: passphrase
+	})
+})
 
 app.post('/api/getUserData', verifyToken, (req, res) => {  
   jwt.verify(req.token, 'secretkey', (err, authData) => {
@@ -39,6 +50,26 @@ app.post('/api/getUserData', verifyToken, (req, res) => {
   })
 })
 
+app.post('/api/updateUserData', verifyToken, (req, res) => {
+	jwt.verify(req.token, 'secretkey', (err, authData) => {
+		if(err) {
+			res.sendStatus(403)
+		} else {
+			const body = req.body
+
+			console.log(body)
+
+			db.get('users')
+				.find({ passphrase: authData.user.passphrase })
+				.assign({ data: body})
+				.write()
+			res.json({
+				message: 'Updated User data from User: ' + authData.user.passphrase
+			})
+		}
+	})
+})
+
 app.post('/api/signIn', (req, res) => {
   // Mock user
   const user = {
@@ -51,6 +82,7 @@ app.post('/api/signIn', (req, res) => {
 
   // If Database does not already have the Users Passphrase Create one
   if(typeof databaseHasPassphrase === 'undefined') {
+	// Creates an empty User
     db.get('users')
       .push({
           passphrase: user.passphrase,
@@ -58,6 +90,10 @@ app.post('/api/signIn', (req, res) => {
       })
       .write()
 	}
+
+	// Increments the Usercount 
+	db.update('count', n => n + 1)
+  		.write()
 
 
   jwt.sign({user}, 'secretkey', { expiresIn: '7d' }, (err, token) => {
