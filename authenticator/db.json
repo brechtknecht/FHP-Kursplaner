@@ -1,4 +1,9 @@
 {
-  "users": [],
-  "count": 0
+  "users": [
+    {
+      "passphrase": "Poti",
+      "data": "Hier kommen die Daten rein"
+    }
+  ],
+  "count": 1
 }

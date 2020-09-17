@@ -68,12 +68,9 @@
     import {
         mapState
     } from 'vuex'
-    import RadioButton from '@/components/base/radioButton.vue'
+
     export default {
         name: 'Sidebar',
-        components: {
-            RadioButton
-        },
         computed: {
             studyType: {
                 get() {
@@ -124,6 +121,7 @@
                         return true;
                     }
                 }
+                return false;
             },
             wednesday: function () {
                 for (let day of this.activeDays) {
@@ -131,6 +129,7 @@
                         return true;
                     }
                 }
+                return false;
             },
             thursday: function () {
                 for (let day of this.activeDays) {
@@ -138,6 +137,7 @@
                         return true;
                     }
                 }
+                return false;
             },
             friday: function () {
                 for (let day of this.activeDays) {
@@ -145,6 +145,7 @@
                         return true;
                     }
                 }
+                return false;
             },
 
             numberOfCoursesSelected: function () {

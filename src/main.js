@@ -5,6 +5,13 @@ import router from './router'
 import store from './store/store'
 import inViewportDirective from 'vue-in-viewport-directive'
 
+import Axios from 'axios'
+
+Vue.prototype.$http = Axios;
+const token = localStorage.getItem('token')
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
 
 Vue.config.productionTip = false
 Vue.use(Vuex);

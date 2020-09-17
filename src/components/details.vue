@@ -126,7 +126,7 @@
             },         
             currentCourseTitle () {
                 let regExBeforeComma = new RegExp(/[^:]*/);
-                let regExAfterComma = new RegExp(/(\:\s)(.*)/);
+                let regExAfterComma = new RegExp(/(:\s)(.*)/);
 
                 let category = regExBeforeComma.exec(this.currentCourse.title);
                 let title = regExAfterComma.exec(this.currentCourse.title);
@@ -188,7 +188,7 @@
             rememberCourse: function () {
                 this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$store.state.currentCourse._id);
             },
-            triggerDetails: function (e) {
+            triggerDetails: function () {
                 this.$store.commit('VIEW_DETAILS_SELECTED', false);
                 this.$emit('CURRENT_COURSE_TRIGGERED');
                 document.body.classList.toggle('modal-open');

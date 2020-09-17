@@ -75,11 +75,7 @@
         mapState
     } from 'vuex'
 
-    import Module from '@/components/module.vue'
     export default {
-        components: {
-            Module
-        },
         data() {
             return {
                 isActive: false
@@ -113,6 +109,7 @@
                         return this.modulePlan.new.masterStudyPeriod;
                     }
                 }
+                return '';
             },
             isDisabled() {
                 if (this.queries.studyType == 'selectedCourses') {

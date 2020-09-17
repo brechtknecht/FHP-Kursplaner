@@ -10,6 +10,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    user: {
+      status: '',
+      token: localStorage.getItem('token') || '',
+      rememberedCourses: []
+    },
     queries: {
       studyType: "Grundstudium",
       examOrder: "PO 2013",
@@ -39,12 +44,32 @@ export default new Vuex.Store({
       activeDays: ['Montag'],
       detailsSelected: Boolean
     },
-    user: {
-      rememberedCourses: []
-    },
     notification: {}
   },
   actions: {
+    // USER AUTHENTICATION
+    login ({commit}, user){
+      return new Promise((resolve, reject) => {
+        commit('auth_request')
+        axios({url: 'http://localhost:5000/api/login', data: user, method: 'POST' })
+        .then(resp => {
+          const token = resp.data.token
+          const user = resp.data.user
+          localStorage.setItem('token', token)
+          axios.defaults.headers.common['Authorization'] = token
+          commit('auth_success', token, user)
+          resolve(resp)
+        })
+        .catch(err => {
+          commit('auth_error')
+          localStorage.removeItem('token')
+          reject(err)
+        })
+      })
+    },
+
+
+    // COURSE LOGIC
     async loadCourses_OFFLINE ({commit}, ) {
       await axios
         .get('data/courses.json')
@@ -96,7 +121,7 @@ export default new Vuex.Store({
     SET_CURRENT_COURSE (state, payload) {
       state.currentCourse = payload;
     },
-    SET_ACTIVE_DAYS (state, payload) {
+    SET_ACTIVE_DAYS (state) {
       let days = document.getElementsByClassName('overview');
       let displayedDays = [];
       for (var item of days) {
