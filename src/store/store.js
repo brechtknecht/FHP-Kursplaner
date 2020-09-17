@@ -13,7 +13,8 @@ export default new Vuex.Store({
     user: {
       status: '',
       token: localStorage.getItem('token') || '',
-      rememberedCourses: []
+      rememberedCourses: [],
+      toggleAuth: false
     },
     queries: {
       studyType: "Grundstudium",
@@ -68,7 +69,6 @@ export default new Vuex.Store({
       })
     },
 
-
     // COURSE LOGIC
     async loadCourses_OFFLINE ({commit}, ) {
       await axios
@@ -96,11 +96,22 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE ({commit}, studyType) {
       commit('SWITCH_STUDY_TYPE', studyType);
+      commit('CHECK_AUTH');
       commit('QUERY_COURSES');
       commit('WIPE_MODULE_QUERY');
     }
   },
   mutations: {
+
+    // AUTH LOGIC
+    CHECK_AUTH(state) {
+      if(state.user.status == '') {
+        console.log("Toggle Authentication")
+        state.user.toggleAuth = true
+      }
+    },
+
+    // MODULE LOGIC
     VIEW_DETAILS_SELECTED (state, toggle) {
       document.getElementsByClassName('detailsWrapper')[0].scrollTop = 0;
       state.view.detailsSelected = toggle;
@@ -148,6 +159,7 @@ export default new Vuex.Store({
         this.commit('WIPE_NOTIFICATION');
     },
     USER_ADD_REMEMBERED_COURSE (state, id) {
+      this.commit('CHECK_AUTH');
       // Check if course already exist and delete it
       let rememberedCoursesRef = state.user.rememberedCourses;
       

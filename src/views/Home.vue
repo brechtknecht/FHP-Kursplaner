@@ -5,6 +5,7 @@
     <CourseCanvas                             @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Details :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Notification></Notification>
+    <Authentication v-if="authentication"></Authentication>
   </div>
 </template>
 
@@ -15,6 +16,11 @@ import Sidebar from '@/components/sidebar.vue'
 import Modules from '@/components/modules.vue'
 import Details from '@/components/details.vue'
 import Notification from '@/components/notification.vue'
+import Authentication from '@/components/authentication.vue'
+
+import {
+    mapState,
+  } from 'vuex'
 
 export default {
   name: 'home',
@@ -23,11 +29,17 @@ export default {
     Sidebar,
     Modules,
     Details,
-    Notification
+    Notification,
+    Authentication
   },
   data () {
     return {
-      detailsModalIsActive: false
+      detailsModalIsActive: false,
+    }
+  },
+  computed: {
+    authentication () {
+      return this.$store.state.user.toggleAuth
     }
   },
   methods: {
