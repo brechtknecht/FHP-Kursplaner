@@ -191,7 +191,7 @@
             triggerDetails: function (e) {
                 this.$store.commit('VIEW_DETAILS_SELECTED', false);
                 this.$emit('CURRENT_COURSE_TRIGGERED');
-                document.getElementsByTagName('body').classlist.toggle('modal-open');
+                document.body.classList.toggle('modal-open');
             },
             lightOrDark: function (color) {
                 // Variables for red, green, blue values

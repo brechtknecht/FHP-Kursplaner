@@ -129,7 +129,7 @@
         methods: {
             triggerModules: function () {
                 this.isActive = !this.isActive;
-                // document.getElementsByTagName('body').classlist.toggle('modal-open');
+                document.body.classList.toggle('modal-open');
             },
             hasNoCourse(id) {
                 if(typeof this.$store.state.coursesStash.data === 'undefined') {
