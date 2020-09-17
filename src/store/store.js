@@ -49,10 +49,11 @@ export default new Vuex.Store({
   },
   actions: {
     // USER AUTHENTICATION
-    login ({commit}, user){
+    login ({commit}, userData){
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        axios({url: 'http://localhost:5000/api/login', data: user, method: 'POST' })
+        console.log(userData);
+        axios({url: 'http://localhost:5000/api/login', headers: {'Passphrase': userData.passphrase}, method: 'POST' })
         .then(resp => {
           const token = resp.data.token
           const user = resp.data.user
@@ -111,6 +112,23 @@ export default new Vuex.Store({
         console.log("Toggle Authentication")
         state.user.toggleAuth = true
       }
+    },
+
+    auth_request(state){
+      state.user.status = 'loading'
+    },
+    auth_success(state, token, user){
+      state.user.status = 'success'
+      state.user.token = token
+      console.log("Auth Success — User: " + user)
+      // state.user = user
+    },
+    auth_error(state){
+      state.user.status = 'error'
+    },
+    logout(state){
+      state.user.status = ''
+      state.user.token = ''
     },
 
     // MODULE LOGIC
