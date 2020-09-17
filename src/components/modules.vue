@@ -129,9 +129,12 @@
         methods: {
             triggerModules: function () {
                 this.isActive = !this.isActive;
-                document.getElementsByTagName('body').classlist.toggle('modal-open');
+                // document.getElementsByTagName('body').classlist.toggle('modal-open');
             },
             hasNoCourse(id) {
+                if(typeof this.$store.state.coursesStash.data === 'undefined') {
+                    return;
+                }
                 let courses = this.$store.state.coursesStash.data.data.semester.courses;
 
                 if (this.$store.state.queries.examOrder == 'PO 2013') {
