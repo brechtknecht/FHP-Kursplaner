@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "passphrase": "all-i-want-is-dogs",
+      "data": "Hier kommen die Daten rein"
+    },
+    {
+      "passphrase": "all-i-want-is-doggys",
+      "data": "Hier kommen die Daten rein"
+    }
+  ],
+  "count": 0
+}
