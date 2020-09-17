@@ -96,7 +96,9 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE ({commit}, studyType) {
       commit('SWITCH_STUDY_TYPE', studyType);
-      commit('CHECK_AUTH');
+      if(studyType == 'selectedCourses') {
+        commit('CHECK_AUTH');
+      }
       commit('QUERY_COURSES');
       commit('WIPE_MODULE_QUERY');
     }
