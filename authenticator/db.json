@@ -9,7 +9,14 @@
       "data": "Hier kommen die Daten rein"
     },
     {
-      "passphrase": "mein-name-ist-pass"
+      "passphrase": "mein-name-ist-pass",
+      "data": {
+        "courses": [
+          {
+            "name": "Alla"
+          }
+        ]
+      }
     }
   ],
   "count": 0

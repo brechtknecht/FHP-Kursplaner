@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const app = express()
 var bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
 // LowDB Database
 const low = require('lowdb')
@@ -57,11 +58,11 @@ app.post('/api/updateUserData', verifyToken, (req, res) => {
 		} else {
 			const body = req.body
 
-			console.log(body)
+			console.log(req.body)
 
 			db.get('users')
 				.find({ passphrase: authData.user.passphrase })
-				.assign({ data: body})
+				.assign({ data: body })
 				.write()
 			res.json({
 				message: 'Updated User data from User: ' + authData.user.passphrase
