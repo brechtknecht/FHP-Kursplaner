@@ -62,6 +62,7 @@ export default new Vuex.Store({
           localStorage.setItem('token', token)
           axios.defaults.headers.common['Authorization'] = token
           commit('auth_success', token, user)
+          this.dispatch('getUserData')
           resolve(resp)
         })
         .catch(err => {
@@ -93,12 +94,17 @@ export default new Vuex.Store({
         })
       })
     },
-    getUserData({commit}, token) {
+    getUserData({commit}) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        console.log(token);
+        const token = localStorage.getItem('token')
+        if(!token) {
+          console.log("No Passphrase is defined, escape")
+          return;
+        }
         axios({url: 'http://localhost:5000/api/getUserData', headers: {'Authorization': 'Bearer ' + token}, method: 'POST' })
         .then(resp => { 
+          console.log("Hallo")
           console.log(resp);
           console.log("Logged in with: »" + resp.data.authData.user.passphrase + '«');
         })
