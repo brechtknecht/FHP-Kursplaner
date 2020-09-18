@@ -54,6 +54,8 @@
             <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
             <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
         </ul>
+
+        <button v-if="this.$store.state.user.status != ''" @click="logout()">Logout</button>
         <!-- <hr>
         <h4>Sortieren nach:</h4>
         <ul class="courseFilters">
@@ -168,6 +170,9 @@
                     return false;
                 }
                 return this.$store.state.courses.days[0].isEmpty;
+            },
+            logout () {
+                this.$store.dispatch('logout')
             },
             scrollToDay: function (e) {
                 let ref = e.target.classList[1];

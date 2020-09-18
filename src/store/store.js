@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
 
@@ -61,8 +61,8 @@ export default new Vuex.Store({
           const user = resp.data.user
           localStorage.setItem('token', token)
           axios.defaults.headers.common['Authorization'] = token
-          commit('auth_success', token, user)
           this.dispatch('getUserData')
+          commit('auth_success', token, user)
           resolve(resp)
         })
         .catch(err => {
@@ -71,6 +71,15 @@ export default new Vuex.Store({
           localStorage.removeItem('token')
           reject(err)
         })
+      })
+    },
+    logout({commit}) {
+      return new Promise((resolve, reject) => {
+        commit('logout')
+        console.log("Logout")
+        localStorage.removeItem('token')
+        delete axios.defaults.headers.common['Authorization']
+        resolve()
       })
     },
     signIn({commit}, passphrase){
@@ -107,6 +116,7 @@ export default new Vuex.Store({
           console.log("Recieved UserData")
           console.log(resp);
           console.log("Logged in with: »" + resp.data.authData.user.passphrase + '«');
+          commit('auth_success', token, resp.data.authData.user.passphrase)
           commit('setUserDataToStore', resp.data.userData)
         })
         .catch(err => {
@@ -212,6 +222,7 @@ export default new Vuex.Store({
     logout(state){
       state.user.status = ''
       state.user.token = ''
+      state.user.rememberedCourses = []
     },
 
     setUserDataToStore(state, payload) {
