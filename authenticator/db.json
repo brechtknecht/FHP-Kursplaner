@@ -2,7 +2,12 @@
   "users": [
     {
       "passphrase": "Ledi",
-      "data": {}
+      "data": {
+        "rememberedCourses": [
+          "62e39517-8b98-4506-9267-08a97bb9bdf5",
+          "5f4e50d9-4f7d-444e-a645-0436223f27d4"
+        ]
+      }
     }
   ],
   "count": 1

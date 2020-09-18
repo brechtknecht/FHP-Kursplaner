@@ -99,14 +99,15 @@ export default new Vuex.Store({
         commit('auth_request')
         const token = localStorage.getItem('token')
         if(!token) {
-          console.log("No Passphrase is defined, escape")
+          console.log("No token found at localstorage, escape")
           return;
         }
         axios({url: 'http://localhost:5000/api/getUserData', headers: {'Authorization': 'Bearer ' + token}, method: 'POST' })
         .then(resp => { 
-          console.log("Hallo")
+          console.log("Recieved UserData")
           console.log(resp);
           console.log("Logged in with: »" + resp.data.authData.user.passphrase + '«');
+          commit('setUserDataToStore', resp.data.userData)
         })
         .catch(err => {
           console.log("Login Error")
@@ -115,6 +116,25 @@ export default new Vuex.Store({
           reject(err)
         })
       })
+    },
+    updateUserData({commit, getters}) {
+      return new Promise((resolve, reject) => {
+        const token = localStorage.getItem('token')
+        if(!token) {
+          console.log("No token found at localstorage, escape")
+          return;
+        }
+
+        const rememberedCourses = getters.getRememberedCoursesData()
+
+        axios({url: 'http://localhost:5000/api/updateUserData', data: { rememberedCourses: rememberedCourses}, headers: {'Authorization' : 'Bearer ' + token}, method: 'POST'})
+          .then(resp => {
+            console.log('Updated Data Successfully: ', resp)
+          })
+          .catch(err => {
+            console.log("Updating Data failed: ", err)
+          })
+      }) 
     },
     generatePassphrase({commit}){
       return new Promise((resolve, reject) => {
@@ -194,6 +214,10 @@ export default new Vuex.Store({
       state.user.token = ''
     },
 
+    setUserDataToStore(state, payload) {
+      state.user.rememberedCourses = payload.data.rememberedCourses;
+    },
+
     // MODULE LOGIC
     VIEW_DETAILS_SELECTED (state, toggle) {
       document.getElementsByClassName('detailsWrapper')[0].scrollTop = 0;
@@ -254,6 +278,9 @@ export default new Vuex.Store({
 
       // Add course reference to list
       rememberedCoursesRef.push(id);
+
+      // Updates Userdata to the Database
+      this.dispatch('updateUserData')
     },
     QUERY_COURSES (state) {
       let courses = [];
@@ -415,7 +442,12 @@ export default new Vuex.Store({
     WIPE_NOTIFICATION (state) {
       state.notification = {};
     }
-  }
+  },
+  getters: {
+    getRememberedCoursesData: state => () => {
+        return state.user.rememberedCourses;
+    }
+}
   
 })
 
