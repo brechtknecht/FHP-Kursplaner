@@ -40,10 +40,10 @@
                             class="btn btn-primary remember" 
                             :class="{ selected : isSelected }"
                             @click="rememberCourse()">
-                            <Checkbox 
+                            <Checkbox
                                 :id="this.currentCourse._id" 
                                 :key="this.currentCourse._id"
-                                :isClickable="false"
+                                :isClickable="true"
                             ></Checkbox>
                             <span class="checkbox-label">Merken</span>
                         </button>

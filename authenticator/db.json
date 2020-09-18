@@ -2,8 +2,18 @@
   "users": [
     {
       "passphrase": "Poti",
+      "data": {
+        "courses": [
+          {
+            "name": "Mein Aktuell ausgewählter Kurssss"
+          }
+        ]
+      }
+    },
+    {
+      "passphrase": "Fuju",
       "data": "Hier kommen die Daten rein"
     }
   ],
-  "count": 1
+  "count": 2
 }
