@@ -273,6 +273,7 @@ export default new Vuex.Store({
       
       if(rememberedCoursesRef.includes(id)){
         rememberedCoursesRef.splice(rememberedCoursesRef.indexOf(id), 1);
+        this.dispatch('updateUserData')
         return;
       }
 
