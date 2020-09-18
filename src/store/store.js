@@ -227,6 +227,7 @@ export default new Vuex.Store({
 
     setUserDataToStore(state, payload) {
       state.user.rememberedCourses = payload.data.rememberedCourses;
+      this.commit('QUERY_COURSES')
     },
 
     // MODULE LOGIC
@@ -268,7 +269,8 @@ export default new Vuex.Store({
            return;
         }
       }
-      this.commit('QUERY_COURSES');
+      // DANGER UNCOMMENT IF STUFF BREAKS
+      // this.commit('QUERY_COURSES');
       state.queries.modules.push(payload);
     },
     WIPE_MODULE_QUERY (state) {
