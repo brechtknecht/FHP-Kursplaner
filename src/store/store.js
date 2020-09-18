@@ -71,6 +71,22 @@ export default new Vuex.Store({
         })
       })
     },
+    getUserData({commit}, token) {
+      return new Promise((resolve, reject) => {
+        commit('auth_request')
+        console.log(token);
+        axios({url: 'http://localhost:5000/api/getUserData', headers: {'Authorization': 'Bearer ' + token}, method: 'POST' })
+        .then(resp => { 
+          console.log(resp);
+        })
+        .catch(err => {
+          console.log("Login Error")
+          commit('auth_error')
+          localStorage.removeItem('token')
+          reject(err)
+        })
+      })
+    },
 
     // COURSE LOGIC
     async loadCourses_OFFLINE ({commit}, ) {

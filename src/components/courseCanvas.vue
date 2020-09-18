@@ -217,6 +217,7 @@
         height: 100%;
         z-index: -1;
         border-bottom: 1px solid $stroke;
+        border-top: 1px solid $stroke;
         background: rgba(255, 255, 255, .95);
       }
     }
@@ -224,7 +225,6 @@
 
   .overview {
     .course-wrapper {
-      margin: 0.75rem 0;
       &:focus {
         outline: 0;
       }
@@ -304,6 +304,9 @@
     grid-template-columns: repeat(13 * 4, 1fr);
     .course-wrapper:first-child {
       border: 2px solid red;
+    }
+    .course-wrapper:last-child {
+      margin-bottom: 2rem;
     }
   }
 

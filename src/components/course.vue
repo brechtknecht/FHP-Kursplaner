@@ -242,7 +242,7 @@
         border-radius: 4px;
       }
 
-      margin: 0 .5rem 0 1rem;
+      margin: 0 .5rem 0 0.25rem;
     }
 
     .course--info {

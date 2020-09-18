@@ -46,6 +46,12 @@ export default {
     toggleCurrentCourse: function () {
       this.detailsModalIsActive = !this.detailsModalIsActive;
     }
+  },
+  mounted() {
+    const token = localStorage.getItem('token')
+    if (token) { 
+      this.$store.dispatch('getUserData', token)
+    }
   }
 }
 </script>
