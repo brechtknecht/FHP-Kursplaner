@@ -45,7 +45,8 @@
                                 :key="this.currentCourse._id"
                                 :isClickable="true"
                             ></Checkbox>
-                            <span class="checkbox-label">Merken</span>
+                            <span v-if="isSelected" class="checkbox-label">Ausgewählt</span>
+                            <span v-if="!isSelected" class="checkbox-label">Auswählen</span>
                         </button>
                         <a v-if="this.workspaceLink" :href="this.workspaceLink" target="_blank">
                             <button class="btn btn-secondary workspace">
@@ -437,6 +438,7 @@
             bottom: -1.75rem;
             button {
                 height: 3.5rem;
+                width: 11.5rem;
                 div {
                     position: relative;
                     top: -4px;
