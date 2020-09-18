@@ -1,19 +1,9 @@
 {
   "users": [
     {
-      "passphrase": "Poti",
-      "data": {
-        "courses": [
-          {
-            "name": "Mein Aktuell ausgewählter Kurssss"
-          }
-        ]
-      }
-    },
-    {
-      "passphrase": "Fuju",
-      "data": "Hier kommen die Daten rein"
+      "passphrase": "Ledi",
+      "data": {}
     }
   ],
-  "count": 2
+  "count": 1
 }

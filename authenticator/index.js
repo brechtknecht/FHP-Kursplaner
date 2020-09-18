@@ -90,7 +90,7 @@ app.post('/api/signIn', (req, res) => {
     db.get('users')
       .push({
           passphrase: user.passphrase,
-          data: "Hier kommen die Daten rein"
+          data: {}
       })
       .write()
 	}

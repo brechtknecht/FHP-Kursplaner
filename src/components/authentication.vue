@@ -13,6 +13,11 @@
                 </div>
                 <div class="modal--signin">
                     <h4>Generate</h4>
+                    <div class="generated">
+                        <div class="field"> {{ generatedPassphrase }}</div>
+                        <button class="refresh"  @click="generateNewPassphrase()">Generate new Name</button>
+                        <button class="register" @click="signIn()">Anmelden mit Passphrase</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,6 +31,14 @@ export default {
             passphrase: ''
         }
     },
+    mounted() {
+        this.$store.dispatch('generatePassphrase')
+    },
+    computed : {
+        generatedPassphrase () {
+            return this.$store.state.user.generatedPassphrase
+        }
+    },
     methods: {
         login() {
             console.log("Login Triggered")
@@ -35,9 +48,15 @@ export default {
 
             this.$store.dispatch('login', userData)
         },
+        signIn() {
+            this.$store.dispatch('signIn', this.generatedPassphrase)
+        },
         toggleAuthentication () {
             this.$store.state.user.toggleAuth = false;
             console.log("clicked")
+        },
+        generateNewPassphrase() {
+            this.$store.dispatch('generatePassphrase')
         }
     }
 }

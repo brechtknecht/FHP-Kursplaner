@@ -14,6 +14,7 @@ export default new Vuex.Store({
     user: {
       status: localStorage.getItem('token') ? 'success' : '',
       token: localStorage.getItem('token') || '',
+      generatedPassphrase: '',
       rememberedCourses: [],
       toggleAuth: false
     },
@@ -71,6 +72,27 @@ export default new Vuex.Store({
         })
       })
     },
+    signIn({commit}, passphrase){
+      return new Promise((resolve, reject) => {
+        console.log(passphrase)
+        commit('auth_request')
+        axios({url: 'http://localhost:5000/api/signIn', headers: {'Passphrase': passphrase}, data: passphrase, method: 'POST' })
+        .then(resp => {
+          console.log(resp)
+          const token = resp.data.token
+          const user = resp.data.user
+          localStorage.setItem('token', token)
+          axios.defaults.headers.common['Authorization'] = token
+          commit('auth_success', token, user)
+          resolve(resp)
+        })
+        .catch(err => {
+          commit('auth_error', err)
+          localStorage.removeItem('token')
+          reject(err)
+        })
+      })
+    },
     getUserData({commit}, token) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
@@ -78,6 +100,7 @@ export default new Vuex.Store({
         axios({url: 'http://localhost:5000/api/getUserData', headers: {'Authorization': 'Bearer ' + token}, method: 'POST' })
         .then(resp => { 
           console.log(resp);
+          console.log("Logged in with: »" + resp.data.authData.user.passphrase + '«');
         })
         .catch(err => {
           console.log("Login Error")
@@ -85,6 +108,18 @@ export default new Vuex.Store({
           localStorage.removeItem('token')
           reject(err)
         })
+      })
+    },
+    generatePassphrase({commit}){
+      return new Promise((resolve, reject) => {
+        axios({url: 'http://localhost:5000/api/generate', method: 'GET'})
+          .then(resp => {
+            commit('auth_generate', resp.data)
+          })
+          .catch(err => {
+            console.log("Generate Error")
+            return
+          })
       })
     },
 
@@ -144,6 +179,9 @@ export default new Vuex.Store({
     },
     auth_error(state){
       state.user.status = 'error'
+    },
+    auth_generate(state, payload) {
+      state.user.generatedPassphrase = payload.passphrase;
     },
     logout(state){
       state.user.status = ''
