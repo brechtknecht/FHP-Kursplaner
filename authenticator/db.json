@@ -27,7 +27,37 @@
           "ae8fb5b0-cea2-475e-9cf7-055600c060ca"
         ]
       }
+    },
+    {
+      "passphrase": "Jepa",
+      "data": {
+        "rememberedCourses": [
+          "5f4e50d9-4f7d-444e-a645-0436223f27d4",
+          "8c20c333-f68f-4e29-9262-4ec800139c09",
+          "baa0f671-5d32-4294-88eb-7d90c9bbdfb5",
+          "047640ac-a807-4743-84c4-3d5d491795da"
+        ]
+      }
+    },
+    {
+      "passphrase": "Rogu",
+      "data": {
+        "rememberedCourses": [
+          "62e39517-8b98-4506-9267-08a97bb9bdf5",
+          "5f4e50d9-4f7d-444e-a645-0436223f27d4"
+        ]
+      }
+    },
+    {
+      "passphrase": "Struri",
+      "data": {
+        "rememberedCourses": [
+          "b44e84a8-d8ec-4801-ac86-f602c9adf703",
+          "245585f2-f0eb-48e8-b12f-f456f20910f5",
+          "34667c9c-ad94-4045-a9e8-db9d53774905"
+        ]
+      }
     }
   ],
-  "count": 3
+  "count": 6
 }

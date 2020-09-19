@@ -31,10 +31,25 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/api/generate', (req, res) => {
-	const passphrase = phonetic.generate({ syllables: 2 });
-	res.json({
-		passphrase: passphrase
-	})
+  const passphrase = phonetic.generate({ syllables: 2 });
+  
+  const databaseHasPassphrase = db.get('users')
+    .find({ passphrase: passphrase})
+    .value()
+
+  // If Database does not already have the Users Passphrase Create one
+  if(typeof databaseHasPassphrase === 'undefined') {
+	  // Error: User is not in the Database return to SignIn
+    res.json({
+      passphrase: passphrase
+    })
+	  return
+  }
+
+  res.json({
+    message: "Sorry Passphrase was already taken"
+  })
+	
 })
 
 app.post('/api/getUserData', verifyToken, (req, res) => {  

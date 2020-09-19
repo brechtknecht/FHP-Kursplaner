@@ -5,7 +5,7 @@
                 <h1>Anmeldung erforderlich</h1>
                 <p>Um dir Kurse merken zu können, musst du dir eine Art Account erstellen. Dafür generieren wir für dich einen Namen, den du dir merken/kopieren musst um beim nächsten Mal weitermachen zu können.</p>
             </div>
-            <div class="modal--options">
+            <div v-if="generatedPassphrase" class="modal--options">
                 <div class="modal--login">
                     <h4>Login</h4>
                     <input v-model="passphrase"/>
@@ -19,6 +19,9 @@
                         <button class="register" @click="signIn()">Anmelden mit Passphrase</button>
                     </div>
                 </div>
+            </div>
+            <div v-else>
+                <h4>Leider gibt es Probleme mit der Datenbank, versuche es später noch einmal.</h4>
             </div>
         </div>
     </div>
