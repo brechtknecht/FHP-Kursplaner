@@ -266,27 +266,24 @@
                 height: 100%;
             }
             .detailsWrapper {
+                position: fixed;
+                height: 100vh;
+                z-index: 200;
                 width: 80vw !important;
                 right: 10vw;
                 left: 10vw;
+                padding: 0;
                 max-height: calc(100vh - 7.5rem);
-                bottom: -80rem;
+                transform: translateY(80rem);
                 opactity: 0;
+                transition: $animation-default;
             }
             .detailsWrapper.active {
                 top: 2.5rem;
-                left: 50%;
-                transform: translateX(-50%);
-                display: block;
-                width: 80vw !important;
-                max-height: calc(100vh - 7.5rem);
                 overflow: hidden;
-                padding: 0;
-                right: 0;
-                bottom: 0;
                 opactity: 1;
-                
-                
+                transform: translateY(0);
+                bottom: 2.5rem;
             }
 
             .header {

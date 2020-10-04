@@ -1,6 +1,8 @@
 <template>
     <div class="sidebar">
-        <h2>Lehrangebot</h2>
+        <h2>
+            <b>Fachbereich Design</b>
+            Lehrangebot</h2>
         <hr>
         <h4>Anzeigen</h4>
         <div class="studySelection">

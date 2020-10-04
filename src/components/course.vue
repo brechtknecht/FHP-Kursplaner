@@ -248,6 +248,10 @@
         border-radius: 4px;
       }
 
+      .container {
+        left: 0 !important;
+      }
+
       margin: 0 .5rem 0 0.25rem;
     }
 
