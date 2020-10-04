@@ -14,12 +14,12 @@
                 <div class="modal--signin">
                     <h4>Generate</h4>
                     <div class="generated">
+                        <button class="refresh"  @click="generateNewPassphrase()">Neuen Namen generieren</button>
                         <div class="passphrase" @click="copyToClipboard()"> 
                             <span>{{ generatedPassphrase }}</span>
                             <span class="copyToClipboard"> {{ copy.status }}</span>
                         </div>
-                        <button class="refresh"  @click="generateNewPassphrase()">Generate new Name</button>
-                        <button class="register" @click="signIn()">Anmelden mit Passphrase</button>
+                        <button class="register" @click="signIn()">Mit generierten Namen anmelden</button>
                     </div>
                 </div>
             </div>
@@ -59,6 +59,7 @@ export default {
         },
         signIn() {
             this.$store.dispatch('signIn', this.generatedPassphrase)
+            this.copyToClipboard()
         },
         toggleAuthentication () {
             this.$store.state.user.toggleAuth = false;
@@ -132,6 +133,9 @@ export default {
                         letter-spacing: 0.01rem;
                         margin: .25rem 0 0 0;
                     }
+                }
+                .register {
+                    margin: 4rem 0 0 0;
                 }
             }
         }
