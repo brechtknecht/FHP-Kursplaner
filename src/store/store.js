@@ -1,17 +1,26 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
 
 import modulePlan from './metadata/modulePlan'
-import viewController from './view'
+// import viewController from './view'
 
 Vue.use(Vuex)
 
+
 export default new Vuex.Store({
   state: {
+    user: {
+      status: localStorage.getItem('token') ? 'success' : '',
+      token: localStorage.getItem('token') || '',
+      generatedPassphrase: '',
+      rememberedCourses: [],
+      toggleAuth: false
+    },
     queries: {
       studyType: "Grundstudium",
+      examOrder: "PO 2013",
       days: {
         monday: true,
         tuesday: true,
@@ -20,6 +29,7 @@ export default new Vuex.Store({
         friday: true
       },
       modules: [],
+      moduleQueryStudyType: String,
       sorting: {
         //...
       }
@@ -37,12 +47,128 @@ export default new Vuex.Store({
       activeDays: ['Montag'],
       detailsSelected: Boolean
     },
-    user: {
-      rememberedCourses: []
-    }
+    notification: {}
   },
   actions: {
+    // USER AUTHENTICATION
+    login ({commit}, userData){
+      return new Promise((resolve, reject) => {
+        commit('auth_request')
+        console.log(userData);
+        axios({url: 'http://localhost:5000/api/login', headers: {'Passphrase': userData.passphrase}, method: 'POST' })
+        .then(resp => {
+          const token = resp.data.token
+          const user = resp.data.user
+          localStorage.setItem('token', token)
+          axios.defaults.headers.common['Authorization'] = token
+          this.dispatch('getUserData')
+          commit('auth_success', token, user)
+          resolve(resp)
+        })
+        .catch(err => {
+          console.log("Login Error")
+          commit('auth_error')
+          localStorage.removeItem('token')
+          reject(err)
+        })
+      })
+    },
+    logout({commit}) {
+      return new Promise((resolve, reject) => {
+        commit('logout')
+        console.log("Logout")
+        localStorage.removeItem('token')
+        delete axios.defaults.headers.common['Authorization']
+        resolve()
+      })
+    },
+    signIn({commit}, passphrase){
+      return new Promise((resolve, reject) => {
+        console.log(passphrase)
+        commit('auth_request')
+        axios({url: 'http://localhost:5000/api/signIn', headers: {'Passphrase': passphrase}, data: passphrase, method: 'POST' })
+        .then(resp => {
+          console.log(resp)
+          const token = resp.data.token
+          const user = resp.data.user
+          localStorage.setItem('token', token)
+          axios.defaults.headers.common['Authorization'] = token
+          commit('auth_success', token, user)
+          resolve(resp)
+        })
+        .catch(err => {
+          commit('auth_error', err)
+          localStorage.removeItem('token')
+          reject(err)
+        })
+      })
+    },
+    getUserData({commit}) {
+      return new Promise((resolve, reject) => {
+        commit('auth_request')
+        const token = localStorage.getItem('token')
+        if(!token) {
+          console.log("No token found at localstorage, escape")
+          return;
+        }
+        axios({url: 'http://localhost:5000/api/getUserData', headers: {'Authorization': 'Bearer ' + token}, method: 'POST' })
+        .then(resp => { 
+          console.log("Recieved UserData")
+          console.log(resp);
+          console.log("Logged in with: »" + resp.data.authData.user.passphrase + '«');
+          commit('auth_success', token, resp.data.authData.user.passphrase)
+          commit('setUserDataToStore', resp.data.userData)
+        })
+        .catch(err => {
+          console.log("Login Error")
+          commit('auth_error')
+          localStorage.removeItem('token')
+          reject(err)
+        })
+      })
+    },
+    updateUserData({commit, getters}) {
+      return new Promise((resolve, reject) => {
+        const token = localStorage.getItem('token')
+        if(!token) {
+          console.log("No token found at localstorage, escape")
+          return;
+        }
+
+        const rememberedCourses = getters.getRememberedCoursesData()
+
+        axios({url: 'http://localhost:5000/api/updateUserData', data: { rememberedCourses: rememberedCourses}, headers: {'Authorization' : 'Bearer ' + token}, method: 'POST'})
+          .then(resp => {
+            console.log('Updated Data Successfully: ', resp)
+          })
+          .catch(err => {
+            console.log("Updating Data failed: ", err)
+          })
+      }) 
+    },
+    generatePassphrase({commit}){
+      return new Promise((resolve, reject) => {
+        axios({url: 'http://localhost:5000/api/generate', method: 'GET'})
+          .then(resp => {
+            commit('auth_generate', resp.data)
+          })
+          .catch(err => {
+            console.log("Generate Error")
+            return
+          })
+      })
+    },
+
+    // COURSE LOGIC
     async loadCourses_OFFLINE ({commit}, ) {
+      await axios
+        .get('data/courses.json')
+        .then(r => r.data)
+        .then((result) => {
+          commit('STASH_LOADED_COURSES', result)
+        }); 
+    },
+    async loadCourses_2019_OFFLINE ({commit}, ) {
       await axios
         .get('data/course-data.json')
         .then(r => r.data)
@@ -60,23 +186,53 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE ({commit}, studyType) {
       commit('SWITCH_STUDY_TYPE', studyType);
+      if(studyType == 'selectedCourses') {
+        commit('CHECK_AUTH');
+      }
       commit('QUERY_COURSES');
+      commit('WIPE_MODULE_QUERY');
     }
   },
   mutations: {
-    USER_ADD_REMEMBERED_COURSE (state, id) {
-      // Check if course already exist and delete it
-      let rememberedCoursesRef = state.user.rememberedCourses;
-      
-      if(rememberedCoursesRef.includes(id)){
-        rememberedCoursesRef.pop(id);
-        return;
-      }
 
-      // Add course reference to list
-      rememberedCoursesRef.push(id);
+    // AUTH LOGIC
+    CHECK_AUTH(state) {
+      if(state.user.status == '') {
+        console.log("Toggle Authentication")
+        state.user.toggleAuth = true
+      }
     },
+
+    auth_request(state){
+      state.user.status = 'loading'
+    },
+    auth_success(state, token, user){
+      state.user.status = 'success'
+      state.user.token = token
+      state.user.toggleAuth = false;
+      console.log("Auth Success — User: " + user)
+      // state.user = user
+    },
+    auth_error(state){
+      state.user.status = 'error'
+    },
+    auth_generate(state, payload) {
+      state.user.generatedPassphrase = payload.passphrase;
+    },
+    logout(state){
+      state.user.status = ''
+      state.user.token = ''
+      state.user.rememberedCourses = []
+    },
+
+    setUserDataToStore(state, payload) {
+      state.user.rememberedCourses = payload.data.rememberedCourses;
+      this.commit('QUERY_COURSES')
+    },
+
+    // MODULE LOGIC
     VIEW_DETAILS_SELECTED (state, toggle) {
+      document.getElementsByClassName('detailsWrapper')[0].scrollTop = 0;
       state.view.detailsSelected = toggle;
     },
     STASH_LOADED_COURSES (state, courses) {
@@ -84,12 +240,18 @@ export default new Vuex.Store({
     },
     SWITCH_STUDY_TYPE (state, payload) {
       state.queries.studyType = payload;
+
+      // 👨‍💻 UX Change: Scroll to top
+      window.scrollTo(0,0);
       this.commit('SET_ACTIVE_DAYS');
+    },
+    SWITCH_STUDY_ORDER (state, payload) {
+      state.queries.examOrder = payload;
     },
     SET_CURRENT_COURSE (state, payload) {
       state.currentCourse = payload;
     },
-    SET_ACTIVE_DAYS (state, payload) {
+    SET_ACTIVE_DAYS (state) {
       let days = document.getElementsByClassName('overview');
       let displayedDays = [];
       for (var item of days) {
@@ -103,12 +265,36 @@ export default new Vuex.Store({
       let query = state.queries.modules;
       for (let i = 0; i < query.length; i++) {
         if(query[i] == payload) {
-           state.queries.modules.splice(i);
+           state.queries.modules.splice(i, 1);
            return;
         }
       }
-
+      // DANGER UNCOMMENT IF STUFF BREAKS
+      // this.commit('QUERY_COURSES');
       state.queries.modules.push(payload);
+    },
+    WIPE_MODULE_QUERY (state) {
+        state.queries.modules = [];
+        this.commit('QUERY_COURSES');
+        this.commit('WIPE_NOTIFICATION');
+    },
+    USER_ADD_REMEMBERED_COURSE (state, id) {
+      this.commit('CHECK_AUTH');
+      console.log(localStorage.getItem('token'))
+      // Check if course already exist and delete it
+      let rememberedCoursesRef = state.user.rememberedCourses;
+      
+      if(rememberedCoursesRef.includes(id)){
+        rememberedCoursesRef.splice(rememberedCoursesRef.indexOf(id), 1);
+        this.dispatch('updateUserData')
+        return;
+      }
+
+      // Add course reference to list
+      rememberedCoursesRef.push(id);
+
+      // Updates Userdata to the Database
+      this.dispatch('updateUserData')
     },
     QUERY_COURSES (state) {
       let courses = [];
@@ -134,17 +320,34 @@ export default new Vuex.Store({
         courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("3"))]');
       } 
 
+
       console.log('Kurse', courses);
 
       // Filter all courses based on the given module group attributes & if empty just pass all
       let queriedCourses = [];
       if (!state.queries.modules.length == 0) {
         for (let moduleQuery of state.queries.modules) {
-          queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]")[0]);
+          if(state.queries.examOrder == 'PO 2013') {
+            queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]"));  
+            console.log('Modulsuche 2013');
+          } else if (state.queries.examOrder == 'PO 2019'){
+            let query = moduleQuery.replace('PO 2019 ', '');
+            console.log("moduleQuery", query);
+            queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id_new == '" + query + "')]"));
+          }
         }
 
+        let coursesStash = [];
         console.log('Modulbasierte Suche: ', queriedCourses);
-        courses = queriedCourses;
+        
+        for(let i = 0; i < queriedCourses.length; i++) {
+            for(let k = 0; k < queriedCourses[i].length; k++){
+              coursesStash.push(queriedCourses[i][k]);
+            }
+        }
+        
+        
+        courses = coursesStash;
       }
       
       
@@ -165,12 +368,25 @@ export default new Vuex.Store({
       thursday = sortProperties(thursday);
       friday = sortProperties(friday);
 
+      // Check if everything is empty
       let isEmpty;
       if(!monday.length && !tuesday.length && !wednesday.length && !thursday.length && !friday.length) {
         isEmpty = true;
       } else {
         isEmpty = false;
       }
+
+      let _mondayEmpty;
+      let _tuesdayEmpty;
+      let _wednesdayEmpty;
+      let _thursdayEmpty;
+      let _fridayEmpty;
+
+      (!monday.length) ? (_mondayEmpty = true) : (_mondayEmpty = false);
+      (!tuesday.length) ? (_tuesdayEmpty = true) : (_tuesdayEmpty = false);
+      (!wednesday.length) ? (_wednesdayEmpty = true) : (_wednesdayEmpty = false);
+      (!thursday.length) ? (_thursdayEmpty = true) : (_thursdayEmpty = false);
+      (!friday.length) ? (_fridayEmpty = true) : (_fridayEmpty = false);
 
       courses = {
         status: {
@@ -181,23 +397,28 @@ export default new Vuex.Store({
           {
             string: "Montag",
             data: monday,
-            key: "monday"
+            key: "monday",
+            isEmpty: _mondayEmpty
           }, {
             string: "Dienstag",
             data: tuesday,
             key: "tuesday",
+            isEmpty: _tuesdayEmpty
           },{
             string: "Mittwoch",
             data: wednesday,
-            key: "wednesday"
+            key: "wednesday",
+            isEmpty: _wednesdayEmpty
           },{
             string: "Donnerstag",
             data: thursday,
-            key: "thursday"
+            key: "thursday",
+            isEmpty: _thursdayEmpty
           }, {
             string: "Freitag",
             data: friday,
-            key: "friday"
+            key: "friday",
+            isEmpty: _fridayEmpty
           }
         ]
       }
@@ -208,7 +429,7 @@ export default new Vuex.Store({
           let result = getObjects(state.modulePlan, 'id', course.attributes.module.id);
 
           if(typeof(result[0]) == 'undefined'){
-            return;
+            return;   
           }
 
           if (result[0].hasOwnProperty('colorCode')) {
@@ -224,15 +445,23 @@ export default new Vuex.Store({
         });
       });
 
-    
-
-      
-
-      
-
       state.courses = courses;
+    },
+    PUSH_NOTIFICATION (state, payload) {
+      state.notification = {
+        message: payload.message,
+        action: payload.action,
+      };
+    },
+    WIPE_NOTIFICATION (state) {
+      state.notification = {};
     }
-  }
+  },
+  getters: {
+    getRememberedCoursesData: state => () => {
+        return state.user.rememberedCourses;
+    }
+}
   
 })
 

@@ -4,19 +4,13 @@
         <h4>Studienordnung</h4>
         <div class="examOrder">
             <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO:2010" v-model="examOrder">
+                <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
                 <div class="checkmark">
-                    <span>2010—2013</span>
+                    <span>2013—2018</span>
                 </div>
             </label>
             <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO:2014" v-model="examOrder">
-                <div class="checkmark">
-                    <span>2014—2018</span>
-                </div>
-            </label>
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO:2019" v-model="examOrder">
+                <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
                 <div class="checkmark">
                     <span>ab 2019</span>
                 </div>
@@ -54,22 +48,25 @@
         <hr>
         <h4>Wochentage</h4>
         <ul>
-            <li class="listElement Montag" :class="{ active: monday }" @click="scrollToDay">Montag</li>
-            <li class="listElement Dienstag" :class="{ active: tuesday }" @click="scrollToDay">Dienstag</li>
-            <li class="listElement Mittwoch" :class="{ active: wednesday }" @click="scrollToDay">Mittwoch</li>
-            <li class="listElement Donnerstag" :class="{ active: thursday }" @click="scrollToDay">Donnerstag</li>
-            <li class="listElement Freitag" :class="{ active: friday }" @click="scrollToDay">Freitag</li>
+            <li class="listElement Montag" :class="{ active: monday, disabled: _hasMonday }" @click="scrollToDay">Montag</li>
+            <li class="listElement Dienstag" :class="{ active: tuesday, disabled: _hasTuesday }" @click="scrollToDay">Dienstag</li>
+            <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday }" @click="scrollToDay">Mittwoch</li>
+            <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
+            <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
         </ul>
-        <hr>
+
+        <button v-if="this.$store.state.user.status != ''" @click="logout()">Logout</button>
+        <!-- <hr>
         <h4>Sortieren nach:</h4>
         <ul class="courseFilters">
             <li class="listElement Kursnummer" :class="{ active: true }" @click="0">Kursnummer</li>
             <li class="listElement Zeit" :class="{ active: false }" @click="0">Zeit</li>
-        </ul>
+        </ul> -->
     </div>
 </template>
 
 <script>
+    import smoothscroll from 'smoothscroll-polyfill';
     import {
         mapState
     } from 'vuex'
@@ -90,10 +87,10 @@
             },
             examOrder: {
                 get() {
-                    return 'todo'
+                    return this.$store.state.queries.examOrder;
                 },
-                set() {
-                    return 'todo'
+                set(examOrder) {
+                    this.$store.commit('SWITCH_STUDY_ORDER', examOrder);
                 }
             },
             activeDays: {
@@ -101,12 +98,28 @@
                     return Object.values(this.$store.state.view.activeDays);
                 }
             },
+            _hasMonday () {
+                return this.getEmptyState(0);
+            },
+            _hasTuesday () {
+                return this.getEmptyState(1);
+            },
+            _hasWednesday  () {
+                return this.getEmptyState(2);
+            },
+            _hasThursday () {
+                return this.getEmptyState(3);
+            },
+            _hasFriday () {
+                return this.getEmptyState(4);
+            },
             monday: function () {
                 for (let day of this.activeDays) {
                     if (day == "Montag") {
                         return true;
                     }
                 }
+                return false
             },
             tuesday: function () {
                 for (let day of this.activeDays) {
@@ -114,6 +127,7 @@
                         return true;
                     }
                 }
+                return false
             },
             wednesday: function () {
                 for (let day of this.activeDays) {
@@ -121,6 +135,7 @@
                         return true;
                     }
                 }
+                return false
             },
             thursday: function () {
                 for (let day of this.activeDays) {
@@ -128,6 +143,7 @@
                         return true;
                     }
                 }
+                return false
             },
             friday: function () {
                 for (let day of this.activeDays) {
@@ -135,6 +151,7 @@
                         return true;
                     }
                 }
+                return false
             },
 
             numberOfCoursesSelected: function () {
@@ -147,14 +164,27 @@
             ])
         },
         methods: {
+            getEmptyState () {
+                // 👉 Escape for initial load
+                if (typeof this.$store.state.courses.days[0] === "undefined") { 
+                    return false;
+                }
+                return this.$store.state.courses.days[0].isEmpty;
+            },
+            logout () {
+                this.$store.dispatch('logout')
+            },
             scrollToDay: function (e) {
                 let ref = e.target.classList[1];
                 let element = document.getElementsByClassName(ref).item(1);
 
-                element.scrollIntoView({
-                    block: "end",
-                    behavior: "smooth"
+                console.log(element);
+                smoothscroll.polyfill();
+                window.scroll({
+                    top: element.offsetTop,
+                    behavior: 'smooth', 
                 });
+
             }
         }
     }
@@ -177,13 +207,15 @@
         width: 15rem;
         height: 100vh;
         padding: 2.5rem 1.5rem;
-        z-index: 400;
+        z-index: 100;
         text-align: left;
         background: $c-light-grey;
-
         h2,
         h4 {
             margin-left: 1.5rem;
+        }
+        @include for-phone-only {
+            display: none;
         }
     }
 
@@ -195,8 +227,10 @@
         span {
             margin-left: 2.5rem;
             vertical-align: super;
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1rem;
+            font-weight: normal;
+            font-style: normal;
         }
     }
 
@@ -220,7 +254,7 @@
         }
 
         &.active {
-            font-weight: 800;
+            font-weight: normal;
             color: $active;
             background: #fff;
             padding-left: 0;
@@ -233,6 +267,18 @@
                 margin-right: 1rem;
                 opacity: 1;
             }
+        }
+
+        &.disabled {
+            color: $c-small-font;
+            font-weight: normal;
+            padding: 0.5rem 1rem;
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+            }
+            background: $c-light-grey;
         }
 
         li {

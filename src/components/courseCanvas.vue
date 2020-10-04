@@ -33,17 +33,24 @@
       <span>21:00</span>
       <span>22:00</span>
     </div>
-    <div v-if="!courses" class="course-loader"></div>
-    <div v-if="courses.status.isEmpty" class="empty">lel alla is empty</div>
+  
+    <!-- Wenn keine Daten da sind -->
+    <div v-if="courses.status.isEmpty" class="empty">
+      <div class="course-loader"></div>
+    </div>
+
+
     <div v-if="!courses.status.isEmpty" class="courses">
-      <div :class="'overview ' + courses.string" :day=courses.string v-for="courses in courses.days" :key="courses.key"
+      <div :class="'overview ' + courses.string" :day=courses.string v-for="(courses) in courses.days" :key="courses.key"
         v-in-viewport>
 
-        <div v-if="courses.data.length" class="overview-head">
-          <h1 class="regular">{{ courses.string }}</h1>
-        </div>
+        
+          <div v-if="courses.data.length" class="overview-head">
+              <h1 class="regular left-fix">{{ courses.string }}</h1>
+          </div>
+        
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
-          <course :id="course._id" :position="{ 
+          <course :tabindex="index" :id="course._id" :position="{ 
             row: index,
             start:    course.attributes.time.fixture.begin,
             end:      course.attributes.time.fixture.end,
@@ -53,6 +60,7 @@
             teacher:  course.attributes.teacher,
             module: {
               id:     course.attributes.module.id,
+              id_new: course.attributes.module.id_new,
               name:   course.attributes.module.name,
               category: course.attributes.module.category,
             },
@@ -61,7 +69,8 @@
             room: course.attributes.room,
             credits: course.attributes.credits,
             colorCode: course.attributes.colorCode,
-            subtitle: course.attributes.subtitle
+            subtitle: course.attributes.subtitle,
+            workspace: course.attributes.workspace
           }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>
         </div>
       </div>
@@ -72,12 +81,10 @@
 <script>
   import Course from '@/components/course.vue';
 
+
   import {
     mapState
   } from 'vuex'
-  import {
-    log
-  } from 'util';
 
   export default {
     components: {
@@ -122,7 +129,11 @@
       tastyTest: function () {
         console.log('ficky');
       },
-      scrollListener: function (e) {
+      scrollListener: function () {
+        let overviewHeader = document.getElementsByClassName('overview-head');
+        for(let element of overviewHeader) {
+          element.style.left = '19rem';
+        }
         this.$store.commit('SET_ACTIVE_DAYS');
       }
     }
@@ -135,8 +146,27 @@
   .course-canvas {
     position: relative;
     left: 20rem;
+    
     top: 1.5rem;
-    max-width: 2200px;
+    max-width: calc(100vw - 15rem);
+    @include for-tablet-portrait-up {
+        max-width: 100vw;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        left: 0;
+    }
+  }
+
+  .numbers:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 1px;
+      background: $stroke;
+      right: -80px;
+      top: 57px;
+      width: 200px;
+      z-index: 400;
   }
 
   .timeline,
@@ -144,20 +174,60 @@
   .numbers {
     position: absolute;
     display: grid;
-    margin: 0 3.5rem;
-    width: 2100px;
-    max-width: 2100px;
+    margin-left: 3rem;
+    width: 2116px;
+    max-width: 2116px;
+
+    span {
+      margin-left: 1rem;
+    }
+
 
     .overview-head {
-      position: absolute;
+      position: sticky;
+      top: 59px !important;
+      width: calc(100vw - 20rem);
+      padding: 1rem .75rem .75rem .75rem;
+      margin-left: -3.85rem;
+      margin-bottom: 3rem;
+      will-change: margin-left;
+      // padding-left: 3.85rem;
+      border-radius: 1rem;
+      z-index: 300;
+      text-align: left;
+      color: $c-font;
       top: 1.5rem;
-      left: 2rem;
+      @include for-tablet-portrait-up {
+        left: 0 !important;
+      }
+      h1 {
+        font-weight: normal;
+        margin: 0;
+      }
+      .left-fix {
+        position: relative;
+
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        left: -1rem;
+        top: -.05rem;
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+        border-bottom: 1px solid $stroke;
+        border-top: 1px solid $stroke;
+        background: rgba(255, 255, 255, .95);
+      }
     }
   }
 
   .overview {
     .course-wrapper {
-      margin: 0.75rem 0;
+      &:focus {
+        outline: 0;
+      }
     }
   }
 
@@ -175,10 +245,11 @@
       content: '';
       display: block;
       position: absolute;
-      top: 2rem;
+      top: 3.55rem;
       left: -100px;
       width: 100px;
       height: 1px;
+      z-index: 1000;
       background: $stroke;
     }
 
@@ -216,19 +287,27 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-left: -24px;
+    margin-left: -2rem;
     position: sticky;
     border-bottom: 1px solid $stroke;
     top: 0;
     padding: 24px 0 12px 0;
     background: #fff;
-    z-index: 100;
+    z-index: 70;
+    span {
+      font-feature-settings: "tnum";
+    }
   }
 
   .overview {
-    padding-top: 6.5rem;
     z-index: 10;
     grid-template-columns: repeat(13 * 4, 1fr);
+    .course-wrapper:first-child {
+      border: 2px solid red;
+    }
+    .course-wrapper:last-child {
+      margin-bottom: 2rem;
+    }
   }
 
   .overview[day="monday"] {

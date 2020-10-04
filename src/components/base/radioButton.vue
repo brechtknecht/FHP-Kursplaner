@@ -77,7 +77,8 @@
     }
 
     .container input:checked~.checkmark span {
-        font-weight: 800;
+        font-family: "FHPSun-Bold";
+        font-weight: normal;
     }
 
     /* Style the indicator (dot/circle) */

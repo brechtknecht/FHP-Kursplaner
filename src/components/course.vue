@@ -9,19 +9,29 @@
         :style="[soursePosition, courseBackground]" 
         @click.self="setCurrentCourse">
     <div class="course--checkbox">
-      <Checkbox :id="this.$props.info._id" ></Checkbox>
+      <Checkbox 
+        :id="this.$props.info._id" 
+        :key="this.$props.info._id"
+        :isClickable="true"
+      ></Checkbox>
     </div>
     <div class="course--info" @click="setCurrentCourse">
-      <h3> {{ this.$props.info.title }} </h3>
-      <h4> {{ this.$props.info.teacher }} — {{ this.$props.info.module.name }}</h4>
+      <h3> {{ currentCourseTitle.title }} </h3>
+      <div class="course--sub">
+        <div v-if="this.$props.info.teacher">
+          <h4>{{ this.$props.info.teacher }} — </h4>
+        </div>  
+        <div>
+          <h4 style="font-feature-settings: 'tnum'">{{ moduleNameStringify }}</h4>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import store, {
+  import {
     mapState,
-    mapMutations
   } from 'vuex'
 
   import Checkbox from '@/components/base/checkbox'
@@ -43,6 +53,7 @@
         teacher: String,
         module: {
           id: String,
+          id_new: String,
           name: String,
           category: String
         },
@@ -58,11 +69,18 @@
         let start = this.$props.position.start;
         let end = this.$props.position.end;
 
+        // 👋 Excape for wrong end Values
+        if(end.hour.value == '00') {
+          end.hour.value = 22;
+        }
+
+        let BORDER_WIDTH = 2;
+
         let startPosition = ((start.hour.value - 9) * columnWidth) + (start.minutes.value * (columnWidth / 60));
         let endPosition = ((end.hour.value - 9) * columnWidth) + (end.minutes.value * (columnWidth / 60));
 
-        let offsetStart = Math.floor(startPosition / columnWidth);
-        let offsetEnd = Math.floor(endPosition / columnWidth);
+        let offsetStart = Math.floor(startPosition / columnWidth) - BORDER_WIDTH;
+        let offsetEnd = Math.floor(endPosition / columnWidth) - BORDER_WIDTH;
 
 
 
@@ -70,6 +88,27 @@
           left: startPosition + offsetStart + 'px',
           width: (endPosition + offsetEnd) - (startPosition + offsetStart) + 'px',
         }
+      },
+      currentCourseTitle () {
+          let regExBeforeComma = new RegExp(/[^:]*/);
+          let regExAfterComma = new RegExp(/(:\s)(.*)/);
+
+          let category = regExBeforeComma.exec(this.$props.info.title);
+          let title = regExAfterComma.exec(this.$props.info.title);
+
+          if(category == null) {category= ['undefined']}
+          if(title == null) { title = category;}
+
+          title = title[0].replace(': ', '');
+
+          return {
+              category: category[0],
+              title: title
+          }
+      },
+      moduleNameStringify() {
+        let string = this.$props.info.module.name;
+        return string;
       },
       courseBackground() {
         let colorCode = this.$props.info.colorCode;
@@ -85,7 +124,7 @@
         return false
       },
       isRemembered() {
-        let rememberedCoursesRef = this.$store.state.user.rememberedCourses;
+        // let rememberedCoursesRef = this.user.rememberedCourses;
         let id = this.$props.info._id;
 
         // Disable colorCoding on selected Courses Screen
@@ -93,11 +132,13 @@
           return false;
         }
 
-        if (rememberedCoursesRef.includes(id)) {
+        if (this.$store.state.user.rememberedCourses.includes(id)) {
           return true;
+        } else {
+          return false;  
         }
 
-        return false;
+        
       },
       hasConflict () {
         if(this.$store.state.queries.studyType == "selectedCourses"){
@@ -116,8 +157,12 @@
         } else {
           return false;
         }
-
-      }
+        return undefined;
+      },
+      ...mapState([
+        'queries',
+        'user'
+      ])
     },
     methods: {
       setCurrentCourse: function () {
@@ -133,44 +178,53 @@
   @import '../assets/scss/main.scss';
 
   .selected {
-    border: 3px solid $active !important;
+    clip-path: none !important;
+    border: 2px solid $active !important;
   }
 
   .conflict {
     top: 0.5rem;
     bottom: 0.5rem;
-    border: 3px solid $warn !important;
+    border: 2px solid $warn !important;
+    clip-path: none !important;
     &:before {
       position: absolute;
       font-size: 0.8rem;
       font-family: 'FHPSun-Regular';
       top: -1.5rem;
       color: $warn;
-      content: 'Achtung— dieser Kurs findet zeitgleich mit einem anderen Kus statt.'
+      content: 'Achtung— dieser Kurs findet zeitgleich mit einem anderen Kurs statt.'
     }
   }
 
   .remembered {
+    clip-path: inset(0 round 1.5rem) !important; 
     background: $active !important;
 
     .course--info {
-
       h3,
       h4 {
         color: #fff !important;
+      }
+
+      h4 {
+        display: flex;
       }
 
     }
   }
 
   .course {
+    clip-path: inset(3px round 1.5rem);
     position: relative;
+    outline: 0;
 
     &:hover {
       border: 3px solid $active;
+      clip-path: inset(0 round 1rem);
     }
 
-    height: 100%;
+    height: calc(100% - 6px);
     width: 100%;
     border-radius: 1.5rem;
     background: $c-TH;
@@ -188,7 +242,7 @@
         border-radius: 4px;
       }
 
-      margin-left: 2rem;
+      margin: 0 .5rem 0 0.25rem;
     }
 
     .course--info {
@@ -200,6 +254,20 @@
       text-align: left;
       margin-left: 1.5rem;
       margin-right: 2rem;
+    }
+
+
+    .course--sub {
+      padding-top: .3rem;
+      div:last-child {
+        margin-bottom: 1rem;
+      }
+      div {
+        display: inline-block;
+        h4 {
+          margin-bottom: 0;
+        }
+      }
     }
 
     h3 {
@@ -215,7 +283,7 @@
     }
 
     h4 {
-      margin-top: .5rem;
+      margin-top: 0;
       margin-bottom: 1.1rem;
       line-height: 1.5rem;
     }

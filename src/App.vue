@@ -21,5 +21,12 @@
       color: #42b983;
     }
   }
+  button {
+    cursor: pointer;
+  }
+
+  .modal-open {
+    overflow: hidden;
+  }
 }
 </style>
