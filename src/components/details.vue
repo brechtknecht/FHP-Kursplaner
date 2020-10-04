@@ -256,6 +256,8 @@
                 width: 100vw !important;
                 left: 0;
                 right: 0;
+                border-radius: 8px;
+                clip-path: inset(0 round 8px);
             }
             .closingModal {
                 width: 100vw !important;
@@ -264,6 +266,7 @@
                 flex-direction: row;
                 max-height: none !important;
                 height: 100%;
+                 
                 .content {
                     margin-top: 4.52rem;
                 }
@@ -353,8 +356,10 @@
                  @include for-phone-only { 
                     position: fixed;
                     top: 100vh;
-                    left: 25vh;
+                    left: 50%;
+                    transform: translateX(-50%);
                     z-index: 100 !important;
+                    bottom: 1rem;
                  }
                 .caption {
                     font-family: 'FHPSun-Bold';
@@ -429,6 +434,7 @@
         padding: 0 1.5rem 0 1.5rem;
         p {
             white-space: pre-line;
+            max-width: 78ch;
         }
     }
 

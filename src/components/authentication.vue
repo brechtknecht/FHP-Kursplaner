@@ -14,7 +14,10 @@
                 <div class="modal--signin">
                     <h4>Generate</h4>
                     <div class="generated">
-                        <div class="field"> {{ generatedPassphrase }}</div>
+                        <div class="passphrase" @click="copyToClipboard()"> 
+                            <span>{{ generatedPassphrase }}</span>
+                            <span class="copyToClipboard"> {{ copy.status }}</span>
+                        </div>
                         <button class="refresh"  @click="generateNewPassphrase()">Generate new Name</button>
                         <button class="register" @click="signIn()">Anmelden mit Passphrase</button>
                     </div>
@@ -31,7 +34,10 @@
 export default {
     data () {
         return {
-            passphrase: ''
+            passphrase: '',
+            copy: {
+                status: 'In Zwischenablage kopieren'
+            }
         }
     },
     mounted() {
@@ -60,12 +66,27 @@ export default {
         },
         generateNewPassphrase() {
             this.$store.dispatch('generatePassphrase')
+            this.copy.status = 'In Zwischenablage kopieren'
+        },
+        copyToClipboard () {
+            var tempInput = document.createElement("input");
+            tempInput.value = this.generatedPassphrase;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); /*For mobile devices*/
+            console.log(tempInput)
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            this.copy.status = "In Zwischenablage kopiert"
         }
     }
 }
 </script>
 
+
+
 <style lang="scss">
+    @import '../assets/scss/main.scss';
     .authentication--container {
         position: fixed;
         top: 0; bottom: 0; left: 0; right: 0;
@@ -91,6 +112,28 @@ export default {
                 width: 50%;
             }
         }
-;
+        .modal--signin {
+            .generated {
+                .passphrase {
+                    padding: .5rem .75rem;
+                    background: $c-light-grey;
+                    margin: 1rem auto;
+                    width: 40ch;
+                    cursor: pointer;
+                    border-radius: 8px;
+                    span {
+                        font-size: 1.25rem;
+                        letter-spacing: 1px;
+                    }
+                    .copyToClipboard {
+                        content: 'In Zwischenablage kopieren';
+                        display: block;
+                        font-size: .9rem;
+                        letter-spacing: 0.01rem;
+                        margin: .25rem 0 0 0;
+                    }
+                }
+            }
+        }
     }
 </style>
