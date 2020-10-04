@@ -227,8 +227,10 @@
         span {
             margin-left: 2.5rem;
             vertical-align: super;
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1rem;
+            font-weight: normal;
+            font-style: normal;
         }
     }
 

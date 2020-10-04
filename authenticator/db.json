@@ -57,7 +57,13 @@
           "34667c9c-ad94-4045-a9e8-db9d53774905"
         ]
       }
+    },
+    {
+      "passphrase": "Bira",
+      "data": {
+        "rememberedCourses": []
+      }
     }
   ],
-  "count": 6
+  "count": 7
 }

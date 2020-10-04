@@ -179,13 +179,13 @@
 
   .selected {
     clip-path: none !important;
-    border: 3px solid $active !important;
+    border: 2px solid $active !important;
   }
 
   .conflict {
     top: 0.5rem;
     bottom: 0.5rem;
-    border: 3px solid $warn !important;
+    border: 2px solid $warn !important;
     clip-path: none !important;
     &:before {
       position: absolute;
@@ -258,6 +258,7 @@
 
 
     .course--sub {
+      padding-top: .3rem;
       div:last-child {
         margin-bottom: 1rem;
       }
@@ -282,7 +283,7 @@
     }
 
     h4 {
-      margin-top: .5rem;
+      margin-top: 0;
       margin-bottom: 1.1rem;
       line-height: 1.5rem;
     }

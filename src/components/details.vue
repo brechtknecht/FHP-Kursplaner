@@ -330,7 +330,7 @@
         top: 200px;
         background: $c-light-grey;
         margin-right: 1rem;
-        border: 1.5px solid $c-font;
+        border: 1px solid $c-font;
         border-radius: 3rem;
 
         &.selected {
@@ -354,7 +354,7 @@
             }
         }
         &.warning {
-            border: 1.5px solid $warn;
+            border: 2px solid $warn;
             a {
                 color: $warn;
             }

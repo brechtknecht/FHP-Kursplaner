@@ -14,17 +14,27 @@
 @include font-face("FHPSun-Regular", "/assets/fonts/FHP-Sun/FHPSun-Regular");
 @include font-face("FHPSun-ExtraBold", "/assets/fonts/FHP-Sun/FHPSun-ExtraBold");
 
-body {
+
+html {
+    font-size: 1rem;
     text-rendering: optimizeLegibility;
+    
+    -webkit-text-stroke: 0.15px rgba(0, 0, 0, 0.1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     font-family: 'FHPSun-Bold';
     font-size: 2.25rem;
     letter-spacing: 0.01rem;
+    font-weight: normal;
+    font-style: normal;
     &.regular {
         font-family: 'FHPSun-ExtraBold' !important;
-        font-weight: 100;
     }
 }
 
@@ -32,23 +42,28 @@ h2 {
     font-family: 'FHPSun-Regular';
     font-size: 1.5rem;
     letter-spacing: 0.01rem;
+    font-weight: normal;
+    font-style: normal;
 }
 
 h3 {
-    font-family: 'FHPSun-ExtraBold';
-    font-size: 1.2rem;
+    font-family: 'FHPSun-Bold';
+    font-size: 1.15rem;
     color: $c-font;
     letter-spacing: 0.01rem;
-    line-height: 1rem;
+    line-height: 1.3rem;
+    font-weight: normal;
+    font-style: normal;
 }
 
 h4 {
     font-family: 'FHPSun-Regular';
-    font-size: 1.2rem;
-    font-weight: 100;
-    color: $c-font;
+    font-size: 1.15em;
+    color: $c-decent-font;
     letter-spacing: 0.01rem;
     line-height: 1rem;
+    font-weight: normal;
+    font-style: normal;
 }
 
 p,
@@ -65,12 +80,16 @@ p {
 
 p.caption {
     font-family: 'FHPSun-Bold';
+    font-weight: normal;
+    font-style: normal;
 }
 
 span {
     font-size: 0.874rem;
     line-height: 1.3125rem;
     letter-spacing: 0.03rem;
+    font-weight: normal;
+    font-style: normal;
 }
 
 input, label, li, span {
@@ -88,13 +107,11 @@ span.badge {
     padding: 0.1rem 0.5rem 0.3rem 0.5rem;
     text-align: center;
     border-radius: 12px;
-    font-weight: 700;
     color: #fff;
 }
 
 button {
     font-family: 'FHPSun-Regular';
-    font-weight: 700;
     font-size: 1.2rem;
 }
 
@@ -104,4 +121,9 @@ span.bold {
 
 .number {
     font-feature-settings: "onum" 1;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid $stroke;
 }
