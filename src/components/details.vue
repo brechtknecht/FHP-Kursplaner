@@ -67,7 +67,7 @@
                     </div>
             </div>
             <div class="content">
-                <h4>Kursbeschreibung</h4>
+                <h3>Kursbeschreibung</h3>
                 <p> {{ currentCourseDescription }}</p>
             </div>
             </div>
@@ -393,7 +393,7 @@
         top: 200px;
         background: $c-light-grey;
         margin-right: 1rem;
-        border: 1px solid $c-font;
+        border: 1px solid $c-border-grey;
         border-radius: 8px;
 
         &.selected {

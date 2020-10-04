@@ -57,6 +57,7 @@
         display: inline-block;
         position: relative;
         padding-left: 35px;
+        left: -10px;
         margin-bottom: 24px;
         cursor: pointer;
         font-size: 22px;

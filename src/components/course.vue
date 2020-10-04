@@ -189,6 +189,7 @@
     bottom: 0.5rem;
     border: 2px solid $warn !important;
     clip-path: none !important;
+    margin-top: 1rem;
     &:before {
       position: absolute;
       font-size: 0.8rem;
