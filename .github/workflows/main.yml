@@ -30,7 +30,7 @@ jobs:
       - name: Deploy Frontend Files
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          username: 'fhp_kursplaner_deploy_user'
+          username: 'root'
           server: '116.203.41.131'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           local_path: './dist/*'
