@@ -12,5 +12,10 @@
 
 body {
     margin: 0;
+    padding-right: 15px;
+    &.modal-open {
+        height: 100vh;
+        overflow-y: hidden;
+    }
 }
 

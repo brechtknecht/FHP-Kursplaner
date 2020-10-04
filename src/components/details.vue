@@ -190,9 +190,9 @@
                 this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$store.state.currentCourse._id);
             },
             triggerDetails: function () {
+                document.body.classList.toggle('modal-open');
                 this.$store.commit('VIEW_DETAILS_SELECTED', false);
                 this.$emit('CURRENT_COURSE_TRIGGERED');
-                document.body.classList.toggle('modal-open');
             },
             lightOrDark: function (color) {
                 // Variables for red, green, blue values

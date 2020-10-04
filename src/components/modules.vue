@@ -126,6 +126,7 @@
         methods: {
             triggerModules: function () {
                 this.isActive = !this.isActive;
+                
                 document.body.classList.toggle('modal-open');
             },
             hasNoCourse(id) {
@@ -240,6 +241,7 @@
                 &.active {
                     right: 62rem;
                     background-position: 110% center;
+                    transform: translateX(3rem);
 
                     .caption {
                         opacity: 0;
@@ -254,9 +256,10 @@
     }
 
     .modulesWrapper {
-        position: relative;
+        position: absolute;
         height: 100vh;
         width: 0;
+        right: 0;
         overflow-y: scroll;
         max-height: calc(100vh - 4rem);
         padding: 3.5rem 4.5rem;
@@ -270,20 +273,20 @@
         box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
 
         &.active {
-            transform: translateX(60rem);
-            width: 60rem;
+            transform: translateX(0rem);
+            width: auto;
         }
     }
 
     .modules {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 15rem);
         grid-gap: 1rem;
     }
 
     .module {
         width: 12rem;
-        height: 7.5rem;
+        height: 4.5rem;
         cursor: pointer;
         padding: 1.25rem 1.5rem 2rem 1.5rem;
         clip-path: inset(3.2px);

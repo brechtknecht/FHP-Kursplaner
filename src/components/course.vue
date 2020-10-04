@@ -169,6 +169,8 @@
         this.$store.commit('SET_CURRENT_COURSE', this.$props.info);
         this.$store.commit('VIEW_DETAILS_SELECTED', true);
         this.$emit('CURRENT_COURSE_TRIGGERED');
+
+        document.body.classList.toggle('modal-open');
       }
     }
   }
