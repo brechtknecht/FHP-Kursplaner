@@ -6,35 +6,39 @@
             </div>
             <div class="details" v-if="isActive">
                 <div class="header" :style="componentStyle">
-                    <h4 class="category"> {{ currentCourseTitle.category }}</h4>
-                    <h1 class="title"> {{ currentCourseTitle.title }} </h1>
-                    <h4 class="subject">{{ currentCourse.subtitle }}</h4>
-                    <div class="moduleId-wrapper">
-                        <div class="badge">{{ currentCourseModuleId.studyOrder }}</div>
-                        <h4 class="moduleId"> {{ currentCourseModuleId.moduleId }} </h4>
+                    <div class="info">
+                        <h4 class="category"> {{ currentCourseTitle.category }}</h4>
+                        <h1 class="title"> {{ currentCourseTitle.title }} </h1>
+                        <h4 class="subject">{{ currentCourse.subtitle }}</h4>
                     </div>
-                    <div class="moduleId-wrapper">
-                        <div class="badge">Neue Prüfungsordnung</div>
-                        <h4 class="moduleId"> {{ currentCourse.module.id_new }} </h4>
+                    <div class="meta">
+                        <div class="moduleId-wrapper">
+                            <div class="badge">{{ currentCourseModuleId.studyOrder }}</div>
+                            <h4 class="moduleId"> {{ currentCourseModuleId.moduleId }} </h4>
+                        </div>
+                        <div class="moduleId-wrapper">
+                            <div class="badge">Neue Prüfungsordnung</div>
+                            <h4 class="moduleId"> {{ currentCourse.module.id_new }} </h4>
+                        </div>
+                        <ul>
+                            <li v-if="currentCourse.teacher"> 
+                                <icon-base width="20" height="20" icon-name="head"><icon-head /></icon-base>
+                                <span>{{ currentCourse.teacher }}</span> 
+                            </li>
+                            <li> 
+                                <icon-base width="20" height="20" icon-name="clock"><icon-clock /></icon-base>
+                                <span>{{ currentCourse.time.fixture.begin.String }} </span>
+                            </li>
+                            <li>
+                                <icon-base width="20" height="20" icon-name="pin"><icon-pin /></icon-base> 
+                                <span>Raum: {{ currentCourse.room }}</span> 
+                            </li>
+                            <li>
+                                <icon-base width="20" height="20" icon-name="layer"><icon-layer /></icon-base> 
+                                <span>Credits: {{ currentCourse.credits }} </span>
+                            </li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li v-if="currentCourse.teacher"> 
-                            <icon-base width="20" height="20" icon-name="head"><icon-head /></icon-base>
-                            <div>{{ currentCourse.teacher }}</div> 
-                        </li>
-                        <li> 
-                            <icon-base width="20" height="20" icon-name="clock"><icon-clock /></icon-base>
-                            <div>{{ currentCourse.time.fixture.begin.String }} </div>
-                        </li>
-                        <li>
-                            <icon-base width="20" height="20" icon-name="pin"><icon-pin /></icon-base> 
-                            <div>Raum: {{ currentCourse.room }}</div> 
-                        </li>
-                        <li>
-                            <icon-base width="20" height="20" icon-name="layer"><icon-layer /></icon-base> 
-                            <div>Credits: {{ currentCourse.credits }} </div>
-                        </li>
-                    </ul>
                     <div class="actions">
                         <button 
                             class="btn btn-primary remember" 
@@ -246,6 +250,62 @@
         position: fixed;
         z-index: 100;
         right: 0;
+        @include for-desktop-up () {
+            .details-container {
+                position: fixed;
+                width: 100vw !important;
+                left: 0;
+                right: 0;
+            }
+            .closingModal {
+                width: 100vw !important;
+            }
+            .details {
+                flex-direction: row;
+                max-height: none !important;
+                height: 100%;
+            }
+            .detailsWrapper {
+                width: 80vw !important;
+                right: 10vw;
+                left: 10vw;
+                max-height: calc(100vh - 7.5rem);
+                bottom: -80rem;
+                opactity: 0;
+            }
+            .detailsWrapper.active {
+                top: 2.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                display: block;
+                width: 80vw !important;
+                max-height: calc(100vh - 7.5rem);
+                overflow: hidden;
+                padding: 0;
+                right: 0;
+                bottom: 0;
+                opactity: 1;
+                
+                
+            }
+
+            .header {
+                width: clamp(450px, 4vw, 40%);
+            }
+            .content {
+                width: 60%;
+            }
+
+            .header,
+            .content {
+                height: auto;
+                max-height: none !important;
+            }
+
+            .actions {
+                bottom: 1.25rem !important;
+            }
+        }
     }
 
     .details {
@@ -334,7 +394,7 @@
         background: $c-light-grey;
         margin-right: 1rem;
         border: 1px solid $c-font;
-        border-radius: 3rem;
+        border-radius: 8px;
 
         &.selected {
             background: $active;
@@ -384,10 +444,19 @@
             }
         }
 
+        .info {
+
+        }
+
+        .meta {
+
+        }
+
         h4.category {
             margin-top: 2.5rem;
             margin-bottom: 1rem;
             line-height: 1.5rem;
+            min-height: 3rem;
         }
 
         h1.title {
@@ -489,7 +558,7 @@
         background: rgba(255, 255, 255, 0);
         &.closingModal {
             position: fixed;
-            width: calc(100vw - 33rem);
+            // width: calc(100vw - 33rem);
             left: 0;
             background: rgba(255, 255, 255, .6);
             height: 100vh;

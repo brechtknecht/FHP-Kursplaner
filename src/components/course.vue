@@ -181,7 +181,7 @@
 
   .selected {
     clip-path: none !important;
-    border: 2px solid $active !important;
+    border: 3px solid $active !important;
   }
 
   .conflict {
@@ -200,7 +200,8 @@
   }
 
   .remembered {
-    clip-path: inset(0 round 1.5rem) !important; 
+    // clip-path: inset(0 round 1.5rem) !important; 
+    clip-path: inset(0 round 8px) !important; 
     background: $active !important;
 
     .course--info {
@@ -217,18 +218,20 @@
   }
 
   .course {
-    clip-path: inset(3px round 1.5rem);
     position: relative;
     outline: 0;
 
     &:hover {
       border: 3px solid $active;
-      clip-path: inset(0 round 1rem);
+      clip-path: inset(0 round 8px);
     }
 
     height: calc(100% - 6px);
     width: 100%;
-    border-radius: 1.5rem;
+    // border-radius: 1.5rem;
+    border-radius: 8px;
+    // clip-path: inset(3px round 1.5rem);
+    clip-path: inset(3px round 8px);
     background: $c-TH;
     display: flex;
     transition: background $animation-fast;

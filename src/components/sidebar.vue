@@ -1,21 +1,6 @@
 <template>
     <div class="sidebar">
         <h2>Lehrangebot</h2>
-        <h4>Studienordnung</h4>
-        <div class="examOrder">
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
-                <div class="checkmark">
-                    <span>2013—2018</span>
-                </div>
-            </label>
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
-                <div class="checkmark">
-                    <span>ab 2019</span>
-                </div>
-            </label>
-        </div>
         <hr>
         <h4>Anzeigen</h4>
         <div class="studySelection">

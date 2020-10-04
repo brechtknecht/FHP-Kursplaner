@@ -7,6 +7,21 @@
             </button>
         </div>
         <div v-if="this.$store.state.queries.examOrder == 'PO 2013'" class="modulesWrapper" :class="{ active: isActive }">
+            <h4>Studienordnung</h4>
+            <div class="examOrder">
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
+                    <div class="checkmark">
+                        <span>2013—2018</span>
+                    </div>
+                </label>
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
+                    <div class="checkmark">
+                        <span>ab 2019</span>
+                    </div>
+                </label>
+            </div>
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
@@ -37,6 +52,21 @@
             </div>
         </div>
         <div v-if="this.$store.state.queries.examOrder == 'PO 2019'" class="modulesWrapper" :class="{ active: isActive }">
+            <h4>Studienordnung</h4>
+            <div class="examOrder">
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
+                    <div class="checkmark">
+                        <span>2013—2018</span>
+                    </div>
+                </label>
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
+                    <div class="checkmark">
+                        <span>ab 2019</span>
+                    </div>
+                </label>
+            </div>
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
@@ -110,6 +140,14 @@
                     }
                 }
                 return '';
+            },
+            examOrder: {
+                get() {
+                    return this.$store.state.queries.examOrder;
+                },
+                set(examOrder) {
+                    this.$store.commit('SWITCH_STUDY_ORDER', examOrder);
+                }
             },
             isDisabled() {
                 if (this.queries.studyType == 'selectedCourses') {
@@ -286,7 +324,7 @@
 
     .module {
         width: 12rem;
-        height: 4.5rem;
+        height: auto;
         cursor: pointer;
         padding: 1.25rem 1.5rem 2rem 1.5rem;
         clip-path: inset(3.2px);
