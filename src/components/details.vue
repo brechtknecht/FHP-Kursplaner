@@ -264,6 +264,9 @@
                 flex-direction: row;
                 max-height: none !important;
                 height: 100%;
+                .content {
+                    margin-top: 4.52rem;
+                }
             }
             .detailsWrapper {
                 position: fixed;
