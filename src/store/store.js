@@ -21,7 +21,8 @@ export default new Vuex.Store({
       token: localStorage.getItem('token') || '',
       generatedPassphrase: '',
       rememberedCourses: [],
-      toggleAuth: false
+      toggleAuth: false,
+      error: false
     },
     queries: {
       studyType: "Grundstudium",
@@ -214,12 +215,14 @@ export default new Vuex.Store({
     auth_success(state, token, user){
       state.user.status = 'success'
       state.user.token = token
+      state.user.error = false
       state.user.toggleAuth = false;
       console.log("Auth Success — User: " + user)
       // state.user = user
     },
     auth_error(state){
       state.user.status = 'error'
+      state.user.error = true;
     },
     auth_generate(state, payload) {
       state.user.generatedPassphrase = payload.passphrase;

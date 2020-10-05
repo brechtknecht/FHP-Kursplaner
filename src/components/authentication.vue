@@ -8,6 +8,7 @@
             <div v-if="generatedPassphrase" class="modal--options">
                 <div class="modal--login">
                     <h2>Login</h2>
+                    <span v-if="this.$store.state.user.error" class="warning">Keinen Nutzer gefunden.</span>
                     <div class="login">
                         <input class="input input__medium" v-model="passphrase"/>
                         <button class="button button__medium" @click="login">Login</button>
@@ -47,7 +48,8 @@ export default {
             passphrase: '',
             copy: {
                 status: 'In Zwischenablage kopieren'
-            }
+            },
+            error: ''
         }
     },
     mounted() {
@@ -72,7 +74,7 @@ export default {
         signIn() {
             this.$store.dispatch('signIn', this.generatedPassphrase)
 
-            this.$store.state.user.name = thus.generatedPassphrase;
+            this.$store.state.user.name = this.generatedPassphrase;
 
             this.copyToClipboard()
         },
@@ -168,6 +170,10 @@ export default {
             border-right: 1px solid $stroke;
             .login {
                 display: flex;
+            }
+            .warning {
+                text-align: left;
+                color: $warn;
             }
         }
         .modal--signin {

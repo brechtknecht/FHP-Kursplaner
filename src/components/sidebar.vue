@@ -44,10 +44,10 @@
         <hr>
         <h4>Anmeldung</h4>
         <div class="auth">
-            <div v-if="this.$store.state.user.status != ''" class="user">
+            <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
                  <span>Angemeldet mit Code <br>{{ this.$store.state.user.name }}</span>
             </div>
-            <button v-if="this.$store.state.user.status != ''" class="button button__medium" @click="logout()">Logout</button>
+            <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
             <button v-else class="button button__medium" @click="login()">Anmelden</button>
         </div>
         <!-- <hr>
