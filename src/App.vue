@@ -56,6 +56,9 @@
     border: 1px solid #DBDBDB;
     border-radius: 4px;
     margin: 0 .25rem;
+    &:hover {
+      background: #F8F8F8;
+    }
     &__small {
       padding: .25rem 2rem;
     }
@@ -68,6 +71,9 @@
         background: #3475E0;
         color: #fff;
         border: 1px solid #3475E0;
+        &:hover {
+          background: #3475E0;
+        }
       }
     }
     &__large {
