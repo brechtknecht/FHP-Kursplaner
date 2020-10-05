@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsonminify": "^0.4.1",
     "puppeteer": "^1.20.0"
   },
   "devDependencies": {

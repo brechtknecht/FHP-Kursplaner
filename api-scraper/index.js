@@ -1,4 +1,5 @@
 const fs = require('fs');
+var jsonminify = require("jsonminify");
 
 const Utils = require('./utils');
 
@@ -170,11 +171,13 @@ async function scrape (LINK) {
     });
 
     // fs.writeFileSync('../public/data/courses.json', data);
-    fs.writeFileSync('courses.json', data);
+    const minCourses = jsonminify(data)
+    fs.writeFileSync('courses.json', minCourses);
     console.log("Created File")
   
     let moduleData = JSON.stringify({ modules });
-    fs.writeFileSync('modules.json', moduleData);
+    const minModules = jsonminify(moduleData)
+    fs.writeFileSync('modules.json', minModules);
   
     // await page.waitFor(40000)
       // await browser.close();
