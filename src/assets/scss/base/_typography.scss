@@ -6,13 +6,13 @@
 
 
 // USE THIS FOR DEPLOY IN STATIC SUBFOLDER
-@include font-face("FHPSun-Bold", "/static/assets/fonts/FHP-Sun/FHPSun-Bold");
-@include font-face("FHPSun-Regular", "/static/assets/fonts/FHP-Sun/FHPSun-Regular");
-@include font-face("FHPSun-ExtraBold", "/static/assets/fonts/FHP-Sun/FHPSun-ExtraBold");
+// @include font-face("FHPSun-Bold", "/static/assets/fonts/FHP-Sun/FHPSun-Bold");
+// @include font-face("FHPSun-Regular", "/static/assets/fonts/FHP-Sun/FHPSun-Regular");
+// @include font-face("FHPSun-ExtraBold", "/static/assets/fonts/FHP-Sun/FHPSun-ExtraBold");
 
-// @include font-face("FHPSun-Bold", "/assets/fonts/FHP-Sun/FHPSun-Bold");
-// @include font-face("FHPSun-Regular", "/assets/fonts/FHP-Sun/FHPSun-Regular");
-// @include font-face("FHPSun-ExtraBold", "/assets/fonts/FHP-Sun/FHPSun-ExtraBold");
+@include font-face("FHPSun-Bold", "/assets/fonts/FHP-Sun/FHPSun-Bold");
+@include font-face("FHPSun-Regular", "/assets/fonts/FHP-Sun/FHPSun-Regular");
+@include font-face("FHPSun-ExtraBold", "/assets/fonts/FHP-Sun/FHPSun-ExtraBold");
 
 
 html {

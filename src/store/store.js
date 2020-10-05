@@ -8,6 +8,11 @@ import modulePlan from './metadata/modulePlan'
 
 Vue.use(Vuex)
 
+const developAPI = 'http://localhost:5000/api'
+const productionAPI = 'http://döner.jetzt:5000/api'
+
+const authAPI = process.env.NODE_ENV == 'production' ? productionAPI : developAPI
+
 
 export default new Vuex.Store({
   state: {
@@ -55,7 +60,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('auth_request')
         console.log(userData);
-        axios({url: 'http://localhost:5000/api/login', headers: {'Passphrase': userData.passphrase}, method: 'POST' })
+        axios({url: authAPI + '/login', headers: {'Passphrase': userData.passphrase}, method: 'POST' })
         .then(resp => {
           const token = resp.data.token
           const user = resp.data.user
@@ -86,7 +91,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         console.log(passphrase)
         commit('auth_request')
-        axios({url: 'http://localhost:5000/api/signIn', headers: {'Passphrase': passphrase}, data: passphrase, method: 'POST' })
+        axios({url: authAPI + '/signIn', headers: {'Passphrase': passphrase}, data: passphrase, method: 'POST' })
         .then(resp => {
           console.log(resp)
           const token = resp.data.token
@@ -111,7 +116,7 @@ export default new Vuex.Store({
           console.log("No token found at localstorage, escape")
           return;
         }
-        axios({url: 'http://localhost:5000/api/getUserData', headers: {'Authorization': 'Bearer ' + token}, method: 'POST' })
+        axios({url: authAPI + '/getUserData', headers: {'Authorization': 'Bearer ' + token}, method: 'POST' })
         .then(resp => { 
           console.log("Recieved UserData")
           console.log(resp);
@@ -137,7 +142,7 @@ export default new Vuex.Store({
 
         const rememberedCourses = getters.getRememberedCoursesData()
 
-        axios({url: 'http://localhost:5000/api/updateUserData', data: { rememberedCourses: rememberedCourses}, headers: {'Authorization' : 'Bearer ' + token}, method: 'POST'})
+        axios({url: authAPI + '/updateUserData', data: { rememberedCourses: rememberedCourses}, headers: {'Authorization' : 'Bearer ' + token}, method: 'POST'})
           .then(resp => {
             console.log('Updated Data Successfully: ', resp)
           })
@@ -148,7 +153,7 @@ export default new Vuex.Store({
     },
     generatePassphrase({commit}){
       return new Promise((resolve, reject) => {
-        axios({url: 'http://localhost:5000/api/generate', method: 'GET'})
+        axios({url: authAPI + '/generate', method: 'GET'})
           .then(resp => {
             commit('auth_generate', resp.data)
           })
