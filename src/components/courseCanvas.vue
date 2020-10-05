@@ -148,13 +148,17 @@
     left: 20rem;
     
     top: 1.5rem;
-    max-width: calc(100vw - 15rem);
+    max-width: calc(100vw - 30rem);
     @include for-tablet-portrait-up {
         max-width: 100vw;
         overflow-x: scroll;
         overflow-y: hidden;
         left: 0;
     }
+  }
+
+  .courses {
+    max-width: 100rem;
   }
 
   .numbers:after {
