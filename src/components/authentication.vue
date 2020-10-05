@@ -12,13 +12,13 @@
                     <button @click="login">Login</button>
                 </div>
                 <div class="modal--signin">
-                    <h4>Generate</h4>
+                    <h4>Dein generierter Name</h4>
                     <div class="generated">
-                        <button class="refresh"  @click="generateNewPassphrase()">Neuen Namen generieren</button>
                         <div class="passphrase" @click="copyToClipboard()"> 
                             <span>{{ generatedPassphrase }}</span>
                             <span class="copyToClipboard"> {{ copy.status }}</span>
                         </div>
+                        <button class="refresh"  @click="generateNewPassphrase()">Neuen Namen generieren</button>
                         <button class="register" @click="signIn()">Mit generierten Namen anmelden</button>
                     </div>
                 </div>
@@ -135,7 +135,7 @@ export default {
                     }
                 }
                 .register {
-                    margin: 4rem 0 0 0;
+                    margin: 6rem 0 0 0;
                 }
             }
         }

@@ -9,18 +9,22 @@
         <div v-if="this.$store.state.queries.examOrder == 'PO 2013'" class="modulesWrapper" :class="{ active: isActive }">
             <h4>Studienordnung</h4>
             <div class="examOrder">
-                <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
-                    <div class="checkmark">
-                        <span>2013—2018</span>
-                    </div>
-                </label>
-                <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
-                    <div class="checkmark">
-                        <span>ab 2019</span>
-                    </div>
-                </label>
+                <div class="radio--wrapper">
+                    <label class="container selectionElement">
+                        <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
+                        <div class="checkmark">
+                            <span>2013—2018</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="radio--wrapper">
+                    <label class="container selectionElement">
+                        <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
+                        <div class="checkmark">
+                            <span>ab 2019</span>
+                        </div>
+                    </label>
+                </div>
             </div>
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
@@ -313,6 +317,23 @@
         &.active {
             transform: translateX(0rem);
             width: auto;
+        }
+
+        .examOrder {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+            @include for-phone-only () {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .radio--wrapper {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem 0 0 0;
+            background: $c-light-grey;
         }
     }
 
