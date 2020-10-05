@@ -4,7 +4,7 @@
             <b>Fachbereich Design</b>
             Lehrangebot</h2>
         <hr>
-        <h4>Anzeigen</h4>
+        <h4>Studienabschnitt</h4>
         <div class="studySelection">
             <label class="container selectionElement">
                 <input type="radio" checked="checked" name="studyType" value="Grundstudium" v-model="studyType">
