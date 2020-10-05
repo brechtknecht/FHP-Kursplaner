@@ -41,8 +41,15 @@
             <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
             <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
         </ul>
-
-        <button v-if="this.$store.state.user.status != ''" @click="logout()">Logout</button>
+        <hr>
+        <h4>Anmeldung</h4>
+        <div class="auth">
+            <div v-if="this.$store.state.user.status != ''" class="user">
+                 <span>Angemeldet mit Code <br>{{ this.$store.state.user.name }}</span>
+            </div>
+            <button v-if="this.$store.state.user.status != ''" class="button button__medium" @click="logout()">Logout</button>
+            <button v-else class="button button__medium" @click="login()">Anmelden</button>
+        </div>
         <!-- <hr>
         <h4>Sortieren nach:</h4>
         <ul class="courseFilters">
@@ -158,6 +165,9 @@
                 }
                 return this.$store.state.courses.days[0].isEmpty;
             },
+            login() {
+                this.$store.commit('CHECK_AUTH')
+            },
             logout () {
                 this.$store.dispatch('logout')
             },
@@ -204,6 +214,10 @@
         @include for-phone-only {
             display: none;
         }
+    }
+
+    .auth {
+        padding: 0 1.5rem;
     }
 
     .selectionElement {

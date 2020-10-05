@@ -7,19 +7,29 @@
             </div>
             <div v-if="generatedPassphrase" class="modal--options">
                 <div class="modal--login">
-                    <h4>Login</h4>
-                    <input v-model="passphrase"/>
-                    <button @click="login">Login</button>
+                    <h2>Login</h2>
+                    <div class="login">
+                        <input class="input input__medium" v-model="passphrase"/>
+                        <button class="button button__medium" @click="login">Login</button>
+                    </div>
+                    <div class="tip">
+                        <span>Hier musst du deinen Namen eigeben den du dir das letzte Mal gemerkt hast um auf deine Daten zugreifen zu können.</span>
+                    </div>
                 </div>
                 <div class="modal--signin">
-                    <h4>Dein generierter Name</h4>
+                    <h2>Anmelden mit generierten Namen</h2>
                     <div class="generated">
-                        <div class="passphrase" @click="copyToClipboard()"> 
-                            <span>{{ generatedPassphrase }}</span>
-                            <span class="copyToClipboard"> {{ copy.status }}</span>
+                        <div class="passphrase--wrapper">
+                            <div class="passphrase" @click="copyToClipboard()"> 
+                                <span>{{ generatedPassphrase }}</span>
+                                <span class="copyToClipboard"> {{ copy.status }}</span>
+                            </div>
+                            <button class="button button__medium refresh"  @click="generateNewPassphrase()">Neuen Namen generieren</button>
                         </div>
-                        <button class="refresh"  @click="generateNewPassphrase()">Neuen Namen generieren</button>
-                        <button class="register" @click="signIn()">Mit generierten Namen anmelden</button>
+                        <button class="button button__medium button__medium--cta register" @click="signIn()">Mit generierten Namen anmelden</button>
+                        <div class="tip">
+                            <span>Du meldest dich mit dem oben generierten Namen an. Kopiere ihn dir um beim nächsten Mal, oder auf einem anderen Gerät auf deine Daten zugreifen zu können.</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,10 +65,15 @@ export default {
                 passphrase : this.passphrase
             }
 
+            this.$store.state.user.name = userData.passphrase;
+
             this.$store.dispatch('login', userData)
         },
         signIn() {
             this.$store.dispatch('signIn', this.generatedPassphrase)
+
+            this.$store.state.user.name = thus.generatedPassphrase;
+
             this.copyToClipboard()
         },
         toggleAuthentication () {
@@ -100,42 +115,95 @@ export default {
         position: relative;
         top: 50%; bottom: 50%; left: 50%; right: 50%;
         transform: translateX(-50%) translateY(-50%);
-        padding: 2rem 4rem;
+        // padding: 2rem 4rem;
+        padding: 2rem 4rem 2.5rem 4rem;
         background: #fff;
         width: 60%;
-        height: 60%;
+        max-width: 70rem;
+        height: auto;
         z-index: 100;
         border-radius: 8px;
         border: 1px solid rgba(218,220,224,1);
+
+        .tip {
+            text-align: left;
+            margin: .5rem 0;
+            color: $c-small-font;
+        }
+
+
+        .modal--title {
+            padding: 0 0 1rem 0;
+            text-align: left;
+            p {
+                font-size: 1.15rem;
+                line-height: 1.6rem;
+                max-width: 75ch;
+                text-align: left;
+            }
+        }
         .modal--options {
             display: flex;
+            flex-direction: column;
+            @include for-tablet-landscape-up () {
+                flex-direction: row;
+            }
             & > div {
                 width: 50%;
+                &:first-child {
+                    padding-right: 2.5rem;
+                }
+                &:last-child {
+                    padding-left: 2.5rem;
+                }
+            }
+
+
+
+            h2 {
+                text-align: left;
+            }
+        }
+        .modal--login {
+            border-right: 1px solid $stroke;
+            .login {
+                display: flex;
             }
         }
         .modal--signin {
             .generated {
-                .passphrase {
-                    padding: .5rem .75rem;
-                    background: $c-light-grey;
-                    margin: 1rem auto;
-                    width: 40ch;
-                    cursor: pointer;
-                    border-radius: 8px;
-                    span {
-                        font-size: 1.25rem;
-                        letter-spacing: 1px;
+                .passphrase--wrapper {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    @include for-tablet-landscape-up () {
+                        flex-direction: row;
                     }
-                    .copyToClipboard {
-                        content: 'In Zwischenablage kopieren';
-                        display: block;
-                        font-size: .9rem;
-                        letter-spacing: 0.01rem;
-                        margin: .25rem 0 0 0;
+                    .passphrase {
+                        padding: .5rem .75rem;
+                        background: $c-light-grey;
+                        margin: 0 auto 0 auto;
+                        @include for-tablet-landscape-up () {
+                            margin: 0 .5rem 0 0;
+                        }
+                        width: 40ch;
+                        cursor: pointer;
+                        border-radius: 8px;
+                        span {
+                            font-size: 1.25rem;
+                            letter-spacing: 1px;
+                        }
+                        .copyToClipboard {
+                            content: 'In Zwischenablage kopieren';
+                            display: block;
+                            font-size: .9rem;
+                            letter-spacing: 0.01rem;
+                            margin: .25rem 0 0 0;
+                        }
                     }
                 }
                 .register {
-                    margin: 6rem 0 0 0;
+                    margin: 6rem 0 .5rem 0;
                 }
             }
         }

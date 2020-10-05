@@ -81,7 +81,6 @@
 <script>
   import Course from '@/components/course.vue';
 
-
   import {
     mapState
   } from 'vuex'
