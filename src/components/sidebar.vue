@@ -28,7 +28,8 @@
                 <input type="radio" checked="checked" name="studyType" value="selectedCourses" v-model="studyType">
                 <div class="checkmark">
                     <span>Ausgewählt</span>
-                    <span v-if="this.numberOfCoursesSelected" class="badge">{{ numberOfCoursesSelected }}</span>
+                    <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
+                    <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected >= 10" class="badge badge--centered">{{ numberOfCoursesSelected }}</span>
                 </div>
             </label>
         </div>

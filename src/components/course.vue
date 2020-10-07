@@ -145,11 +145,15 @@
           let days = this.$store.state.courses.days;
 
           for(var i = 0; i < days.length; i++){
+            console.log(days[i])
+
             if(days[i].data.length > 1) {
-              console.log('i', i, 'day', this.$props.position.start.day.value);
               if(this.$props.position.start.day.value - 1 == i) {
-                console.log('Potential Conflict @index: ' + i +' ⚠️ detected');
-                return true;
+                console.log('Diese Kurse sind am selben tag... start comparing');
+                console.log(this.$props.position.start)
+
+                // return true;
+                return false;
               }
             }
           }
