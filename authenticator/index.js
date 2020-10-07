@@ -105,7 +105,9 @@ app.post('/api/signIn', (req, res) => {
     db.get('users')
       .push({
           passphrase: user.passphrase,
-          data: {}
+          data: {
+            rememberedCourses: []
+          }
       })
       .write()
 	}

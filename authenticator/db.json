@@ -3,158 +3,17 @@
     {
       "passphrase": "Fiete",
       "data": {
-        "rememberedCourses": [
-          "0b1e3176-f37d-41f4-a1bd-0f89b1fc9be9",
-          "99cbf3cf-6ba5-4831-a2a3-9522ef5ae318",
-          "e996b374-bec7-4d08-b528-9cab5066fc6f",
-          "6acc55ca-a970-4735-929f-bbb63ebfb69a",
-          "92ab176c-8a04-41dc-8ad6-797bb36c7d98",
-          "7dd3a98f-e0e1-4e25-9c0b-94873dc9288b",
-          "31e9e4bc-ca54-4a05-a555-edcbf356877a",
-          "47ae93b4-085e-4e71-bef7-f740c4b25449",
-          "25b12b24-92cf-4224-bd47-f4718f133b4c",
-          "895995da-6144-4fbe-9915-ae079e501833",
-          "63415499-1cce-4221-b3c8-fcc364f51e4b",
-          "2b4c6645-6cde-4faa-a805-1eea4bf94b88",
-          "c693d7c1-0d9f-40ca-b573-ef440a40f9ee"
-        ]
+        "rememberedCourses": []
       }
     },
     {
-      "passphrase": "Elan",
+      "passphrase": "Feephe",
       "data": {
         "rememberedCourses": [
-          "5f4e50d9-4f7d-444e-a645-0436223f27d4",
-          "ae8fb5b0-cea2-475e-9cf7-055600c060ca",
-          "34667c9c-ad94-4045-a9e8-db9d53774905"
-        ]
-      }
-    },
-    {
-      "passphrase": "Kumo",
-      "data": {
-        "rememberedCourses": [
-          "62e39517-8b98-4506-9267-08a97bb9bdf5",
-          "5f4e50d9-4f7d-444e-a645-0436223f27d4",
-          "ae8fb5b0-cea2-475e-9cf7-055600c060ca"
-        ]
-      }
-    },
-    {
-      "passphrase": "Jepa",
-      "data": {
-        "rememberedCourses": [
-          "5f4e50d9-4f7d-444e-a645-0436223f27d4",
-          "8c20c333-f68f-4e29-9262-4ec800139c09",
-          "baa0f671-5d32-4294-88eb-7d90c9bbdfb5",
-          "047640ac-a807-4743-84c4-3d5d491795da"
-        ]
-      }
-    },
-    {
-      "passphrase": "Rogu",
-      "data": {
-        "rememberedCourses": [
-          "62e39517-8b98-4506-9267-08a97bb9bdf5",
-          "5f4e50d9-4f7d-444e-a645-0436223f27d4"
-        ]
-      }
-    },
-    {
-      "passphrase": "Struri",
-      "data": {
-        "rememberedCourses": [
-          "b44e84a8-d8ec-4801-ac86-f602c9adf703",
-          "245585f2-f0eb-48e8-b12f-f456f20910f5",
-          "34667c9c-ad94-4045-a9e8-db9d53774905"
-        ]
-      }
-    },
-    {
-      "passphrase": "Bira",
-      "data": {
-        "rememberedCourses": [
-          "5df5fae8-dcfe-4a95-87c9-5161d0a4d894",
-          "b6ed94d1-baea-4410-ab6d-83206bcfe76a",
-          "d3e24b90-aed0-4569-962e-a6bc6b8241ff",
-          "3fdf81fa-07b8-4a9b-84c0-bb5850fa5bd2",
-          "03f8ef30-d5d8-4389-adf8-23a17dc7cea1"
-        ]
-      }
-    },
-    {
-      "passphrase": "Fijed",
-      "data": {
-        "rememberedCourses": [
-          "5f4e50d9-4f7d-444e-a645-0436223f27d4",
-          "ae8fb5b0-cea2-475e-9cf7-055600c060ca",
-          "02fc003f-7679-422d-9afd-3f019866aa2a"
-        ]
-      }
-    },
-    {
-      "passphrase": "Krake",
-      "data": {
-        "rememberedCourses": [
-          "b6249adc-fccd-479a-b8ad-a69cca8dd262",
-          "66bdb893-fc5d-4313-bacc-bd6c54fdfb76",
-          "5f4e50d9-4f7d-444e-a645-0436223f27d4",
-          "245585f2-f0eb-48e8-b12f-f456f20910f5",
-          "e3227632-2091-4ed0-81af-ff64a8fc99d3",
-          "d28adb1b-bb46-4fa3-b42a-d52798d53c37"
-        ]
-      }
-    },
-    {
-      "passphrase": "Drasap",
-      "data": {}
-    },
-    {
-      "passphrase": "Scosfun",
-      "data": {}
-    },
-    {
-      "passphrase": "Dece",
-      "data": {}
-    },
-    {
-      "passphrase": "Babkul",
-      "data": {}
-    },
-    {
-      "passphrase": "Larick",
-      "data": {}
-    },
-    {
-      "passphrase": "Deli",
-      "data": {}
-    },
-    {
-      "passphrase": "Uteb",
-      "data": {
-        "rememberedCourses": [
-          "895995da-6144-4fbe-9915-ae079e501833",
           "63415499-1cce-4221-b3c8-fcc364f51e4b"
         ]
       }
-    },
-    {
-      "passphrase": "Gajeg",
-      "data": {
-        "rememberedCourses": [
-          "63415499-1cce-4221-b3c8-fcc364f51e4b",
-          "2b4c6645-6cde-4faa-a805-1eea4bf94b88"
-        ]
-      }
-    },
-    {
-      "passphrase": "Nulon",
-      "data": {}
-    },
-    {
-      "passphrase": "Lici",
-      "data": {}
     }
   ],
-  "count": 19
+  "count": 28
 }

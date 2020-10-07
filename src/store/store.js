@@ -226,8 +226,18 @@ export default new Vuex.Store({
       state.user.status = 'success'
       state.user.token = userData.token
       state.user.error = false
-      if(typeof userData.passphrase != 'undefined')
-      state.user.name = JSON.parse(userData.passphrase.data).passphrase
+
+      const passphraseIsJSON = stringIsJSON(userData.passphrase.data)
+      console.log("PassphraseJSON " + passphraseIsJSON)
+
+      if(passphraseIsJSON) {
+        state.user.name = JSON.parse(userData.passphrase.data).passphrase
+      } else {
+        state.user.name = userData.passphrase.data
+      }
+
+
+
       // console.log(JSON.parse(userData.passphrase.data).passphrase)
       state.user.toggleAuth = false;
       console.log("Auth Success — User: " + userData.user)
@@ -497,6 +507,25 @@ function sortProperties(obj) {
   
 	return obj; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
 }
+
+function stringIsJSON(item) {
+  item = typeof item !== "string"
+      ? JSON.stringify(item)
+      : item;
+
+  try {
+      item = JSON.parse(item);
+  } catch (e) {
+      return false;
+  }
+
+  if (typeof item === "object" && item !== null) {
+      return true;
+  }
+
+  return false;
+}
+
 
 function getObjects(obj, key, val) {
   var objects = [];
