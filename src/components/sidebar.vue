@@ -47,7 +47,10 @@
             <h4>Anmeldung</h4>
             <div class="auth">
                 <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
-                    <span>Angemeldet mit Code <br>{{ this.$store.state.user.name }}</span>
+                    <span>Angemeldet mit Code <br></span>
+                    <div class="loggedUser">
+                        <span>{{ this.$store.state.user.name }}</span>
+                    </div>
                 </div>
                 <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
                 <button v-else class="button button__medium" @click="login()">Anmelden</button>
@@ -231,6 +234,22 @@
 
     .auth {
         padding: 0 1.5rem;
+        .loggedUser {
+            position: relative;
+            padding: .5rem .75rem;
+            background: $white;
+            margin: 0 auto 0 auto;
+            @include for-tablet-landscape-up () {
+                margin: .5rem .5rem 1rem 0;
+            }
+            object-fit: contain;
+            cursor: pointer;
+            border-radius: 8px;
+            span {
+                font-size: 1.25rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
     .selectionElement {
