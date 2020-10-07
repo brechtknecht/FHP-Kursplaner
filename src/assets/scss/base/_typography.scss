@@ -107,6 +107,7 @@ span.badge {
     padding: 0.1rem 0.5rem 0.3rem 0.5rem;
     text-align: left;
     border-radius: 12px;
+    font-variant-numeric: tabular-nums;
     color: #fff;
     z-index: 1;
     &:after {
@@ -131,7 +132,7 @@ span.badge {
             display: inline-block;
     
             position: absolute;
-            left: 1.5px;
+            left: 2px;
             top: -1px;
     
             width: 28px;
