@@ -68,7 +68,7 @@ export default {
             }
 
             this.$store.state.user.name = userData.passphrase;
-
+    
             this.$store.dispatch('login', userData)
         },
         signIn() {

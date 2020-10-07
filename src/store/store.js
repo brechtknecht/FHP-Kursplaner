@@ -60,7 +60,7 @@ export default new Vuex.Store({
     login ({commit}, userData){
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        console.log(userData);
+        console.log("Send POST next line:" + userData.passphrase);
         axios({url: authAPI + '/login', headers: {'Passphrase': userData.passphrase}, method: 'POST' })
         .then(resp => {
           const token = resp.data.token

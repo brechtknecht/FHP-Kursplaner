@@ -47,6 +47,16 @@ export default {
       this.detailsModalIsActive = !this.detailsModalIsActive;
     }
   },
+  created () {
+    // Authenticates User by route. E.G. (/:id)
+    if(typeof this.$route.params.id != 'undefined') {
+      let userData = {
+        passphrase : this.$route.params.id
+      }
+      console.log(userData)
+      this.$store.dispatch('login', userData)
+    }
+  },
   mounted() {
     const token = localStorage.getItem('token')
     if (token) { 
