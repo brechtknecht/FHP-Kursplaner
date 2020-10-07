@@ -48,13 +48,12 @@ export default {
     }
   },
   created () {
-    // Authenticates User by route. E.G. (/:id)
-
-    let passphrase = this.$route.params.id;
-
-    // Sets the First letter to capital to ensure no DB calls will run into nothing
-    passphrase = passphrase.charAt(0).toUpperCase() + passphrase.slice(1);
     if(typeof this.$route.params.id != 'undefined') {
+      // Authenticates User by route. E.G. (/:id)
+      let passphrase = this.$route.params.id;
+      // Sets the First letter to capital to ensure no DB calls will run into nothing
+      passphrase = passphrase.charAt(0).toUpperCase() + passphrase.slice(1);
+      
       let userData = {
         passphrase : passphrase
       }
