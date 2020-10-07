@@ -27,6 +27,15 @@
                             </div>
                             <button class="button button__medium refresh"  @click="generateNewPassphrase()">Neuen Namen generieren</button>
                         </div>
+                        <div class="bookmark-wrapper">
+                            <div class="bookmark">
+                                <span> http://fb4kurse.fh-potsdam.de/{{generatedPassphrase}}</span>
+                            </div>
+                            <div class="tip">
+                                <span>Dieser Link ist erst aktiviert, wenn du dich mit deinem generierten Namen registriert hast.</span>
+                            </div>
+                        </div>
+
                         <button class="button button__medium button__medium--cta register" @click="signIn()">Mit generierten Namen anmelden</button>
                         <div class="tip">
                             <span>Du meldest dich mit dem oben generierten Namen an. Kopiere ihn dir um beim nächsten Mal, oder auf einem anderen Gerät auf deine Daten zugreifen zu können.</span>
@@ -208,8 +217,33 @@ export default {
                         }
                     }
                 }
+                .bookmark-wrapper {
+                    margin: 4rem 0;
+                    .bookmark {
+                        padding: .5rem .75rem;
+                        background: $c-light-grey;
+                        margin: 0 auto 0 auto;
+                        @include for-tablet-landscape-up () {
+                            margin: 0 .5rem 0 0;
+                        }
+                        width: 95%;
+                        cursor: pointer;
+                        border-radius: 8px;
+                        span {
+                            font-size: 1.25rem;
+                            letter-spacing: 1px;
+                        }
+                        .copyToClipboard {
+                            content: 'In Zwischenablage kopieren';
+                            display: block;
+                            font-size: .9rem;
+                            letter-spacing: 0.01rem;
+                            margin: .25rem 0 0 0;
+                        }
+                    }
+                }
                 .register {
-                    margin: 6rem 0 .5rem 0;
+                    margin: 2rem 0 .5rem 0;
                 }
             }
         }
