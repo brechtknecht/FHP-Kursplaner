@@ -27,7 +27,7 @@ export default new Vuex.Store({
     },
     queries: {
       studyType: "Grundstudium",
-      examOrder: "PO 2013",
+      examOrder: "PO 2019",
       days: {
         monday: true,
         tuesday: true,
@@ -237,8 +237,6 @@ export default new Vuex.Store({
       } else {
         state.user.name = userData.passphrase.data
       }
-
-
 
       // console.log(JSON.parse(userData.passphrase.data).passphrase)
       state.user.toggleAuth = false;
