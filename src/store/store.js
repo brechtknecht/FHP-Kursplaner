@@ -60,15 +60,21 @@ export default new Vuex.Store({
     login ({commit}, userData){
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        console.log("Send POST next line:" + userData.passphrase);
-        axios({url: authAPI + '/login', headers: {'Passphrase': userData.passphrase}, method: 'POST' })
+        userData.passphrase = userData.passphrase.charAt(0).toUpperCase() + userData.passphrase.slice(1);
+        axios({url: authAPI + '/login', headers: {'Passphrase': userData.passphrase}, data: userData, method: 'POST' })
         .then(resp => {
           const token = resp.data.token
-          const user = resp.data.user
+          const user = resp
+          // const passphrase =  JSON.parse(resp.config.data).passphrase;
+          
           localStorage.setItem('token', token)
           axios.defaults.headers.common['Authorization'] = token
           this.dispatch('getUserData')
-          commit('auth_success', token, user)
+          commit('auth_success', {
+            token: token,
+            user: user,
+            passphrase: resp.config
+          })
           resolve(resp)
         })
         .catch(err => {
@@ -99,7 +105,11 @@ export default new Vuex.Store({
           const user = resp.data.user
           localStorage.setItem('token', token)
           axios.defaults.headers.common['Authorization'] = token
-          commit('auth_success', token, user)
+          commit('auth_success', {
+            token: token,
+            user: user,
+            passphrase: resp.config
+          })
           resolve(resp)
         })
         .catch(err => {
@@ -121,8 +131,8 @@ export default new Vuex.Store({
         .then(resp => { 
           console.log("Recieved UserData")
           console.log(resp);
-          console.log("Logged in with: »" + resp.data.authData.user.passphrase + '«');
-          commit('auth_success', token, resp.data.authData.user.passphrase)
+          console.log("Recieved Data in with: »" + resp.data.authData.user.passphrase + '«');
+          // commit('auth_success', token, resp.data.authData.user.passphrase)
           commit('setUserDataToStore', resp.data.userData)
         })
         .catch(err => {
@@ -212,12 +222,15 @@ export default new Vuex.Store({
     auth_request(state){
       state.user.status = 'loading'
     },
-    auth_success(state, token, user){
+    auth_success(state, userData){
       state.user.status = 'success'
-      state.user.token = token
+      state.user.token = userData.token
       state.user.error = false
+      if(typeof userData.passphrase != 'undefined')
+      state.user.name = JSON.parse(userData.passphrase.data).passphrase
+      // console.log(JSON.parse(userData.passphrase.data).passphrase)
       state.user.toggleAuth = false;
-      console.log("Auth Success — User: " + user)
+      console.log("Auth Success — User: " + userData.user)
       // state.user = user
     },
     auth_error(state){
