@@ -276,11 +276,12 @@
                 height: 100vh;
                 z-index: 200;
                 width: 80vw !important;
-                right: 10vw;
-                left: 10vw;
+                max-width: 1200px;
+                right: 50%;
+                left: 50%;
                 padding: 0;
                 max-height: calc(100vh - 7.5rem);
-                transform: translateY(80rem);
+                transform: translateY(80rem) translateX(-50%);
                 opactity: 0;
                 transition: $animation-default;
             }
@@ -288,7 +289,7 @@
                 top: 2.5rem;
                 overflow: hidden;
                 opactity: 1;
-                transform: translateY(0);
+                transform: translateY(0) translateX(-50%);
                 bottom: 2.5rem;
             }
 
@@ -542,7 +543,7 @@
         padding-bottom: 2rem;
         padding-left: 2.5rem;
         padding-right: 2.5rem;
-        overflow-y: scroll;
+        overflow-y: auto;
         max-height: 35rem;
         @include for-phone-only { 
             padding-bottom: 10rem;
