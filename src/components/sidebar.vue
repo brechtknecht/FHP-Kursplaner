@@ -1,62 +1,64 @@
 <template>
-    <div class="sidebar">
-        <h2>
-            <b>Fachbereich Design</b>
-            Lehrangebot</h2>
-        <hr>
-        <h4>Studienabschnitt</h4>
-        <div class="studySelection">
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="studyType" value="Grundstudium" v-model="studyType">
-                <div class="checkmark">
-                    <span>Grundstudium</span>
-                </div>
-            </label>
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="studyType" value="Hauptstudium" v-model="studyType">
-                <div class="checkmark">
-                    <span>Hauptstudium</span>
-                </div>
-            </label>
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="studyType" value="Master" v-model="studyType">
-                <div class="checkmark">
-                    <span>Master</span>
-                </div>
-            </label>
-            <label class="container selectionElement">
-                <input type="radio" checked="checked" name="studyType" value="selectedCourses" v-model="studyType">
-                <div class="checkmark">
-                    <span>Ausgewählt</span>
-                    <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
-                    <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected >= 10" class="badge badge--centered">{{ numberOfCoursesSelected }}</span>
-                </div>
-            </label>
-        </div>
-        <hr>
-        <h4>Wochentage</h4>
-        <ul>
-            <li class="listElement Montag" :class="{ active: monday, disabled: _hasMonday }" @click="scrollToDay">Montag</li>
-            <li class="listElement Dienstag" :class="{ active: tuesday, disabled: _hasTuesday }" @click="scrollToDay">Dienstag</li>
-            <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday }" @click="scrollToDay">Mittwoch</li>
-            <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
-            <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
-        </ul>
-        <hr>
-        <h4>Anmeldung</h4>
-        <div class="auth">
-            <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
-                 <span>Angemeldet mit Code <br>{{ this.$store.state.user.name }}</span>
+    <div class="sidebar--wrapper">
+        <div class="sidebar">
+            <h2>
+                <b>Fachbereich Design</b>
+                Lehrangebot</h2>
+            <hr>
+            <h4>Studienabschnitt</h4>
+            <div class="studySelection">
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="studyType" value="Grundstudium" v-model="studyType">
+                    <div class="checkmark">
+                        <span>Grundstudium</span>
+                    </div>
+                </label>
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="studyType" value="Hauptstudium" v-model="studyType">
+                    <div class="checkmark">
+                        <span>Hauptstudium</span>
+                    </div>
+                </label>
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="studyType" value="Master" v-model="studyType">
+                    <div class="checkmark">
+                        <span>Master</span>
+                    </div>
+                </label>
+                <label class="container selectionElement">
+                    <input type="radio" checked="checked" name="studyType" value="selectedCourses" v-model="studyType">
+                    <div class="checkmark">
+                        <span>Ausgewählt</span>
+                        <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
+                        <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected >= 10" class="badge badge--centered">{{ numberOfCoursesSelected }}</span>
+                    </div>
+                </label>
             </div>
-            <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
-            <button v-else class="button button__medium" @click="login()">Anmelden</button>
+            <hr>
+            <h4>Wochentage</h4>
+            <ul>
+                <li class="listElement Montag" :class="{ active: monday, disabled: _hasMonday }" @click="scrollToDay">Montag</li>
+                <li class="listElement Dienstag" :class="{ active: tuesday, disabled: _hasTuesday }" @click="scrollToDay">Dienstag</li>
+                <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday }" @click="scrollToDay">Mittwoch</li>
+                <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
+                <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
+            </ul>
+            <hr>
+            <h4>Anmeldung</h4>
+            <div class="auth">
+                <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
+                    <span>Angemeldet mit Code <br>{{ this.$store.state.user.name }}</span>
+                </div>
+                <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
+                <button v-else class="button button__medium" @click="login()">Anmelden</button>
+            </div>
+            <!-- <hr>
+            <h4>Sortieren nach:</h4>
+            <ul class="courseFilters">
+                <li class="listElement Kursnummer" :class="{ active: true }" @click="0">Kursnummer</li>
+                <li class="listElement Zeit" :class="{ active: false }" @click="0">Zeit</li>
+            </ul> -->
         </div>
-        <!-- <hr>
-        <h4>Sortieren nach:</h4>
-        <ul class="courseFilters">
-            <li class="listElement Kursnummer" :class="{ active: true }" @click="0">Kursnummer</li>
-            <li class="listElement Zeit" :class="{ active: false }" @click="0">Zeit</li>
-        </ul> -->
     </div>
 </template>
 
@@ -199,13 +201,23 @@
     hr {
         margin-top: 1.5rem;
     }
+    .sidebar--wrapper {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
 
     .sidebar {
         position: fixed;
         width: 15rem;
-        height: 100vh;
+        height: calc(100vh - 5rem);
         padding: 2.5rem 1.5rem;
         z-index: 100;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: -17px; /* Increase/Decrease this value for cross-browser compatibility */
+        overflow-y: auto;
         text-align: left;
         background: $c-light-grey;
         h2,
