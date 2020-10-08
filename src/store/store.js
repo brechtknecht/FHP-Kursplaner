@@ -122,7 +122,7 @@ export default new Vuex.Store({
         })
       })
     },
-    getUserData({commit}) {
+    getUserData({commit, state}) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         const token = localStorage.getItem('token')
@@ -135,6 +135,7 @@ export default new Vuex.Store({
           console.log("Recieved UserData")
           console.log(resp);
           console.log("Recieved Data in with: »" + resp.data.authData.user.passphrase + '«');
+          state.user.name = resp.data.authData.user.passphrase;
           // commit('auth_success', token, resp.data.authData.user.passphrase)
           commit('setUserDataToStore', resp.data.userData)
         })

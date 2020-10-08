@@ -3,7 +3,7 @@
         <div class="authentication--modal">
             <div class="modal--title">
                 <h1>Anmeldung erforderlich</h1>
-                <p>Um dir Kurse merken zu können, musst du dir eine Art Account erstellen. Dafür generieren wir für dich einen Namen, den du dir merken/kopieren musst um beim nächsten Mal weitermachen zu können.</p>
+                <p>Speichere Dir Deine ausgewählten Kurse, indem Du Dir eine Art Account anlegst. Dieser Account besteht nur aus einem einmalig vorkommenden Name, den wir für Dich generieren. Diesen merkst/kopierst Du Dir, um Deine Auswahl beim nächsten Mal fortzusetzen.</p>
             </div>
             <div v-if="generatedPassphrase" class="modal--options">
                 <div class="modal--login">
@@ -14,7 +14,7 @@
                         <button class="button button__medium" @click="login">Login</button>
                     </div>
                     <div class="tip">
-                        <span>Hier musst du deinen Namen eigeben den du dir das letzte Mal gemerkt hast um auf deine Daten zugreifen zu können.</span>
+                        <span>Hier musst du Deinen Namen eigeben den du Dir das letzte Mal gemerkt hast um auf Deine Daten zugreifen zu können.</span>
                     </div>
                 </div>
                 <div class="modal--signin">
@@ -32,13 +32,13 @@
                                 <span> http://fb4kursplaner.fh-potsdam.de/?id={{generatedPassphrase}}</span>
                             </div>
                             <div class="tip">
-                                <span>Dieser Link ist erst aktiviert, wenn du dich mit deinem generierten Namen registriert hast.</span>
+                                <span>Dieser Link ist erst aktiviert, wenn Du Dich mit deinem generierten Namen registriert hast.</span>
                             </div>
                         </div>
 
                         <button class="button button__medium button__medium--cta register" @click="signIn()">Mit generierten Namen anmelden</button>
                         <div class="tip">
-                            <span>Du meldest dich mit dem oben generierten Namen an. Kopiere ihn dir um beim nächsten Mal, oder auf einem anderen Gerät auf deine Daten zugreifen zu können.</span>
+                            <span>Du meldest Dich mit dem oben generierten Namen an. Kopiere ihn Dir um beim nächsten Mal, oder auf einem anderen Gerät auf Deine Daten zugreifen zu können.</span>
                         </div>
                     </div>
                 </div>
