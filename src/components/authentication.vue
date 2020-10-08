@@ -29,7 +29,7 @@
                         </div>
                         <div class="bookmark-wrapper">
                             <div class="bookmark">
-                                <span> http://fb4kurse.fh-potsdam.de/{{generatedPassphrase}}</span>
+                                <span> http://fb4kursplaner.fh-potsdam.de/?id={{generatedPassphrase}}</span>
                             </div>
                             <div class="tip">
                                 <span>Dieser Link ist erst aktiviert, wenn du dich mit deinem generierten Namen registriert hast.</span>
