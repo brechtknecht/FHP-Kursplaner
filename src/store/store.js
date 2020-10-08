@@ -11,7 +11,7 @@ Vue.use(Vuex)
 
 const developAPI = 'http://localhost:5000/api'
 // const productionAPI = 'http://döner.jetzt:5000/api'
-const productionAPI = 'http://fb4kursplaner.fh-potsdam.de:5000/api'
+const productionAPI = 'http://fb4kursplaner.fh-potsdam.de/auth/api'
 
 const authAPI = process.env.NODE_ENV == 'production' ? productionAPI : developAPI
 
