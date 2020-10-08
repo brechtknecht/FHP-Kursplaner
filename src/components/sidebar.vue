@@ -114,41 +114,76 @@
                 return this.getEmptyState(4);
             },
             monday: function () {
-                for (let day of this.activeDays) {
-                    if (day == "Montag") {
-                        return true;
+                if(this.$store.state.queries.studyType == 'selectedCourses') {
+                    if(this.$store.state.courses.days[0].data.length > 0) {
+                        return true
+                    }
+                    return false
+                } else {
+                    for (let day of this.activeDays) {
+                        if (day == "Montag") {
+                            return true;
+                        }
                     }
                 }
                 return false
             },
             tuesday: function () {
-                for (let day of this.activeDays) {
-                    if (day == "Dienstag") {
-                        return true;
+                if(this.$store.state.queries.studyType == 'selectedCourses') {
+                    if(this.$store.state.courses.days[1].data.length > 0) {
+                        return true
+                    }
+                    return false
+                } else {
+                    for (let day of this.activeDays) {
+                        if (day == "Dienstag") {
+                            return true;
+                        }
                     }
                 }
                 return false
             },
             wednesday: function () {
-                for (let day of this.activeDays) {
-                    if (day == "Mittwoch") {
-                        return true;
+                if(this.$store.state.queries.studyType == 'selectedCourses') {
+                    if(this.$store.state.courses.days[2].data.length > 0) {
+                        return true
+                    }
+                    return false
+                } else {
+                    for (let day of this.activeDays) {
+                        if (day == "Mittwoch") {
+                            return true;
+                        }
                     }
                 }
                 return false
             },
             thursday: function () {
-                for (let day of this.activeDays) {
-                    if (day == "Donnerstag") {
-                        return true;
+                if(this.$store.state.queries.studyType == 'selectedCourses') {
+                    if(this.$store.state.courses.days[3].data.length > 0) {
+                        return true
+                    }
+                    return false
+                } else {
+                    for (let day of this.activeDays) {
+                        if (day == "Donnerstag") {
+                            return true;
+                        }
                     }
                 }
                 return false
             },
             friday: function () {
-                for (let day of this.activeDays) {
-                    if (day == "Freitag") {
-                        return true;
+                if(this.$store.state.queries.studyType == 'selectedCourses') {
+                    if(this.$store.state.courses.days[4].data.length > 0) {
+                        return true
+                    }
+                    return false
+                } else {
+                    for (let day of this.activeDays) {
+                        if (day == "Freitag") {
+                            return true;
+                        }
                     }
                 }
                 return false
