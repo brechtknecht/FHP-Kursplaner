@@ -3,7 +3,10 @@
     {
       "passphrase": "Fiete",
       "data": {
-        "rememberedCourses": []
+        "rememberedCourses": [
+          "e40bc773-f241-436e-a3e6-36366fa26685",
+          "bf6928e8-66bd-41e5-a32b-9b668dfe274d"
+        ]
       }
     },
     {
