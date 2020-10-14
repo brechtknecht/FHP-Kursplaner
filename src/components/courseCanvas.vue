@@ -39,7 +39,7 @@
     </div>
 
 
-    <div v-if="!courses.status.isEmpty" class="courses">
+    <div v-if="!courses.status.isEmpty" class="courses" :class="{ collapsed: isCollapsed }">
       <div :class="'overview ' + courses.string" :day=courses.string v-for="(courses) in courses.days" :key="courses.key"
         v-in-viewport>
 
@@ -114,6 +114,9 @@
         return {
           left: startPosition + offsetStart + 'px',
         }
+      },
+      isCollapsed () {
+        return this.$store.state.view.navbar
       },
       ...mapState([
         'courses',
@@ -195,6 +198,11 @@
 
   .courses {
     max-width: 100rem;
+    &.collapsed {
+      .overview-head {
+        top: 0 !important;
+      }
+    }
     @include for-tablet-portrait-up { 
       position: relative;
       top: 5.9rem;

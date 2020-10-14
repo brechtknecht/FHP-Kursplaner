@@ -53,7 +53,8 @@ export default new Vuex.Store({
     modulePlan: modulePlan,
     view: {
       activeDays: ['Montag'],
-      detailsSelected: Boolean
+      detailsSelected: Boolean,
+      navbar: Boolean
     },
     notification: {}
   },
@@ -262,6 +263,15 @@ export default new Vuex.Store({
     setUserDataToStore(state, payload) {
       state.user.rememberedCourses = payload.data.rememberedCourses;
       this.commit('QUERY_COURSES')
+    },
+
+    // RESPONSIVE LOGIC
+    DISABLE_NAVBAR (state) {
+      state.view.navbar = false
+    },
+
+    ENABLE_NAVBAR (state) {
+      state.view.navbar = true
     },
 
     // MODULE LOGIC

@@ -378,7 +378,7 @@
                 &.active {
                     background-position: 110% center;
                     @include for-phone-only { 
-                        top: calc(100vh - 8rem);
+                        top: calc(100vh - 5.9rem);
                         background-position: 50% 98%;
                     }
                     .caption {

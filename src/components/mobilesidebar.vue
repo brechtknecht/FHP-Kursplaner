@@ -9,10 +9,12 @@
         <div class="course--selection">
             <h3>Studienordnung auswählen</h3>
             <select v-model="studyType">
-                <option disabled value="">Please select one</option>
+                <option disabled value="">Studienordnung auswählen</option>
                 <option>Grundstudium</option>
                 <option>Hauptstudium</option>
                 <option>Master</option>
+                <option disabled value="">Anmeldung erforderlich</option>
+                <option value="selectedCourses">Ausgewählte Kurse</option>
             </select>
         </div>
     </div>
@@ -24,21 +26,62 @@ import {
     } from 'vuex'
 
 export default {
+    mounted: function () {
+        let coursecanvas = document.getElementsByClassName('course-canvas')
+        coursecanvas[0].addEventListener('scroll', this.handleScroll);
+    },
+    destroyed: function () {
+        let coursecanvas = document.querySelectorAll('.course-canvas')
+        coursecanvas[0].removeEventListener('scroll', this.handleScroll);
+    },
     computed: {
-            studyType: {
-                get() {
-                    return this.$store.state.queries.studyType;
-                },
-                set(studyType) {
-                    this.$store.dispatch('SWITCH_STUDY_TYPE', studyType);
-                }
+        studyType: {
+            get() {
+                return this.$store.state.queries.studyType;
             },
+            set(studyType) {
+                this.$store.dispatch('SWITCH_STUDY_TYPE', studyType);
+            }
+        },
+    },
+    data () {
+        return {
+        triggers: {
+            disable: 200,
+            enable: 10
+        },
+        lastScrollPos: window.scrollY
+        }
+    },
+    methods : {
+        handleScroll: function (event) {
+            let coursecanvas = document.querySelectorAll('.course-canvas')
+            let current = coursecanvas[0].scrollTop;
+            if(current > this.lastScrollPos + this.triggers.disable) {             
+                document.querySelector('.header').classList.add('mobile--sidebar--collapsed');
+                this.lastScrollPos = current;
+                this.$store.commit('ENABLE_NAVBAR')
+            }
+            else if (current < this.lastScrollPos - this.triggers.enable){
+                document.querySelector('.header').classList.remove('mobile--sidebar--collapsed');
+                this.lastScrollPos = current;
+                this.$store.commit('DISABLE_NAVBAR')
+            }
+        },
     }
 }
 </script>
 
 <style lang="scss">
 @import '@/assets/scss/main.scss';
+
+.mobile--sidebar {
+    transition: 250ms ease-out;
+    &--collapsed {
+        transform: translateY(-100%)
+    }
+}
+
 .course--selection{
     position: fixed;
     bottom: 0;
