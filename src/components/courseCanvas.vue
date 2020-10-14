@@ -162,6 +162,12 @@
     }
   }
 
+  .spacer {
+    height: 9rem;
+    width: 100%;
+    background: red;
+  }
+
   .header {
     position: fixed;
     text-align: left;
@@ -179,8 +185,9 @@
     max-width: calc(100vw - 30rem);
     @include for-tablet-portrait-up {
         max-width: 100vw;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        max-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
         left: 0;
         top: 0;
     }
@@ -236,6 +243,7 @@
       top: 1.5rem;
       @include for-tablet-portrait-up {
         left: 0 !important;
+        top: 5.9rem !important;
       }
       h1 {
         font-weight: normal;
