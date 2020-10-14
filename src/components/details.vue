@@ -312,6 +312,14 @@
         }
     }
 
+    .detailsWrapper {
+        @include for-tablet-portrait-up () {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden;
+        }
+    }
+
     .details {
         display: flex;
         flex-direction: column;
