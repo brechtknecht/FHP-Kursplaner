@@ -122,7 +122,9 @@ export default {
         z-index: 100;
         background: rgba(0, 0, 0, .15);
         @include for-tablet-portrait-up () {
-            overflow-y: scroll
+            overflow-y: scroll;
+            overflow-x: hidden;
+            background: #fff;
         } 
     }
     .authentication--modal {
@@ -140,7 +142,8 @@ export default {
         border: 1px solid rgba(218,220,224,1);
         @include for-tablet-portrait-up { 
             width: 100%;
-            padding: 0 0;
+            padding: 0 0 1.5rem 0;
+            border: 0;
         }
 
         .tip {
@@ -154,7 +157,7 @@ export default {
             padding: 0 0 1rem 0;
             text-align: left;
             @include for-tablet-portrait-up () {
-                padding: 2rem 1.5rem;
+                padding: 0 1.5rem;
             } 
             p {
                 font-size: 1.15rem;
@@ -165,15 +168,18 @@ export default {
         }
         .modal--options {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            @include auth-mobile {
+                flex-direction: column;
+            }
             & > div {
                 width: 50%;
                 &:first-child {
                     padding-right: 2.5rem;
-                    @include for-tablet-portrait-up { 
+                    @include auth-mobile { 
                         padding: 0 1.5rem;
                         width: 100%;
-                        border: 0;
+                        border: 0;        
                         & > div {
                             max-width: 85vw;
                         }
@@ -181,7 +187,7 @@ export default {
                 }
                 &:last-child {
                     padding-left: 2.5rem;
-                    @include for-tablet-portrait-up { 
+                    @include auth-mobile { 
                         padding: 0 1.5rem;
                         width: 100%;
                         border: 0;
@@ -221,8 +227,9 @@ export default {
                         padding: .5rem .75rem;
                         background: $c-light-grey;
                         margin: 0 auto 0 auto;
-                        @include for-tablet-landscape-up () {
-                            margin: 0 .5rem 0 0;
+                        @include auth-mobile () {
+                            width: calc(100% - .5rem);
+                            margin: 0 .5rem .75rem 0;
                         }
                         width: 40ch;
                         cursor: pointer;
@@ -242,6 +249,9 @@ export default {
                 }
                 .bookmark-wrapper {
                     margin: 4rem 0;
+                    @include auth-mobile {  
+                        margin: 1.5rem 0;
+                    }
                     .bookmark {
                         padding: .5rem .75rem;
                         background: $c-light-grey;

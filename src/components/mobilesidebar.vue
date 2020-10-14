@@ -9,7 +9,7 @@
         <div class="course--selection">
             <h3>Studienordnung auswählen</h3>
             <select v-model="studyType">
-                <option disabled value="">Studienordnung auswählen</option>
+                <option disabled value="">Studienabschnitt auswählen</option>
                 <option>Grundstudium</option>
                 <option>Hauptstudium</option>
                 <option>Master</option>

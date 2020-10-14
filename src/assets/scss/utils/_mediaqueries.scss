@@ -4,6 +4,9 @@
 @mixin for-tablet-portrait-up {
     @media (max-width: 600px) { @content; }
 }
+@mixin auth-mobile {
+    @media (max-width: 70rem) { @content; }
+}
 @mixin for-tablet-landscape-up {
     @media (min-width: 900px) { @content; }
 }

@@ -46,7 +46,13 @@
           "25f70157-1bf8-4b9e-9c14-ffc654d7bb09"
         ]
       }
+    },
+    {
+      "passphrase": "Jofa",
+      "data": {
+        "rememberedCourses": []
+      }
     }
   ],
-  "count": 31
+  "count": 32
 }
