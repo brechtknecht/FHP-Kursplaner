@@ -121,6 +121,9 @@ export default {
         height: 100%;
         z-index: 100;
         background: rgba(0, 0, 0, .15);
+        @include for-tablet-portrait-up () {
+            overflow-y: scroll
+        } 
     }
     .authentication--modal {
         position: relative;
@@ -135,6 +138,10 @@ export default {
         z-index: 100;
         border-radius: 8px;
         border: 1px solid rgba(218,220,224,1);
+        @include for-tablet-portrait-up { 
+            width: 100%;
+            padding: 0 0;
+        }
 
         .tip {
             text-align: left;
@@ -146,6 +153,9 @@ export default {
         .modal--title {
             padding: 0 0 1rem 0;
             text-align: left;
+            @include for-tablet-portrait-up () {
+                padding: 2rem 1.5rem;
+            } 
             p {
                 font-size: 1.15rem;
                 line-height: 1.6rem;
@@ -156,16 +166,29 @@ export default {
         .modal--options {
             display: flex;
             flex-direction: column;
-            @include for-tablet-landscape-up () {
-                flex-direction: row;
-            }
             & > div {
                 width: 50%;
                 &:first-child {
                     padding-right: 2.5rem;
+                    @include for-tablet-portrait-up { 
+                        padding: 0 1.5rem;
+                        width: 100%;
+                        border: 0;
+                        & > div {
+                            max-width: 85vw;
+                        }
+                    }
                 }
                 &:last-child {
                     padding-left: 2.5rem;
+                    @include for-tablet-portrait-up { 
+                        padding: 0 1.5rem;
+                        width: 100%;
+                        border: 0;
+                        & > div {
+                            max-width: 85vw;
+                        }
+                    }
                 }
             }
 

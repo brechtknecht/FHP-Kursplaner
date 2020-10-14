@@ -127,9 +127,6 @@
       passTrigger: function () {
         this.$emit('CURRENT_COURSE_TRIGGERED');
       },
-      tastyTest: function () {
-        console.log('ficky');
-      },
       scrollListener: function () {
         let overviewHeader = document.getElementsByClassName('overview-head');
         for(let element of overviewHeader) {
@@ -206,6 +203,7 @@
     @include for-tablet-portrait-up { 
       position: relative;
       top: 5.9rem;
+      padding-bottom: 5.9rem;
     }
   }
 
