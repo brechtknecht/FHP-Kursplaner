@@ -1,6 +1,6 @@
 <template>
   <div class="course-canvas">
-    <div class="timeline">
+    <div class="timeline desktop">
       <div class="time-indicator" :style="currentTimePosition"></div>
       <div class="number"></div>
       <div class="number"></div>
@@ -17,7 +17,7 @@
       <div class="number"></div>
       <div class="number"></div>
     </div>
-    <div class="numbers">
+    <div class="numbers desktop">
       <span>09:00</span>
       <span>10:00</span>
       <span>11:00</span>
@@ -33,7 +33,6 @@
       <span>21:00</span>
       <span>22:00</span>
     </div>
-  
     <!-- Wenn keine Daten da sind -->
     <div v-if="courses.status.isEmpty" class="empty">
       <div class="course-loader"></div>
@@ -142,10 +141,40 @@
 <style lang="scss">
   @import '@/assets/scss/main.scss';
 
+  .mobile {
+    display: none;
+    @include for-tablet-portrait-up () {
+      display: block !important;
+    }
+  }
+
+  .desktop {
+    display: block;
+    @include for-tablet-portrait-up () {
+      display: none !important;
+    }
+  }
+
+  .overview {
+    @include for-tablet-portrait-up () {
+      width: 100% !important;
+      margin: 0 0.5rem !important;
+    }
+  }
+
+  .header {
+    position: fixed;
+    text-align: left;
+    padding: 0 1rem;
+    z-index: 100;
+    width: 100%;
+    border-bottom: 1px solid #DADCE0;
+    background: #fff;
+  }
+
   .course-canvas {
     position: relative;
     left: 20rem;
-    
     top: 1.5rem;
     max-width: calc(100vw - 30rem);
     @include for-tablet-portrait-up {
@@ -153,11 +182,16 @@
         overflow-x: scroll;
         overflow-y: hidden;
         left: 0;
+        top: 0;
     }
   }
 
   .courses {
     max-width: 100rem;
+    @include for-tablet-portrait-up { 
+      position: relative;
+      top: 5.9rem;
+    }
   }
 
   .numbers:after {

@@ -2,6 +2,7 @@
   <div class="app">
     <Sidebar/>
     <Modules/>
+    <MobileSidebar></MobileSidebar>
     <CourseCanvas                             @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Details :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Notification></Notification>
@@ -13,6 +14,7 @@
 // @ is an alias to /src
 import CourseCanvas from '@/components/courseCanvas.vue'
 import Sidebar from '@/components/sidebar.vue'
+import MobileSidebar from '@/components/mobilesidebar.vue'
 import Modules from '@/components/modules.vue'
 import Details from '@/components/details.vue'
 import Notification from '@/components/notification.vue'
@@ -27,6 +29,7 @@ export default {
   components: {
     CourseCanvas,
     Sidebar,
+    MobileSidebar,
     Modules,
     Details,
     Notification,
@@ -70,7 +73,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   .app {
     display: flex;
   }

@@ -85,7 +85,7 @@ export default {
 
             this.$store.state.user.name = this.generatedPassphrase;
 
-            this.copyToClipboard()
+            // this.copyToClipboard()
         },
         toggleAuthentication () {
             this.$store.state.user.toggleAuth = false;

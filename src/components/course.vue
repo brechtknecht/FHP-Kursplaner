@@ -183,6 +183,13 @@
 <style lang="scss">
   @import '../assets/scss/main.scss';
 
+  .course {
+    @include for-tablet-portrait-up () {
+      left: 0 !important;
+      width: calc(100% - 1rem) !important; 
+    }
+  }
+
   .selected {
     clip-path: none !important;
     border: 3px solid $active !important;
