@@ -125,6 +125,7 @@
     },
     methods: {
       passTrigger: function () {
+
         this.$emit('CURRENT_COURSE_TRIGGERED');
       },
       scrollListener: function () {
@@ -195,16 +196,14 @@
 
   .courses {
     max-width: 100rem;
+    position: relative;
+    top: 0;
     &.collapsed {
       .overview-head {
         top: 0 !important;
       }
     }
-    @include for-tablet-portrait-up { 
-      position: relative;
-      top: 5.9rem;
-      padding-bottom: 5.9rem;
-    }
+    
   }
 
   .numbers:after {
