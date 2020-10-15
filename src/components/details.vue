@@ -250,6 +250,12 @@
         position: fixed;
         z-index: 100;
         right: 0;
+        @include for-tablet-portrait-up {
+            .header {
+                max-width: 100vw;
+                width: auto !important;
+            }
+        }
         @include for-desktop-up () {
             .details-container {
                 position: fixed;
