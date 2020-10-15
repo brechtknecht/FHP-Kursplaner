@@ -198,9 +198,11 @@
     max-width: 100rem;
     position: relative;
     top: 0;
-    &.collapsed {
-      .overview-head {
-        top: 0 !important;
+    @include for-tablet-portrait-up {
+      &.collapsed {
+        .overview-head {
+          top: 0 !important;
+        }
       }
     }
     
@@ -269,6 +271,11 @@
         border-bottom: 1px solid $stroke;
         border-top: 1px solid $stroke;
         background: rgba(255, 255, 255, .95);
+      }
+      @include for-tablet-portrait-up {
+        &::before  {
+          left: 0rem;
+        }
       }
     }
   }

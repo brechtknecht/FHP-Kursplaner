@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.18.1",
+    "is-obj": "^2.0.0",
     "jsonpath": "^1.0.2",
     "puppeteer": "^1.20.0",
     "searchjs": "^1.0.2",
