@@ -44,7 +44,7 @@
         v-in-viewport>
 
         
-          <div v-if="courses.data.length" class="overview-head">
+          <div v-if="courses.data.length" class="overview-head" :class="{ loggedOut: isLoggedOut }">
               <h1 class="regular left-fix">{{ courses.string }}</h1>
           </div>
         
@@ -117,6 +117,9 @@
       },
       isCollapsed () {
         return this.$store.state.view.navbar
+      },
+      isLoggedOut () {
+        return this.$store.state.user.status == ''
       },
       ...mapState([
         'courses',
@@ -201,6 +204,9 @@
     top: 0;
     @include for-tablet-portrait-up {
       &.collapsed {
+        .overview-head.loggedOut {
+          top: 0 !important;
+        }
         .overview-head {
           top: 0 !important;
         }
@@ -252,7 +258,10 @@
       transition: 250ms ease-out;
       @include for-tablet-portrait-up {
         left: 0 !important;
-        top: 5.9rem !important;
+        top: 7.3rem !important;
+        &.loggedOut {
+          top: 5.9rem !important;
+        }
       }
       h1 {
         font-weight: normal;

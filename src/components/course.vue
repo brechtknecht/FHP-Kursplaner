@@ -185,6 +185,8 @@
 
   .course {
     @include for-tablet-portrait-up () {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
       left: 0 !important;
       width: calc(100% - 1rem) !important; 
     }

@@ -1,11 +1,25 @@
 <template>
     <div class="mobile--sidebar mobile">
         <div class="header">
-            <h2>
-                <b>Fachbereich Design</b> </br>
-                Lehrangebot
-            </h2>
+            <div class="wrap">
+                <div class="logo">
+                    <h2>
+                        <b>Fachbereich Design</b> </br>
+                        Lehrangebot
+                    </h2>
+                </div>
+                <div class="auth">
+                    <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
+                    <button v-else class="button button__medium" @click="login()">Anmelden</button>
+                </div>
+            </div>
+            <div class="logged--user">
+                <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
+                    <span>Angemeldet mit Code <b>{{ this.$store.state.user.name }}</b></span>
+                </div>
+            </div>
         </div>
+        
         <div class="course--selection">
             <h3>Studienordnung auswählen</h3>
             <select v-model="studyType">
@@ -68,6 +82,12 @@ export default {
                 this.$store.commit('DISABLE_NAVBAR')
             }
         },
+        login() {
+            this.$store.commit('CHECK_AUTH')
+        },
+        logout () {
+            this.$store.dispatch('logout')
+        },
     }
 }
 </script>
@@ -75,10 +95,30 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/main.scss';
 
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logged--user {
+    position: absolute;
+    top: 5.9rem;
+    left: 0;
+    padding-left: 1rem;
+    background: white;
+    width: 100vw;
+}
+
 .mobile--sidebar {
     transition: 250ms ease-out;
     &--collapsed {
-        transform: translateY(-100%)
+        transform: translateY(-100%);
+        .logged--user {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
     }
 }
 
