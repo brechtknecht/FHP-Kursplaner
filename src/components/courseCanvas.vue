@@ -175,6 +175,7 @@
     padding: 0 1rem;
     z-index: 100;
     width: 100%;
+    transition: 250ms ease-out;
     border-bottom: 1px solid #DADCE0;
     background: #fff;
   }
@@ -248,6 +249,7 @@
       text-align: left;
       color: $c-font;
       top: 1.5rem;
+      transition: 250ms ease-out;
       @include for-tablet-portrait-up {
         left: 0 !important;
         top: 5.9rem !important;
