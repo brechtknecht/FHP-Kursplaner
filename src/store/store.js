@@ -9,7 +9,7 @@ import modulePlan from './metadata/modulePlan'
 
 Vue.use(Vuex)
 
-const developAPI = 'http://localhost:5000/api'
+const developAPI = 'http://116.203.41.131:5000/api'
 // const productionAPI = 'http://döner.jetzt:5000/api'
 const productionAPI = 'http://fb4kursplaner.fh-potsdam.de/auth/api'
 
