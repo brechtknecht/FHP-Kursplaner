@@ -45,7 +45,7 @@
             </div>
             <div v-else>
                 <!-- <h4>Leider gibt es Probleme mit der Datenbank, versuche es später noch einmal.</h4> -->
-                <h4>Das hier ist die Entwicklerversion. Die Anmeldung folgt kommende Woche</h4>
+                <h4>Das hier ist die Entwicklerversion. Die Anmeldung folgt.</h4>
             </div>
         </div>
     </div>
