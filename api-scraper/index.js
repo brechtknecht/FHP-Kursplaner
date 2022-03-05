@@ -134,7 +134,7 @@ async function scrape (LINK) {
             "value": details[i].description,
           },
           "maxStudents": 0,
-          "credits": details[i].credits[0],
+          "credits": details[i].credits,
           // "workspace": details[i].workspace
           "workspace": ""
         },
