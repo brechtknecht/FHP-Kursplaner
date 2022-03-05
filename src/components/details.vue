@@ -35,7 +35,7 @@
                             </li>
                             <li>
                                 <icon-base width="20" height="20" icon-name="layer"><icon-layer /></icon-base> 
-                                <span><!-- Credits: --> {{ currentCourse.credits }} </span>
+                                <span><!-- Credits: --> {{ currentCourse.credits[0] }} </span>
                             </li>
                         </ul>
                     </div>

@@ -21,7 +21,7 @@
         <div v-if="this.$props.info.teacher">
           <h4>{{ this.$props.info.teacher }} — </h4>
         </div>  
-        <div>
+        <div class="course--bubble">
           <h4 style="font-feature-settings: 'tnum'">{{ moduleNameStringify }}</h4>
         </div>
       </div>
@@ -290,6 +290,12 @@
         h4 {
           margin-bottom: 0;
         }
+      }
+
+      .course--bubble {
+        padding: 0.25rem 0.5rem;
+        background: hsla(0,0%,100%,.6);
+        border-radius: 4px;
       }
     }
 
