@@ -169,7 +169,11 @@ async function scrape (LINK) {
     }
   
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + " " + today.getHours() + ":"+ today.getMinutes();
+    var locale = "en-us"
+    var objDate = (today.getMonth()+1)
+    month = getMonth(objDate)
+
+    var date = today.getDate() + ". " + month + " " + today.getFullYear() + " — " + today.getHours() + ":"+ String(today.getMinutes()).padStart(2, '0') + " Uhr";
   
     let data = JSON.stringify({
       "data" : {
@@ -195,4 +199,17 @@ async function scrape (LINK) {
     await page.waitFor(40000)
     await browser.close();
   })();
+}
+
+
+var getMonth = function(idx) {
+
+  var objDate = new Date();
+  objDate.setDate(1);
+  objDate.setMonth(idx-1);
+
+  var locale = "de-DE",
+      month = objDate.toLocaleString(locale, { month: "long" });
+
+    return month;
 }
