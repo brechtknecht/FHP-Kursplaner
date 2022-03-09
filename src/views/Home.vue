@@ -6,6 +6,7 @@
     <CourseCanvas                             @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Details :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Notification></Notification>
+    <VersionOverlay></VersionOverlay>
     <Authentication v-if="authentication"></Authentication>
   </div>
 </template>
@@ -19,10 +20,7 @@ import Modules from '@/components/modules.vue'
 import Details from '@/components/details.vue'
 import Notification from '@/components/notification.vue'
 import Authentication from '@/components/authentication.vue'
-
-import {
-    mapState,
-  } from 'vuex'
+import VersionOverlay from '@/components/versionOverlay.vue'
 
 export default {
   name: 'home',
@@ -33,7 +31,8 @@ export default {
     Modules,
     Details,
     Notification,
-    Authentication
+    Authentication,
+    VersionOverlay
   },
   data () {
     return {

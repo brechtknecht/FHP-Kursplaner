@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --ignore '*.json' index.js",
+    "scrape": "nodemon --ignore '*.json' index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "utils": "nodemon utils.js"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "jsonminify": "^0.4.1",
+    "object-hash": "^3.0.0",
     "puppeteer": "^1.20.0"
   },
   "devDependencies": {

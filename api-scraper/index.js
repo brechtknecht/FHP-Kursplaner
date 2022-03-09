@@ -1,6 +1,6 @@
 const fs = require('fs');
 var jsonminify = require("jsonminify");
-
+var hash = require("object-hash");
 const Utils = require('./utils');
 
 const LINKS = {
@@ -10,8 +10,8 @@ const LINKS = {
 }
 
 
-
 const puppeteer = require('puppeteer');
+const { dateParser } = require('./utils');
 
 let courses = [];
 let modules = [];
@@ -38,8 +38,6 @@ async function scrape (LINK) {
     await page.evaluate(() => {
       let elements = document.querySelectorAll('td.data_spalte1');
       Array.from(elements).forEach((element) => element.click());
-
-      console.log("I Am Evaluating")
     });
   
     let meta = await page.evaluate(() => {
@@ -55,7 +53,7 @@ async function scrape (LINK) {
           room: tableHeads[i].children[4].innerText
         }
       }
-  
+
       return headsArray;
     });
   
@@ -92,7 +90,7 @@ async function scrape (LINK) {
           newModuleId = [''];
         }
   
-        console.log("New Module IDsheesh: ", newModuleId);
+        console.log("New Module ID: ", newModuleId);
         console.log(resId[0]);
   
         detailsArray[i] = {
@@ -110,11 +108,12 @@ async function scrape (LINK) {
       return detailsArray
     });
   
-  
+    console.log("Found " + meta.length + " table Heads in the Table")
+
     for (let i = 0; i < meta.length; i++) {
-      courses.push({
+      let course = {
         "type": "course",
-        "_id": Utils.uid(),
+        "_id": undefined,
         "attributes": {
           "type": null,
           "title": meta[i].name,
@@ -143,8 +142,21 @@ async function scrape (LINK) {
           "type": "GET",
           // "url": "https://www.fh-potsdam.de/course-api/storage/7087/course/38c5d9d7122e4ada974ce711e946b067"
         }
-      }); 
+      }
 
+      
+      
+      // Using only this metadata will provide as unique attributes
+      let courseRepresentation = {
+        title: course.attributes.title,
+        teacher: course.attributes.teacher,
+        module: course.attributes.module
+      }
+      
+      
+      course._id = hash(courseRepresentation)
+
+      courses.push(course); 
 
       modules.push({
         "module": {
@@ -156,14 +168,15 @@ async function scrape (LINK) {
       }); 
     }
   
-    
-  
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + " " + today.getHours() + ":"+ today.getMinutes();
   
     let data = JSON.stringify({
       "data" : {
         "data" : {
+          "date-scraped": date,
           "semester" : {
-            "name" : "WiSe 2020/2021",
+            "name" : "SoSe 2022",
             courses
           }
         }
@@ -179,7 +192,7 @@ async function scrape (LINK) {
     const minModules = jsonminify(moduleData)
     fs.writeFileSync('modules.json', minModules);
   
-    // await page.waitFor(40000)
-      // await browser.close();
+    await page.waitFor(40000)
+    await browser.close();
   })();
 }

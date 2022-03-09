@@ -283,7 +283,7 @@
     .course--sub {
       padding-top: .3rem;
       div:last-child {
-        margin-bottom: 1rem;
+        margin-bottom: 0.7rem;
       }
       div {
         display: inline-block;
