@@ -33,7 +33,7 @@
                                 <icon-base width="20" height="20" icon-name="pin"><icon-pin /></icon-base> 
                                 <span>Raum: {{ currentCourse.room }}</span> 
                             </li>
-                            <li>
+                            <li v-if="currentCourse.credits">
                                 <icon-base width="20" height="20" icon-name="layer"><icon-layer /></icon-base> 
                                 <span><!-- Credits: --> {{ currentCourse.credits[0] }} </span>
                             </li>

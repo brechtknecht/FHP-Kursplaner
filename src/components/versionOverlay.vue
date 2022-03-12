@@ -1,7 +1,7 @@
 <template>
     <div class="version-wrapper">
         <div class="version">
-            Daten zuletzt aktualisiert: {{ this.coursesStash.data.data['date-scraped'] }}
+            Daten zuletzt aktualisiert am {{ this.coursesStash.data.data['date-scraped'] }}
         </div>
     </div>
 </template>
@@ -32,7 +32,7 @@ export default {
             right: 50%;
             background: $white;
             color: $active;
-            width: 20rem;
+            width: 24rem;
             margin: 1rem 2rem;
             padding: .75rem 1.5rem;
             border-radius: 4px;
