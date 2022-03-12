@@ -1,6 +1,6 @@
 <template>
     <div class="version-wrapper">
-        <div class="version">
+        <div v-if="this.coursesStash.data" class="version">
             Daten zuletzt aktualisiert am {{ this.coursesStash.data.data['date-scraped'] }}
         </div>
     </div>

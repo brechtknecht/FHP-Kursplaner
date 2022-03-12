@@ -1,7 +1,7 @@
 <template>
     <div class="notification-wrapper">
         <div v-if="notification.message" class="notification">
-            {{ this.coursesStash }}
+            {{ this.notification }}
         </div>
     </div>
 </template>
@@ -11,8 +11,13 @@ import { mapState } from 'vuex';
 export default {
     computed : {
         ...mapState([
-            'coursesStash'
+            'notification'
         ])
+    },
+    methods: {
+        action (action) {
+            this.$store.commit(action);
+        }
     }
 }
 </script>
