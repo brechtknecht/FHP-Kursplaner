@@ -12,7 +12,7 @@
     "is-obj": "^2.0.0",
     "jsonpath": "^1.1.1",
     "puppeteer": "^1.20.0",
-    "searchjs": "^1.0.2",
+    "searchjs": "^1.1.0",
     "smoothscroll-polyfill": "^0.4.4",
     "vue": "^2.6.10",
     "vue-in-viewport-directive": "^2.0.0",
