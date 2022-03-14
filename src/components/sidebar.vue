@@ -70,12 +70,9 @@
     import {
         mapState
     } from 'vuex'
-    import RadioButton from '@/components/base/radioButton.vue'
+    
     export default {
         name: 'Sidebar',
-        components: {
-            RadioButton
-        },
         computed: {
             studyType: {
                 get() {

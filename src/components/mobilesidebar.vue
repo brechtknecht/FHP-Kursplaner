@@ -4,7 +4,7 @@
             <div class="wrap">
                 <div class="logo">
                     <h2>
-                        <b>Fachbereich Design</b> </br>
+                        <b>Fachbereich Design</b><br>
                         Lehrangebot
                     </h2>
                 </div>
