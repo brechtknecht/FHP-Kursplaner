@@ -14,19 +14,19 @@
                     </div>
                 </label>
                 <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="studyType" value="Hauptstudium" v-model="studyType">
+                    <input type="radio"  name="studyType" value="Hauptstudium" v-model="studyType">
                     <div class="checkmark">
                         <span>Hauptstudium</span>
                     </div>
                 </label>
                 <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="studyType" value="Master" v-model="studyType">
+                    <input type="radio"  name="studyType" value="Master" v-model="studyType">
                     <div class="checkmark">
                         <span>Master</span>
                     </div>
                 </label>
                 <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="studyType" value="selectedCourses" v-model="studyType">
+                    <input type="radio"  name="studyType" value="selectedCourses" v-model="studyType">
                     <div class="checkmark">
                         <span>Ausgewählt</span>
                         <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
