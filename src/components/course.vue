@@ -190,6 +190,17 @@
       left: 0 !important;
       width: calc(100% - 1rem) !important; 
     }
+    &:before {
+      content: " ";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 0.5px solid #EFEFEF;
+      border-radius: 8px;
+    }
   }
 
   .selected {
@@ -238,6 +249,7 @@
     &:hover {
       border: 3px solid $active;
       clip-path: inset(0 round 8px);
+      border-radius: 9.5px;
     }
 
     height: calc(100% - 6px);
