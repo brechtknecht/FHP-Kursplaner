@@ -1,7 +1,7 @@
 <template>
     <div class="notification-wrapper">
-        <div v-if="notification.message" class="notification">
-            {{ this.notification }}
+        <div v-if="notification.message" class="notification" @click="this.action('WIPE_MODULE_QUERY')">
+            {{ this.notification.message }}
         </div>
     </div>
 </template>

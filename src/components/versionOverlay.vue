@@ -21,7 +21,7 @@ export default {
     @import '../assets/scss/main.scss';
     .version-wrapper {
         position: fixed;
-        z-index: 90;
+        z-index: 89;
         bottom: 0;
         right: calc(0% + 14.5rem);
         .version {
