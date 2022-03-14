@@ -9,18 +9,22 @@
         <div v-if="this.$store.state.queries.examOrder == 'PO 2013'" class="modulesWrapper" :class="{ active: isActive }">
             <h4>Studienordnung</h4>
             <div class="examOrder">
-                <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
-                    <div class="checkmark">
-                        <span>2013—2018</span>
-                    </div>
-                </label>
-                <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
-                    <div class="checkmark">
-                        <span>ab 2019</span>
-                    </div>
-                </label>
+                <div class="selectionElement-wrapper">
+                    <label class="container selectionElement">
+                        <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
+                        <div class="checkmark">
+                            <span>2013—2018</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="selectionElement-wrapper">
+                    <label class="container selectionElement">
+                        <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
+                        <div class="checkmark">
+                            <span>ab 2019</span>
+                        </div>
+                    </label>
+                </div>
             </div>
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
@@ -36,7 +40,7 @@
                     <!-- If the datastructure is deeper — go one layer deeper -->
                     <div v-if="!category.modules">
                         <div v-for="studyType in category" :key="studyType.title">
-                            <h4>{{ studyType.title }}</h4>
+                            <h4 v-if="studyType.title">{{ studyType.title }}</h4>
                             <div class="modules">
                                 <div v-for="module in studyType.modules" class="module"
                                     :class="{ disabled: hasNoCourse(module.id) }" :id="module.id" :key="module.id"
@@ -54,18 +58,22 @@
         <div v-if="this.$store.state.queries.examOrder == 'PO 2019'" class="modulesWrapper" :class="{ active: isActive }">
             <h4>Studienordnung</h4>
             <div class="examOrder">
-                <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
-                    <div class="checkmark">
-                        <span>2013—2018</span>
-                    </div>
-                </label>
-                <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
-                    <div class="checkmark">
-                        <span>ab 2019</span>
-                    </div>
-                </label>
+                <div class="selectionElement-wrapper">
+                    <label class="container selectionElement">
+                        <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
+                        <div class="checkmark">
+                            <span>2013—2018</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="selectionElement-wrapper">
+                    <label class="container selectionElement">
+                        <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
+                        <div class="checkmark">
+                            <span>ab 2019</span>
+                        </div>
+                    </label>
+                </div>
             </div>
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
@@ -215,6 +223,26 @@
     @charset "utf-8";
     @import '../assets/scss/main.scss';
 
+    .selectionElement-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background: $stroke;
+        border-radius: 4px;
+    }
+
+    .selectionElement {
+        height: 1rem;
+    }
+
+    .category {
+        padding-top: 1rem;
+        h1 {
+            margin-bottom: 1rem;
+        }
+    }
+
     .modules-container {
         display: flex;
         position: fixed;
@@ -319,6 +347,7 @@
             display: grid;
             grid-gap: 1rem;
             grid-template-columns: 1fr 1fr;
+            padding-bottom: 2.5rem;
             @include for-phone-only () {
                 grid-template-columns: 1fr;
             }
@@ -360,7 +389,7 @@
         }
 
         h4 {
-            margin: .75rem 0 .5rem 0;
+            margin-bottom: 0 0 .5rem 0;
             line-height: 1.5rem;
             font-weight: normal;
         }

@@ -18,7 +18,7 @@
     .container {
         display: block;
         position: relative;
-        padding-left: 35px;
+        padding-left: 100%;
         margin-bottom: 12px;
         cursor: pointer;
         font-size: 22px;

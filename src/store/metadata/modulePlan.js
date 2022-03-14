@@ -120,19 +120,19 @@ export default {
       theorie: {
         title: "Ⅰ/3 Theorie",
         modules: [{
-          id: "PO 2019 13 Th-DT",
+          id: "PO 2019 13 Th-DMT",
           title: "Design-/Medientheorie",
           colorCode: "#E7E8E9",
           subtitle: ""
         },
         {
-          id: "PO 2019 13 Th-DG",
+          id: "PO 2019 13 Th-DKG",
           title: "Design-/Kulturgeschichte",
           colorCode: "#E7E8E9",
           subtitle: ""
         },
         {
-          id: "PO 2019 13 Th-DM",
+          id: "PO 2019 13 Th-DMR",
           title: "Designmanagement und -recht",
           colorCode: "#E7E8E9",
           subtitle: ""
@@ -302,17 +302,17 @@ export default {
       theorie: {
         title: "II/2 Theorie",
         modules: [{
-          id: "PO 2019 22 Th-DT",
+          id: "PO 2019 22 Th-DMT",
           title: "Design-/Medientheorie",
           colorCode: "#E7E8E9",
           subtitle: ""
         },{
-          id: "PO 2019 22 Th-DG",
+          id: "PO 2019 22 Th-DKG",
           title: "Design-/Kulturgeschichte",
           colorCode: "#E7E8E9",
           subtitle: ""
         },{
-          id: "PO 2019 22 Th-DM",
+          id: "PO 2019 22 Th-DMR",
           title: "Designmanagement und -recht",
           colorCode: "#E7E8E9",
           subtitle: ""
@@ -549,15 +549,15 @@ export default {
       theorie: {
         title: "I/3 Theorie",
         modules: [{
-          id: "PO 2013 13Th-DT",
+          id: "PO 2013 13Th-DMT",
           title: "Design-/Medien-theorie",
           colorCode: "#E7E8E9"
         },{
-          id: "PO 2013 13Th-DG",
+          id: "PO 2013 13Th-DKG",
           title: "Designgeschichte",
           colorCode: "#E7E8E9"
         },{
-          id: "PO 2013 13Th-DM",
+          id: "PO 2013 13Th-DMR",
           title: "Designmanagement",
           colorCode: "#E7E8E9"
         }]
@@ -770,15 +770,15 @@ export default {
       theorie: {
         title: "II/2 Theorie",
         modules: [{
-          id: "PO 2013 22Th-DT",
+          id: "PO 2013 22Th-DMT",
           title: "Design-/Medien-theorie",
           colorCode: "#E7E8E9"
         },{
-          id: "PO 2013 22Th-DG",
+          id: "PO 2013 22Th-DKG",
           title: "Designgeschichte",
           colorCode: "#E7E8E9"
         },{
-          id: "PO 2013 22Th-DM",
+          id: "PO 2013 22Th-DKGR",
           title: "Designmanagement und -recht",
           colorCode: "#E7E8E9"
         }]
@@ -853,15 +853,15 @@ export default {
       theorie: {
         title: "III/2 Theorie",
         modules: [{
-          id: "PO 2013 32Th-DT",
+          id: "PO 2013 32Th-DKGRT",
           title: "Design-/Medien-theorie",
           colorCode: "#E7E8E9"
         },{
-          id: "PO 2013 32Th-DG",
+          id: "PO 2013 32Th-DKG",
           title: "Designgeschichte",
           colorCode: "#E7E8E9"
         },{
-          id: "PO 2013 32Th-DM",
+          id: "PO 2013 32Th-DKGR",
           title: "Designmanagement und -recht",
           colorCode: "#E7E8E9"
         },{
