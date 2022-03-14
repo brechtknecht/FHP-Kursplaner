@@ -373,7 +373,7 @@ export default {
           title: "Spezialisierung",
           colorCode: "#E7E8E9"
         },{
-          id: "PO 2019 31 LE-DR",
+          id: "PO 2019 31 LE-R",
           title: "Reflexion",
           colorCode: "#E7E8E9"
         }]
