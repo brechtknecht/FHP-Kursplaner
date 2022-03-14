@@ -40,12 +40,11 @@
 
 
     <div v-if="!courses.status.isEmpty" class="courses" :class="{ collapsed: isCollapsed }">
-      <div :class="'overview ' + courses.string" :day=courses.string v-for="(courses) in courses.days" :key="courses.key"
-        v-in-viewport>
+      <div :class="'overview ' + courses.string" :day=courses.string v-for="(courses) in courses.days" :key="courses.key" ref="target">
 
         
           <div v-if="courses.data.length" class="overview-head" :class="{ loggedOut: isLoggedOut }">
-              <h1 class="regular left-fix">{{ courses.string }}</h1>
+              <overview-head>{{ courses.string }}</overview-head>
           </div>
         
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
@@ -77,8 +76,10 @@
   </div>
 </template>
 
+
 <script>
   import Course from '@/components/course.vue';
+  import OverviewHead from '@/components/base/overviewHead.vue'
 
   import {
     mapState
@@ -86,7 +87,8 @@
 
   export default {
     components: {
-      Course
+      Course,
+      OverviewHead
     },
     created() {
       window.addEventListener('scroll', () => {
@@ -269,7 +271,6 @@
       }
       .left-fix {
         position: relative;
-
       }
       &::before {
         content: '';

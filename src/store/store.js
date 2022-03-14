@@ -295,7 +295,8 @@ export default new Vuex.Store({
       let days = document.getElementsByClassName('overview');
       let displayedDays = [];
       for (var item of days) {
-        if (item.classList.contains('in-viewport')) {
+        console.log(item)
+        if (item.children[0].children[0].classList.contains('in-viewport')) {
           displayedDays.push(item.getAttribute('day'));
         }
       }
