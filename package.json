@@ -15,10 +15,10 @@
     "puppeteer": "^13.5.1",
     "searchjs": "^1.1.0",
     "smoothscroll-polyfill": "^0.4.4",
-    "vue": "^2.6.14",
+    "vue": "^3.2.31",
     "vue-in-viewport-directive": "^2.0.2",
-    "vue-router": "^3.5.3",
-    "vuex": "^3.6.2"
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

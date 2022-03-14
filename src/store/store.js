@@ -1,13 +1,9 @@
-import Vue from 'vue'
 import Vuex, { Store } from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
-import router from '../router.js'
 
 import modulePlan from './metadata/modulePlan'
 // import viewController from './view'
-
-Vue.use(Vuex)
 
 const developAPI = 'http://localhost:5000/api'
 // const productionAPI = 'http://döner.jetzt:5000/api'
@@ -249,7 +245,7 @@ export default new Vuex.Store({
     auth_error(state){
       state.user.status = 'error'
       state.user.error = true;
-      router.push("/")
+      this.$router.push("/")
     },
     auth_generate(state, payload) {
       state.user.generatedPassphrase = payload.passphrase;

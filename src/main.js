@@ -1,25 +1,53 @@
-import Vue from 'vue'
+import { createApp } from 'vue';
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Vuex from 'vuex';
 import App from './App.vue'
-import router from './router'
 import store from './store/store'
 import inViewportDirective from 'vue-in-viewport-directive'
+import Home from './views/Home.vue'
 
 import Axios from 'axios'
 
-Vue.prototype.$http = Axios;
+const app = createApp(App)
+
+app.config.globalProperties.$http = Axios;
 const token = localStorage.getItem('token')
 if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+  app.config.globalProperties.$http.defaults.headers.common['Authorization'] = token
 }
 
-Vue.use(Vuex);
-Vue.config.productionTip = false
-Vue.directive('in-viewport', inViewportDirective);
+app.use(Vuex);
+app.config.productionTip = false
+app.directive('in-viewport', inViewportDirective);
 
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/:id',
+    name: 'home-id',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'about',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+  }
+]
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+const router = createRouter({
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: createWebHashHistory(),
+  routes, // short for `routes: routes`
+})
+
+app.use(router)
+app.use(store)
+
+app.mount('#app')
