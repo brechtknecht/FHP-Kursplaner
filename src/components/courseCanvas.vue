@@ -237,6 +237,7 @@
     margin-left: 3rem;
     width: 2116px;
     max-width: 2116px;
+    height: 28px;
 
     span {
       margin-left: 1rem;
@@ -249,7 +250,6 @@
       width: calc(100vw - 20rem);
       padding: 1rem .75rem .75rem .75rem;
       margin-left: -3.85rem;
-      margin-bottom: 3rem;
       will-change: margin-left;
       // padding-left: 3.85rem;
       border-radius: 1rem;
@@ -277,7 +277,7 @@
         position: absolute;
         left: -1rem;
         top: -.05rem;
-        width: 100vw;
+        width: 100%;
         height: 100%;
         z-index: -1;
         border-bottom: 1px solid $stroke;
@@ -309,6 +309,7 @@
     padding: 2rem 0 .75rem 0;
     border-bottom: 1px solid $stroke;
     text-align: center;
+    
 
     &:before {
       content: '';
