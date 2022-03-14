@@ -55,6 +55,7 @@
                 <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
                 <button v-else class="button button__medium" @click="login()">Anmelden</button>
             </div>
+            <radio-button style="display: none"></radio-button>
             <!-- <hr>
             <h4>Sortieren nach:</h4>
             <ul class="courseFilters">
@@ -70,9 +71,13 @@
     import {
         mapState
     } from 'vuex'
-    
+    import RadioButton from '@/components/base/radioButton.vue'
+
     export default {
         name: 'Sidebar',
+        components: {
+            RadioButton
+        },
         computed: {
             studyType: {
                 get() {
