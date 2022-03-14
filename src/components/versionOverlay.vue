@@ -23,19 +23,20 @@ export default {
         position: fixed;
         z-index: 90;
         bottom: 0;
-        right: 50%;
+        right: calc(0% + 14.5rem);
         .version {
             font-family: "FHPSun-Regular";
             position: relative;
             cursor: pointer;
             left: 50%;
-            right: 50%;
+            right: 100%;
             background: $white;
             color: $active;
             width: 24rem;
             margin: 1rem 2rem;
             padding: .75rem 1.5rem;
             border-radius: 4px;
+            border: 0.5px solid $stroke;
         }
     }
 
