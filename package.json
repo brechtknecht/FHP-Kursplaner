@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
-    "is-obj": "^2.0.0",
+    "is-obj": "^3.0.0",
     "jsonpath": "^1.1.1",
     "puppeteer": "^1.20.0",
     "searchjs": "^1.1.0",
