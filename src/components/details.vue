@@ -350,7 +350,7 @@
             background: $active;
             background-image: url('../assets/img/none-cross.svg');
             background-repeat: no-repeat;
-            background-position: -4% center;
+            background-position: -30% center;
             background-size: 6.5rem;
             top: 45vh;
             right: 5rem;
@@ -390,7 +390,7 @@
                     transition: $animation-default;
                 }
                 &.active {
-                    background-position: 110% center;
+                    background-position: 126% center;
                     @include for-phone-only { 
                         top: calc(100vh - 5.9rem);
                         background-position: 50% 98%;
