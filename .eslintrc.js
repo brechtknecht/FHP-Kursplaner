@@ -14,8 +14,8 @@ module.exports = {
     'vue/multi-word-component-names': 0,
     'no-unreachable' : 'off',
     'no-unused-vars' : 'warn',
-    'no-prototype-builtins' : 'warn',
-    'no-mixed-spaces-and-tabs' : 'warn',
+    'no-prototype-builtins' : 'off',
+    'no-mixed-spaces-and-tabs' : 'off',
     'no-irregular-whitespace' : 'off'
   },
   parserOptions: {

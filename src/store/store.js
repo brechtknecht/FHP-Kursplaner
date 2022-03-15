@@ -1,4 +1,4 @@
-import Vuex, { Store } from 'vuex'
+import Vuex from 'vuex'
 import axios from 'axios'
 import jsonPath from 'jsonpath'
 
@@ -86,7 +86,7 @@ export default new Vuex.Store({
       })
     },
     logout({commit}) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         commit('logout')
         console.log("Logout")
         localStorage.removeItem('token')
@@ -120,7 +120,7 @@ export default new Vuex.Store({
       })
     },
     getUserData({commit, state}) {
-      return new Promise((resolve, reject) => {
+      return new Promise((reject) => {
         commit('auth_request')
         const token = localStorage.getItem('token')
         if(!token) {
@@ -144,8 +144,8 @@ export default new Vuex.Store({
         })
       })
     },
-    updateUserData({commit, getters}) {
-      return new Promise((resolve, reject) => {
+    updateUserData({getters}) {
+      return new Promise(() => {
         const token = localStorage.getItem('token')
         if(!token) {
           console.log("No token found at localstorage, escape")
@@ -164,13 +164,13 @@ export default new Vuex.Store({
       }) 
     },
     generatePassphrase({commit}){
-      return new Promise((resolve, reject) => {
+      return new Promise(() => {
         axios({url: authAPI + '/generate', method: 'GET'})
           .then(resp => {
             commit('auth_generate', resp.data)
           })
           .catch(err => {
-            console.log("Generate Error")
+            console.log("Generate Error ", err)
             return
           })
       })

@@ -35,9 +35,6 @@
 </template>
 
 <script>
-import {
-        mapState
-    } from 'vuex'
 
 export default {
     mounted: function () {
@@ -68,7 +65,7 @@ export default {
         }
     },
     methods : {
-        handleScroll: function (event) {
+        handleScroll: function () {
             let coursecanvas = document.querySelectorAll('.course-canvas')
             let current = coursecanvas[0].scrollTop;
             if(current > this.lastScrollPos + this.triggers.disable) {             
