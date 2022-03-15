@@ -217,17 +217,7 @@
     
   }
 
-  .numbers:after {
-      content: '';
-      display: block;
-      position: absolute;
-      height: 1px;
-      background: $stroke;
-      right: -80px;
-      top: 57px;
-      width: 200px;
-      z-index: 400;
-  }
+  
 
   .timeline,
   .overview,
@@ -246,11 +236,12 @@
 
     .overview-head {
       position: sticky;
-      top: 59px !important;
+      top: 64.5px !important;
       width: calc(100vw - 20rem);
       padding: 1rem .75rem .75rem .75rem;
       margin-left: -3.85rem;
       will-change: margin-left;
+      max-width: calc(2116px - 24px) !important;
       // padding-left: 3.85rem;
       border-radius: 1rem;
       z-index: 300;
@@ -281,6 +272,7 @@
         height: 100%;
         z-index: -1;
         border-bottom: 1px solid $stroke;
+        border-right: 1px solid $stroke;
         border-top: 1px solid $stroke;
         background: rgba(255, 255, 255, .95);
       }

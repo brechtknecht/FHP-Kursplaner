@@ -260,6 +260,7 @@
         overflow-y: auto;
         text-align: left;
         background: $c-light-grey;
+        border: 1px solid rgba(0,0,0,0.09);
         h2,
         h4 {
             margin-left: 1.5rem;
