@@ -95,9 +95,13 @@
         this.scrollListener();
       });
 
-      this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
+      this.$store.dispatch('loadCourses_INCOM', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
+
+      // this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
+      //   this.$store.commit('QUERY_COURSES');
+      // });
     },
     destroyed: function () {
       window.removeEventListener('scroll', this.scrollListener);

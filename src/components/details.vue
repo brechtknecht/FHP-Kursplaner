@@ -160,7 +160,12 @@
             componentStyle() {
                 // Checks if a color is refered in the modules json in the store.js file
                 let colorMode = this.currentCourse.colorCode ? this.lightOrDark(this.currentCourse.colorCode) : 'light'
-                let color = colorMode == 'light' ? color = '#3D4043' : color = '#fff'
+                let color
+                if(colorMode) {
+                    color = colorMode == 'light' ? color = '#3D4043' : color = '#fff'
+                } else {
+                    color = '#fff'
+                }
                 let background = this.currentCourse.colorCode;
 
                 if(typeof background == 'undefined') {
@@ -283,6 +288,7 @@
                 z-index: 200;
                 width: 80vw !important;
                 max-width: 1200px;
+                top: 100vh;
                 right: 50%;
                 left: 50%;
                 padding: 0;
@@ -392,7 +398,7 @@
                 &.active {
                     background-position: 126% center;
                     @include for-phone-only { 
-                        top: calc(100vh - 5.9rem);
+                        top: calc(100vh);
                         background-position: 50% 98%;
                     }
                     .caption {

@@ -193,6 +193,14 @@ export default new Vuex.Store({
           commit('STASH_LOADED_COURSES', result)
         }); 
     },
+    async loadCourses_INCOM ({commit}, ) {
+      await axios
+        .get('data/vlv-incom.json')
+        .then(r => r.data)
+        .then((result) => {
+          commit('STASH_LOADED_COURSES', result)
+        }); 
+    },
     async loadCourses ({ commit }) {
         await axios
           .get('http://localhost:3000/courses')
@@ -342,6 +350,7 @@ export default new Vuex.Store({
       let result = state.coursesStash;
 
       // Throw error, because the courseStash is not loaded yet
+      console.log(result)
 
       if(queries.studyType == 'selectedCourses') {
         // Iterate over states
@@ -353,52 +362,27 @@ export default new Vuex.Store({
       }
 
       if(queries.studyType == 'Grundstudium'){
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("1"))]');
+        courses = result.segments[0]
       } else if (queries.studyType == 'Hauptstudium'){
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("2"))]');
+        courses = result.segments[1]
       } else if (queries.studyType == 'Master') {
-        courses = jsonPath.query(result, '$..courses[?(@.attributes.module.name.startsWith("3"))]');
+        courses = result.segments[2]
       } 
 
-
-      console.log('Kurse', courses);
-
-      // Filter all courses based on the given module group attributes & if empty just pass all
-      let queriedCourses = [];
-      if (!state.queries.modules.length == 0) {
-        for (let moduleQuery of state.queries.modules) {
-          if(state.queries.examOrder == 'PO 2013') {
-            queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id == '" + moduleQuery + "')]"));  
-            console.log('Modulsuche 2013');
-          } else if (state.queries.examOrder == 'PO 2019'){
-            let query = moduleQuery.replace('PO 2019 ', '');
-            console.log("moduleQuery", query);
-            queriedCourses.push(jsonPath.query(courses, "$[?(@.attributes.module.id_new == '" + query + "')]"));
-          }
-        }
-
-        let coursesStash = [];
-        console.log('Modulbasierte Suche: ', queriedCourses);
-        
-        for(let i = 0; i < queriedCourses.length; i++) {
-            for(let k = 0; k < queriedCourses[i].length; k++){
-              coursesStash.push(queriedCourses[i][k]);
-            }
-        }
-        
-        
-        courses = coursesStash;
-      }
-      
-      
+      console.log('Kurse', courses);      
 
       
       // 2. Select all weekdays you need from the specification
-      let monday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 1)]");
-      let tuesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 2)]");
-      let wednesday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 3)]");
-      let thursday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 4)]");
-      let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
+      let monday = jsonPath.query(courses, "$[?(@.attributes == true)]");
+      let tuesday = jsonPath.query(courses, "$[?(@.fixture.weekday == 2)]");
+      let wednesday = jsonPath.query(courses, "$[?(@.fixture.weekday == 3)]");
+      let thursday = jsonPath.query(courses, "$[?(@.fixture.weekday == 4)]");
+      let friday = jsonPath.query(courses, "$[?(@.fixture.weekday == 5)]");
+
+      console.log(monday)
+
+
+      // let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
 
 
       // 3. Sort all courses by daytime

@@ -4,7 +4,7 @@
     <Modules/>
     <MobileSidebar></MobileSidebar>
     <CourseCanvas                             @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
-    <Details :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
+    <DetailsView :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Notification></Notification>
     <VersionOverlay></VersionOverlay>
     <Authentication v-if="authentication"></Authentication>
@@ -17,7 +17,7 @@ import CourseCanvas from '@/components/courseCanvas.vue'
 import Sidebar from '@/components/sidebar.vue'
 import MobileSidebar from '@/components/mobilesidebar.vue'
 import Modules from '@/components/modules.vue'
-import Details from '@/components/details.vue'
+import DetailsView from '@/components/details.vue'
 import Notification from '@/components/notification.vue'
 import Authentication from '@/components/authentication.vue'
 import VersionOverlay from '@/components/versionOverlay.vue'
@@ -29,7 +29,7 @@ export default {
     Sidebar,
     MobileSidebar,
     Modules,
-    Details,
+    DetailsView,
     Notification,
     Authentication,
     VersionOverlay
