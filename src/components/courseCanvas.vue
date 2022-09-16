@@ -65,7 +65,7 @@
             time: 'deprecated',
             room: course.room,
             credits: course.module.credits,
-            colorCode: course.color,
+            colorCode: course.colorCode,
             subtitle: course.subtitle,
             workspace: course.url
           }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>
