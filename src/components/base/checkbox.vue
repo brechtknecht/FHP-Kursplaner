@@ -1,5 +1,5 @@
 <template>
-    <label :for="this.$props._id" class="container">
+    <label :for="this.$props.id" class="container">
         <input type="checkbox" :id="this.$props.id" :value="this.$props.id" @click="rememberCourse()"
             :class="[{checked : isChecked}, this.$props.id]">
         <span class="checkmark">{{ label }}</span>

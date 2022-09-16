@@ -48,8 +48,8 @@
                             :class="{ selected : isSelected }"
                             @click="rememberCourse()">
                             <Checkbox
-                                :id="this.currentCourse._id" 
-                                :key="this.currentCourse._id"
+                                :id="this.currentCourse.id" 
+                                :key="this.currentCourse.id"
                                 :isClickable="true"
                             ></Checkbox>
                             <span v-if="isSelected" class="checkbox-label">Ausgewählt</span>
@@ -149,7 +149,7 @@
             },
             isSelected() {
                 let rememberedCoursesRef = this.$store.state.user.rememberedCourses;
-                let id = this.currentCourse._id;
+                let id = this.currentCourse.id;
 
                 if (rememberedCoursesRef.includes(id)) {
                     return true;
@@ -196,7 +196,7 @@
         },
         methods: {
             rememberCourse: function () {
-                this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$store.state.currentCourse._id);
+                this.$store.commit('USER_ADD_REMEMBERED_COURSE', this.$store.state.currentCourse.id);
             },
             triggerDetails: function () {
                 document.body.classList.toggle('modal-open');

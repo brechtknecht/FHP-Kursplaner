@@ -42,7 +42,7 @@
                 <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday }" @click="scrollToDay">Mittwoch</li>
                 <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
                 <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
-                <li v-if="displayUndefinedDate" class="listElement Übergeordnet" :class="{ active: undefinedDate, disabled: _hasUndefinedDate }" @click="scrollToDay">Übergeordnet</li>
+                <li v-if="displayUndefinedDate" class="listElement noDate" :class="{ active: undefinedDate, disabled: _hasUndefinedDate }" @click="scrollToDay">Übergeordnet</li>
             </ul>
             <hr>
             <h4>Anmeldung</h4>
@@ -209,7 +209,7 @@
                     return false
                 } else {
                     for (let day of this.activeDays) {
-                        if (day == "Übergeordnet") {
+                        if (day == "noDate") {
                             return true;
                         }
                     }

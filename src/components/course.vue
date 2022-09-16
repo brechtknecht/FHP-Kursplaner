@@ -10,8 +10,8 @@
         @click.self="setCurrentCourse">
     <div class="course--checkbox">
       <Checkbox 
-        :id="this.$props.info._id" 
-        :key="this.$props.info._id"
+        :id="this.$props.info.id" 
+        :key="this.$props.info.id"
         :isClickable="true"
       ></Checkbox>
     </div>
@@ -119,14 +119,14 @@
         }
       },
       isSelected() {
-        if (this.$props.info._id == this.$store.state.currentCourse._id && this.$store.state.view.detailsSelected) {
+        if (this.$props.info.id == this.$store.state.currentCourse.id && this.$store.state.view.detailsSelected) {
           return true;
         }
         return false
       },
       isRemembered() {
         // let rememberedCoursesRef = this.user.rememberedCourses;
-        let id = this.$props.info._id;
+        let id = this.$props.info.id;
 
         // Disable colorCoding on selected Courses Screen
         if(this.$store.state.queries.studyType == "selectedCourses") {
