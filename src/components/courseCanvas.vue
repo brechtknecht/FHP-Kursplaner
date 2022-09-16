@@ -41,11 +41,9 @@
 
     <div v-if="!courses.status.isEmpty" class="courses" :class="{ collapsed: isCollapsed }">
       <div :class="'overview ' + courses.string" :day=courses.string v-for="(courses) in courses.days" :key="courses.key" ref="target">
-
-        
-          <div v-if="courses.data.length" class="overview-head" :class="{ loggedOut: isLoggedOut }">
-              <overview-head>{{ courses.string }}</overview-head>
-          </div>
+        <div v-if="courses.data.length" class="overview-head" :class="{ loggedOut: isLoggedOut }">
+            <overview-head>{{ courses.string }}</overview-head>
+        </div>
         
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
           <course :tabindex="index" :id="course.id" :position="{ 
@@ -67,13 +65,13 @@
             time: 'deprecated',
             room: course.room,
             credits: course.module.credits,
-            colorCode: course.colorCode,
+            colorCode: course.color,
             subtitle: course.subtitle,
             workspace: course.url
           }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>
         </div>
+        </div>
       </div>
-    </div>
   </div>
 </template>
 

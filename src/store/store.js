@@ -304,7 +304,7 @@ export default new Vuex.Store({
       let days = document.getElementsByClassName('overview');
       let displayedDays = [];
       for (var item of days) {
-        if (item.children[0].children[0].classList.contains('in-viewport')) {
+        if (item.children[0]?.children[0].classList.contains('in-viewport')) {
           displayedDays.push(item.getAttribute('day'));
         }
       }
@@ -351,15 +351,15 @@ export default new Vuex.Store({
       let result = state.coursesStash;
 
 
-      // if(queries.studyType == 'selectedCourses') {
-      //   // Iterate over states
-      //   state.user.rememberedCourses.forEach(function (courseID) {
-      //     let query = '$..courses[?(@._id == "' + courseID + '")]';
-      //     courses.push(jsonPath.query(result, query)[0]);
-      //   }); 
+      if(queries.studyType == 'selectedCourses') {
+        // Iterate over states
+        state.user.rememberedCourses.forEach(function (courseID) {
+          let query = '$..courses[?(@.id == "' + courseID + '")]';
+          courses.push(jsonPath.query(result, query)[0]);
+        }); 
+      }
 
-      // }
-
+      
       if(queries.studyType == 'Grundstudium'){
         courses = result.segments[0]
       } else if (queries.studyType == 'Hauptstudium'){
@@ -367,7 +367,7 @@ export default new Vuex.Store({
       } else if (queries.studyType == 'Master') {
         courses = result.segments[2]
       } 
-
+      
       console.log('Kurse', courses.courses);      
 
       let monday = []
@@ -375,6 +375,7 @@ export default new Vuex.Store({
       let wednesday = []
       let thursday = []
       let friday = []
+      let undefinedDate = []
       
       
       courses.courses.forEach((course) => {
@@ -397,6 +398,22 @@ export default new Vuex.Store({
         if(course.fixture?.weekday == 5) {
           friday.push(course)
         }
+
+        if(typeof course.fixture === 'undefined' || course.hasUndefinedDate) {
+          course.hasUndefinedDate = true
+          course.fixture = {
+            begin : {
+              hour: 9,
+              minutes: 0
+            }, 
+            end : {
+              hour: 14,
+              minutes: 0
+            }
+          }
+      
+          undefinedDate.push(course)
+        }
       })
 
 
@@ -406,10 +423,11 @@ export default new Vuex.Store({
       wednesday = sortProperties(wednesday);
       thursday = sortProperties(thursday);
       friday = sortProperties(friday);
+      undefinedDate = sortProperties(undefinedDate)
 
       // Check if everything is empty
       let isEmpty;
-      if(!monday.length && !tuesday.length && !wednesday.length && !thursday.length && !friday.length) {
+      if(!monday.length && !tuesday.length && !wednesday.length && !thursday.length && !friday.length && !undefinedDate.length) {
         isEmpty = true;
       } else {
         isEmpty = false;
@@ -420,12 +438,14 @@ export default new Vuex.Store({
       let _wednesdayEmpty;
       let _thursdayEmpty;
       let _fridayEmpty;
+      let _undefinedDateEmpty;
 
       (!monday.length) ? (_mondayEmpty = true) : (_mondayEmpty = false);
       (!tuesday.length) ? (_tuesdayEmpty = true) : (_tuesdayEmpty = false);
       (!wednesday.length) ? (_wednesdayEmpty = true) : (_wednesdayEmpty = false);
       (!thursday.length) ? (_thursdayEmpty = true) : (_thursdayEmpty = false);
       (!friday.length) ? (_fridayEmpty = true) : (_fridayEmpty = false);
+      (!undefinedDate.length) ? (_undefinedDateEmpty = true) : (_undefinedDateEmpty = false);
 
       courses = {
         status: {
@@ -458,6 +478,11 @@ export default new Vuex.Store({
             data: friday,
             key: "friday",
             isEmpty: _fridayEmpty
+          }, {
+            string: "Übergeordnet",
+            data: undefinedDate,
+            key: "undefinedDate",
+            isEmpty: _undefinedDateEmpty
           }
         ]
       }
@@ -514,7 +539,7 @@ export default new Vuex.Store({
 function sortProperties(obj) {	
   // sort items by value
 	obj.sort(function(a, b) {
-	  return a.fixture.begin.hour - b.fixture.end.hour; // compare numbers
+	  return a.fixture?.begin.hour - b.fixture?.end.hour; // compare numbers
   });
   
 	return obj; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]

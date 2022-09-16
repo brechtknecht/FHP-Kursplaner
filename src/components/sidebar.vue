@@ -42,6 +42,7 @@
                 <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday }" @click="scrollToDay">Mittwoch</li>
                 <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
                 <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
+                <li v-if="displayUndefinedDate" class="listElement Übergeordnet" :class="{ active: undefinedDate, disabled: _hasUndefinedDate }" @click="scrollToDay">Übergeordnet</li>
             </ul>
             <hr>
             <h4>Anmeldung</h4>
@@ -115,6 +116,16 @@
             _hasFriday () {
                 return this.getEmptyState(4);
             },
+            _hasUndefinedDate () {
+                return this.getEmptyState(5);
+            },
+            displayUndefinedDate () {
+                if(this.$store.state.courses.days[5]?.data.length > 0) {
+                    return true
+                } else {
+                    return false
+                }
+            },
             monday: function () {
                 if(this.$store.state.queries.studyType == 'selectedCourses') {
                     if(this.$store.state.courses.days[0].data.length > 0) {
@@ -184,6 +195,21 @@
                 } else {
                     for (let day of this.activeDays) {
                         if (day == "Freitag") {
+                            return true;
+                        }
+                    }
+                }
+                return false
+            },
+            undefinedDate: function () {
+                if(this.$store.state.queries.studyType == 'selectedCourses') {
+                    if(this.$store.state.courses.days[5].data.length > 0) {
+                        return true
+                    }
+                    return false
+                } else {
+                    for (let day of this.activeDays) {
+                        if (day == "Undefined Date") {
                             return true;
                         }
                     }
