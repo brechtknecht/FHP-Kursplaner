@@ -469,6 +469,8 @@ export default new Vuex.Store({
         day.data.forEach(function(course, i) {
           let result = getObjects(state.modulePlan, 'id', course.module.nr);
 
+          console.log(result)
+
           if(typeof(result[0]) == 'undefined'){
             return;   
           }

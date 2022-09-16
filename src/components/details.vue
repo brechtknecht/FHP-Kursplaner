@@ -12,13 +12,12 @@
                         <h4 class="subject">{{ currentCourse.subtitle }}</h4>
                     </div>
                     <div class="meta">
-                        <div class="moduleId-wrapper">
+                        <!-- <div class="moduleId-wrapper">
                             <div class="badge">{{ currentCourseModuleId.studyOrder }}</div>
                             <h4 class="moduleId"> {{ currentCourseModuleId.moduleId }} </h4>
-                        </div>
+                        </div> -->
                         <div class="moduleId-wrapper">
-                            <div class="badge">Neue Prüfungsordnung</div>
-                            <h4 class="moduleId"> {{ currentCourse.module.id_new }} </h4>
+                            <div class="badge">{{ currentCourse.module.id_new }}</div>
                         </div>
                         <ul>
                             <li v-if="currentCourse.teacher"> 
