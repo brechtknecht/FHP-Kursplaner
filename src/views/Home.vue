@@ -3,7 +3,7 @@
     <Sidebar/>
     <Modules/>
     <MobileSidebar></MobileSidebar>
-    <CourseCanvas                             @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
+    <CourseCanvas                                 @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <DetailsView :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Notification></Notification>
     <VersionOverlay></VersionOverlay>

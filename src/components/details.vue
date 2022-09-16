@@ -27,7 +27,8 @@
                             </li>
                             <li> 
                                 <icon-base width="20" height="20" icon-name="clock"><icon-clock /></icon-base>
-                                <span>{{ currentCourse.time.fixture.begin.String }} </span>
+                                <!-- <span>{{ currentCourse }} </span> -->
+                                <span>"⚠️ TO BE ADDED"</span>
                             </li>
                             <li>
                                 <icon-base width="20" height="20" icon-name="pin"><icon-pin /></icon-base> 
@@ -69,6 +70,7 @@
             <div class="content">
                 <h3>Kursbeschreibung</h3>
                 <p> {{ currentCourseDescription }}</p>
+                <p> {{ currentCourse }}</p>
             </div>
             </div>
             
@@ -117,12 +119,8 @@
             currentCourseModuleId () {
                 let regExStudyOrder = new RegExp(/^PO \d{4}/);
 
-                let studyOrder = regExStudyOrder.exec(this.currentCourse.module.id);
+                let studyOrder = ["Neue Prüfungsordnung"]
                 let moduleId = this.currentCourse.module.id.replace(studyOrder, '');
-
-                if (studyOrder[0] == 'PO 2013') {
-                    studyOrder[0] = "Alte Prüfungsordnung"
-                }
 
                 return {
                     moduleId: moduleId,

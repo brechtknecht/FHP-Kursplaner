@@ -19,7 +19,11 @@
       <h3> {{ currentCourseTitle.title }} </h3>
       <div class="course--sub">
         <div v-if="this.$props.info.teacher">
-          <h4>{{ this.$props.info.teacher }} — </h4>
+          <h4 v-for="(teacher, index) in this.$props.info.teacher" :key="teacher" style="display: inline-block">
+            {{teacher}} 
+            {{ (index == this.$props.info.teacher.length - 1) ? "" : "&amp;&nbsp;" }}
+          </h4>
+          <h4 style="display:inline-block">—</h4>
         </div>  
         <div class="course--bubble">
           <h4 style="font-feature-settings: 'tnum'">{{ moduleNameStringify }}</h4>
@@ -48,7 +52,7 @@
         end: Object
       },
       info: {
-        _id: String,
+        id: String,
         title: String,
         teacher: String,
         module: {
@@ -167,6 +171,7 @@
     },
     methods: {
       setCurrentCourse: function () {
+        console.log(this.$props)
         this.$store.commit('SET_CURRENT_COURSE', this.$props.info);
         this.$store.commit('VIEW_DETAILS_SELECTED', true);
         this.$emit('CURRENT_COURSE_TRIGGERED');

@@ -18,7 +18,7 @@ export default {
     const target = ref(null)
     const targetIsVisible = useElementVisibility(target)
 
-    console.log(targetIsVisible)
+    // console.log(targetIsVisible)
 
     return {
       target,

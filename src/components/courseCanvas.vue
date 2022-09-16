@@ -53,7 +53,7 @@
             start:    course.fixture.begin,
             end:      course.fixture.end,
           }" :info="{
-            _id:      course._id,
+            id:      course.id,
             title:    course.title, 
             teacher:  course.teachers,
             module: {
@@ -66,8 +66,8 @@
             description: course.description,
             time: 'deprecated',
             room: course.room,
-            credits: course.credits,
-            colorCode: course.colorCode,
+            credits: course.module.credits,
+            colorCode: '⚠️ define in store.js',
             subtitle: course.subtitle,
             workspace: course.url
           }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>
