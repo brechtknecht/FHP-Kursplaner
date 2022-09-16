@@ -469,24 +469,24 @@ export default new Vuex.Store({
         day.data.forEach(function(course, i) {
           let result = getObjects(state.modulePlan, 'id', course.module.nr);
 
-          console.log(result)
-
           if(typeof(result[0]) == 'undefined'){
             return;   
           }
 
           if (result[0].hasOwnProperty('colorCode')) {
               let colorCode = result[0].colorCode;
-              day.data[i].attributes.colorCode = colorCode;
+              day.data[i].colorCode = colorCode;
           }
 
           if (result[0].hasOwnProperty('colorCode')) {
             let subtitle = result[0].subtitle;
-            day.data[i].attributes.subtitle = subtitle;
+            day.data[i].subtitle = subtitle;
           }
           
         });
       });
+
+      console.log("Parsed Courses: ", courses)
 
       state.courses = courses;
     },

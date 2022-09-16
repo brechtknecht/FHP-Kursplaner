@@ -67,7 +67,7 @@
             time: 'deprecated',
             room: course.room,
             credits: course.module.credits,
-            colorCode: '⚠️ define in store.js',
+            colorCode: course.colorCode,
             subtitle: course.subtitle,
             workspace: course.url
           }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>

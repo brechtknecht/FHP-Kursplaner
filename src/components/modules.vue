@@ -6,75 +6,8 @@
                 <div class="caption">Modulplan öffnen</div>
             </button>
         </div>
-        <div v-if="this.$store.state.queries.examOrder == 'PO 2013'" class="modulesWrapper" :class="{ active: isActive }">
-            <h4>Studienordnung</h4>
-            <div class="examOrder">
-                <div class="selectionElement-wrapper">
-                    <label class="container selectionElement">
-                        <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
-                        <div class="checkmark">
-                            <span>2013—2018</span>
-                        </div>
-                    </label>
-                </div>
-                <div class="selectionElement-wrapper">
-                    <label class="container selectionElement">
-                        <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
-                        <div class="checkmark">
-                            <span>ab 2019</span>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <div v-for="category in this.studyType" class="category" :key="category.title">
-                <h1>{{ category.title }}</h1>
-                <div class="modules">
-                    <div v-for="module in category.modules" class="module" :class="{ disabled: hasNoCourse(module.id) }"
-                        :id="module.id" :key="module.id"
-                        :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
-                        @click="moduleFilterTriggered">
-                        <span :id="module.id"> {{ module.id.replace('PO 2013', '') }} </span>
-                        <h4 :id="module.id"> {{ module.title }} </h4>
-                    </div>
-
-                    <!-- If the datastructure is deeper — go one layer deeper -->
-                    <div v-if="!category.modules">
-                        <div v-for="studyType in category" :key="studyType.title">
-                            <h4 v-if="studyType.title">{{ studyType.title }}</h4>
-                            <div class="modules">
-                                <div v-for="module in studyType.modules" class="module"
-                                    :class="{ disabled: hasNoCourse(module.id) }" :id="module.id" :key="module.id"
-                                    :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
-                                    @click="moduleFilterTriggered">
-                                    <span :id="module.id"> {{ module.id.replace('PO 2013', '') }} </span>
-                                    <h4 :id="module.id">{{ module.title }}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div v-if="this.$store.state.queries.examOrder == 'PO 2019'" class="modulesWrapper" :class="{ active: isActive }">
-            <h4>Studienordnung</h4>
-            <div class="examOrder">
-                <div class="selectionElement-wrapper">
-                    <label class="container selectionElement">
-                        <input type="radio" checked="checked" name="examOrder" value="PO 2013" v-model="examOrder">
-                        <div class="checkmark">
-                            <span>2013—2018</span>
-                        </div>
-                    </label>
-                </div>
-                <div class="selectionElement-wrapper">
-                    <label class="container selectionElement">
-                        <input type="radio" checked="checked" name="examOrder" value="PO 2019" v-model="examOrder">
-                        <div class="checkmark">
-                            <span>ab 2019</span>
-                        </div>
-                    </label>
-                </div>
-            </div>
+            <h4>Modulplan gemäß Studienordnung von 2019</h4>
             <div v-for="category in this.studyType" class="category" :key="category.title">
                 <h1>{{ category.title }}</h1>
                 <div class="modules">
