@@ -23,7 +23,10 @@
                         <ul>
                             <li v-if="currentCourse.teacher"> 
                                 <icon-base width="20" height="20" icon-name="head"><icon-head /></icon-base>
-                                <span>{{ currentCourse.teacher }}</span> 
+                                <span v-for="(teacher, index) in currentCourse.teacher" :key="teacher" style="display: inline-block">
+                                    {{teacher}} 
+                                    {{ (index == currentCourse.teacher.length - 1) ? "" : "&amp;&nbsp;" }}
+                                </span>
                             </li>
                             <li> 
                                 <icon-base width="20" height="20" icon-name="clock"><icon-clock /></icon-base>
