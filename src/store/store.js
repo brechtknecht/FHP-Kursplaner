@@ -479,9 +479,9 @@ export default new Vuex.Store({
             key: "friday",
             isEmpty: _fridayEmpty
           }, {
-            string: "Übergeordnet",
+            string: "noDate",
             data: undefinedDate,
-            key: "undefinedDate",
+            key: "undefinedDatenoDate",
             isEmpty: _undefinedDateEmpty
           }
         ]

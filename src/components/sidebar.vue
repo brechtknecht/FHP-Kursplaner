@@ -247,7 +247,7 @@
                 console.log(element);
                 smoothscroll.polyfill();
                 window.scroll({
-                    top: element.offsetTop,
+                    top: element.offsetTop + 22,
                     behavior: 'smooth', 
                 });
 
