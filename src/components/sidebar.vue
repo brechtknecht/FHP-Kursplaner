@@ -209,7 +209,7 @@
                     return false
                 } else {
                     for (let day of this.activeDays) {
-                        if (day == "Undefined Date") {
+                        if (day == "Übergeordnet") {
                             return true;
                         }
                     }
