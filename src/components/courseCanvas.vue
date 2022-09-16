@@ -50,25 +50,26 @@
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
           <course :tabindex="index" :id="course._id" :position="{ 
             row: index,
-            start:    course.attributes.time.fixture.begin,
-            end:      course.attributes.time.fixture.end,
+            start:    course.fixture.begin,
+            end:      course.fixture.end,
           }" :info="{
             _id:      course._id,
-            title:    course.attributes.title, 
-            teacher:  course.attributes.teacher,
+            title:    course.title, 
+            teacher:  course.teachers,
             module: {
-              id:     course.attributes.module.id,
-              id_new: course.attributes.module.id_new,
-              name:   course.attributes.module.name,
-              category: course.attributes.module.category,
+              id:     course.module.nr,
+              id_new: course.module.nr,
+              name:   course.module.title,
+              // category: course.attributes.module.category,
+              category: 'NEEDS TO CHANGE',
             },
-            description: course.attributes.descriptionText.value,
-            time: course.attributes.time,
-            room: course.attributes.room,
-            credits: course.attributes.credits,
-            colorCode: course.attributes.colorCode,
-            subtitle: course.attributes.subtitle,
-            workspace: course.attributes.workspace
+            description: course.description,
+            time: 'deprecated',
+            room: course.room,
+            credits: course.credits,
+            colorCode: course.colorCode,
+            subtitle: course.subtitle,
+            workspace: course.url
           }" @CURRENT_COURSE_TRIGGERED="passTrigger"></course>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 import axios from 'axios'
-import jsonPath from 'jsonpath'
+// import jsonPath from 'jsonpath'
+var jsonPath = require('advanced-json-path');
 
 import modulePlan from './metadata/modulePlan'
 // import viewController from './view'
@@ -349,17 +350,15 @@ export default new Vuex.Store({
       let queries = state.queries;
       let result = state.coursesStash;
 
-      // Throw error, because the courseStash is not loaded yet
-      console.log(result)
 
-      if(queries.studyType == 'selectedCourses') {
-        // Iterate over states
-        state.user.rememberedCourses.forEach(function (courseID) {
-          let query = '$..courses[?(@._id == "' + courseID + '")]';
-          courses.push(jsonPath.query(result, query)[0]);
-        }); 
+      // if(queries.studyType == 'selectedCourses') {
+      //   // Iterate over states
+      //   state.user.rememberedCourses.forEach(function (courseID) {
+      //     let query = '$..courses[?(@._id == "' + courseID + '")]';
+      //     courses.push(jsonPath.query(result, query)[0]);
+      //   }); 
 
-      }
+      // }
 
       if(queries.studyType == 'Grundstudium'){
         courses = result.segments[0]
@@ -369,20 +368,36 @@ export default new Vuex.Store({
         courses = result.segments[2]
       } 
 
-      console.log('Kurse', courses);      
+      console.log('Kurse', courses.courses);      
 
+      let monday = []
+      let tuesday = []
+      let wednesday = []
+      let thursday = []
+      let friday = []
       
-      // 2. Select all weekdays you need from the specification
-      let monday = jsonPath.query(courses, "$[?(@.attributes == true)]");
-      let tuesday = jsonPath.query(courses, "$[?(@.fixture.weekday == 2)]");
-      let wednesday = jsonPath.query(courses, "$[?(@.fixture.weekday == 3)]");
-      let thursday = jsonPath.query(courses, "$[?(@.fixture.weekday == 4)]");
-      let friday = jsonPath.query(courses, "$[?(@.fixture.weekday == 5)]");
+      
+      courses.courses.forEach((course) => {
+        if(course.fixture?.weekday == 1) {
+          monday.push(course)
+        }
 
-      console.log(monday)
+        if(course.fixture?.weekday == 2) {
+          tuesday.push(course)
+        }
 
+        if(course.fixture?.weekday == 3) {
+          wednesday.push(course)
+        }
 
-      // let friday = jsonPath.query(courses, "$[?(@.attributes.time.fixture.begin.day.value == 5)]");
+        if(course.fixture?.weekday == 4) {
+          thursday.push(course)
+        }
+
+        if(course.fixture?.weekday == 5) {
+          friday.push(course)
+        }
+      })
 
 
       // 3. Sort all courses by daytime
@@ -447,10 +462,12 @@ export default new Vuex.Store({
         ]
       }
 
+      console.log("Weekday Courses sorted", courses)
+
       // Parse Color Coding into the courses
       courses.days.forEach(function(day) {
         day.data.forEach(function(course, i) {
-          let result = getObjects(state.modulePlan, 'id', course.attributes.module.id);
+          let result = getObjects(state.modulePlan, 'id', course.module.nr);
 
           if(typeof(result[0]) == 'undefined'){
             return;   
@@ -495,7 +512,7 @@ export default new Vuex.Store({
 function sortProperties(obj) {	
   // sort items by value
 	obj.sort(function(a, b) {
-	  return a.attributes.time.fixture.begin.hour.value - b.attributes.time.fixture.begin.hour.value; // compare numbers
+	  return a.fixture.begin.hour - b.fixture.end.hour; // compare numbers
   });
   
 	return obj; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
