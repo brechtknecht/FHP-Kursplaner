@@ -48,7 +48,7 @@
           </div>
         
         <div class="course-wrapper" v-for="(course, index) in courses.data" :key="course.id">
-          <course :tabindex="index" :id="course._id" :position="{ 
+          <course :tabindex="index" :id="course.id" :position="{ 
             row: index,
             start:    course.fixture.begin,
             end:      course.fixture.end,

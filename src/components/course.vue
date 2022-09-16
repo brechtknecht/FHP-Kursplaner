@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="course" :style="{'grid-column' : column}"> -->
-  <div  class="course"
+  <div class="course"
         :class="{ 
           selected: isSelected,
           remembered: isRemembered,
@@ -65,7 +65,6 @@
       /* Calculates the Position of the Line in the Grid */
       soursePosition() {
         let columnWidth = 150;
-
         let start = this.$props.position.start;
         let end = this.$props.position.end;
 
@@ -76,13 +75,11 @@
 
         let BORDER_WIDTH = 2;
 
-        let startPosition = ((start.hour.value - 9) * columnWidth) + (start.minutes.value * (columnWidth / 60));
-        let endPosition = ((end.hour.value - 9) * columnWidth) + (end.minutes.value * (columnWidth / 60));
+        let startPosition = ((start.hour - 9) * columnWidth) + (start.minutes * (columnWidth / 60));
+        let endPosition = ((end.hour - 9) * columnWidth) + (end.minutes * (columnWidth / 60));
 
         let offsetStart = Math.floor(startPosition / columnWidth) - BORDER_WIDTH;
         let offsetEnd = Math.floor(endPosition / columnWidth) - BORDER_WIDTH;
-
-
 
         return {
           left: startPosition + offsetStart + 'px',
