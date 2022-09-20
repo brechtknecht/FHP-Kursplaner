@@ -6,9 +6,10 @@ var jsonPath = require('advanced-json-path');
 import modulePlan from './metadata/modulePlan'
 // import viewController from './view'
 
-const developAPI = 'http://localhost:5000/api'
+const developAPI = 'http://fb4kursplaner.fh-potsdam.de/api'
 // const productionAPI = 'http://döner.jetzt:5000/api'
-const productionAPI = 'https://fhp-kursplaner-authenticator.herokuapp.com/api'
+// const productionAPI = 'https://fhp-kursplaner-authenticator.herokuapp.com/api'
+const productionAPI = 'http://fb4kursplaner.fh-potsdam.de/api'
 
 const authAPI = process.env.NODE_ENV == 'production' ? productionAPI : developAPI
 
