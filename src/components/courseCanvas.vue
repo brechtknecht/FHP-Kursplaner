@@ -50,6 +50,7 @@
             row: index,
             start:    course.fixture.begin,
             end:      course.fixture.end,
+            day:      course.fixture.weekday
           }" :info="{
             id:      course.id,
             title:    course.title, 

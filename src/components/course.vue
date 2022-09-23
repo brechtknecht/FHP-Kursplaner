@@ -49,7 +49,8 @@
       position: {
         row: String,
         start: Object,
-        end: Object
+        end: Object,
+        day: Number
       },
       info: {
         id: String,
@@ -149,7 +150,7 @@
             console.log(days[i])
 
             if(days[i].data.length > 1) {
-              if(this.$props.position.start.day.value - 1 == i) {
+              if(this.$props.position.day - 1 == i) {
                 console.log('Diese Kurse sind am selben tag... start comparing');
                 console.log(this.$props.position.start)
 

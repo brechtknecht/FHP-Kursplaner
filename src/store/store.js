@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import axios from 'axios'
 // import jsonPath from 'jsonpath'
-var jsonPath = require('advanced-json-path');
+var jsonPath = require('jsonpath');
 
 import modulePlan from './metadata/modulePlan'
 // import viewController from './view'
@@ -354,10 +354,13 @@ export default new Vuex.Store({
 
       if(queries.studyType == 'selectedCourses') {
         // Iterate over states
+        let selectedCourses = []
         state.user.rememberedCourses.forEach(function (courseID) {
-          let query = '$..courses[?(@.id == "' + courseID + '")]';
-          courses.push(jsonPath.query(result, query)[0]);
-        }); 
+          let query = '$..courses[?(@.id == ' + courseID + ')]';
+          selectedCourses.push(jsonPath.query(result, query)[0]) 
+        });
+        console.log("Selected Courses: ", selectedCourses)
+        courses.courses = selectedCourses; 
       }
 
       
@@ -369,7 +372,7 @@ export default new Vuex.Store({
         courses = result.segments[2]
       } 
       
-      console.log('Kurse', courses.courses);      
+      console.log('Kurse', courses);      
 
       let monday = []
       let tuesday = []
