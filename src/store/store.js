@@ -371,6 +371,32 @@ export default new Vuex.Store({
       } else if (queries.studyType == 'Master') {
         courses = result.segments[2]
       } 
+
+
+      // Filter all courses based on the given module group attributes & if empty just pass all
+      let queriedCourses = [];
+      if (!state.queries.modules.length == 0) {
+        for (let moduleQuery of state.queries.modules) {
+          if (state.queries.examOrder == 'PO 2019'){
+            let query = moduleQuery.replace('PO 2019 ', '');
+            queriedCourses.push(jsonPath.query(courses, "$..courses[?(@.module.nr == '" + query + "')]"));
+          }
+        }
+
+        let coursesStash = [];
+        
+        for(let i = 0; i < queriedCourses.length; i++) {
+          for(let k = 0; k < queriedCourses[i].length; k++){
+            coursesStash.push(queriedCourses[i][k]);
+          }
+        }        
+        console.log('Modulbasierte Suche: ', coursesStash);
+        
+        courses = {courses : coursesStash};
+      }
+
+
+
       
       console.log('Kurse', courses);      
 
