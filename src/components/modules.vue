@@ -109,29 +109,24 @@
                 document.body.classList.toggle('modal-open');
             },
             hasNoCourse(id) {
-                if(typeof this.$store.state.coursesStash.data === 'undefined') {
+                if(typeof this.$store.state.coursesStash.segments === 'undefined') {
                     return;
                 }
-                let courses = this.$store.state.coursesStash.data.data.semester.courses;
 
-                if (this.$store.state.queries.examOrder == 'PO 2013') {
-                    for (const course of courses) {
-                        if (course.attributes.module.id == id) {
-                            return false;
-                        }
-                    }
-                }
+                let courses = []
+                this.$store.state.coursesStash.segments.forEach((segment) => {
+                    segment.courses.forEach((course) => {
+                        courses.push(course)
+                    })
+                })
 
                 if (this.$store.state.queries.examOrder == 'PO 2019') {
                     for (const course of courses) {
-                        if (course.attributes.module.id_new == id.replace('PO 2019 ', '')) {
+                        if (course.module.nr == id.replace('PO 2019 ', '')) {
                             return false;
                         }
                     }
                 }
-
-
-
 
                 return true;
             },
