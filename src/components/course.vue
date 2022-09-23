@@ -228,20 +228,15 @@
   }
 
   .remembered {
-    // clip-path: inset(0 round 1.5rem) !important; 
-    clip-path: inset(0 round 8px) !important; 
-    background: $active !important;
-
-    .course--info {
-      h3,
-      h4 {
-        color: #fff !important;
-      }
-
-      h4 {
-        display: flex;
-      }
-
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 10px;
+      height: 100%;
+      background: $active;
+      transition: 200ms ease-out;
     }
   }
 
