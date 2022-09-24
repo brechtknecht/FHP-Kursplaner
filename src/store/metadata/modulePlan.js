@@ -10,17 +10,20 @@ export default {
             id: "11EG-B",
             title: "Basics",
             subtitle: "Grundlegende Darstellungstechniken",
-            colorCode: "#E7E8E9"
+            colorCode: "#E7E8E9",
+            category: "Elementares Gestalten"
           },{
             id: "11EG-K",
             title: "Kontext",
             subtitle: "Wahrnehmung und Differenzierung",
-            colorCode: "#E7E8E9"
+            colorCode: "#E7E8E9",
+            category: "Elementares Gestalten"
           },{
             id: "11EG-P",
             title: "Prozess",
             subtitle: "Gestaltungsabläufe und Methoden",
-            colorCode: "#E7E8E9"
+            colorCode: "#E7E8E9",
+            category: "Elementares Gestalten"
           }]
         },
         atelier : {
@@ -29,7 +32,8 @@ export default {
               id: "11AT",
               title: "Atelier",
               subtitle: "",
-              colorCode: "#E7E8E9"
+              colorCode: "#E7E8E9",
+              category: "Atelier"
             }]
         }
       },
@@ -41,25 +45,29 @@ export default {
             id: "12EId-MK",
             title: "Mensch + Kontext",
             colorCode: "#D8F0F4",
-            subtitle: "Nutzer*innen zentrierte Analyse von Anwendungskontexten"
+            subtitle: "Nutzer*innen zentrierte Analyse von Anwendungskontexten",
+            category: "Entwurfsgrundlagen"
           },
           {
             id: "12EId-MP",
             title: "Methoden + Prozesse",
             colorCode: "#D8F0F4",
-            subtitle: "Methodische Entwicklungsprozesse für interaktive Systeme"
+            subtitle: "Methodische Entwicklungsprozesse für interaktive Systeme",
+            category: "Entwurfsgrundlagen"
           },
           {
             id: "12EId-FI",
             title: "Form + Interaktion",
             colorCode: "#D8F0F4",
-            subtitle: "Konzeption und Entwurf von User-Interfaces"
+            subtitle: "Konzeption und Entwurf von User-Interfaces",
+            category: "Entwurfsgrundlagen"
           },
           {
             id: "12EId-AD",
             title: "Algorithmen + Daten",
             colorCode: "#D8F0F4",
-            subtitle: "Gestaltung mit Daten und Algorithmen, Programmierung"
+            subtitle: "Gestaltung mit Daten und Algorithmen, Programmierung",
+            category: "Entwurfsgrundlagen"
           }]
         },
         kommunikationsdesign: {
@@ -68,25 +76,29 @@ export default {
             id: "12EKd-SA",
             title: "Schrift + Ausdruck",
             colorCode: "#EDF3DA",
-            subtitle: "Gestaltung von und mit Schrift"
+            subtitle: "Gestaltung von und mit Schrift",
+            category: "Kommunikationsdesign"
           },
           {
             id: "12EKd-BW",
             title: "Bild + Wirkung",
             colorCode: "#EDF3DA",
-            subtitle: "Bildproduktion und Rezeption"
+            subtitle: "Bildproduktion und Rezeption",
+            category: "Kommunikationsdesign"
           },
           {
             id: "12EKd-FN",
             title: "Formate + Narration",
             colorCode: "#EDF3DA",
-            subtitle: "Publikationsformate"
+            subtitle: "Publikationsformate",
+            category: "Kommunikationsdesign"
           },
           {
             id: "12EKd-ZA",
             title: "Zeichen + Ansprache",
             colorCode: "#EDF3DA",
-            subtitle: "Kommunikationssysteme"
+            subtitle: "Kommunikationssysteme",
+            category: "Kommunikationsdesign"
           }]
         },
         produktdesign: {
@@ -95,25 +107,29 @@ export default {
             id: "12EPd-TP",
             title: "Technik + Produkt",
             colorCode: "#CFE4BC",
-            subtitle: "Produktion und Produktentwicklung"
+            subtitle: "Produktion und Produktentwicklung",
+            category: "Produktdesign"
           },
           {
             id: "12EPd-FZ",
             title: "Form + Zweck",
             colorCode: "#CFE4BC",
-            subtitle: "Ästhetische Grundlagen der Stilentwicklung"
+            subtitle: "Ästhetische Grundlagen der Stilentwicklung",
+            category: "Produktdesign"
           },
           {
             id: "12EPd-RK",
             title: "Raum + Kontext",
             colorCode: "#CFE4BC",
-            subtitle: "Synergien der gestalterischen Kommunikation"
+            subtitle: "Synergien der gestalterischen Kommunikation",
+            category: "Produktdesign"
           },
           {
             id: "12EPd-OI",
             title: "Objekt + Intention",
             colorCode: "#CFE4BC",
-            subtitle: "Strategie und Praxis der Produktentstehung"
+            subtitle: "Strategie und Praxis der Produktentstehung",
+            category: "Produktdesign"
           }]
         }
       },
@@ -123,19 +139,22 @@ export default {
           id: "13Th-DMT",
           title: "Design-/Medientheorie",
           colorCode: "#E7E8E9",
-          subtitle: ""
+          subtitle: "",
+          category: "Theorie"
         },
         {
           id: "13Th-DKG",
           title: "Design-/Kulturgeschichte",
           colorCode: "#E7E8E9",
-          subtitle: ""
+          subtitle: "",
+          category: "Theorie"
         },
         {
           id: "13Th-DMR",
           title: "Designmanagement und -recht",
           colorCode: "#E7E8E9",
-          subtitle: ""
+          subtitle: "",
+          category: "Theorie"
         }]
       },
       werkstatt: {
@@ -144,53 +163,62 @@ export default {
           id: "14W-IL",
           title: "Interfacelabore",
           colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 16px, #B5D4D2 16px, #B5D4D2 32px)",
-          subtitle: "Physical Computing, interaktive Systeme"
+          subtitle: "Physical Computing, interaktive Systeme",
+          category: "Werkstattpraxis"
         },
         {
           id: "14W-DL",
           title: "Drucklabore",
           colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
-          subtitle: "Prepress, Farbmanagement, FineArt-Print"
+          subtitle: "Prepress, Farbmanagement, FineArt-Print",
+          category: "Werkstattpraxis"
         },
         {
           id: "14W-GL",
           title: "Grafiklabor",
           colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
-          subtitle: "Experimentelle Drucktechniken"
+          subtitle: "Experimentelle Drucktechniken",
+          category: "Werkstattpraxis"
         },
         {
           id: "14W-BW",
           title: "Buchbindewerkstatt",
           colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
-          subtitle: ""
+          subtitle: "",
+          category: "Werkstattpraxis"
         },{
           id: "14W-FW",
           title: "Fotowerkstätten",
           colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
-          subtitle: "SW-Labor, Studio"
+          subtitle: "SW-Labor, Studio",
+          category: "Werkstattpraxis"
         },{
           id: "14W-AV",
           title: "Audio-/Videowerkstätten",
           colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
-          subtitle: "Studio, Schnitt"
+          subtitle: "Studio, Schnitt",
+          category: "Werkstattpraxis"
         },
         {
           id: "14W-MW",
           title: "Modellierwerkstatt",
           colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
-          subtitle: "Plastisches Gestalten"
+          subtitle: "Plastisches Gestalten",
+          category: "Werkstattpraxis"
         },
         {
           id: "14W-AM",
           title: "Analoge Modellbauwerkstätten",
           colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
-          subtitle: "Holz, Metall, Finish"
+          subtitle: "Holz, Metall, Finish",
+          category: "Werkstattpraxis"
         },
         {
           id: "14W-DM",
           title: "Digitale Modellbauwerkstätten",
           colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
-          subtitle: "CAD, CAM"
+          subtitle: "CAD, CAM",
+          category: "Werkstattpraxis"
         }]
       },
       perspektive: {
@@ -199,19 +227,22 @@ export default {
           id: "15PSs-PW",
           title: "Projektwochen",
           colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
-          subtitle: ""
+          subtitle: "",
+          category: "Perspektiven und Social Skills"
         },
         {
           id: "15PSs-PO",
           title: "Projektorganisation",
           colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
-          subtitle: ""
+          subtitle: "",
+          category: "Perspektiven und Social Skills"
         },
         {
           id: "15PSs-FM",
           title: "Flex-Modul",
           colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
-          subtitle: ""
+          subtitle: "",
+          category: "Perspektiven und Social Skills"
         }]
       }
     },
@@ -225,19 +256,22 @@ export default {
           id: "21EId-S",
           title: "Interfacedesign als Spekulation",
           colorCode: "#D8F0F4",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Spekulation"
         },
         {
           id: "21EKd-S",
           title: "Kommunikationsdesign als Spekulation",
           colorCode: "#EDF3DA",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Spekulation"
         },
         {
           id: "21EPd-S",
           title: "Produktdesign als Spekulation",
           colorCode: "#CFE4BC",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Spekulation"
         }]
       },
       design_als_designforschung: {
@@ -246,19 +280,22 @@ export default {
           id: "21EId-F",
           title: "Interfacedesign als Designforschung",
           colorCode: "#D8F0F4",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Designforschung"
         },
         {
           id: "21EKd-F",
           title: "Kommunikationsdesign als Designforschung",
           colorCode: "#EDF3DA",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Designforschung"
         },
         {
           id: "21EPd-F",
           title: "Produktdesign als Designforschung",
           colorCode: "#CFE4BC",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Designforschung"
         }]
       },
       design_als_kuenstlerische_praxis: {
@@ -267,17 +304,20 @@ export default {
           id: "21EId-K",
           title: "Interfacedesign als Künstlerische Praxis",
           colorCode: "#D8F0F4",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Künstlerische Praxis"
         },{
           id: "21EKd-K",
           title: "Kommunikationsdesign als Künstlerische Praxis",
           colorCode: "#EDF3DA",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Künstlerische Praxis"
         },{
           id: "21EPd-K",
           title: "Produktdesign als Künstlerische Praxis",
           colorCode: "#CFE4BC",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Künstlerische Praxis"
         }]
       },
       design_als_Problemlösung: {
@@ -286,17 +326,20 @@ export default {
           id: "21EId-P",
           title: "Interfacedesign als Problemlösung",
           colorCode: "#D8F0F4",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Problemlösung"
         },{
           id: "21EKd-P",
           title: "Kommunikationsdesign als Problemlösung",
           colorCode: "#EDF3DA",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Problemlösung"
         },{
           id: "21EPd-P",
           title: "Produktdesign als Problemlösung",
           colorCode: "#CFE4BC",
-          subtitle: ""
+          subtitle: "",
+          category: "Design als Problemlösung"
         }]
       },
       theorie: {
@@ -305,17 +348,20 @@ export default {
           id: "22Th-DMT",
           title: "Design-/Medientheorie",
           colorCode: "#E7E8E9",
-          subtitle: ""
+          subtitle: "",
+          category: "Theorie"
         },{
           id: "22Th-DKG",
           title: "Design-/Kulturgeschichte",
           colorCode: "#E7E8E9",
-          subtitle: ""
+          subtitle: "",
+          category: "Theorie"
         },{
           id: "22Th-DMR",
           title: "Designmanagement und -recht",
           colorCode: "#E7E8E9",
-          subtitle: ""
+          subtitle: "",
+          category: "Theorie"
         }]
       },
       praxissemester: {
@@ -324,12 +370,14 @@ export default {
           id: "23PS-P",
           title: "Praktikum",
           colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
-          subtitle: "Voraussetzung siehe Modulbeschreibung"
+          subtitle: "Voraussetzung siehe Modulbeschreibung",
+          category: "Praxissemester"
         },{
           id: "23PS-PB",
           title: "Praxisbericht",
           colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
-          subtitle: "Dokumentation und Präsentation"
+          subtitle: "Dokumentation und Präsentation",
+          category: "Praxissemester"
         }]
       },
       perspektive: {
@@ -337,29 +385,35 @@ export default {
         modules: [{
           id: "24PSs-PW",
           title: "Projektwochen",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-FM",
           title: "Flex-Modul",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-T",
           title: "Tutorium",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-PO",
           title: "Projektorganisation",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-HT",
           title: "Handwerk/Technik",
           colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
-          subtitle: "Vertiefung"
+          subtitle: "Vertiefung",
+          category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-AT",
           title: "Atelier",
           colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
-          subtitle: "Vertiefung"
+          subtitle: "Vertiefung",
+          category: "Perspektiven und Social Skills"
         }]
       }
     }
@@ -371,11 +425,13 @@ export default {
         modules: [{
           id: "31LE-S",
           title: "Spezialisierung",
-          colorCode: "#E7E8E9"
+          colorCode: "#E7E8E9",
+          category: "Labor-/Entwurfsstrategien"
         },{
           id: "31LE-R",
           title: "Reflexion",
-          colorCode: "#E7E8E9"
+          colorCode: "#E7E8E9",
+          category: "Labor-/Entwurfsstrategien"
         }]
       },
       thesisentwicklung: {
@@ -383,11 +439,13 @@ export default {
         modules: [{
           id: "32TE-WD",
           title: "Wissenschaftsmethodik + Designforschung",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          category: "Thesisentwicklung"
         },{
           id: "32TE-DA",
           title: "Designdiskurs + Argumentation",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          category: "Thesisentwicklung"
         }]
       },
       didaktik: {
@@ -395,7 +453,8 @@ export default {
         modules: [{
           id: "33D-TM",
           title: "Tutoring/Mentoring",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)"
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          category: "Didaktik"
         }]
       }
     }

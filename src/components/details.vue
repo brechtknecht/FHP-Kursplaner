@@ -7,7 +7,7 @@
             <div class="details" v-if="isActive">
                 <div class="header" :style="componentStyle">
                     <div class="info">
-                        <h4 class="category"> {{ currentCourseTitle.category }}</h4>
+                        <h4 class="category"> {{ currentCourse.module.category }}</h4>
                         <h1 class="title"> {{ currentCourseTitle.title }} </h1>
                         <h4 class="subject">{{ currentCourse.subtitle }}</h4>
                     </div>
@@ -35,7 +35,9 @@
                                     <icon-clock />
                                 </icon-base>
                                 <!-- <span>{{ currentCourse }} </span> -->
-                                <span>"⚠️ TO BE ADDED"</span>
+                                <span> 
+                                    {{ courseFixture }}
+                                </span>
                             </li>
                             <li>
                                 <icon-base width="20" height="20" icon-name="pin">
@@ -78,7 +80,6 @@
                 <div class="content">
                     <h3>Kursbeschreibung</h3>
                     <p> {{ currentCourseDescription }}</p>
-                    <p> {{ currentCourse }}</p>
                 </div>
             </div>
 
@@ -107,6 +108,11 @@
             Checkbox
         },
         computed: {
+            courseFixture() {
+                const weekday = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
+
+                return weekday[this.currentCourse.time.weekday - 1] + " " +  this.currentCourse.time.begin.hour +  ":" + ('0'+this.currentCourse.time.end.minutes.toFixed(2)).slice(-2) + " — " + this.currentCourse.time.end.hour +  ":" + ('0'+this.currentCourse.time.end.minutes.toFixed(2)).slice(-2)
+            },
             workspaceLink() {
                 if (this.currentCourse.workspace == "") {
                     let description = this.currentCourse.description;
@@ -421,7 +427,7 @@
                 }
 
                 &.active {
-                    background-position: 126% center;
+                    background-position: 112% center;
 
                     @include for-phone-only {
                         top: calc(100vh);
@@ -584,7 +590,7 @@
                         position: absolute;
                         opacity: 0;
                         cursor: pointer;
-                        height: 30px;
+                        height: 30px !important;
                         width: 20px;
                         z-index: 1000000;
                     }

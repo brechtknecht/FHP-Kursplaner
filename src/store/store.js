@@ -521,10 +521,20 @@ export default new Vuex.Store({
 
       console.log("Weekday Courses sorted", courses)
 
-      // Parse Color Coding into the courses
+      // Parse Simplified Course IDs in the data
       courses.days.forEach(function(day) {
         day.data.forEach(function(course, i) {
-          let result = getObjects(state.modulePlan, 'id', course.module.nr);
+          const str = course.module.nr
+          const simplifiedCourseID = str.split("-").slice(0, 2).join('-')
+
+          course.module.simplifiedNr = simplifiedCourseID
+        })
+      })
+
+      // Parse Color Coding and titles into the courses
+      courses.days.forEach(function(day) {
+        day.data.forEach(function(course, i) {
+          let result = getObjects(state.modulePlan, 'id', course.module.simplifiedNr);
 
           if(typeof(result[0]) == 'undefined'){
             return;   
@@ -539,20 +549,15 @@ export default new Vuex.Store({
             let subtitle = result[0].subtitle;
             day.data[i].subtitle = subtitle;
           }
-          
+
+          if (result[0].hasOwnProperty('colorCode')) {
+            let category = result[0].category;
+            day.data[i].category = category;
+          }
         });
       });
 
-      // Parse Simplified Course IDs in the data
-
-      courses.days.forEach(function(day) {
-        day.data.forEach(function(course, i) {
-          const str = course.module.nr
-          const simplifiedCourseID = str.split("-").slice(0, 2).join('-')
-
-          course.module.simplifiedNr = simplifiedCourseID
-        })
-      })
+      
 
       console.log("Parsed Courses: ", courses)
 
