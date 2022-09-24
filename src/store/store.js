@@ -265,6 +265,7 @@ export default new Vuex.Store({
       state.user.status = ''
       state.user.token = ''
       state.user.rememberedCourses = []
+      state.user.toggleUserProfile = false
     },
 
     setUserDataToStore(state, payload) {

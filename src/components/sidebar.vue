@@ -53,15 +53,14 @@
                 <li v-if="displayUndefinedDate" class="listElement noDate" :class="{ active: undefinedDate, disabled: _hasUndefinedDate }" @click="scrollToDay">Übergeordnet</li>
             </ul>
             <hr>
-            <h4>Anmeldung</h4>
             <div class="auth">
                 <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
                     <span>Angemeldet mit Code <br></span>
                     <div class="loggedUser" @click="showUserProfile">
                         <span>{{ this.$store.state.user.name }}</span>
+                        <img src="/assets/icons/ic-expand.svg"/>
                     </div>
                 </div>
-                <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
                 <button v-else class="button button__medium" @click="login()">Anmelden</button>
             </div>
             <radio-button style="display: none"></radio-button>
@@ -88,6 +87,9 @@
             RadioButton
         },
         computed: {
+            isLoggedIn() {
+                return this.$store.state.user.token === "" ? false : true
+            },
             studyType: {
                 get() {
                     return this.$store.state.queries.studyType;
@@ -245,9 +247,6 @@
             login() {
                 this.$store.commit('CHECK_AUTH')
             },
-            logout () {
-                this.$store.dispatch('logout')
-            },
             scrollToDay: function (e) {
                 let ref = e.target.classList[1];
                 let element = document.getElementsByClassName(ref).item(1);
@@ -308,7 +307,7 @@
     }
 
     .auth {
-        padding: 0 1.5rem;
+        padding: 1rem 1.5rem;
         .loggedUser {
             position: relative;
             padding: .5rem .75rem;
@@ -323,6 +322,13 @@
             span {
                 font-size: 1.25rem;
                 letter-spacing: 1px;
+            }
+            img {
+                position: absolute;
+                top: 9px;
+                right: 12px;
+                height: 1.33rem;
+                fill: red;
             }
         }
     }

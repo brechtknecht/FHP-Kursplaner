@@ -76,6 +76,15 @@
           background: #3475E0;
         }
       }
+
+      &--warn {
+        padding: .5rem 2rem;
+        background: #FCF4E7;
+        border: 1px solid #E08B0E;
+        &:hover {
+          background: #FDF9F3;
+        }
+      }
     }
     &__large {
       padding: 1rem 2rem;
