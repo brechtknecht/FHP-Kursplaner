@@ -23,7 +23,8 @@ export default new Vuex.Store({
       rememberedCourses: [],
       toggleAuth: false,
       toggleUserProfile: false,
-      error: false
+      error: false,
+      isFirstPageVisit: true
     },
     queries: {
       studyType: "Grundstudium",
@@ -179,6 +180,8 @@ export default new Vuex.Store({
       })
     },
 
+    
+
     // COURSE LOGIC
     async loadCourses_OFFLINE ({commit}, ) {
       await axios
@@ -222,6 +225,17 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    // CHECK FOR FIRST PAGE VISIT
+    IS_FIRST_PAGE_VISIT (state) {
+      let pageVisited = localStorage.getItem('pageVisited')
+      if(pageVisited) {
+        state.user.isFirstPageVisit = false
+      } else {
+        state.user.isFirstPageVisit = true
+        localStorage.setItem('pageVisited', true)
+      }
+      
+    },
 
     // AUTH LOGIC
     CHECK_AUTH(state) {

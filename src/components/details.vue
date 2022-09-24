@@ -50,7 +50,7 @@
                                     <icon-layer />
                                 </icon-base>
                                 <span>
-                                    <!-- Credits: --> {{ currentCourse.credits[0] }} </span>
+                                    <!-- Credits: --> {{ currentCourse.credits[0] + " Credits" }} </span>
                             </li>
                         </ul>
                     </div>
@@ -317,6 +317,9 @@
                 transform: translateY(80rem) translateX(-50%);
                 opactity: 0;
                 transition: $animation-default;
+                
+                    border-radius: 12px;
+                
             }
 
             .detailsWrapper.active {

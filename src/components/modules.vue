@@ -301,15 +301,25 @@
         height: auto;
         cursor: pointer;
         padding: 1.25rem 1.5rem 2rem 1.5rem;
-        clip-path: inset(3.2px);
-        border: 3px solid $active !important;
-
+        clip-path: inset(0);
+        border: 3px solid #fff !important;
+        &:hover {
+            clip-path: inset(0);
+            border: 3px solid rgba(52, 117, 224, .2) !important;
+        }
+    
         &.active {
             clip-path: inset(0);
+            border: 3px solid $active !important;
         }
+
+        
 
         &.disabled {
             opacity: .4;
+            clip-path: inset(0);
+            border: 3px solid #fff !important;
+            pointer-events: none;
         }
 
         span {

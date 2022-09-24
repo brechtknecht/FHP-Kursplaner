@@ -94,9 +94,12 @@
         this.scrollListener();
       });
 
+      this.$store.commit('IS_FIRST_PAGE_VISIT')
+
       this.$store.dispatch('loadCourses_INCOM', this.queries).then(() => {
         this.$store.commit('QUERY_COURSES');
       });
+
 
       // this.$store.dispatch('loadCourses_OFFLINE', this.queries).then(() => {
       //   this.$store.commit('QUERY_COURSES');
