@@ -15,7 +15,7 @@
             </div>
             <div class="logged--user">
                 <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
-                    <span>Angemeldet mit Code <b>{{ this.$store.state.user.name }}</b></span>
+                    <span>Angemeldet mit Name <b>{{ this.$store.state.user.name }}</b></span>
                 </div>
             </div>
         </div>

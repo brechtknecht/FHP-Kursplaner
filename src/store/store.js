@@ -280,6 +280,11 @@ export default new Vuex.Store({
       state.user.token = ''
       state.user.rememberedCourses = []
       state.user.toggleUserProfile = false
+      
+
+      this.commit('SWITCH_STUDY_TYPE', "Grundstudium");
+      this.commit('WIPE_MODULE_QUERY');
+      this.commit('QUERY_COURSES');
     },
 
     setUserDataToStore(state, payload) {

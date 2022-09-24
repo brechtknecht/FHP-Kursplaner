@@ -53,19 +53,19 @@
                 </label>
             </div>
             <hr>
-            <h4>Wochentage</h4>
+            <h4>{{ resolveWeekdayHeadline }}</h4>
             <ul>
-                <li class="listElement Montag" :class="{ active: monday, disabled: _hasMonday }" @click="scrollToDay">Montag</li>
-                <li class="listElement Dienstag" :class="{ active: tuesday, disabled: _hasTuesday }" @click="scrollToDay">Dienstag</li>
-                <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday }" @click="scrollToDay">Mittwoch</li>
-                <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday }" @click="scrollToDay">Donnerstag</li>
-                <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday }" @click="scrollToDay">Freitag</li>
-                <li v-if="displayUndefinedDate" class="listElement noDate" :class="{ active: undefinedDate, disabled: _hasUndefinedDate }" @click="scrollToDay">Übergeordnet</li>
+                <li class="listElement Montag" :class="{ active: monday, disabled: _hasMonday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Montag</li>
+                <li class="listElement Dienstag" :class="{ active: tuesday, disabled: _hasTuesday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Dienstag</li>
+                <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Mittwoch</li>
+                <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Donnerstag</li>
+                <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Freitag</li>
+                <li v-if="displayUndefinedDate" class="listElement noDate" :class="{ active: undefinedDate, disabled: _hasUndefinedDate, hasCheckmark: hasCheckmark }" @click="scrollToDay">Übergeordnet</li>
             </ul>
             <hr>
             <div class="auth">
                 <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
-                    <span>Angemeldet mit Code <br></span>
+                    <span>Angemeldet mit Name <br></span>
                     <div class="loggedUser" @click="showUserProfile">
                         <span>{{ this.$store.state.user.name }}</span>
                         <img src="/assets/icons/ic-expand.svg"/>
@@ -97,6 +97,15 @@
             RadioButton
         },
         computed: {
+            resolveWeekdayHeadline() {
+                let isSelectedCourses = this.$store.state.queries.studyType == 'selectedCourses' ? true : false
+
+                if(isSelectedCourses) {
+                    return "Wochentage (Auswahl)"
+                } else {
+                    return "Wochentage"
+                }
+            },
             selectedCoursesDisabled() {
                 let isLoggedIn = this.$store.state.user.token == "" ? true : false
                 let moduleFilterActive = this.$store.state.queries.modules.length != 0 ? true : false
@@ -228,6 +237,10 @@
                 }
                 return false
             },
+            hasCheckmark: function () {
+                let isSelectedCourses = this.$store.state.queries.studyType == 'selectedCourses' ? true : false
+                return isSelectedCourses ? true : false
+            }, 
             undefinedDate: function () {
                 if(this.$store.state.queries.studyType == 'selectedCourses') {
                     if(this.$store.state.courses.days[5].data.length > 0) {
@@ -419,6 +432,12 @@
                 margin-left: 1rem;
                 margin-right: 1rem;
                 opacity: 1;
+            }
+        }
+
+        &.hasCheckmark {
+            &:before {
+                content: url('../assets/img/checkmark.svg');
             }
         }
 

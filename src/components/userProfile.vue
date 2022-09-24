@@ -4,10 +4,10 @@
             <div class="modal--title">
                 <h1>Dein Profil</h1>
                 <p>
-                    Du bist über deine Passnamen eingeloggt. Verwende ihn auch auf deinen anderen Geräten, um deine gespeicherten Kurse einsehen zu können.
+                    Du bist über deinen Passnamen eingeloggt. Verwende ihn auch auf deinen anderen Geräten, um deine gespeicherten Kurse einsehen zu können.
                 </p>
                 <p>
-                    Füge diesen Link zu deinen Bookmarks hinzu um immer eingeloggt zu bleiben.
+                    Füge diesen Link zu deinen Bookmarks hinzu, um immer eingeloggt zu bleiben.
                 </p>
                 <div class="bookmark-wrapper">
                 <div class="bookmark">
@@ -18,7 +18,7 @@
 
             <div class="logout--wrapper">
                 <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium--warn" @click="logout()">Logout</button>
-                <p>Wenn du dich ausloggst wirst du dich <b>nur mit deinem Passnamen</b> wieder einloggen können.</p>
+                <p>Wenn du dich ausloggst, wirst du dich <b>nur mit deinem Passnamen</b> wieder einloggen können.</p>
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
         right: 50%;
         transform: translateX(-50%) translateY(-50%);
         // padding: 2rem 4rem;
-        padding: 2rem 4rem 2.5rem 4rem;
+        padding: 2rem 2.5rem 2rem 2.5rem;
         background: #fff;
         width: 30%;
         max-width: 70rem;
@@ -99,6 +99,7 @@
             line-height: 1.6rem;
             max-width: 75ch;
             text-align: left;
+            margin-right: 0.25rem;
         }
     }
 
