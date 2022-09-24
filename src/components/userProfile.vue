@@ -103,6 +103,7 @@
     }
 
     .logout--wrapper {
+        padding: 6rem 0 0 0;
         p {
             font-size: 1.15rem;
             line-height: 1.6rem;
@@ -112,7 +113,7 @@
     }
 
     .bookmark-wrapper {
-        margin: 4rem 0;
+        margin: 1rem 0;
 
         @include auth-mobile {
             margin: 1.5rem 0;
