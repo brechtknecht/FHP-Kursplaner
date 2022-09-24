@@ -31,9 +31,19 @@
                         </div>
                     </div>
                 </label>
-                <label class="selectionWrapper">
-                <div class="container selectionElement">
+                <label v-if="!moduleFilterActive" class="selectionWrapper">
+                    <div class="container selectionElement">
                         <input type="radio"  name="studyType" value="selectedCourses" v-model="studyType">
+                        <div class="checkmark">
+                            <span>Ausgewählt</span>
+                            <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
+                            <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected >= 10" class="badge badge--centered">{{ numberOfCoursesSelected }}</span>
+                        </div>
+                    </div>
+                </label>
+                <label v-else class="selectionWrapper disabled">
+                    <div class="container selectionElement">
+                    
                         <div class="checkmark">
                             <span>Ausgewählt</span>
                             <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
@@ -89,6 +99,9 @@
         computed: {
             isLoggedIn() {
                 return this.$store.state.user.token === "" ? false : true
+            },
+            moduleFilterActive() {
+                return this.$store.state.queries.modules.length != 0 ? true : false
             },
             studyType: {
                 get() {
@@ -343,7 +356,16 @@
             background: $hover-white;
         }
     }
-
+    .disabled {
+        cursor: auto;
+        opacity: .4;
+        &:hover {
+            background: transparent !important;
+        }
+        * {
+            cursor: auto;
+        }
+    }
     .selectionElement {
         display: flex;
         margin: 0 0 .5rem 1rem;

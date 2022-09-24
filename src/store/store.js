@@ -198,7 +198,7 @@ export default new Vuex.Store({
     },
     async loadCourses_INCOM ({commit}, ) {
       await axios
-        .get('data/vlv-incom.json')
+        .get('data/vlv-incom.24.09.22.json')
         .then(r => r.data)
         .then((result) => {
           commit('STASH_LOADED_COURSES', result)
