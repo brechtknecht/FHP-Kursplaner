@@ -71,7 +71,7 @@
                         <img src="/assets/icons/ic-expand.svg"/>
                     </div>
                 </div>
-                <button v-else class="button button__medium" @click="login()">Anmelden</button>
+                <button v-else class="button button__medium button__medium--cta login" @click="login()">Anmelden</button>
             </div>
             <radio-button style="display: none"></radio-button>
             <!-- <hr>
@@ -337,7 +337,7 @@
     }
 
     .auth {
-        padding: 1rem 1.5rem;
+        padding: 1rem 0;
         .loggedUser {
             position: relative;
             padding: .5rem .75rem;
@@ -401,7 +401,7 @@
     }
 
     .listElement {
-        padding: 0.5rem 1rem;
+        padding: .5rem 1rem;
         border-radius: 12px;
         margin: .5rem 0;
         cursor: pointer;
@@ -528,5 +528,9 @@
             border-radius: 50%;
             background: white;
         }
+    }
+
+    .login {
+        width: 100%;
     }
 </style>
