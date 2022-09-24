@@ -22,6 +22,7 @@ export default new Vuex.Store({
       generatedPassphrase: '',
       rememberedCourses: [],
       toggleAuth: false,
+      toggleUserProfile: false,
       error: false
     },
     queries: {

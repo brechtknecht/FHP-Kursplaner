@@ -7,7 +7,8 @@
     <DetailsView :isActive="detailsModalIsActive" @CURRENT_COURSE_TRIGGERED="toggleCurrentCourse"/>
     <Notification></Notification>
     <VersionOverlay></VersionOverlay>
-    <Authentication v-if="authentication"></Authentication>
+    <Authentication v-if="showAuthentication"></Authentication>
+    <UserProfile v-if="showUserProfile"></UserProfile>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import Modules from '@/components/modules.vue'
 import DetailsView from '@/components/details.vue'
 import Notification from '@/components/notification.vue'
 import Authentication from '@/components/authentication.vue'
+import UserProfile from '@/components/userProfile.vue'
 import VersionOverlay from '@/components/versionOverlay.vue'
 
 export default {
@@ -32,6 +34,7 @@ export default {
     DetailsView,
     Notification,
     Authentication,
+    UserProfile,
     VersionOverlay
   },
   data () {
@@ -40,8 +43,11 @@ export default {
     }
   },
   computed: {
-    authentication () {
+    showAuthentication () {
       return this.$store.state.user.toggleAuth
+    },
+    showUserProfile() {
+     return this.$store.state.user.toggleUserProfile 
     }
   },
   methods: {

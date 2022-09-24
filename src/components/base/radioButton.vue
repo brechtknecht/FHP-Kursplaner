@@ -48,6 +48,7 @@
         border-radius: 50%;
         border: 2px solid transparent;
         transition: 200ms ease-in;
+        border: 2px solid rgba(0,0,0, .05)
     }
 
     .checkmark span {

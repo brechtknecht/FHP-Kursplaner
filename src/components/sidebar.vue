@@ -7,30 +7,38 @@
             <hr>
             <h4>Studienabschnitt</h4>
             <div class="studySelection">
-                <label class="container selectionElement">
-                    <input type="radio" checked="checked" name="studyType" value="Grundstudium" v-model="studyType">
-                    <div class="checkmark">
-                        <span>Grundstudium</span>
+                <label class="selectionWrapper">
+                    <div class="container selectionElement">
+                        <input type="radio" checked="checked" name="studyType" value="Grundstudium" v-model="studyType">
+                        <div class="checkmark">
+                            <span>Grundstudium</span>
+                        </div>
                     </div>
                 </label>
-                <label class="container selectionElement">
-                    <input type="radio"  name="studyType" value="Hauptstudium" v-model="studyType">
-                    <div class="checkmark">
-                        <span>Hauptstudium</span>
+                <label class="selectionWrapper">
+                <div class="container selectionElement">
+                        <input type="radio"  name="studyType" value="Hauptstudium" v-model="studyType">
+                        <div class="checkmark">
+                            <span>Hauptstudium</span>
+                        </div>
                     </div>
                 </label>
-                <label class="container selectionElement">
-                    <input type="radio"  name="studyType" value="Master" v-model="studyType">
-                    <div class="checkmark">
-                        <span>Master</span>
+                <label class="selectionWrapper">
+                <div class="container selectionElement">
+                        <input type="radio"  name="studyType" value="Master" v-model="studyType">
+                        <div class="checkmark">
+                            <span>Master</span>
+                        </div>
                     </div>
                 </label>
-                <label class="container selectionElement">
-                    <input type="radio"  name="studyType" value="selectedCourses" v-model="studyType">
-                    <div class="checkmark">
-                        <span>Ausgewählt</span>
-                        <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
-                        <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected >= 10" class="badge badge--centered">{{ numberOfCoursesSelected }}</span>
+                <label class="selectionWrapper">
+                <div class="container selectionElement">
+                        <input type="radio"  name="studyType" value="selectedCourses" v-model="studyType">
+                        <div class="checkmark">
+                            <span>Ausgewählt</span>
+                            <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
+                            <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected >= 10" class="badge badge--centered">{{ numberOfCoursesSelected }}</span>
+                        </div>
                     </div>
                 </label>
             </div>
@@ -49,7 +57,7 @@
             <div class="auth">
                 <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
                     <span>Angemeldet mit Code <br></span>
-                    <div class="loggedUser">
+                    <div class="loggedUser" @click="showUserProfile">
                         <span>{{ this.$store.state.user.name }}</span>
                     </div>
                 </div>
@@ -251,6 +259,9 @@
                     behavior: 'smooth', 
                 });
 
+            },
+            showUserProfile() {
+                this.$store.state.user.toggleUserProfile = true
             }
         }
     }
@@ -316,10 +327,23 @@
         }
     }
 
+    .selectionWrapper {
+        padding: 12px 0;
+        height: 1.25rem;
+        display: flex;
+        border-radius: 12px;
+        cursor: pointer;
+        &:hover {
+            background: $hover-white;
+        }
+    }
+
     .selectionElement {
         display: flex;
         margin: 0 0 .5rem 1rem;
-        height: 2rem;
+        align-items: center;
+        justify-content: center;
+        height: 0.75rem;
 
         span {
             margin-left: 2.5rem;
@@ -380,6 +404,10 @@
 
         li {
             list-style-type: none;
+        }
+
+        &:hover {
+            background: $hover-white;
         }
 
 
