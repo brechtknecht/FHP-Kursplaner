@@ -9,6 +9,8 @@
     <VersionOverlay></VersionOverlay>
     <Authentication v-if="showAuthentication"></Authentication>
     <UserProfile v-if="showUserProfile"></UserProfile>
+    <Support v-if="showSupport"></Support>
+    <GUI></GUI>
   </div>
 </template>
 
@@ -22,6 +24,8 @@ import DetailsView from '@/components/details.vue'
 import Notification from '@/components/notification.vue'
 import Authentication from '@/components/authentication.vue'
 import UserProfile from '@/components/userProfile.vue'
+import Support from '@/components/support.vue'
+import GUI from '@/components/GUI.vue'
 import VersionOverlay from '@/components/versionOverlay.vue'
 
 export default {
@@ -35,6 +39,8 @@ export default {
     Notification,
     Authentication,
     UserProfile,
+    Support,
+    GUI,
     VersionOverlay
   },
   data () {
@@ -48,6 +54,9 @@ export default {
     },
     showUserProfile() {
      return this.$store.state.user.toggleUserProfile 
+    },
+    showSupport() {
+     return this.$store.state.user.toggleSupport 
     }
   },
   methods: {

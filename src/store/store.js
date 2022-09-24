@@ -23,6 +23,7 @@ export default new Vuex.Store({
       rememberedCourses: [],
       toggleAuth: false,
       toggleUserProfile: false,
+      toggleSupport: false,
       error: false,
       isFirstPageVisit: true
     },
