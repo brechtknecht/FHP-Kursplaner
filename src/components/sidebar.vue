@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </label>
-                <label v-if="!moduleFilterActive" class="selectionWrapper">
+                <label v-if="!selectedCoursesDisabled" class="selectionWrapper">
                     <div class="container selectionElement">
                         <input type="radio"  name="studyType" value="selectedCourses" v-model="studyType">
                         <div class="checkmark">
@@ -97,11 +97,15 @@
             RadioButton
         },
         computed: {
-            isLoggedIn() {
-                return this.$store.state.user.token === "" ? false : true
-            },
-            moduleFilterActive() {
-                return this.$store.state.queries.modules.length != 0 ? true : false
+            selectedCoursesDisabled() {
+                let isLoggedIn = this.$store.state.user.token == "" ? true : false
+                let moduleFilterActive = this.$store.state.queries.modules.length != 0 ? true : false
+
+                if(isLoggedIn || moduleFilterActive) {
+                    return true
+                } else {
+                    return false
+                }
             },
             studyType: {
                 get() {

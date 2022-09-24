@@ -261,6 +261,7 @@ export default {
                         }
                         width: 95%;
                         cursor: pointer;
+                        text-align: left;
                         border-radius: 8px;
                         span {
                             font-size: 1.25rem;
