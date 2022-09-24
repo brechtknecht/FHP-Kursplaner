@@ -381,7 +381,7 @@ export default new Vuex.Store({
         for (let moduleQuery of state.queries.modules) {
           if (state.queries.examOrder == 'PO 2019'){
             let query = moduleQuery.replace('PO 2019 ', '');
-            queriedCourses.push(jsonPath.query(courses, "$..courses[?(@.module.nr == '" + query + "')]"));
+            queriedCourses.push(jsonPath.query(courses, "$..courses[?(@.module.simplifiedNr == '" + query + "')]"));
           }
         }
 
