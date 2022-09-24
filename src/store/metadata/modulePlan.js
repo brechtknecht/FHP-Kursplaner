@@ -162,61 +162,70 @@ export default {
         modules: [{
           id: "14W-IL",
           title: "Interfacelabore",
-          colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 16px, #B5D4D2 16px, #B5D4D2 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 128px, #B5D4D2 128px, #B5D4D2 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #D8F0F4, #D8F0F4 64px, #B5D4D2 64px, #B5D4D2 128px)",
           subtitle: "Physical Computing, interaktive Systeme",
           category: "Werkstattpraxis"
         },
         {
           id: "14W-DL",
           title: "Drucklabore",
-          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 128px, #CEDAB7 128px, #CEDAB7 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 64px, #CEDAB7 64px, #CEDAB7 128px)",
           subtitle: "Prepress, Farbmanagement, FineArt-Print",
           category: "Werkstattpraxis"
         },
         {
           id: "14W-GL",
           title: "Grafiklabor",
-          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 128px, #CEDAB7 128px, #CEDAB7 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 64px, #CEDAB7 64px, #CEDAB7 128px)",
           subtitle: "Experimentelle Drucktechniken",
           category: "Werkstattpraxis"
         },
         {
           id: "14W-BW",
           title: "Buchbindewerkstatt",
-          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 128px, #CEDAB7 128px, #CEDAB7 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 64px, #CEDAB7 64px, #CEDAB7 128px)",
           subtitle: "",
           category: "Werkstattpraxis"
         },{
           id: "14W-FW",
           title: "Fotowerkstätten",
-          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 128px, #CEDAB7 128px, #CEDAB7 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 64px, #CEDAB7 64px, #CEDAB7 128px)",
           subtitle: "SW-Labor, Studio",
           category: "Werkstattpraxis"
         },{
           id: "14W-AV",
           title: "Audio-/Videowerkstätten",
-          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 16px, #CEDAB7 16px, #CEDAB7 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 128px, #CEDAB7 128px, #CEDAB7 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #EDF3DA, #EDF3DA 64px, #CEDAB7 64px, #CEDAB7 128px)",
           subtitle: "Studio, Schnitt",
           category: "Werkstattpraxis"
         },
         {
           id: "14W-MW",
           title: "Modellierwerkstatt",
-          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 128px, #ADCD9A 128px, #ADCD9A 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 64px, #ADCD9A 64px, #ADCD9A 128px)",
           subtitle: "Plastisches Gestalten",
           category: "Werkstattpraxis"
         },
         {
           id: "14W-AM",
           title: "Analoge Modellbauwerkstätten",
-          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
           subtitle: "Holz, Metall, Finish",
+          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 128px, #ADCD9A 128px, #ADCD9A 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 64px, #ADCD9A 64px, #ADCD9A 128px)",
           category: "Werkstattpraxis"
         },
         {
           id: "14W-DM",
           title: "Digitale Modellbauwerkstätten",
-          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 16px, #ADCD9A 16px, #ADCD9A 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 128px, #ADCD9A 128px, #ADCD9A 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #CFE4BC, #CFE4BC 64px, #ADCD9A 64px, #ADCD9A 128px)",
           subtitle: "CAD, CAM",
           category: "Werkstattpraxis"
         }]
@@ -226,21 +235,24 @@ export default {
         modules: [{
           id: "15PSs-PW",
           title: "Projektwochen",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           subtitle: "",
           category: "Perspektiven und Social Skills"
         },
         {
           id: "15PSs-PO",
           title: "Projektorganisation",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           subtitle: "",
           category: "Perspektiven und Social Skills"
         },
         {
           id: "15PSs-FM",
           title: "Flex-Modul",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           subtitle: "",
           category: "Perspektiven und Social Skills"
         }]
@@ -369,13 +381,15 @@ export default {
         modules: [{
           id: "23PS-P",
           title: "Praktikum",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           subtitle: "Voraussetzung siehe Modulbeschreibung",
           category: "Praxissemester"
         },{
           id: "23PS-PB",
           title: "Praxisbericht",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           subtitle: "Dokumentation und Präsentation",
           category: "Praxissemester"
         }]
@@ -385,33 +399,39 @@ export default {
         modules: [{
           id: "24PSs-PW",
           title: "Projektwochen",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-FM",
           title: "Flex-Modul",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-T",
           title: "Tutorium",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-PO",
           title: "Projektorganisation",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-HT",
           title: "Handwerk/Technik",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           subtitle: "Vertiefung",
           category: "Perspektiven und Social Skills"
         },{
           id: "24PSs-AT",
           title: "Atelier",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           subtitle: "Vertiefung",
           category: "Perspektiven und Social Skills"
         }]
@@ -439,12 +459,14 @@ export default {
         modules: [{
           id: "32TE-WD",
           title: "Wissenschaftsmethodik + Designforschung",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           category: "Thesisentwicklung"
         },{
           id: "32TE-DA",
           title: "Designdiskurs + Argumentation",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           category: "Thesisentwicklung"
         }]
       },
@@ -453,7 +475,8 @@ export default {
         modules: [{
           id: "33D-TM",
           title: "Tutoring/Mentoring",
-          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 16px, #E7E8E9 16px, #E7E8E9 32px)",
+          colorCode: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 128px, #E7E8E9 128px, #E7E8E9 256px)",
+          colorCodeModulePlan: "repeating-linear-gradient(-45deg, #FFFFFF, #FFFFFF 64px, #E7E8E9 64px, #E7E8E9 128px)",
           category: "Didaktik"
         }]
       }

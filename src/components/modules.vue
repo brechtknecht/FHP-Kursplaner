@@ -13,7 +13,7 @@
                 <div class="modules">
                     <div v-for="module in category.modules" class="module" :class="{ disabled: hasNoCourse(module.id) }"
                         :id="module.id" :key="module.id"
-                        :style="[{ background: module.colorCode }, { border: '4px solid' + module.colorCode }]"
+                        :style="[{ background: module.colorCodeModulePlan ? module.colorCodeModulePlan : module.colorCode }, { border: '4px solid' + module.colorCode }]"
                         @click="moduleFilterTriggered">
                         <span :id="module.id"> {{ module.id.replace('PO 2019', '') }} </span>
                         <h4 :id="module.id"> {{ module.title }} </h4>
@@ -255,8 +255,8 @@
         width: 0;
         right: 0;
         overflow-y: scroll;
-        max-height: calc(100vh - 4rem);
-        padding: 3.5rem 4.5rem;
+        max-height: calc(100vh - 8rem);
+        padding: 3.5rem 4.5rem 8rem 4.5rem;
         z-index: 300;
         transform: translateX(100vw);
         text-align: left;
@@ -305,7 +305,7 @@
         border: 3px solid #fff !important;
         &:hover {
             clip-path: inset(0);
-            border: 3px solid rgba(52, 117, 224, .2) !important;
+            border: 3px solid #AEC8F3 !important;
         }
     
         &.active {

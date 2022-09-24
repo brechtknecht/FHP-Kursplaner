@@ -201,7 +201,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border: 0.5px solid rgba(0, 0, 0, .12);
+      border: 1px solid rgba(0, 0, 0, .12);
       border-radius: 7px;
     }
     
@@ -245,6 +245,7 @@
     position: relative;
     outline: 0;
 
+
     &:hover {
       border: 3px solid $active;
       clip-path: inset(0 round 8px);
@@ -256,7 +257,7 @@
     // border-radius: 1.5rem;
     border-radius: 8px;
     // clip-path: inset(3px round 1.5rem);
-    clip-path: inset(3px round 8px);
+    clip-path: inset(3px round 7px);
     background: $c-TH;
     display: flex;
     transition: background $animation-fast;

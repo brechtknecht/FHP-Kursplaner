@@ -564,6 +564,11 @@ export default new Vuex.Store({
               day.data[i].colorCode = colorCode;
           }
 
+          if (result[0].hasOwnProperty('colorCodeModulePlan')) {
+            let colorCodeModulePlan = result[0].colorCodeModulePlan;
+            day.data[i].colorCodeModulePlan = colorCodeModulePlan;
+          }
+
           if (result[0].hasOwnProperty('colorCode')) {
             let subtitle = result[0].subtitle;
             day.data[i].subtitle = subtitle;
