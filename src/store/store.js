@@ -543,6 +543,17 @@ export default new Vuex.Store({
         });
       });
 
+      // Parse Simplified Course IDs in the data
+
+      courses.days.forEach(function(day) {
+        day.data.forEach(function(course, i) {
+          const str = course.module.nr
+          const simplifiedCourseID = str.split("-").slice(0, 2).join('-')
+
+          course.module.simplifiedNr = simplifiedCourseID
+        })
+      })
+
       console.log("Parsed Courses: ", courses)
 
       state.courses = courses;

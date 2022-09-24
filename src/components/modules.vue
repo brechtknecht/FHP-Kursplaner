@@ -122,12 +122,7 @@
 
                 if (this.$store.state.queries.examOrder == 'PO 2019') {
                     for (const course of courses) {
-                        const str = course.module.nr
-
-                        const simplifiedCourseID = str.split("-").slice(0, 2).join('-')
-                        // console.log("ID: ", simplifiedCourseID)
-
-                        if (simplifiedCourseID == id.replace('PO 2019 ', '')) {
+                        if (course.module.simplifiedNr == id.replace('PO 2019 ', '')) {
                             return false;
                         }
                     }
