@@ -138,7 +138,7 @@ export default {
         max-width: 70rem;
         height: auto;
         z-index: 100;
-        border-radius: 8px;
+        border-radius: 12px;
         border: 1px solid rgba(218,220,224,1);
         @include for-tablet-portrait-up { 
             width: 100%;

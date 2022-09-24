@@ -1,7 +1,7 @@
 <template>
     <div class="notification-wrapper">
         <div v-if="notification.message" class="notification" @click="this.action('WIPE_MODULE_QUERY')">
-            {{ this.notification.message }}
+            <span>{{ this.notification.message }}</span>
         </div>
     </div>
 </template>
@@ -29,7 +29,7 @@ export default {
         z-index: 90;
         bottom: 0;
         left: 0;
-        right: 0;
+        right: 20rem;
         .notification {
             font-family: "FHPSun-Regular";
             position: relative;

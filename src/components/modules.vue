@@ -206,7 +206,7 @@
             background: $active;
             background-image: url('../assets/img/arrow-cross.svg');
             background-repeat: no-repeat;
-            background-position: -30% center;
+            background-position: -10% center;
             background-size: 6.5rem;
             top: 45vh;
             right: 8rem;
@@ -234,7 +234,7 @@
 
                 &.active {
                     right: 62rem;
-                    background-position: 127% center;
+                    background-position: 110% center;
                     transform: translateX(3rem);
 
                     .caption {
