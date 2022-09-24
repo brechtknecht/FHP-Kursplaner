@@ -168,9 +168,12 @@
   }
 
   .overview {
+    @include for-phone-only {
+      margin: 0 0 !important;
+    }
     @include for-tablet-portrait-up () {
       width: 100% !important;
-      margin: 0 0.5rem !important;
+      margin: 0 !important;
     }
   }
 
@@ -183,12 +186,16 @@
   .header {
     position: fixed;
     text-align: left;
-    padding: 0 1rem;
     z-index: 100;
     width: 100%;
     transition: 250ms ease-out;
     border-bottom: 1px solid #DADCE0;
     background: #fff;
+    .wrap {
+      @include for-phone-only {
+        padding: 0 1rem;
+      }
+    }
   }
 
   .course-canvas {
@@ -210,6 +217,11 @@
     max-width: 100rem;
     position: relative;
     top: 0;
+    @include for-phone-only {
+      top: 7.5rem;
+      padding-bottom: 6rem;
+    }
+
     @include for-tablet-portrait-up {
       &.collapsed {
         .overview-head.loggedOut {
@@ -255,6 +267,9 @@
       color: $c-font;
       top: 1.5rem;
       transition: 250ms ease-out;
+      @include for-phone-only {
+        width: 96vw;
+      }
       @include for-tablet-portrait-up {
         left: 0 !important;
         top: 7.3rem !important;

@@ -315,17 +315,16 @@
                 padding: 0;
                 max-height: calc(100vh - 7.5rem);
                 transform: translateY(80rem) translateX(-50%);
-                opactity: 0;
+                opacity: 0;
                 transition: $animation-default;
-                
-                    border-radius: 12px;
+                border-radius: 12px;
                 
             }
 
             .detailsWrapper.active {
                 top: 2.5rem;
                 overflow: hidden;
-                opactity: 1;
+                opacity: 1;
                 transform: translateY(0) translateX(-50%);
                 bottom: 2.5rem;
             }
@@ -390,6 +389,7 @@
             right: 5rem;
             outline: none;
             transition: $animation-default;
+            
 
             &>* {
                 font-weight: normal;
@@ -408,11 +408,14 @@
 
                 @include for-phone-only {
                     position: fixed;
-                    top: 100vh;
                     left: 50%;
                     transform: translateX(-50%);
                     z-index: 100 !important;
                     bottom: 1rem;
+                    top: 100vh;
+                    &.active {
+                        top: 90vh !important;
+                    }
                 }
 
                 .caption {

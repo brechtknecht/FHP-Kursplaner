@@ -13,6 +13,12 @@
   text-align: center;
   color: #2c3e50;
 }
+
+html,
+body {
+    overscroll-behavior-y: contain;
+}
+
 #nav {
   padding: 30px;
   a {

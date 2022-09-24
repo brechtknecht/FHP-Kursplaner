@@ -187,6 +187,9 @@
   @import '../assets/scss/main.scss';
 
   .course {
+    @include for-phone-only {
+      margin: 0 auto !important;
+    }
     @include for-tablet-portrait-up () {
       margin-top: .5rem;
       margin-bottom: .5rem;

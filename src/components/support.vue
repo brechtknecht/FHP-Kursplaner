@@ -7,7 +7,7 @@
                     Solltest du Probleme mit dem Kursplaner haben, melde dich gerne bei mir.
                 </p>
                 <p>
-                    Hast du Verbessungsvorschläge und Feedback? Immer her damit, es hilft dem Kursplaner sich stetig weiterzuentwickeln.
+                    Hast du Verbessungsvorschläge und Feedback? Es hilft dem Kursplaner sich stetig weiterzuentwickeln.
                 </p>
                 <div class="reachout-wrapper">
                     <a href="https://twitter.com/mrfesch" target="_blank">

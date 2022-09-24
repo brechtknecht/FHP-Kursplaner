@@ -1,5 +1,5 @@
 <template>
-  <div class="gui" @click="toggleSupport">
+  <div class="overlay" @click="toggleSupport">
     <img src="/assets/icons/ic-help.svg"/>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .gui {
+    .overlay {
         position: fixed;
         bottom: 2.5rem;
         right: 2.5rem;

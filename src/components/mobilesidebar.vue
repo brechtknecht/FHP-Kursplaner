@@ -27,8 +27,8 @@
                 <option>Grundstudium</option>
                 <option>Hauptstudium</option>
                 <option>Master</option>
-                <option disabled value="">Anmeldung erforderlich</option>
-                <option value="selectedCourses">Ausgewählte Kurse</option>
+                <!-- <option disabled value="">Anmeldung erforderlich</option>
+                <option value="selectedCourses">Ausgewählte Kurse</option> -->
             </select>
         </div>
     </div>
