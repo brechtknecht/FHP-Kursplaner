@@ -23,7 +23,7 @@
             {{teacher}} 
             {{ (index == this.$props.info.teacher.length - 1) ? "" : "&amp;&nbsp;" }}
           </h4>
-          <h4 style="display:inline-block">—</h4>
+          
         </div>  
         <div class="course--bubble">
           <h4 style="font-feature-settings: 'tnum'">{{ moduleNameStringify }}</h4>
@@ -204,7 +204,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border: 1px solid rgba(0, 0, 0, .12);
+      border: 1px solid rgba(0, 0, 0, .09);
       border-radius: 7px;
     }
     
