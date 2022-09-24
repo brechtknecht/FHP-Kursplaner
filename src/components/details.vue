@@ -2,7 +2,7 @@
     <div class="details-container" v-bind:class="{ closingModal: isActive}" @click.self="triggerDetails">
         <div class="detailsWrapper" v-bind:class="{ active: isActive }">
             <div class="gui">
-                <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerDetails" ></button>
+                <button class="btn moduleTrigger" :class="{ active: isActive }" @click="triggerDetails"></button>
             </div>
             <div class="details" v-if="isActive">
                 <div class="header" :style="componentStyle">
@@ -20,38 +20,43 @@
                             <div class="badge">{{ currentCourse.module.id_new }}</div>
                         </div>
                         <ul>
-                            <li v-if="currentCourse.teacher"> 
-                                <icon-base width="20" height="20" icon-name="head"><icon-head /></icon-base>
-                                <span v-for="(teacher, index) in currentCourse.teacher" :key="teacher" style="display: inline-block">
-                                    {{teacher}} 
+                            <li v-if="currentCourse.teacher">
+                                <icon-base width="20" height="20" icon-name="head">
+                                    <icon-head />
+                                </icon-base>
+                                <span v-for="(teacher, index) in currentCourse.teacher" :key="teacher"
+                                    style="display: inline-block">
+                                    {{teacher}}
                                     {{ (index == currentCourse.teacher.length - 1) ? "" : "&amp;&nbsp;" }}
                                 </span>
                             </li>
-                            <li> 
-                                <icon-base width="20" height="20" icon-name="clock"><icon-clock /></icon-base>
+                            <li>
+                                <icon-base width="20" height="20" icon-name="clock">
+                                    <icon-clock />
+                                </icon-base>
                                 <!-- <span>{{ currentCourse }} </span> -->
                                 <span>"⚠️ TO BE ADDED"</span>
                             </li>
                             <li>
-                                <icon-base width="20" height="20" icon-name="pin"><icon-pin /></icon-base> 
-                                <span>Raum: {{ currentCourse.room }}</span> 
+                                <icon-base width="20" height="20" icon-name="pin">
+                                    <icon-pin />
+                                </icon-base>
+                                <span>Raum: {{ currentCourse.room }}</span>
                             </li>
                             <li v-if="currentCourse.credits">
-                                <icon-base width="20" height="20" icon-name="layer"><icon-layer /></icon-base> 
-                                <span><!-- Credits: --> {{ currentCourse.credits[0] }} </span>
+                                <icon-base width="20" height="20" icon-name="layer">
+                                    <icon-layer />
+                                </icon-base>
+                                <span>
+                                    <!-- Credits: --> {{ currentCourse.credits[0] }} </span>
                             </li>
                         </ul>
                     </div>
                     <div class="actions">
-                        <button 
-                            class="btn btn-primary remember" 
-                            :class="{ selected : isSelected }"
+                        <button class="btn btn-primary remember" :class="{ selected : isSelected }"
                             @click="rememberCourse()">
-                            <Checkbox
-                                :id="this.currentCourse.id" 
-                                :key="this.currentCourse.id"
-                                :isClickable="true"
-                            ></Checkbox>
+                            <Checkbox :id="this.currentCourse.id" :key="this.currentCourse.id" :isClickable="true">
+                            </Checkbox>
                             <span v-if="isSelected" class="checkbox-label">Ausgewählt</span>
                             <span v-if="!isSelected" class="checkbox-label">Auswählen</span>
                         </button>
@@ -61,21 +66,22 @@
                             </button>
                         </a>
                         <div v-else>
-                            <a :href="'http://fhp.incom.org/search/' + currentCourseTitle.title + '/workspaces'" target="_blank">
+                            <a :href="'http://fhp.incom.org/search/' + currentCourseTitle.title + '/workspaces'"
+                                target="_blank">
                                 <button class="btn btn-secondary workspace warning">
                                     Suche auf Incom
                                 </button>
                             </a>
                         </div>
                     </div>
+                </div>
+                <div class="content">
+                    <h3>Kursbeschreibung</h3>
+                    <p> {{ currentCourseDescription }}</p>
+                    <p> {{ currentCourse }}</p>
+                </div>
             </div>
-            <div class="content">
-                <h3>Kursbeschreibung</h3>
-                <p> {{ currentCourseDescription }}</p>
-                <p> {{ currentCourse }}</p>
-            </div>
-            </div>
-            
+
         </div>
     </div>
 </template>
@@ -102,7 +108,7 @@
         },
         computed: {
             workspaceLink() {
-                if(this.currentCourse.workspace == "") {
+                if (this.currentCourse.workspace == "") {
                     let description = this.currentCourse.description;
                     let RegExpWorkspaceLink = new RegExp(/(?:(https?:\/\/fhp\.incom\.org\/workspace\/\d+$))/gm);
 
@@ -113,12 +119,12 @@
                 } else {
                     return this.currentCourse.workspace;
                 }
-                
+
             },
             currentCourseDescription() {
                 return this.currentCourse.description;
             },
-            currentCourseModuleId () {
+            currentCourseModuleId() {
                 let regExStudyOrder = new RegExp(/^PO \d{4}/);
 
                 let studyOrder = ["Neue Prüfungsordnung"]
@@ -128,16 +134,20 @@
                     moduleId: moduleId,
                     studyOrder: studyOrder[0]
                 }
-            },         
-            currentCourseTitle () {
+            },
+            currentCourseTitle() {
                 let regExBeforeComma = new RegExp(/[^:]*/);
                 let regExAfterComma = new RegExp(/(:\s)(.*)/);
 
                 let category = regExBeforeComma.exec(this.currentCourse.title);
                 let title = regExAfterComma.exec(this.currentCourse.title);
 
-                if(category == null) {category= ['undefined']}
-                if(title == null) { title = category;}
+                if (category == null) {
+                    category = ['undefined']
+                }
+                if (title == null) {
+                    title = category;
+                }
 
                 return {
                     category: category[0],
@@ -161,27 +171,27 @@
                 // Checks if a color is refered in the modules json in the store.js file
                 let colorMode = this.currentCourse.colorCode ? this.lightOrDark(this.currentCourse.colorCode) : 'light'
                 let color
-                if(colorMode) {
+                if (colorMode) {
                     color = colorMode == 'light' ? color = '#3D4043' : color = '#fff'
                 } else {
                     color = '#fff'
                 }
                 let background = this.currentCourse.colorCode;
 
-                if(typeof background == 'undefined') {
+                if (typeof background == 'undefined') {
                     background = '#D8F0F4';
                 }
 
                 // If color is something else then normal HEX-Value
-                if(background.length > 7) {
+                if (background.length > 7) {
                     return {
                         'border-top': '5rem solid transparent',
-                        'border-image' : background,
-                        'border-width' : "5rem",
-                        'border-image-slice' : "70",
-                        'color' : 'black',
-                        'background' : '#D8F0F4',
-                        'padding-top' : '0'
+                        'border-image': background,
+                        'border-width': "5rem",
+                        'border-image-slice': "70",
+                        'color': 'black',
+                        'background': '#D8F0F4',
+                        'padding-top': '0'
                     }
                 }
 
@@ -255,12 +265,14 @@
         position: fixed;
         z-index: 100;
         right: 0;
+
         @include for-tablet-portrait-up {
             .header {
                 max-width: 100vw;
                 width: auto !important;
             }
         }
+
         @include for-desktop-up () {
             .details-container {
                 position: fixed;
@@ -270,18 +282,21 @@
                 border-radius: 8px;
                 clip-path: inset(0 round 8px);
             }
+
             .closingModal {
                 width: 100vw !important;
             }
+
             .details {
                 flex-direction: row;
                 max-height: none !important;
                 height: 100%;
-                 
+
                 .content {
                     margin-top: 4.52rem;
                 }
             }
+
             .detailsWrapper {
                 position: fixed;
                 height: 100vh;
@@ -297,6 +312,7 @@
                 opactity: 0;
                 transition: $animation-default;
             }
+
             .detailsWrapper.active {
                 top: 2.5rem;
                 overflow: hidden;
@@ -308,6 +324,7 @@
             .header {
                 width: clamp(450px, 4vw, 40%);
             }
+
             .content {
                 width: 60%;
             }
@@ -343,11 +360,13 @@
         height: 0;
         z-index: 1000;
         right: 0;
-         @include for-phone-only {
-             position: absolute;
-             width: auto;
-             left: 0;
-         }
+
+        @include for-phone-only {
+            position: absolute;
+            width: auto;
+            left: 0;
+        }
+
         .btn {
             width: 64px;
             height: 64px;
@@ -362,26 +381,31 @@
             right: 5rem;
             outline: none;
             transition: $animation-default;
-            & > * {
+
+            &>* {
                 font-weight: normal;
                 font-style: normal;
             }
-            @include for-phone-only { 
+
+            @include for-phone-only {
                 background-image: url('../assets/img/none-cross-vert.svg');
-                background-position: 50% center;  
+                background-position: 50% center;
                 background-size: 100%;
             }
+
             &.moduleTrigger {
                 position: relative;
                 z-index: -1;
-                 @include for-phone-only { 
+
+                @include for-phone-only {
                     position: fixed;
                     top: 100vh;
                     left: 50%;
                     transform: translateX(-50%);
                     z-index: 100 !important;
                     bottom: 1rem;
-                 }
+                }
+
                 .caption {
                     font-family: 'FHPSun-Bold';
                     font-size: 1.25rem;
@@ -395,12 +419,15 @@
                     opacity: 1;
                     transition: $animation-default;
                 }
+
                 &.active {
                     background-position: 126% center;
-                    @include for-phone-only { 
+
+                    @include for-phone-only {
                         top: calc(100vh);
                         background-position: 50% 98%;
                     }
+
                     .caption {
                         opacity: 0;
                     }
@@ -431,7 +458,8 @@
         &.btn-primary {
             border: 2px solid $active;
             color: $active;
-            & > div {
+
+            &>div {
                 display: inline;
             }
         }
@@ -442,8 +470,10 @@
                 color: $c-font;
             }
         }
+
         &.warning {
             border: 2px solid $warn;
+
             a {
                 color: $warn;
             }
@@ -453,6 +483,7 @@
     .header,
     .content {
         padding: 0 1.5rem 0 1.5rem;
+
         p {
             white-space: pre-line;
             max-width: 78ch;
@@ -466,18 +497,15 @@
 
         .moduleId-wrapper {
             margin-top: .75rem;
-            @include for-phone-only { 
+
+            @include for-phone-only {
                 margin-top: 0;
             }
         }
 
-        .info {
+        .info {}
 
-        }
-
-        .meta {
-
-        }
+        .meta {}
 
         h4.category {
             margin-top: 2.5rem;
@@ -494,6 +522,7 @@
         h4.moduleId {
             font-size: 1rem;
             display: inline;
+
             @include for-phone-only {
                 margin-top: 1rem;
                 line-height: 3rem;
@@ -509,12 +538,15 @@
         ul {
             margin-top: 2rem;
             margin-left: .25rem;
+
             li {
                 line-height: 1.8rem;
+
                 svg {
                     position: relative;
                     top: .3rem;
                 }
+
                 div {
                     display: inline-block;
                     margin-left: .25rem;
@@ -535,14 +567,30 @@
             display: flex;
             position: absolute;
             bottom: -1.75rem;
+
             button {
                 height: 3.5rem;
                 width: 11.5rem;
+
                 div {
                     position: relative;
                     top: -4px;
                 }
+
+                label {
+                    background: red;
+                    /* Hide the browser's default checkbox */
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 30px;
+                        width: 20px;
+                        z-index: 1000000;
+                    }
+                }
             }
+
             span {
                 display: inline-block;
                 position: relative;
@@ -550,6 +598,7 @@
                 top: -4px;
                 left: .25rem;
                 font-size: 1.2rem;
+
                 &.warning {
                     color: red;
                 }
@@ -565,7 +614,8 @@
         padding-right: 2.5rem;
         overflow-y: auto;
         max-height: 35rem;
-        @include for-phone-only { 
+
+        @include for-phone-only {
             padding-bottom: 10rem;
         }
 
@@ -583,6 +633,7 @@
     .details-container {
         transition: $animation-default;
         background: rgba(255, 255, 255, 0);
+
         &.closingModal {
             position: fixed;
             // width: calc(100vw - 33rem);
@@ -603,7 +654,8 @@
         overflow: none;
         right: -40rem;
         width: 33rem;
-        @include for-phone-only { 
+
+        @include for-phone-only {
             right: auto;
             top: 100vh;
         }
@@ -614,22 +666,26 @@
         -webkit-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
         -moz-box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
         box-shadow: -8px 0px 38px -7px rgba(0, 0, 0, 0.15);
+
         &.active {
             right: 0;
+
             @include for-phone-only {
                 position: absolute;
                 max-width: 100vw;
                 overflow: auto;
                 top: 0;
                 left: 0;
+
                 .details {
                     max-height: initial;
                 }
+
                 .content {
                     max-height: initial;
                 }
             }
-        
+
         }
     }
 </style>

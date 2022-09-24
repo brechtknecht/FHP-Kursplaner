@@ -67,14 +67,7 @@
         user-select: none;
     }
 
-    /* Hide the browser's default checkbox */
-    .container input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
+    
 
     /* Create a custom checkbox */
     .checkmark {

@@ -270,6 +270,13 @@
       & input[type="checkbox"] {
         transform: scale(1.5);
         border-radius: 4px;
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 30px;
+        width: 20px;
+        left: 12px;
+        z-index: 1000000;
       }
 
       .container {
