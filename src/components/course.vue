@@ -18,7 +18,7 @@
     <div class="course--info" @click="setCurrentCourse">
       <h3> {{ currentCourseTitle.title }} </h3>
       <div class="course--sub">
-        <div v-if="this.$props.info.teacher">
+        <div v-if="this.$props.info.teacher" style="margin-right: 0.5rem;">
           <h4 v-for="(teacher, index) in this.$props.info.teacher" :key="teacher" style="display: inline-block">
             {{teacher}} 
             {{ (index == this.$props.info.teacher.length - 1) ? "" : "&amp;&nbsp;" }}

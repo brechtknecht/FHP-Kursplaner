@@ -41,9 +41,11 @@ h1 {
 h2 {
     font-family: 'FHPSun-Regular';
     font-size: 1.5rem;
-    letter-spacing: 0.01rem;
     font-weight: normal;
     font-style: normal;
+    &.bold {
+        font-family: 'FHPSun-Bold';
+    }
 }
 
 h3 {

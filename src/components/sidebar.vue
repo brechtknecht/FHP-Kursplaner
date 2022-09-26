@@ -1,9 +1,8 @@
 <template>
     <div class="sidebar--wrapper">
         <div class="sidebar">
-            <h2>
-                <b>Fachbereich Design</b>
-                Lehrangebot</h2>
+            <h2 class="bold" style="margin: 0 1rem">Fachbereich Design</h2>
+            <h2 style="margin: 0 1rem">Lehrangebot</h2>
             <hr>
             <h4>Studienabschnitt</h4>
             <div class="studySelection">
@@ -317,7 +316,7 @@
         position: fixed;
         width: 15rem;
         height: calc(100vh - 5rem);
-        padding: 2.5rem 1.5rem;
+        padding: 3.5rem 1.5rem;
         z-index: 100;
         top: 0;
         bottom: 0;

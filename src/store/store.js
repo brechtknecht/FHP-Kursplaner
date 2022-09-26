@@ -11,7 +11,13 @@ const developAPI = 'http://fb4kursplaner.fh-potsdam.de/api'
 // const productionAPI = 'https://fhp-kursplaner-authenticator.herokuapp.com/api'
 const productionAPI = 'http://fb4kursplaner.fh-potsdam.de/api'
 
+const localContentAPI = 'data/vlv-incom.24.09.22.json'
+
+const incomAPI = "https://fhp.incom.org/action/vlv-download-json/"
+
 const authAPI = process.env.NODE_ENV == 'production' ? productionAPI : developAPI
+
+const contentAPI = process.env.NODE_ENV == 'production' ? incomAPI : localContentAPI
 
 
 export default new Vuex.Store({
@@ -202,7 +208,9 @@ export default new Vuex.Store({
     },
     async loadCourses_INCOM ({commit}, ) {
       await axios
-        .get('data/vlv-incom.24.09.22.json')
+        .get(contentAPI, {
+          responseType: "json",
+        })
         .then(r => r.data)
         .then((result) => {
           commit('STASH_LOADED_COURSES', result)
@@ -374,7 +382,7 @@ export default new Vuex.Store({
       let result = state.coursesStash;
 
 
-      if(queries.studyType == 'selectedCourses') {
+      if(queries.studyType == '+') {
         // Iterate over states
         let selectedCourses = []
         state.user.rememberedCourses.forEach(function (courseID) {
