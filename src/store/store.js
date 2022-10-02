@@ -1,5 +1,8 @@
 import Vuex from 'vuex'
 import axios from 'axios'
+
+let jsonpAdapter = require('axios-jsonp');
+
 // import jsonPath from 'jsonpath'
 var jsonPath = require('jsonpath');
 
@@ -207,14 +210,14 @@ export default new Vuex.Store({
         }); 
     },
     async loadCourses_INCOM ({commit}, ) {
-      await axios
-        .get(contentAPI, {
-          responseType: "json",
-        })
-        .then(r => r.data)
-        .then((result) => {
-          commit('STASH_LOADED_COURSES', result)
-        }); 
+      await axios({
+        url: 'https://fhp.incom.org/action/vlv-download-json/?format=jsonP',
+        adapter: jsonpAdapter
+      })
+      .then((result) => {
+        console.log("JSONP Result: ", result)
+        commit('STASH_LOADED_COURSES', result)
+      });
     },
     async loadCourses ({ commit }) {
         await axios
