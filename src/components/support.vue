@@ -4,10 +4,10 @@
             <div class="modal--title">
                 <h1>Support & Feedback</h1>
                 <p>
-                    Solltest du Probleme mit dem Kursplaner haben, melde dich gerne bei mir.
+                    Der Kursplaner ist ein Projekt des Fachbereichs Design der Fachhochschule Potsdam. 
                 </p>
                 <p>
-                    Hast du Verbessungsvorschläge und Feedback? Es hilft dem Kursplaner sich stetig weiterzuentwickeln.
+                    Design und Entwicklung: Felix Tesche. Unterstützung bei technischen Problemen:
                 </p>
                 <div class="reachout-wrapper">
                     <a href="https://twitter.com/mrfesch" target="_blank">
@@ -16,12 +16,13 @@
                         </div>
                     </a>
                     <div class="divider"></div>
-                    <a href="https://telegram.me/brechtknecht" target="_blank">
+                    <a href="mailto:felix.tesche@gmail.com?subject=Kursplaner Support" target="_blank">
                         <div class="reachout">
-                            <span> Telegram </span>
+                            <span> E-Mail senden </span>
                         </div>
                     </a>
                 </div>
+                <p>Bei Fragen zur Studienordnung: E-Mail (dekanat-fb4@fh-potsdam.de)</p>
             </div>
         </div>
     </div>
@@ -147,6 +148,11 @@
             span {
                 font-size: 1.25rem;
                 letter-spacing: 1px;
+            }
+            border: 2px solid transparent;
+
+            &:hover {
+                border: 2px solid $active;
             }
 
             .copyToClipboard {
