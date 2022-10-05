@@ -384,11 +384,13 @@ export default new Vuex.Store({
       let result = state.coursesStash;
 
 
-      if(queries.studyType == '+') {
+      if(queries.studyType == 'selectedCourses') {
         // Iterate over states
         let selectedCourses = []
         state.user.rememberedCourses.forEach(function (courseID) {
           let query = '$..courses[?(@.id == ' + courseID + ')]';
+
+          console.log("Found Courses:", jsonPath.query(result, query)[0])
           selectedCourses.push(jsonPath.query(result, query)[0]) 
         });
         console.log("Selected Courses: ", selectedCourses)
