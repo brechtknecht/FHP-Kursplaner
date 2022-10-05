@@ -1,7 +1,5 @@
 <?php
-header("Content-Type: application/json");
+$response = file_get_contents('https://fhp.incom.org/action/vlv-download-json/'). '('. json_encode($data).')';
 
-$curl_handle = curl_init();
-
-$url = "https://fhp.incom.org/action/vlv-download-json/";
+echo $response
 ?>

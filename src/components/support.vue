@@ -7,8 +7,9 @@
                     Der Kursplaner ist ein Projekt des Fachbereichs Design der Fachhochschule Potsdam. 
                 </p>
                 <p>
-                    Design und Entwicklung: Felix Tesche. Unterstützung bei technischen Problemen:
+                    Design und Entwicklung: Felix Tesche, Donatus Wolf, Marius Claßen, Moritz Guhl & Dustin Kummer
                 </p>
+                <p>Unterstützung bei technischen Problemen:</p>
                 <div class="reachout-wrapper">
                     <a href="https://twitter.com/mrfesch" target="_blank">
                         <div class="reachout">
@@ -22,7 +23,7 @@
                         </div>
                     </a>
                 </div>
-                <p>Bei Fragen zur Studienordnung: E-Mail (dekanat-fb4@fh-potsdam.de)</p>
+                <p>Bei Fragen zur Studienordnung: <br/> E-Mail (dekanat-fb4@fh-potsdam.de)</p>
             </div>
         </div>
     </div>

@@ -4,7 +4,8 @@
         :class="{ 
           selected: isSelected,
           remembered: isRemembered,
-          conflict: hasConflict
+          // deprecated during production build
+          // conflict: hasConflict
         }" 
         :style="[soursePosition, courseBackground]" 
         @click.self="setCurrentCourse">

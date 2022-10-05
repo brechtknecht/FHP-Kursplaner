@@ -386,7 +386,7 @@
     z-index: 10;
     grid-template-columns: repeat(13 * 4, 1fr);
     .course-wrapper:first-child {
-      border: 2px solid red;
+      border: 2px solid transparent;
     }
     .course-wrapper:last-child {
       margin-bottom: 2rem;
