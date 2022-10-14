@@ -75,6 +75,16 @@
         let end = this.$props.position.end;
 
         // 👋 Excape for wrong end Values
+        if(typeof end.hour === 'undefined') {
+          end.hour = {
+            value : 20
+          }
+        }
+
+        if(typeof end.minutes === 'undefined') {
+          end.minutes = 0
+        }
+
         if(end.hour.value == '00') {
           end.hour.value = 22;
         }

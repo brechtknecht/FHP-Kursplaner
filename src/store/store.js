@@ -14,7 +14,7 @@ const developAPI = 'http://fb4kursplaner.fh-potsdam.de/api'
 // const productionAPI = 'https://fhp-kursplaner-authenticator.herokuapp.com/api'
 const productionAPI = 'http://fb4kursplaner.fh-potsdam.de/api'
 
-const localContentAPI = 'data/vlv-incom.24.09.22.json'
+const localContentAPI = 'data/fhp.incom.json'
 
 const incomAPI = "https://fhp.incom.org/action/vlv-download-json/"
 
