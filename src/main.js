@@ -16,6 +16,8 @@ if (token) {
   app.config.globalProperties.$http.defaults.headers.common['Authorization'] = token
 }
 
+/* Handle */
+
 app.use(Vuex);
 app.config.productionTip = false
 app.directive('in-viewport', inViewportDirective);
