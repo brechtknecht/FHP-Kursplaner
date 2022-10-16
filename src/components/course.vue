@@ -9,13 +9,7 @@
         }" 
         :style="[soursePosition, courseBackground]" 
         @click.self="setCurrentCourse">
-    <div v-if="this.$authenticationEnabled" class="course--checkbox">
-      <Checkbox 
-        :id="this.$props.info.id" 
-        :key="this.$props.info.id"
-        :isClickable="true"
-      ></Checkbox>
-    </div>
+
     <div class="course--info" @click="setCurrentCourse">
       <h3> {{ currentCourseTitle.title }} </h3>
       <div class="course--sub">
@@ -31,6 +25,15 @@
         </div>
       </div>
     </div>
+
+    <div v-if="this.$authenticationEnabled" class="course--checkbox">
+      <Checkbox 
+        :id="this.$props.info.id" 
+        :key="this.$props.info.id"
+        :isClickable="true"
+      ></Checkbox>
+    </div>
+
   </div>
 </template>
 
@@ -198,6 +201,7 @@
   @import '../assets/scss/main.scss';
 
   .course {
+    display: flex;
     @include for-phone-only {
       margin: 0 auto !important;
     }
@@ -279,8 +283,14 @@
     border: 3px solid transparent;
 
     .course--checkbox {
+      position: absolute;
+      top: 50%;
+      bottom: 50%;
+      right: 1.5rem;
       display: flex;
       align-items: center;
+
+      justify-self: flex-end;
 
       & input[type="checkbox"] {
         transform: scale(1.5);
@@ -308,8 +318,9 @@
       justify-content: center;
       align-items: flex-start;
       text-align: left;
+      width: 100%;
       margin-left: 1.5rem;
-      margin-right: 2rem;
+      margin-right: 2.5rem;
     }
 
 
