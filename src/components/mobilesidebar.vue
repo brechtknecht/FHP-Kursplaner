@@ -8,12 +8,12 @@
                         Lehrangebot
                     </h2>
                 </div>
-                <div class="auth">
+                <div class="auth" v-if="this.$authenticationEnabled">
                     <button v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="button button__medium" @click="logout()">Logout</button>
                     <button v-else class="button button__medium button__medium--cta" @click="login()">Anmelden</button>
                 </div>
             </div>
-            <div class="logged--user">
+            <div class="logged--user" v-if="this.$authenticationEnabled">
                 <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
                     <span>Angemeldet mit Name <b>{{ this.$store.state.user.name }}</b></span>
                 </div>
