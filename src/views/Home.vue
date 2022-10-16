@@ -74,7 +74,7 @@ export default {
       let userData = {
         passphrase : passphrase
       }
-      console.log(userData)
+      console.log("Login with:", userData)
       this.$store.dispatch('login', userData)
     }
   },

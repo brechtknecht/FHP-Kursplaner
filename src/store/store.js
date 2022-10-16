@@ -72,6 +72,7 @@ export default new Vuex.Store({
     // USER AUTHENTICATION
     login ({commit}, userData){
       return new Promise((resolve, reject) => {
+        console.log("AUTH REQUEST")
         commit('auth_request')
         userData.passphrase = userData.passphrase.charAt(0).toUpperCase() + userData.passphrase.slice(1);
         axios({url: authAPI + '/login', headers: {'Passphrase': userData.passphrase}, data: userData, method: 'POST' })
@@ -247,6 +248,10 @@ export default new Vuex.Store({
       
     },
 
+    remove_selected_courses(state) {
+      this.state.user.rememberedCourses = []
+    },
+
     // AUTH LOGIC
     CHECK_AUTH(state) {
       if(state.user.status == '') {
@@ -259,6 +264,7 @@ export default new Vuex.Store({
       state.user.status = 'loading'
     },
     auth_success(state, userData){
+      console.log("Auth Success")
       state.user.status = 'success'
       state.user.token = userData.token
       state.user.error = false
@@ -281,6 +287,8 @@ export default new Vuex.Store({
       state.user.status = 'error'
       state.user.error = true;
       localStorage.removeItem('token')
+
+      this.commit('remove_selected_courses')
       // this.$router.push("/")
     },
     auth_generate(state, payload) {
