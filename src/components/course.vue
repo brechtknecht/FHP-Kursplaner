@@ -9,7 +9,7 @@
         }" 
         :style="[soursePosition, courseBackground]" 
         @click.self="setCurrentCourse">
-    <div class="course--checkbox">
+    <div v-if="this.$authenticationEnabled" class="course--checkbox">
       <Checkbox 
         :id="this.$props.info.id" 
         :key="this.$props.info.id"

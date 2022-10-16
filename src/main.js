@@ -22,6 +22,8 @@ app.use(Vuex);
 app.config.productionTip = false
 app.directive('in-viewport', inViewportDirective);
 
+app.config.globalProperties.$authenticationEnabled = false
+
 const routes = [
   {
     path: '/',

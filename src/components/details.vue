@@ -55,7 +55,7 @@
                         </ul>
                     </div>
                     <div class="actions">
-                        <button class="btn btn-primary remember" :class="{ selected : isSelected }"
+                        <button v-if="this.$authenticationEnabled" class="btn btn-primary remember" :class="{ selected : isSelected }"
                             @click="rememberCourse()">
                             <Checkbox :id="this.currentCourse.id" :key="this.currentCourse.id" :isClickable="true">
                             </Checkbox>

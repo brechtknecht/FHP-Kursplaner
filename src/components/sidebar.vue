@@ -31,7 +31,7 @@
                     </div>
                 </label>
                 <label v-if="!selectedCoursesDisabled" class="selectionWrapper">
-                    <div class="container selectionElement">
+                    <div  class="container selectionElement" >
                         <input type="radio"  name="studyType" value="selectedCourses" v-model="studyType">
                         <div class="checkmark">
                             <span>Ausgewählt</span>
@@ -40,9 +40,9 @@
                         </div>
                     </div>
                 </label>
-                <label v-else class="selectionWrapper disabled">
+                <label v-else-if="this.$authenticationEnabled" class="selectionWrapper disabled">
                     <div class="container selectionElement">
-                    
+
                         <div class="checkmark">
                             <span>Ausgewählt</span>
                             <span v-if="this.numberOfCoursesSelected && numberOfCoursesSelected < 10" class="badge">{{ numberOfCoursesSelected }}</span>
@@ -62,7 +62,7 @@
                 <li v-if="displayUndefinedDate" class="listElement noDate" :class="{ active: undefinedDate, disabled: _hasUndefinedDate, hasCheckmark: hasCheckmark }" @click="scrollToDay">Übergeordnet</li>
             </ul>
             <hr>
-            <div class="auth">
+            <div class="auth" v-if="this.$authenticationEnabled">
                 <div v-if="this.$store.state.user.status != '' && !this.$store.state.user.error" class="user">
                     <span>Angemeldet mit Name <br></span>
                     <div class="loggedUser" @click="showUserProfile">
