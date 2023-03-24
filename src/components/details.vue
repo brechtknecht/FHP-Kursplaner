@@ -111,7 +111,16 @@
             courseFixture() {
                 const weekday = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
 
-                return weekday[this.currentCourse.time.weekday - 1] + " " +  this.currentCourse.time.begin.hour +  ":" + ('0'+this.currentCourse.time.end.minutes.toFixed(2)).slice(-2) + " — " + this.currentCourse.time.end.hour +  ":" + ('0'+this.currentCourse.time.end.minutes.toFixed(2)).slice(-2)
+                let weekdayString = this.currentCourse.time.weekday
+                
+                if(typeof this.currentCourse.time.weekday === 'undefined') {
+                    console.log(typeof weekdayString)
+                    weekdayString = 'Ohne festen Termin'
+                } else {
+                    weekdayString = weekday[weekdayString - 1]
+                }
+
+                return weekdayString + " " +  this.currentCourse.time.begin.hour +  ":" + ('0'+this.currentCourse.time.end.minutes.toFixed(2)).slice(-2) + " — " + this.currentCourse.time.end.hour +  ":" + ('0'+this.currentCourse.time.end.minutes.toFixed(2)).slice(-2)
             },
             workspaceLink() {
                 if (this.currentCourse.workspace == "") {

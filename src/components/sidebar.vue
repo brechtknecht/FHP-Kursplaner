@@ -59,7 +59,7 @@
                 <li class="listElement Mittwoch" :class="{ active: wednesday, disabled: _hasWednesday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Mittwoch</li>
                 <li class="listElement Donnerstag" :class="{ active: thursday, disabled: _hasThursday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Donnerstag</li>
                 <li class="listElement Freitag" :class="{ active: friday, disabled: _hasFriday, hasCheckmark: hasCheckmark }" @click="scrollToDay">Freitag</li>
-                <li v-if="displayUndefinedDate" class="listElement noDate" :class="{ active: undefinedDate, disabled: _hasUndefinedDate, hasCheckmark: hasCheckmark }" @click="scrollToDay">Übergeordnet</li>
+                <li v-if="displayUndefinedDate" class="listElement noDate" :class="{ active: undefinedDate, disabled: _hasUndefinedDate, hasCheckmark: hasCheckmark }" @click="scrollToDay">Ohne festen Termin</li>
             </ul>
             <hr>
             <div class="auth" v-if="this.$authenticationEnabled">
