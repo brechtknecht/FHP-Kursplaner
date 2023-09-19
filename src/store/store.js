@@ -211,8 +211,9 @@ export default new Vuex.Store({
         }); 
     },
     async loadCourses_INCOM ({commit}, ) {
+      console.log("Retrieving courses from Incom API")
       await axios
-          .get(localContentAPI)
+          .get(incomAPI)
           .then(r => r.data)
           .then((result) => {
             commit('STASH_LOADED_COURSES', result);
